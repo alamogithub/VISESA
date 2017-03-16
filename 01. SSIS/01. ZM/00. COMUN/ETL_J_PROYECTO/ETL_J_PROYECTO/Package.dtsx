@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/16/2017 3:11:05 PM"
@@ -11,9 +11,2270 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionGUID="{E04E4DD1-8554-45C4-BE73-ED1AD0BCC58F}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{9D009C4B-A58C-4E2A-A393-D8C2C70735F4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{9040F3F8-81D3-4809-A88D-934A55A28DBF}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\proyectobi\Desktop\calif.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{57F3DB47-9EAB-42B0-A494-3FD693CE9110}"
+      DTS:ObjectName="SRVCUBOS\NAV2013DESA.PRUEBAS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SRVCUBOS\NAV2013DESA;Initial Catalog=PRUEBAS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8C6EB75A-9364-4DC3-8AE9-752BDFFAECBE}"
+      DTS:ObjectName="SRVSQLBI\VISESABI.VISESABI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SRVSQLBI\VISESABI;Initial Catalog=VISESABI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{DD597698-9C70-4A9E-B39B-DB7B71C82D45}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Búsqueda"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [J_P01_PROYECTO]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [J_P01_PROYECTO]) [refTable]
+where [refTable].[ID_PROYECTO] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_PROYECTO" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPCION" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Búsqueda.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda].Columns[No_]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="No_"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">ID_PROYECTO</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copiar columna"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]"
+                      name="DEST_DESCRIPCION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">DESCRIPCION</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Comando de OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Comando de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Ejecuta una instrucción SQL para cada fila de un flujo de datos. Por ejemplo, se usa para llamar al procedimiento almacenado de configuración de nuevo empleado para cada fila de la tabla de nuevos empleados. Nota: la ejecución de una instrucción SQL para cada fila de un flujo de datos de gran tamaño puede tardar mucho tiempo."
+              name="Comando de OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.J_P01_PROYECTO SET DESCRIPCION=? WHERE ID_PROYECTO = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Comando de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+                  errorOrTruncationOperation="Ejecución de comando"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de comando de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Search Description]"
+                      cachedDataType="wstr"
+                      cachedLength="125"
+                      cachedName="Search Description"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[No_]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="No_"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="100"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="3"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Comando de OLE DB.Outputs[Salida de comando de OLE DB]"
+                  exclusionGroup="1"
+                  name="Salida de comando de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de comando de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional].Columns[No_]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="No_"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\División condicional.Outputs[Proyecto]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Proyecto"
+                  synchronousInputId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[LEN](#{Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]}) &lt;= 3</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">LEN(No_) &lt;= 3</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\División condicional.Outputs[Unidad de Ejecucion]"
+                  description="Salida 2 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Unidad de Ejecucion"
+                  synchronousInputId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[LEN](#{Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]}) == 5</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">LEN(No_) == 5</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\División condicional.Outputs[Fase]"
+                  description="Salida 3 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Fase"
+                  synchronousInputId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[LEN](#{Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]}) == 7</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">LEN(No_) == 7</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">2</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\División condicional.Outputs[Promocion]"
+                  description="Salida 4 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Promocion"
+                  synchronousInputId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[LEN](#{Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]}) == 12</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">LEN(No_) == 12</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">3</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\J_P01_PROYECTO"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="J_P01_PROYECTO"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[J_P01_PROYECTO]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].Columns[No_]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="No_"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROYECTO]"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].Columns[Search Description]"
+                      cachedDataType="wstr"
+                      cachedLength="125"
+                      cachedName="Search Description"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].Columns[F_MODIFICACION]"
+                      cachedDataType="date"
+                      cachedName="F_MODIFICACION"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
+                      lineageId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROYECTO]"
+                      dataType="wstr"
+                      length="3"
+                      name="ID_PROYECTO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      dataType="wstr"
+                      length="100"
+                      name="DESCRIPCION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      name="F_MODIFICACION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="Mirar si ha cambiado la desc"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional].Columns[Search Description]"
+                      cachedDataType="wstr"
+                      cachedLength="125"
+                      cachedName="Search Description"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional].Columns[DEST_DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="DEST_DESCRIPCION"
+                      lineageId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Outputs[Cambia]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Cambia"
+                  synchronousInputId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]} != #{Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">[Search Description] != DEST_DESCRIPCION</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Quitar nulos y poner la fecha actual"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Inputs[Entrada de columna derivada].Columns[No_]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="No_"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](([TRIM](#{Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]}) == "" ? NULL(DT_WSTR,20) : #{Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]}),"0")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL((TRIM(No_) == "" ? NULL(DT_WSTR,20) : No_),"0")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Inputs[Entrada de columna derivada].Columns[Search Description]"
+                      cachedDataType="wstr"
+                      cachedLength="125"
+                      cachedName="Search Description"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](([TRIM](#{Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]}) == "" ? NULL(DT_WSTR,20) : #{Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]}),"No disponible")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL((TRIM([Search Description]) == "" ? NULL(DT_WSTR,20) : [Search Description]),"No disponible")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]"
+                      dataType="date"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]"
+                      name="F_MODIFICACION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[System::StartTime]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\VISESA$JOB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="VISESA$JOB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[VISESA$Job]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\VISESA$JOB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[No_]"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]"
+                      name="No_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Search Description]"
+                      length="125"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]"
+                      name="Search Description"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[No_]"
+                      dataType="wstr"
+                      length="20"
+                      name="No_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Search Description]"
+                      dataType="wstr"
+                      length="125"
+                      name="Search Description" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="125"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Description 2]"
+                      dataType="wstr"
+                      length="125"
+                      name="Description 2" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Bill-to Customer No_]"
+                      dataType="wstr"
+                      length="20"
+                      name="Bill-to Customer No_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Creation Date]"
+                      dataType="dbTimeStamp"
+                      name="Creation Date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Starting Date]"
+                      dataType="dbTimeStamp"
+                      name="Starting Date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Ending Date]"
+                      dataType="dbTimeStamp"
+                      name="Ending Date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Status]"
+                      dataType="i4"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Person Responsible]"
+                      dataType="wstr"
+                      length="20"
+                      name="Person Responsible" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 1 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 1 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 2 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 2 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Job Posting Group]"
+                      dataType="wstr"
+                      length="10"
+                      name="Job Posting Group" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Blocked]"
+                      dataType="i4"
+                      name="Blocked" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Last Date Modified]"
+                      dataType="dbTimeStamp"
+                      name="Last Date Modified" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Customer Disc_ Group]"
+                      dataType="wstr"
+                      length="20"
+                      name="Customer Disc_ Group" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Customer Price Group]"
+                      dataType="wstr"
+                      length="10"
+                      name="Customer Price Group" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Language Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Language Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Picture]"
+                      dataType="image"
+                      name="Picture" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Bill-to Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Bill-to Name" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Bill-to Address]"
+                      dataType="wstr"
+                      length="50"
+                      name="Bill-to Address" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Bill-to Address 2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Bill-to Address 2" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Bill-to City]"
+                      dataType="wstr"
+                      length="30"
+                      name="Bill-to City" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Bill-to County]"
+                      dataType="wstr"
+                      length="30"
+                      name="Bill-to County" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Bill-to Post Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Bill-to Post Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Series]"
+                      dataType="wstr"
+                      length="10"
+                      name="No_ Series" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Bill-to Country_Region Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Bill-to Country_Region Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Bill-to Name 2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Bill-to Name 2" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Reserve]"
+                      dataType="i4"
+                      name="Reserve" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[WIP Method]"
+                      dataType="wstr"
+                      length="20"
+                      name="WIP Method" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Currency Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Currency Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Bill-to Contact No_]"
+                      dataType="wstr"
+                      length="20"
+                      name="Bill-to Contact No_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Bill-to Contact]"
+                      dataType="wstr"
+                      length="50"
+                      name="Bill-to Contact" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[WIP Posting Date]"
+                      dataType="dbTimeStamp"
+                      name="WIP Posting Date" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Invoice Currency Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Invoice Currency Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Exch_ Calculation (Cost)]"
+                      dataType="i4"
+                      name="Exch_ Calculation (Cost)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Exch_ Calculation (Price)]"
+                      dataType="i4"
+                      name="Exch_ Calculation (Price)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Allow Schedule_Contract Lines]"
+                      dataType="ui1"
+                      name="Allow Schedule_Contract Lines" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Complete]"
+                      dataType="ui1"
+                      name="Complete" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Apply Usage Link]"
+                      dataType="ui1"
+                      name="Apply Usage Link" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[WIP Posting Method]"
+                      dataType="i4"
+                      name="WIP Posting Method" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 3 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 3 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 4 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 4 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 5 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 5 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 6 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 6 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 7 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 7 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 8 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 8 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Procedencia]"
+                      dataType="wstr"
+                      length="20"
+                      name="Procedencia" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ revision de la guia]"
+                      dataType="wstr"
+                      length="10"
+                      name="No_ revision de la guia" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Calificacion s_guia sostenib_]"
+                      dataType="wstr"
+                      length="10"
+                      name="Calificacion s_guia sostenib_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Calificación energética of_]"
+                      dataType="wstr"
+                      length="8"
+                      name="Calificación energética of_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Emisiones CO2 tot_ (KgCO2_m2)]"
+                      dataType="numeric"
+                      name="Emisiones CO2 tot_ (KgCO2_m2)"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Direccion Obra]"
+                      dataType="wstr"
+                      length="30"
+                      name="Direccion Obra" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Poblacion Obra]"
+                      dataType="wstr"
+                      length="30"
+                      name="Poblacion Obra" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Provincia Obra]"
+                      dataType="wstr"
+                      length="30"
+                      name="Provincia Obra" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[C_P_ Obra]"
+                      dataType="wstr"
+                      length="20"
+                      name="C_P_ Obra" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Municipio Obra]"
+                      dataType="wstr"
+                      length="35"
+                      name="Municipio Obra" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Direccion2 Obra]"
+                      dataType="wstr"
+                      length="100"
+                      name="Direccion2 Obra" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Telefono Obra]"
+                      dataType="wstr"
+                      length="30"
+                      name="No_ Telefono Obra" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Direccion de Obra completa]"
+                      dataType="wstr"
+                      length="80"
+                      name="Direccion de Obra completa" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha ppb]"
+                      dataType="dbTimeStamp"
+                      name="Fecha ppb" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[RPPB FPrevista]"
+                      dataType="dbTimeStamp"
+                      name="RPPB FPrevista" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[RPB FPrevista]"
+                      dataType="dbTimeStamp"
+                      name="RPB FPrevista" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[RPE FPrevista]"
+                      dataType="dbTimeStamp"
+                      name="RPE FPrevista" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[OP FPrevista]"
+                      dataType="dbTimeStamp"
+                      name="OP FPrevista" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha paso a Promocion]"
+                      dataType="dbTimeStamp"
+                      name="Fecha paso a Promocion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Tipo proyecto]"
+                      dataType="i4"
+                      name="Tipo proyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Responsibility Center]"
+                      dataType="wstr"
+                      length="10"
+                      name="Responsibility Center" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie terreno (m2)]"
+                      dataType="numeric"
+                      name="Superficie terreno (m2)"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Decreto]"
+                      dataType="wstr"
+                      length="10"
+                      name="Decreto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Orden]"
+                      dataType="wstr"
+                      length="10"
+                      name="Orden" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha convenio]"
+                      dataType="dbTimeStamp"
+                      name="Fecha convenio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha orden pliego condiciones]"
+                      dataType="dbTimeStamp"
+                      name="Fecha orden pliego condiciones" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha 80_]"
+                      dataType="dbTimeStamp"
+                      name="Fecha 80_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº proyecto relacionado]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nº proyecto relacionado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Tecnico Posventa]"
+                      dataType="wstr"
+                      length="50"
+                      name="Tecnico Posventa" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie parcela (m2)]"
+                      dataType="numeric"
+                      name="Superficie parcela (m2)"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[m2 plano situación disponible]"
+                      dataType="ui1"
+                      name="m2 plano situación disponible" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Parcela urbanizada parcial]"
+                      dataType="ui1"
+                      name="Parcela urbanizada parcial" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Parcela urbanizada total]"
+                      dataType="ui1"
+                      name="Parcela urbanizada total" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Parcela urbanizada]"
+                      dataType="ui1"
+                      name="Parcela urbanizada" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Suministro a la parcela]"
+                      dataType="ui1"
+                      name="Suministro a la parcela" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Suministro a la parcela cana_]"
+                      dataType="ui1"
+                      name="Suministro a la parcela cana_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Suministro a la parcela serv_]"
+                      dataType="ui1"
+                      name="Suministro a la parcela serv_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Servicios afectados eléctricos]"
+                      dataType="ui1"
+                      name="Servicios afectados eléctricos" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Servicios afec_ elec_ baj_ ten]"
+                      dataType="ui1"
+                      name="Servicios afec_ elec_ baj_ ten" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Servicios afec_ elec_ med_ ten]"
+                      dataType="ui1"
+                      name="Servicios afec_ elec_ med_ ten" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Servicios afec_ elec_ alt_ ten]"
+                      dataType="ui1"
+                      name="Servicios afec_ elec_ alt_ ten" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Necesidad de centro de trans_]"
+                      dataType="ui1"
+                      name="Necesidad de centro de trans_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Potencia del centro de transf_]"
+                      dataType="numeric"
+                      name="Potencia del centro de transf_"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Detalla otros servicios afec_]"
+                      dataType="wstr"
+                      length="30"
+                      name="Detalla otros servicios afec_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Servicios compl_ sol_ ayunt_]"
+                      dataType="wstr"
+                      length="10"
+                      name="Servicios compl_ sol_ ayunt_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Observaciones]"
+                      dataType="wstr"
+                      length="30"
+                      name="Observaciones" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Suministro a la parcela (gas)]"
+                      dataType="ui1"
+                      name="Suministro a la parcela (gas)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Sum_ parcela canalizació (gas)]"
+                      dataType="ui1"
+                      name="Sum_ parcela canalizació (gas)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Sum_ parcela servicio (gas)]"
+                      dataType="ui1"
+                      name="Sum_ parcela servicio (gas)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Sum_ parcela inxistente (gas)]"
+                      dataType="ui1"
+                      name="Sum_ parcela inxistente (gas)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Servicios afectados al gas]"
+                      dataType="ui1"
+                      name="Servicios afectados al gas" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Suministro a la parcela (agua)]"
+                      dataType="ui1"
+                      name="Suministro a la parcela (agua)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Sum_ parcela canalizaci (agua)]"
+                      dataType="ui1"
+                      name="Sum_ parcela canalizaci (agua)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Sum_ parcela servicio (agua)]"
+                      dataType="ui1"
+                      name="Sum_ parcela servicio (agua)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Sum_ parcela inxistente (agua)]"
+                      dataType="ui1"
+                      name="Sum_ parcela inxistente (agua)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Servicios afectados al agua]"
+                      dataType="ui1"
+                      name="Servicios afectados al agua" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Suministro a la parcela (Teco)]"
+                      dataType="ui1"
+                      name="Suministro a la parcela (Teco)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Sum_ parcela canalizaci (Teco)]"
+                      dataType="ui1"
+                      name="Sum_ parcela canalizaci (Teco)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Sum_ parcela servicio (Teco)]"
+                      dataType="ui1"
+                      name="Sum_ parcela servicio (Teco)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Sum_ parcela inxistente (Teco)]"
+                      dataType="ui1"
+                      name="Sum_ parcela inxistente (Teco)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Servicios afectados de Teleco]"
+                      dataType="ui1"
+                      name="Servicios afectados de Teleco" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Suministro a la parcela (sane)]"
+                      dataType="ui1"
+                      name="Suministro a la parcela (sane)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Sum_ parcela canalizaci (sane)]"
+                      dataType="ui1"
+                      name="Sum_ parcela canalizaci (sane)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Sum_ parcela servicio (sane)]"
+                      dataType="ui1"
+                      name="Sum_ parcela servicio (sane)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Sum_ parcela inxistente (sane)]"
+                      dataType="ui1"
+                      name="Sum_ parcela inxistente (sane)" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Redacción proy_ Básico Inicio]"
+                      dataType="dbTimeStamp"
+                      name="Redacción proy_ Básico Inicio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Redacción proy_ Básico Entrega]"
+                      dataType="dbTimeStamp"
+                      name="Redacción proy_ Básico Entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Redacción proy_ Básico Informe]"
+                      dataType="dbTimeStamp"
+                      name="Redacción proy_ Básico Informe" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Redacción proy_ Básico: Eª]"
+                      dataType="dbTimeStamp"
+                      name="Redacción proy_ Básico: Eª" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Redacción proy_ Básico: VºBº]"
+                      dataType="dbTimeStamp"
+                      name="Redacción proy_ Básico: VºBº" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Redacción proy_ Ejecución I_]"
+                      dataType="dbTimeStamp"
+                      name="Redacción proy_ Ejecución I_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Redacción proy_ Ejecución F_]"
+                      dataType="dbTimeStamp"
+                      name="Redacción proy_ Ejecución F_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Redacción proy_ Ejecución E_]"
+                      dataType="dbTimeStamp"
+                      name="Redacción proy_ Ejecución E_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Redacción proy_ Ejecución Inf_]"
+                      dataType="dbTimeStamp"
+                      name="Redacción proy_ Ejecución Inf_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Redacción proy_ Ejecución Eª]"
+                      dataType="dbTimeStamp"
+                      name="Redacción proy_ Ejecución Eª" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Redacción proy_ Ejecución VºBº]"
+                      dataType="dbTimeStamp"
+                      name="Redacción proy_ Ejecución VºBº" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Redacción proy_ Ejecución Vis_]"
+                      dataType="dbTimeStamp"
+                      name="Redacción proy_ Ejecución Vis_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Estudio geotécnico: Ini_ proy]"
+                      dataType="dbTimeStamp"
+                      name="Estudio geotécnico: Ini_ proy" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Estudio geotécnico: Eª básico]"
+                      dataType="dbTimeStamp"
+                      name="Estudio geotécnico: Eª básico" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Estudio geotécnico: Eª ejec_]"
+                      dataType="dbTimeStamp"
+                      name="Estudio geotécnico: Eª ejec_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Estudio geotécnico: Eª correg_]"
+                      dataType="dbTimeStamp"
+                      name="Estudio geotécnico: Eª correg_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Topográfico: Inicio Proy_]"
+                      dataType="dbTimeStamp"
+                      name="Topográfico: Inicio Proy_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Topográfico: Eª básico]"
+                      dataType="dbTimeStamp"
+                      name="Topográfico: Eª básico" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Topográfico: Eª ejecución]"
+                      dataType="dbTimeStamp"
+                      name="Topográfico: Eª ejecución" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Topográfico: Eª corregido]"
+                      dataType="dbTimeStamp"
+                      name="Topográfico: Eª corregido" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Certificado CADEM : solicitud]"
+                      dataType="dbTimeStamp"
+                      name="Certificado CADEM : solicitud" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Certificado CADEM : Calif_]"
+                      dataType="wstr"
+                      length="20"
+                      name="Certificado CADEM : Calif_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Certificado CADEM : Fecha cert]"
+                      dataType="dbTimeStamp"
+                      name="Certificado CADEM : Fecha cert" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Certificado CADEM : Fecha def_]"
+                      dataType="dbTimeStamp"
+                      name="Certificado CADEM : Fecha def_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Otros proy_ Complem: Solicitud]"
+                      dataType="dbTimeStamp"
+                      name="Otros proy_ Complem: Solicitud" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Otros proy_ Complem: Informe]"
+                      dataType="dbTimeStamp"
+                      name="Otros proy_ Complem: Informe" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Otros proy_ Complem Corrección]"
+                      dataType="dbTimeStamp"
+                      name="Otros proy_ Complem Corrección" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Otros proy_ Complem Aprobación]"
+                      dataType="dbTimeStamp"
+                      name="Otros proy_ Complem Aprobación" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie de urbanización]"
+                      dataType="numeric"
+                      name="Superficie de urbanización"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Red Pre- proy_ Básico Inicio]"
+                      dataType="dbTimeStamp"
+                      name="Red Pre- proy_ Básico Inicio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Red Pre-proy_ Básico Entrega]"
+                      dataType="dbTimeStamp"
+                      name="Red Pre-proy_ Básico Entrega" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Red Pre-proy_ Básico Informe]"
+                      dataType="dbTimeStamp"
+                      name="Red Pre-proy_ Básico Informe" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Red Pre- proy_ Básico: Eª]"
+                      dataType="dbTimeStamp"
+                      name="Red Pre- proy_ Básico: Eª" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Red Pre- proy_ Básico: VºBº]"
+                      dataType="dbTimeStamp"
+                      name="Red Pre- proy_ Básico: VºBº" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[80_]"
+                      dataType="ui1"
+                      name="80_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Lugar de edificacion]"
+                      dataType="wstr"
+                      length="100"
+                      name="Lugar de edificacion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie total vivienda of_]"
+                      dataType="numeric"
+                      name="Superficie total vivienda of_"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº viviendas oferta]"
+                      dataType="numeric"
+                      name="Nº viviendas oferta"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie total garaje of_]"
+                      dataType="numeric"
+                      name="Superficie total garaje of_"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº garajes oferta]"
+                      dataType="numeric"
+                      name="Nº garajes oferta"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie total trasteros of_]"
+                      dataType="numeric"
+                      name="Superficie total trasteros of_"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº trasteros oferta]"
+                      dataType="numeric"
+                      name="Nº trasteros oferta"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Estado proyecto]"
+                      dataType="i4"
+                      name="Estado proyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Resp_ Proyecto]"
+                      dataType="wstr"
+                      length="20"
+                      name="Resp_ Proyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Resp_ Area Tecnica]"
+                      dataType="wstr"
+                      length="20"
+                      name="Resp_ Area Tecnica" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Venta generada con el 80_]"
+                      dataType="ui1"
+                      name="Venta generada con el 80_" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha cesion suelo]"
+                      dataType="dbTimeStamp"
+                      name="Fecha cesion suelo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Resp_ Oferta Promocion]"
+                      dataType="wstr"
+                      length="20"
+                      name="Resp_ Oferta Promocion" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Resp_ Area Tecnica Oferta]"
+                      dataType="wstr"
+                      length="20"
+                      name="Resp_ Area Tecnica Oferta" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha calculo pro_ fin obra]"
+                      dataType="dbTimeStamp"
+                      name="Fecha calculo pro_ fin obra" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Fact_ a- Municipio]"
+                      dataType="wstr"
+                      length="30"
+                      name="Fact_ a- Municipio" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Crear mov proyecto]"
+                      dataType="ui1"
+                      name="Crear mov proyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[T FPrevista]"
+                      dataType="dbTimeStamp"
+                      name="T FPrevista" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[CC FPrevista]"
+                      dataType="dbTimeStamp"
+                      name="CC FPrevista" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[EG FPrevista]"
+                      dataType="dbTimeStamp"
+                      name="EG FPrevista" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie total vivienda bas]"
+                      dataType="numeric"
+                      name="Superficie total vivienda bas"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº viviendas bas]"
+                      dataType="numeric"
+                      name="Nº viviendas bas"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie total garaje bas]"
+                      dataType="numeric"
+                      name="Superficie total garaje bas"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº garajes  bas]"
+                      dataType="numeric"
+                      name="Nº garajes  bas"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie total trasteros bas]"
+                      dataType="numeric"
+                      name="Superficie total trasteros bas"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº trasteros bas]"
+                      dataType="numeric"
+                      name="Nº trasteros bas"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie de urbanización bas]"
+                      dataType="numeric"
+                      name="Superficie de urbanización bas"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha rpb]"
+                      dataType="dbTimeStamp"
+                      name="Fecha rpb" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie total vivienda eje]"
+                      dataType="numeric"
+                      name="Superficie total vivienda eje"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº viviendas eje]"
+                      dataType="numeric"
+                      name="Nº viviendas eje"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie total garaje eje]"
+                      dataType="numeric"
+                      name="Superficie total garaje eje"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº garajes eje]"
+                      dataType="numeric"
+                      name="Nº garajes eje"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie total trasteros eje]"
+                      dataType="numeric"
+                      name="Superficie total trasteros eje"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº trasteros eje]"
+                      dataType="numeric"
+                      name="Nº trasteros eje"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie de urbanización eje]"
+                      dataType="numeric"
+                      name="Superficie de urbanización eje"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha rpe]"
+                      dataType="dbTimeStamp"
+                      name="Fecha rpe" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie total vivienda otr]"
+                      dataType="numeric"
+                      name="Superficie total vivienda otr"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº viviendas otr]"
+                      dataType="numeric"
+                      name="Nº viviendas otr"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie total garaje otr]"
+                      dataType="numeric"
+                      name="Superficie total garaje otr"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº garajes otr]"
+                      dataType="numeric"
+                      name="Nº garajes otr"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie total trasteros otr]"
+                      dataType="numeric"
+                      name="Superficie total trasteros otr"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº trasteros otr]"
+                      dataType="numeric"
+                      name="Nº trasteros otr"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Superficie de urbanización otr]"
+                      dataType="numeric"
+                      name="Superficie de urbanización otr"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha op]"
+                      dataType="dbTimeStamp"
+                      name="Fecha op" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_ Pais Obra]"
+                      dataType="wstr"
+                      length="10"
+                      name="Cod_ Pais Obra" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 9 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 9 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 10 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 10 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 11 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 11 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 12 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 12 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 13 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 13 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 14 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 14 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Global Dimension 15 Code]"
+                      dataType="wstr"
+                      length="20"
+                      name="Global Dimension 15 Code" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Bloqueado por dimensiones]"
+                      dataType="ui1"
+                      name="Bloqueado por dimensiones" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Desc_ prom_ SAP]"
+                      dataType="wstr"
+                      length="125"
+                      name="Desc_ prom_ SAP" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Municipio SAP]"
+                      dataType="wstr"
+                      length="35"
+                      name="Municipio SAP" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_ Provincia]"
+                      dataType="wstr"
+                      length="10"
+                      name="Cod_ Provincia" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nivel proyecto]"
+                      dataType="i4"
+                      name="Nivel proyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Código corto]"
+                      dataType="wstr"
+                      length="50"
+                      name="Código corto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB].ExternalColumns[Provincia SAP]"
+                      dataType="wstr"
+                      length="30"
+                      name="Provincia SAP" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de error de origen de OLE DB].Columns[No_]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de error de origen de OLE DB].Columns[No_]"
+                      name="No_" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de error de origen de OLE DB].Columns[Search Description]"
+                      dataType="wstr"
+                      length="125"
+                      lineageId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de error de origen de OLE DB].Columns[Search Description]"
+                      name="Search Description" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Cambia]"
+              endId="Package\Tarea Flujo de datos\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+              name="Cambia"
+              startId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Outputs[Cambia]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Proyecto]"
+              endId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda]"
+              name="Proyecto"
+              startId="Package\Tarea Flujo de datos\División condicional.Outputs[Proyecto]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+              endId="Package\Tarea Flujo de datos\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de columna derivada"
+              startId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Tarea Flujo de datos\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
+              endId="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Tarea Flujo de datos\VISESA$JOB.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="110,72" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Tarea Flujo de datos\VISESA$JOB"
+          TopLeft="280,6" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\Tarea Flujo de datos\Quitar nulos y poner la fecha actual"
+          TopLeft="219,82" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Tarea Flujo de datos\División condicional"
+          TopLeft="256,154" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+          TopLeft="342,124">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Tarea Flujo de datos\Búsqueda"
+          TopLeft="208,234" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Proyecto]"
+          TopLeft="341.5,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-71,38"
+              Start="0,0"
+              End="-71,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="-4,19" />
+                  <mssgle:LineSegment
+                    End="-67,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-67,19"
+                    Point2="-71,19"
+                    Point3="-71,23" />
+                  <mssgle:LineSegment
+                    End="-71,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.07203125,24,39.1440625,11.2822265625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Tarea Flujo de datos\J_P01_PROYECTO"
+          TopLeft="50,292" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="208,255">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-75.5,37"
+              Start="0,0"
+              End="-75.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-71.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-71.5,0"
+                    Point2="-75.5,0"
+                    Point3="-75.5,4" />
+                  <mssgle:LineSegment
+                    End="-75.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-182.3890234375,-18.1953125,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Tarea Flujo de datos\Mirar si ha cambiado la desc"
+          TopLeft="257,302" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="270.5,276">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="93,26"
+              Start="0,0"
+              End="93,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9"
+                    Point2="0,13"
+                    Point3="4,13" />
+                  <mssgle:LineSegment
+                    End="89,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="89,13"
+                    Point2="93,13"
+                    Point3="93,17" />
+                  <mssgle:LineSegment
+                    End="93,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-53.3190234375,18,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
+          TopLeft="345.75,48">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Tarea Flujo de datos\Comando de OLE DB"
+          TopLeft="200,371" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Cambia]"
+          TopLeft="363.5,344">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-75,27"
+              Start="0,0"
+              End="-75,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="-4,13.5" />
+                  <mssgle:LineSegment
+                    End="-71,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-71,13.5"
+                    Point2="-75,13.5"
+                    Point3="-75,17.5" />
+                  <mssgle:LineSegment
+                    End="-75,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-54.39087890625,18.5,33.7817578125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\VISESA$JOB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Búsqueda">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\J_P01_PROYECTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
