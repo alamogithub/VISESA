@@ -1,0 +1,3198 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/17/2017 1:08:39 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLBI"
+  DTS:CreatorName="OSATU\proyectobi"
+  DTS:DTSID="{FA4123A8-51FB-4D50-BCDF-4962F185781F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4001.0"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{BD790AC5-8D85-466B-849F-932DB1CE941F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B4CEC771-304B-4E1A-AC75-2856C34B3866}"
+      DTS:ObjectName="SRVCUBOS\NAV2013DESA.PRUEBAS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SRVCUBOS\NAV2013DESA;Initial Catalog=PRUEBAS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A2870138-7E6D-4BC5-B14D-9A8FF70D5242}"
+      DTS:ObjectName="SRVSQLBI\VISESABI.VISESABI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SRVSQLBI\VISESABI;Initial Catalog=VISESABI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Municipio"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{6049D287-C424-4630-9B41-A3F2332FD57E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Municipio"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Municipio\Existe municipio?"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Existe municipio?"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[J_T03_MUNICIPIO]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[J_T03_MUNICIPIO]) [refTable]
+where [refTable].[ID_MUNICIPIO] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_MUNICIPIO" dataType="DT_WSTR" length="13" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPCION" dataType="DT_WSTR" length="35" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_PROVINCIA" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada].Columns[ID_MUNICIPIO]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Municipio\Existe municipio?.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Municipio\Existe municipio?.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Municipio\Existe municipio?.Inputs[Entrada de búsqueda].Columns[ID_MUNICIPIO]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="ID_MUNICIPIO"
+                      lineageId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada].Columns[ID_MUNICIPIO]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">ID_MUNICIPIO</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Municipio\Existe municipio?.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Municipio\Existe municipio?.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Municipio\Existe municipio?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copiar columna"
+                      length="35"
+                      lineageId="Package\Municipio\Existe municipio?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]"
+                      name="DEST_DESCRIPCION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">DESCRIPCION</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Municipio\Existe municipio?.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Municipio\Existe municipio?.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Municipio\Existe municipio?.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Municipio\Existe municipio?.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Municipio\Existe municipio?.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\Existe municipio?.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Municipio\Existe municipio?.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\Existe municipio?.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Municipio\J_T03_MUNICIPIO"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="J_T03_MUNICIPIO"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[J_T03_MUNICIPIO]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Municipio\J_T03_MUNICIPIO.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="DESCRIPCION"
+                      externalMetadataColumnId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].Columns[ID_PROVINCIA]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID_PROVINCIA"
+                      externalMetadataColumnId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROVINCIA]"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]" />
+                    <inputColumn
+                      refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].Columns[F_MODIFICACION]"
+                      cachedDataType="date"
+                      cachedName="F_MODIFICACION"
+                      externalMetadataColumnId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
+                      lineageId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                    <inputColumn
+                      refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].Columns[ID_MUNICIPIO]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="ID_MUNICIPIO"
+                      externalMetadataColumnId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_MUNICIPIO]"
+                      lineageId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada].Columns[ID_MUNICIPIO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROVINCIA]"
+                      dataType="wstr"
+                      length="10"
+                      name="ID_PROVINCIA" />
+                    <externalMetadataColumn
+                      refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      dataType="wstr"
+                      length="35"
+                      name="DESCRIPCION" />
+                    <externalMetadataColumn
+                      refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      name="F_MODIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_MUNICIPIO]"
+                      dataType="wstr"
+                      length="13"
+                      name="ID_MUNICIPIO" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Municipio\J_T03_MUNICIPIO.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Municipio\J_T03_MUNICIPIO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\J_T03_MUNICIPIO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Municipio\J_T03_MUNICIPIO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\J_T03_MUNICIPIO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Municipio\Mirar si ha cambiado la desc"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="Mirar si ha cambiado la desc"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Municipio\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Municipio\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional].Columns[DEST_DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="DEST_DESCRIPCION"
+                      lineageId="Package\Municipio\Existe municipio?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\Municipio\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="DESCRIPCION"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Municipio\Mirar si ha cambiado la desc.Outputs[Cambia]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Cambia"
+                  synchronousInputId="Package\Municipio\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]} != #{Package\Municipio\Existe municipio?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">DESCRIPCION != DEST_DESCRIPCION</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Municipio\Mirar si ha cambiado la desc.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Municipio\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Municipio\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Municipio\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Municipio\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Municipio\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Quitar nulos y poner fecha actual y poner ID_MUNICIPIO"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Inputs[Entrada de columna derivada].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="DESCRIPCION"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](([TRIM](#{Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]}) == "" ? NULL(DT_WSTR,50) : #{Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]}),"No disponible")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL((TRIM(DESCRIPCION) == "" ? NULL(DT_WSTR,50) : DESCRIPCION),"No disponible")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Inputs[Entrada de columna derivada].Columns[Codigo municipio]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Codigo municipio"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[Codigo municipio]" />
+                    <inputColumn
+                      refId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Inputs[Entrada de columna derivada].Columns[ID_PROVINCIA]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID_PROVINCIA"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](([TRIM](#{Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]}) == "" ? NULL(DT_WSTR,20) : #{Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]}),"0")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL((TRIM(ID_PROVINCIA) == "" ? NULL(DT_WSTR,20) : ID_PROVINCIA),"0")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]"
+                      dataType="date"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]"
+                      name="F_MODIFICACION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[System::StartTime]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada].Columns[ID_MUNICIPIO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="13"
+                      lineageId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada].Columns[ID_MUNICIPIO]"
+                      name="ID_MUNICIPIO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]} + #{Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[Codigo municipio]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ID_PROVINCIA + [Codigo municipio]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Municipio\Update Municipio"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Comando de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Ejecuta una instrucción SQL para cada fila de un flujo de datos. Por ejemplo, se usa para llamar al procedimiento almacenado de configuración de nuevo empleado para cada fila de la tabla de nuevos empleados. Nota: la ejecución de una instrucción SQL para cada fila de un flujo de datos de gran tamaño puede tardar mucho tiempo."
+              name="Update Municipio"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.J_T03_MUNICIPIO
+ SET 
+DESCRIPCION=? 
+,F_MODIFICACION=?
+WHERE ID_MUNICIPIO = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Municipio\Update Municipio.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB]"
+                  errorOrTruncationOperation="Ejecución de comando"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de comando de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="DESCRIPCION"
+                      externalMetadataColumnId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB].Columns[ID_MUNICIPIO]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="ID_MUNICIPIO"
+                      externalMetadataColumnId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada].Columns[ID_MUNICIPIO]" />
+                    <inputColumn
+                      refId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB].Columns[F_MODIFICACION]"
+                      cachedDataType="date"
+                      cachedName="F_MODIFICACION"
+                      externalMetadataColumnId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="35"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      dataType="dbTimeStamp"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="13"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Municipio\Update Municipio.Outputs[Salida de comando de OLE DB]"
+                  exclusionGroup="1"
+                  name="Salida de comando de OLE DB"
+                  synchronousInputId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Municipio\Update Municipio.Outputs[Salida de error de comando de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de comando de OLE DB"
+                  synchronousInputId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Municipio\Update Municipio.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\Update Municipio.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Municipio\Update Municipio.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\Update Municipio.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Municipio\VISESA$Municipios"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="VISESA$Municipios"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[VISESA$Municipios]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Municipio\VISESA$Municipios.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[Codigo municipio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo municipio]"
+                      length="3"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[Codigo municipio]"
+                      name="Codigo municipio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].ExternalColumns[Municipio]"
+                      length="35"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]"
+                      name="DESCRIPCION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].ExternalColumns[Provincia]"
+                      length="10"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]"
+                      name="ID_PROVINCIA"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo municipio]"
+                      dataType="wstr"
+                      length="3"
+                      name="Codigo municipio" />
+                    <externalMetadataColumn
+                      refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].ExternalColumns[Municipio]"
+                      dataType="wstr"
+                      length="35"
+                      name="Municipio" />
+                    <externalMetadataColumn
+                      refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].ExternalColumns[Provincia]"
+                      dataType="wstr"
+                      length="10"
+                      name="Provincia" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de error de origen de OLE DB].Columns[Codigo municipio]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de error de origen de OLE DB].Columns[Codigo municipio]"
+                      name="Codigo municipio" />
+                    <outputColumn
+                      refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de error de origen de OLE DB].Columns[Municipio]"
+                      dataType="wstr"
+                      length="35"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de error de origen de OLE DB].Columns[Municipio]"
+                      name="Municipio" />
+                    <outputColumn
+                      refId="Package\Municipio\VISESA$Municipios.Outputs[Salida de error de origen de OLE DB].Columns[Provincia]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de error de origen de OLE DB].Columns[Provincia]"
+                      name="Provincia" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Municipio.Paths[Cambia]"
+              endId="Package\Municipio\Update Municipio.Inputs[Entrada de comando de OLE DB]"
+              name="Cambia"
+              startId="Package\Municipio\Mirar si ha cambiado la desc.Outputs[Cambia]" />
+            <path
+              refId="Package\Municipio.Paths[Salida de columna derivada]"
+              endId="Package\Municipio\Existe municipio?.Inputs[Entrada de búsqueda]"
+              name="Salida de columna derivada"
+              startId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Municipio.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Municipio\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Municipio\Existe municipio?.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\Municipio.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Municipio\Existe municipio?.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+            <path
+              refId="Package\Municipio.Paths[Salida de origen de OLE DB]"
+              endId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pais"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{4384825B-F03A-467B-B454-6B6F3B8E786F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pais"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Pais\Existe Pais en BBDD?"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Existe Pais en BBDD?"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [J_T01_PAIS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [J_T01_PAIS]) [refTable]
+where [refTable].[ID_PAIS] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_PAIS" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPCION" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Pais\Existe Pais en BBDD?.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Pais\Existe Pais en BBDD?.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Pais\Existe Pais en BBDD?.Inputs[Entrada de búsqueda].Columns[ID_PAIS]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID_PAIS"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">ID_PAIS</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Pais\Existe Pais en BBDD?.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Pais\Existe Pais en BBDD?.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pais\Existe Pais en BBDD?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copiar columna"
+                      length="50"
+                      lineageId="Package\Pais\Existe Pais en BBDD?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]"
+                      name="DEST_DESCRIPCION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">DESCRIPCION</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Pais\Existe Pais en BBDD?.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Pais\Existe Pais en BBDD?.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Pais\Existe Pais en BBDD?.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Pais\Existe Pais en BBDD?.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pais\Existe Pais en BBDD?.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Pais\Existe Pais en BBDD?.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Pais\Existe Pais en BBDD?.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Pais\Existe Pais en BBDD?.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Pais\J_T01_PAIS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="J_T01_PAIS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[J_T01_PAIS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Pais\J_T01_PAIS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].Columns[ID_PAIS]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID_PAIS"
+                      externalMetadataColumnId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PAIS]"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]" />
+                    <inputColumn
+                      refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DESCRIPCION"
+                      externalMetadataColumnId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].Columns[F_MODIFICACION]"
+                      cachedDataType="date"
+                      cachedName="F_MODIFICACION"
+                      externalMetadataColumnId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
+                      lineageId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PAIS]"
+                      dataType="wstr"
+                      length="10"
+                      name="ID_PAIS" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      dataType="wstr"
+                      length="50"
+                      name="DESCRIPCION" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      name="F_MODIFICACION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Pais\J_T01_PAIS.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pais\J_T01_PAIS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Pais\J_T01_PAIS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Pais\J_T01_PAIS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Pais\J_T01_PAIS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Pais\Mirar si ha cambiado la desc"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="Mirar si ha cambiado la desc"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Pais\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Pais\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional].Columns[DEST_DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DEST_DESCRIPCION"
+                      lineageId="Package\Pais\Existe Pais en BBDD?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\Pais\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DESCRIPCION"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Pais\Mirar si ha cambiado la desc.Outputs[Cambia]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Cambia"
+                  synchronousInputId="Package\Pais\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]} != #{Package\Pais\Existe Pais en BBDD?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">DESCRIPCION != DEST_DESCRIPCION</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Pais\Mirar si ha cambiado la desc.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Pais\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Pais\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Pais\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pais\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Pais\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Pais\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Pais\Mirar si ha cambiado la desc.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Pais\Quitar nulos y poner fecha actual"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Quitar nulos y poner fecha actual"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Pais\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Pais\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada].Columns[ID_PAIS]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID_PAIS"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](([TRIM](#{Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]}) == "" ? NULL(DT_WSTR,20) : #{Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]}),"0")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL((TRIM(ID_PAIS) == "" ? NULL(DT_WSTR,20) : ID_PAIS),"0")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Pais\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DESCRIPCION"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](([TRIM](#{Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]}) == "" ? NULL(DT_WSTR,50) : #{Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]}),"No disponible")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL((TRIM(DESCRIPCION) == "" ? NULL(DT_WSTR,50) : DESCRIPCION),"No disponible")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Pais\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]"
+                      dataType="date"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]"
+                      name="F_MODIFICACION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[System::StartTime]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Pais\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Pais\Update Pais"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Comando de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Ejecuta una instrucción SQL para cada fila de un flujo de datos. Por ejemplo, se usa para llamar al procedimiento almacenado de configuración de nuevo empleado para cada fila de la tabla de nuevos empleados. Nota: la ejecución de una instrucción SQL para cada fila de un flujo de datos de gran tamaño puede tardar mucho tiempo."
+              name="Update Pais"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.J_T01_PAIS
+ SET 
+DESCRIPCION=? 
+,F_MODIFICACION=?
+WHERE ID_PAIS = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Pais\Update Pais.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB]"
+                  errorOrTruncationOperation="Ejecución de comando"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de comando de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB].Columns[ID_PAIS]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID_PAIS"
+                      externalMetadataColumnId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]" />
+                    <inputColumn
+                      refId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DESCRIPCION"
+                      externalMetadataColumnId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB].Columns[F_MODIFICACION]"
+                      cachedDataType="date"
+                      cachedName="F_MODIFICACION"
+                      externalMetadataColumnId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      dataType="dbTimeStamp"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Pais\Update Pais.Outputs[Salida de comando de OLE DB]"
+                  exclusionGroup="1"
+                  name="Salida de comando de OLE DB"
+                  synchronousInputId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Pais\Update Pais.Outputs[Salida de error de comando de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de comando de OLE DB"
+                  synchronousInputId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pais\Update Pais.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Pais\Update Pais.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Pais\Update Pais.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Pais\Update Pais.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Pais\VISESA$Country_Region"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="VISESA$Country_Region"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[VISESA$Country_Region]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Pais\VISESA$Country_Region.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[Code]"
+                      length="10"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]"
+                      name="ID_PAIS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]"
+                      name="DESCRIPCION"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[EU Country_Region Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="EU Country_Region Code" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[Intrastat Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Intrastat Code" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[Address Format]"
+                      dataType="i4"
+                      name="Address Format" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[Contact Address Format]"
+                      dataType="i4"
+                      name="Contact Address Format" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[VAT Registration No_ digits]"
+                      dataType="i4"
+                      name="VAT Registration No_ digits" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[Pais SEPA]"
+                      dataType="ui1"
+                      name="Pais SEPA" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de error de origen de OLE DB].Columns[Code]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de error de origen de OLE DB].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de error de origen de OLE DB].Columns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de error de origen de OLE DB].Columns[Name]"
+                      name="Name" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Pais.Paths[Cambia]"
+              endId="Package\Pais\Update Pais.Inputs[Entrada de comando de OLE DB]"
+              name="Cambia"
+              startId="Package\Pais\Mirar si ha cambiado la desc.Outputs[Cambia]" />
+            <path
+              refId="Package\Pais.Paths[Salida de columna derivada]"
+              endId="Package\Pais\Existe Pais en BBDD?.Inputs[Entrada de búsqueda]"
+              name="Salida de columna derivada"
+              startId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Pais.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Pais\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Pais\Existe Pais en BBDD?.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\Pais.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Pais\Existe Pais en BBDD?.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+            <path
+              refId="Package\Pais.Paths[Salida de origen de OLE DB]"
+              endId="Package\Pais\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Provincia"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{0946A057-5162-4A2F-AD01-7617CD879920}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Provincia"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Provincia\Existe provicia?"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Existe provicia?"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [J_T02_PROVINCIA]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [J_T02_PROVINCIA]) [refTable]
+where [refTable].[ID_PROVINCIA] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_PROVINCIA" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPCION" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_PAIS" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Provincia\Existe provicia?.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Provincia\Existe provicia?.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Provincia\Existe provicia?.Inputs[Entrada de búsqueda].Columns[ID_PROVINCIA]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID_PROVINCIA"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">ID_PROVINCIA</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Provincia\Existe provicia?.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Provincia\Existe provicia?.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Provincia\Existe provicia?.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Provincia\Existe provicia?.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Provincia\Existe provicia?.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Provincia\Existe provicia?.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Provincia\Existe provicia?.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Provincia\Existe provicia?.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Provincia\Existe provicia?.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Provincia\Existe provicia?.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Provincia\J_T02_PROVINCIA"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="J_T02_PROVINCIA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[J_T02_PROVINCIA]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Provincia\J_T02_PROVINCIA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].Columns[ID_PROVINCIA]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID_PROVINCIA"
+                      externalMetadataColumnId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROVINCIA]"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]" />
+                    <inputColumn
+                      refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DESCRIPCION"
+                      externalMetadataColumnId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].Columns[ID_PAIS]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="ID_PAIS"
+                      externalMetadataColumnId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PAIS]"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]" />
+                    <inputColumn
+                      refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].Columns[F_MODIFICACION]"
+                      cachedDataType="date"
+                      cachedName="F_MODIFICACION"
+                      externalMetadataColumnId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
+                      lineageId="Package\Provincia\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROVINCIA]"
+                      dataType="wstr"
+                      length="10"
+                      name="ID_PROVINCIA" />
+                    <externalMetadataColumn
+                      refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      dataType="wstr"
+                      length="50"
+                      name="DESCRIPCION" />
+                    <externalMetadataColumn
+                      refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PAIS]"
+                      dataType="wstr"
+                      length="20"
+                      name="ID_PAIS" />
+                    <externalMetadataColumn
+                      refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      name="F_MODIFICACION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Provincia\J_T02_PROVINCIA.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Provincia\J_T02_PROVINCIA.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Provincia\J_T02_PROVINCIA.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Provincia\J_T02_PROVINCIA.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Provincia\J_T02_PROVINCIA.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Provincia\Quitar nulos y poner fecha actual"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Quitar nulos y poner fecha actual"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Provincia\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Provincia\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada].Columns[ID_PAIS]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="ID_PAIS"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](([TRIM](#{Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]}) == "" ? NULL(DT_WSTR,20) : [LEFT](#{Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]},2)),"ES")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL((TRIM(ID_PAIS) == "" ? NULL(DT_WSTR,20) : LEFT(ID_PAIS,2)),"ES")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Provincia\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DESCRIPCION"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](([TRIM](#{Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]}) == "" ? NULL(DT_WSTR,50) : #{Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]}),"No disponible")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL((TRIM(DESCRIPCION) == "" ? NULL(DT_WSTR,50) : DESCRIPCION),"No disponible")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Provincia\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada].Columns[ID_PROVINCIA]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID_PROVINCIA"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](([TRIM](#{Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]}) == "" ? NULL(DT_WSTR,20) : #{Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]}),"0")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL((TRIM(ID_PROVINCIA) == "" ? NULL(DT_WSTR,20) : ID_PROVINCIA),"0")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Provincia\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Provincia\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Provincia\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]"
+                      dataType="date"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Provincia\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]"
+                      name="F_MODIFICACION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[System::StartTime]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Provincia\Quitar nulos y poner fecha actual.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Provincia\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Provincia\Quitar nulos y poner fecha actual.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Provincia\Quitar nulos y poner fecha actual.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Provincia\Quitar nulos y poner fecha actual.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Provincia\Quitar nulos y poner fecha actual.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Provincia\VISESA$Area"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="VISESA$Area"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[VISESA$Area]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Provincia\VISESA$Area.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].ExternalColumns[Code]"
+                      length="10"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]"
+                      name="ID_PROVINCIA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].ExternalColumns[Text]"
+                      length="50"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]"
+                      name="DESCRIPCION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].ExternalColumns[Post Code Prefix]"
+                      length="20"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]"
+                      name="ID_PAIS"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].ExternalColumns[Text]"
+                      dataType="wstr"
+                      length="50"
+                      name="Text" />
+                    <externalMetadataColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].ExternalColumns[Post Code Prefix]"
+                      dataType="wstr"
+                      length="20"
+                      name="Post Code Prefix" />
+                    <externalMetadataColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].ExternalColumns[Dimension Provincia]"
+                      dataType="wstr"
+                      length="20"
+                      name="Dimension Provincia" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[Code]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[Text]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[Text]"
+                      name="Text" />
+                    <outputColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[Post Code Prefix]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[Post Code Prefix]"
+                      name="Post Code Prefix" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Provincia.Paths[Salida de columna derivada]"
+              endId="Package\Provincia\Existe provicia?.Inputs[Entrada de búsqueda]"
+              name="Salida de columna derivada"
+              startId="Package\Provincia\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Provincia.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Provincia\Existe provicia?.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+            <path
+              refId="Package\Provincia.Paths[Salida de origen de OLE DB]"
+              endId="Package\Provincia\Quitar nulos y poner fecha actual.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4D9E4F32-B7DA-42B4-82A1-1D019693F0B0}"
+      DTS:From="Package\Pais"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Provincia" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4C872838-1650-454D-B44F-952A4FEA342D}"
+      DTS:From="Package\Provincia"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Municipio" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Municipio"
+          TopLeft="128,223" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\Pais"
+          TopLeft="119,50" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Provincia"
+          TopLeft="143,131" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="168,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.5,39"
+              Start="0,0"
+              End="35.5,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="4,19.5" />
+                  <mssgle:LineSegment
+                    End="31.5,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.5,19.5"
+                    Point2="35.5,19.5"
+                    Point3="35.5,23.5" />
+                  <mssgle:LineSegment
+                    End="35.5,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="203.5,173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14,50"
+              Start="0,0"
+              End="-14,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="-4,25" />
+                  <mssgle:LineSegment
+                    End="-10,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10,25"
+                    Point2="-14,25"
+                    Point3="-14,29" />
+                  <mssgle:LineSegment
+                    End="-14,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Municipio">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Municipio\VISESA$Municipios"
+          TopLeft="256,5.5" />
+        <NodeLayout
+          Size="349,42"
+          Id="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO"
+          TopLeft="165.5,107.5" />
+        <EdgeLayout
+          Id="Package\Municipio.Paths[Salida de origen de OLE DB]"
+          TopLeft="340,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Municipio\Existe municipio?"
+          TopLeft="277.5,209.5" />
+        <EdgeLayout
+          Id="Package\Municipio.Paths[Salida de columna derivada]"
+          TopLeft="340,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.5,60"
+              Start="0,0"
+              End="17.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="13.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,30"
+                    Point2="17.5,30"
+                    Point3="17.5,34" />
+                  <mssgle:LineSegment
+                    End="17.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Municipio\J_T03_MUNICIPIO"
+          TopLeft="5.50000000000003,311.5" />
+        <EdgeLayout
+          Id="Package\Municipio.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="332.166666666667,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-243.166666666667,60"
+              Start="0,0"
+              End="-243.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3564356435644" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3564356435644"
+                    Point2="0,24.3564356435644"
+                    Point3="-4,24.3564356435644" />
+                  <mssgle:LineSegment
+                    End="-239.166666666667,24.3564356435644" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-239.166666666667,24.3564356435644"
+                    Point2="-243.166666666667,24.3564356435644"
+                    Point3="-243.166666666667,28.3564356435644" />
+                  <mssgle:LineSegment
+                    End="-243.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-228.472356770833,29.3564356435644,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Municipio\Mirar si ha cambiado la desc"
+          TopLeft="233.5,311.5" />
+        <EdgeLayout
+          Id="Package\Municipio.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="382.833333333333,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-42.8333333333333,60"
+              Start="0,0"
+              End="-42.8333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3564356435644" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3564356435644"
+                    Point2="0,24.3564356435644"
+                    Point3="-4,24.3564356435644" />
+                  <mssgle:LineSegment
+                    End="-38.8333333333333,24.3564356435644" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-38.8333333333333,24.3564356435644"
+                    Point2="-42.8333333333333,24.3564356435644"
+                    Point3="-42.8333333333333,28.3564356435644" />
+                  <mssgle:LineSegment
+                    End="-42.8333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-121.235690104167,29.3564356435644,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Municipio\Update Municipio"
+          TopLeft="260,413.5" />
+        <EdgeLayout
+          Id="Package\Municipio.Paths[Cambia]"
+          TopLeft="340,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.89087890625,21.37548828125,33.7817578125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Pais">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Pais\Mirar si ha cambiado la desc"
+          TopLeft="213,413.5" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Pais\Quitar nulos y poner fecha actual"
+          TopLeft="202,107.5" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Pais\Update Pais"
+          TopLeft="231,515.5" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Pais\VISESA$Country_Region"
+          TopLeft="222.5,5.5" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Pais\J_T01_PAIS"
+          TopLeft="5.50000000000003,311.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Pais\Existe Pais en BBDD?"
+          TopLeft="257,209.5" />
+        <EdgeLayout
+          Id="Package\Pais.Paths[Salida de origen de OLE DB]"
+          TopLeft="319.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Pais.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="318,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-245,60"
+              Start="0,0"
+              End="-245,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3189368770764" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3189368770764"
+                    Point2="0,24.3189368770764"
+                    Point3="-4,24.3189368770764" />
+                  <mssgle:LineSegment
+                    End="-241,24.3189368770764" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-241,24.3189368770764"
+                    Point2="-245,24.3189368770764"
+                    Point3="-245,28.3189368770764" />
+                  <mssgle:LineSegment
+                    End="-245,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-229.3890234375,29.3189368770764,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Pais.Paths[Salida de columna derivada]"
+          TopLeft="319.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27,60"
+              Start="0,0"
+              End="27,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="23,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23,30"
+                    Point2="27,30"
+                    Point3="27,34" />
+                  <mssgle:LineSegment
+                    End="27,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Pais.Paths[Cambia]"
+          TopLeft="319.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21,60"
+              Start="0,0"
+              End="-21,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-17,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17,30"
+                    Point2="-21,30"
+                    Point3="-21,34" />
+                  <mssgle:LineSegment
+                    End="-21,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-27.39087890625,35,33.7817578125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Pais.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="375,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-55.4999999999999,162"
+              Start="0,0"
+              End="-55.4999999999999,154.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.6611295681063" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.6611295681063"
+                    Point2="0,65.6611295681063"
+                    Point3="-4,65.6611295681063" />
+                  <mssgle:LineSegment
+                    End="-51.4999999999999,65.6611295681063" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-51.4999999999999,65.6611295681063"
+                    Point2="-55.4999999999999,65.6611295681063"
+                    Point3="-55.4999999999999,69.6611295681063" />
+                  <mssgle:LineSegment
+                    End="-55.4999999999999,154.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-127.5690234375,70.6611295681063,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Pais\VISESA$Country_Region">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Pais\J_T01_PAIS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Pais\Existe Pais en BBDD?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Provincia">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Provincia\VISESA$Area"
+          TopLeft="207,51" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Provincia\Quitar nulos y poner fecha actual"
+          TopLeft="207,153" />
+        <EdgeLayout
+          Id="Package\Provincia.Paths[Salida de origen de OLE DB]"
+          TopLeft="277.5,93">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47,60"
+              Start="0,0"
+              End="47,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="43,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43,30"
+                    Point2="47,30"
+                    Point3="47,34" />
+                  <mssgle:LineSegment
+                    End="47,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Provincia\Existe provicia?"
+          TopLeft="237,236" />
+        <EdgeLayout
+          Id="Package\Provincia.Paths[Salida de columna derivada]"
+          TopLeft="324.5,195">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12,41"
+              Start="0,0"
+              End="-12,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-8,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8,20.5"
+                    Point2="-12,20.5"
+                    Point3="-12,24.5" />
+                  <mssgle:LineSegment
+                    End="-12,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Provincia\J_T02_PROVINCIA"
+          TopLeft="180,345" />
+        <EdgeLayout
+          Id="Package\Provincia.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="312.5,278">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49,67"
+              Start="0,0"
+              End="-49,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.5"
+                    Point2="0,33.5"
+                    Point3="-4,33.5" />
+                  <mssgle:LineSegment
+                    End="-45,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45,33.5"
+                    Point2="-49,33.5"
+                    Point3="-49,37.5" />
+                  <mssgle:LineSegment
+                    End="-49,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-131.3890234375,38.5,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Provincia\VISESA$Area">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Provincia\Existe provicia?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Provincia\J_T02_PROVINCIA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Municipio\VISESA$Municipios">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Municipio\Existe municipio?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[J_T03_MUNICIPIO]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Municipio\J_T03_MUNICIPIO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
