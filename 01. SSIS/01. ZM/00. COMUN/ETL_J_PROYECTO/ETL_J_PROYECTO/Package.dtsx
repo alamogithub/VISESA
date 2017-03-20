@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{20037B23-C6A9-48F9-8C3B-6F9A335D908F}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{B3456C0A-2D33-48BB-837D-82EA28757496}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -223,7 +223,7 @@ where [refTable].[ID_PROYECTO] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_PROYECTO" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPCION" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_PROYECTO" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESC_PROYECTO" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -292,7 +292,7 @@ where [refTable].[ID_PROYECTO] = ?</property>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
-                          name="CopyFromReferenceColumn">DESCRIPCION</property>
+                          name="CopyFromReferenceColumn">DESC_PROYECTO</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -382,7 +382,7 @@ where [refTable].[ID_UNIDAD_EJECUCION] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_UNIDAD_EJECUCION" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPCION" dataType="DT_WSTR" length="125" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_PROYECTO" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_UNIDAD_EJECUCION" dataType="DT_WSTR" length="5" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESC_UNIDAD_EJECUCION" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_PROYECTO" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -443,7 +443,7 @@ where [refTable].[ID_UNIDAD_EJECUCION] = ?</property>
                       refId="Package\J_01,J_02 y J_03\Existe J_02?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]"
                       dataType="wstr"
                       errorOrTruncationOperation="Copiar columna"
-                      length="125"
+                      length="100"
                       lineageId="Package\J_01,J_02 y J_03\Existe J_02?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]"
                       name="DEST_DESCRIPCION"
                       truncationRowDisposition="FailComponent">
@@ -451,7 +451,7 @@ where [refTable].[ID_UNIDAD_EJECUCION] = ?</property>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
-                          name="CopyFromReferenceColumn">DESCRIPCION</property>
+                          name="CopyFromReferenceColumn">DESC_UNIDAD_EJECUCION</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -541,7 +541,7 @@ where [refTable].[ID_FASE] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_FASE" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPCION" dataType="DT_WSTR" length="125" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_UNIDAD_EJECUCION" dataType="DT_WSTR" length="5" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_FASE" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESC_FASE" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_UNIDAD_EJECUCION" dataType="DT_WSTR" length="5" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -602,7 +602,7 @@ where [refTable].[ID_FASE] = ?</property>
                       refId="Package\J_01,J_02 y J_03\Existe J_03?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]"
                       dataType="wstr"
                       errorOrTruncationOperation="Copiar columna"
-                      length="125"
+                      length="100"
                       lineageId="Package\J_01,J_02 y J_03\Existe J_03?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]"
                       name="DEST_DESCRIPCION"
                       truncationRowDisposition="FailComponent">
@@ -610,7 +610,7 @@ where [refTable].[ID_FASE] = ?</property>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
-                          name="CopyFromReferenceColumn">DESCRIPCION</property>
+                          name="CopyFromReferenceColumn">DESC_FASE</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -686,7 +686,7 @@ where [refTable].[ID_FASE] = ?</property>
                   dataType="System.Int32"
                   description="Especifica el modo utilizado para obtener acceso a la base de datos."
                   name="AccessMode"
-                  typeConverter="AccessMode">3</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.Boolean"
                   description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
@@ -728,18 +728,18 @@ where [refTable].[ID_FASE] = ?</property>
                       externalMetadataColumnId="Package\J_01,J_02 y J_03\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROYECTO]"
                       lineageId="Package\J_01,J_02 y J_03\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]" />
                     <inputColumn
-                      refId="Package\J_01,J_02 y J_03\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].Columns[Search Description]"
-                      cachedDataType="wstr"
-                      cachedLength="125"
-                      cachedName="Search Description"
-                      externalMetadataColumnId="Package\J_01,J_02 y J_03\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      lineageId="Package\J_01,J_02 y J_03\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
-                    <inputColumn
                       refId="Package\J_01,J_02 y J_03\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].Columns[F_MODIFICACION]"
                       cachedDataType="date"
                       cachedName="F_MODIFICACION"
                       externalMetadataColumnId="Package\J_01,J_02 y J_03\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       lineageId="Package\J_01,J_02 y J_03\Quitar nulos y poner la fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                    <inputColumn
+                      refId="Package\J_01,J_02 y J_03\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].Columns[Search Description]"
+                      cachedDataType="wstr"
+                      cachedLength="125"
+                      cachedName="Search Description"
+                      externalMetadataColumnId="Package\J_01,J_02 y J_03\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_PROYECTO]"
+                      lineageId="Package\J_01,J_02 y J_03\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -749,14 +749,14 @@ where [refTable].[ID_FASE] = ?</property>
                       length="3"
                       name="ID_PROYECTO" />
                     <externalMetadataColumn
-                      refId="Package\J_01,J_02 y J_03\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      dataType="wstr"
-                      length="100"
-                      name="DESCRIPCION" />
-                    <externalMetadataColumn
                       refId="Package\J_01,J_02 y J_03\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       dataType="dbTimeStamp"
                       name="F_MODIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\J_01,J_02 y J_03\J_P01_PROYECTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_PROYECTO]"
+                      dataType="wstr"
+                      length="100"
+                      name="DESC_PROYECTO" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -882,7 +882,7 @@ where [refTable].[ID_FASE] = ?</property>
                       cachedDataType="wstr"
                       cachedLength="125"
                       cachedName="Search Description"
-                      externalMetadataColumnId="Package\J_01,J_02 y J_03\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      externalMetadataColumnId="Package\J_01,J_02 y J_03\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_UNIDAD_EJECUCION]"
                       lineageId="Package\J_01,J_02 y J_03\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -893,11 +893,6 @@ where [refTable].[ID_FASE] = ?</property>
                       length="5"
                       name="ID_UNIDAD_EJECUCION" />
                     <externalMetadataColumn
-                      refId="Package\J_01,J_02 y J_03\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      dataType="wstr"
-                      length="100"
-                      name="DESCRIPCION" />
-                    <externalMetadataColumn
                       refId="Package\J_01,J_02 y J_03\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROYECTO]"
                       dataType="wstr"
                       length="3"
@@ -906,6 +901,11 @@ where [refTable].[ID_FASE] = ?</property>
                       refId="Package\J_01,J_02 y J_03\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       dataType="dbTimeStamp"
                       name="F_MODIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\J_01,J_02 y J_03\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_UNIDAD_EJECUCION]"
+                      dataType="wstr"
+                      length="100"
+                      name="DESC_UNIDAD_EJECUCION" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1007,13 +1007,6 @@ where [refTable].[ID_FASE] = ?</property>
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\J_01,J_02 y J_03\J_P03_FASE.Inputs[Entrada de destino de OLE DB].Columns[Search Description]"
-                      cachedDataType="wstr"
-                      cachedLength="125"
-                      cachedName="Search Description"
-                      externalMetadataColumnId="Package\J_01,J_02 y J_03\J_P03_FASE.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      lineageId="Package\J_01,J_02 y J_03\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
-                    <inputColumn
                       refId="Package\J_01,J_02 y J_03\J_P03_FASE.Inputs[Entrada de destino de OLE DB].Columns[ID_UNIDAD_EJECUCION]"
                       cachedDataType="wstr"
                       cachedLength="5"
@@ -1033,6 +1026,13 @@ where [refTable].[ID_FASE] = ?</property>
                       cachedName="No_"
                       externalMetadataColumnId="Package\J_01,J_02 y J_03\J_P03_FASE.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_FASE]"
                       lineageId="Package\J_01,J_02 y J_03\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[No_]" />
+                    <inputColumn
+                      refId="Package\J_01,J_02 y J_03\J_P03_FASE.Inputs[Entrada de destino de OLE DB].Columns[Search Description]"
+                      cachedDataType="wstr"
+                      cachedLength="125"
+                      cachedName="Search Description"
+                      externalMetadataColumnId="Package\J_01,J_02 y J_03\J_P03_FASE.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_FASE]"
+                      lineageId="Package\J_01,J_02 y J_03\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1042,11 +1042,6 @@ where [refTable].[ID_FASE] = ?</property>
                       length="5"
                       name="ID_UNIDAD_EJECUCION" />
                     <externalMetadataColumn
-                      refId="Package\J_01,J_02 y J_03\J_P03_FASE.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      dataType="wstr"
-                      length="125"
-                      name="DESCRIPCION" />
-                    <externalMetadataColumn
                       refId="Package\J_01,J_02 y J_03\J_P03_FASE.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       dataType="dbTimeStamp"
                       name="F_MODIFICACION" />
@@ -1055,6 +1050,11 @@ where [refTable].[ID_FASE] = ?</property>
                       dataType="wstr"
                       length="7"
                       name="ID_FASE" />
+                    <externalMetadataColumn
+                      refId="Package\J_01,J_02 y J_03\J_P03_FASE.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_FASE]"
+                      dataType="wstr"
+                      length="100"
+                      name="DESC_FASE" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1297,7 +1297,7 @@ where [refTable].[ID_FASE] = ?</property>
                     <inputColumn
                       refId="Package\J_01,J_02 y J_03\Mirar si ha cambiado la desc 1 1.Inputs[Entrada de división condicional].Columns[DEST_DESCRIPCION]"
                       cachedDataType="wstr"
-                      cachedLength="125"
+                      cachedLength="100"
                       cachedName="DEST_DESCRIPCION"
                       lineageId="Package\J_01,J_02 y J_03\Existe J_03?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]" />
                   </inputColumns>
@@ -1852,7 +1852,7 @@ where [refTable].[ID_FASE] = ?</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.J_P01_PROYECTO
  SET 
-DESCRIPCION=? 
+DESC_PROYECTO=? 
 ,F_MODIFICACION=?
 WHERE ID_PROYECTO = ?</property>
                 <property
@@ -1989,7 +1989,7 @@ WHERE ID_PROYECTO = ?</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.J_P02_UNIDAD_EJECUCION
  SET 
-DESCRIPCION=? 
+DESC_UNIDAD_EJECUCION=? 
 ,F_MODIFICACION=?
 WHERE ID_UNIDAD_EJECUCION = ?</property>
                 <property
@@ -2126,7 +2126,7 @@ WHERE ID_UNIDAD_EJECUCION = ?</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.J_P03_FASE
  SET 
-DESCRIPCION=? 
+DESC_FASE=? 
 ,F_MODIFICACION=?
 WHERE ID_FASE = ?</property>
                 <property
@@ -2176,7 +2176,7 @@ WHERE ID_FASE = ?</property>
                     <externalMetadataColumn
                       refId="Package\J_01,J_02 y J_03\Update J_P03_FASE.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
                       dataType="wstr"
-                      length="125"
+                      length="100"
                       name="Param_0">
                       <properties>
                         <property
@@ -4004,7 +4004,7 @@ where [refTable].[ID_PROMOCION] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_PROMOCION" dataType="DT_WSTR" length="12" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPCION" dataType="DT_WSTR" length="125" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_FASE" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="POMOCION_CORTO" dataType="DT_WSTR" length="5" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_PROMOCION" dataType="DT_WSTR" length="12" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESC_PROMOCION" dataType="DT_WSTR" length="125" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_FASE" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PROMOCION_CORTO" dataType="DT_WSTR" length="5" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -4073,7 +4073,7 @@ where [refTable].[ID_PROMOCION] = ?</property>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
-                          name="CopyFromReferenceColumn">DESCRIPCION</property>
+                          name="CopyFromReferenceColumn">DESC_PROMOCION</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -4197,19 +4197,19 @@ where [refTable].[ID_PROMOCION] = ?</property>
                       externalMetadataColumnId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROYECTO]"
                       lineageId="Package\J_04_PROMOCION\Poner el ID_FASE y PROMOCION_CORTO, y además ID_UNIDAD_EJECUCION, y comprobar si existen.Outputs[Salida de columna derivada].Columns[ID_PROYECTO]" />
                     <inputColumn
-                      refId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].Columns[Search Description]"
-                      cachedDataType="wstr"
-                      cachedLength="125"
-                      cachedName="Search Description"
-                      externalMetadataColumnId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      lineageId="Package\J_04_PROMOCION\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
-                    <inputColumn
                       refId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].Columns[ID_UNIDAD_EJECUCION]"
                       cachedDataType="wstr"
                       cachedLength="5"
                       cachedName="ID_UNIDAD_EJECUCION"
                       externalMetadataColumnId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_UNIDAD_EJECUCION]"
                       lineageId="Package\J_04_PROMOCION\Poner el ID_FASE y PROMOCION_CORTO, y además ID_UNIDAD_EJECUCION, y comprobar si existen.Outputs[Salida de columna derivada].Columns[ID_UNIDAD_EJECUCION]" />
+                    <inputColumn
+                      refId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].Columns[Search Description]"
+                      cachedDataType="wstr"
+                      cachedLength="125"
+                      cachedName="Search Description"
+                      externalMetadataColumnId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_UNIDAD_EJECUCION]"
+                      lineageId="Package\J_04_PROMOCION\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4219,11 +4219,6 @@ where [refTable].[ID_PROMOCION] = ?</property>
                       length="5"
                       name="ID_UNIDAD_EJECUCION" />
                     <externalMetadataColumn
-                      refId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      dataType="wstr"
-                      length="100"
-                      name="DESCRIPCION" />
-                    <externalMetadataColumn
                       refId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROYECTO]"
                       dataType="wstr"
                       length="3"
@@ -4232,6 +4227,11 @@ where [refTable].[ID_PROMOCION] = ?</property>
                       refId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       dataType="dbTimeStamp"
                       name="F_MODIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_UNIDAD_EJECUCION]"
+                      dataType="wstr"
+                      length="100"
+                      name="DESC_UNIDAD_EJECUCION" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4333,13 +4333,6 @@ where [refTable].[ID_PROMOCION] = ?</property>
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\J_04_PROMOCION\J_P03_FASE.Inputs[Entrada de destino de OLE DB].Columns[Search Description]"
-                      cachedDataType="wstr"
-                      cachedLength="125"
-                      cachedName="Search Description"
-                      externalMetadataColumnId="Package\J_04_PROMOCION\J_P03_FASE.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      lineageId="Package\J_04_PROMOCION\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
-                    <inputColumn
                       refId="Package\J_04_PROMOCION\J_P03_FASE.Inputs[Entrada de destino de OLE DB].Columns[ID_UNIDAD_EJECUCION]"
                       cachedDataType="wstr"
                       cachedLength="5"
@@ -4359,6 +4352,13 @@ where [refTable].[ID_PROMOCION] = ?</property>
                       cachedName="ID_FASE"
                       externalMetadataColumnId="Package\J_04_PROMOCION\J_P03_FASE.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_FASE]"
                       lineageId="Package\J_04_PROMOCION\Poner el ID_FASE y PROMOCION_CORTO, y además ID_UNIDAD_EJECUCION, y comprobar si existen.Outputs[Salida de columna derivada].Columns[ID_FASE]" />
+                    <inputColumn
+                      refId="Package\J_04_PROMOCION\J_P03_FASE.Inputs[Entrada de destino de OLE DB].Columns[Search Description]"
+                      cachedDataType="wstr"
+                      cachedLength="125"
+                      cachedName="Search Description"
+                      externalMetadataColumnId="Package\J_04_PROMOCION\J_P03_FASE.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_FASE]"
+                      lineageId="Package\J_04_PROMOCION\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4368,11 +4368,6 @@ where [refTable].[ID_PROMOCION] = ?</property>
                       length="5"
                       name="ID_UNIDAD_EJECUCION" />
                     <externalMetadataColumn
-                      refId="Package\J_04_PROMOCION\J_P03_FASE.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      dataType="wstr"
-                      length="100"
-                      name="DESCRIPCION" />
-                    <externalMetadataColumn
                       refId="Package\J_04_PROMOCION\J_P03_FASE.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       dataType="dbTimeStamp"
                       name="F_MODIFICACION" />
@@ -4381,6 +4376,11 @@ where [refTable].[ID_PROMOCION] = ?</property>
                       dataType="wstr"
                       length="7"
                       name="ID_FASE" />
+                    <externalMetadataColumn
+                      refId="Package\J_04_PROMOCION\J_P03_FASE.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_FASE]"
+                      dataType="wstr"
+                      length="100"
+                      name="DESC_FASE" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4482,13 +4482,6 @@ where [refTable].[ID_PROMOCION] = ?</property>
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\J_04_PROMOCION\J_P04_PROMOCION.Inputs[Entrada de destino de OLE DB].Columns[Search Description]"
-                      cachedDataType="wstr"
-                      cachedLength="125"
-                      cachedName="Search Description"
-                      externalMetadataColumnId="Package\J_04_PROMOCION\J_P04_PROMOCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      lineageId="Package\J_04_PROMOCION\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
-                    <inputColumn
                       refId="Package\J_04_PROMOCION\J_P04_PROMOCION.Inputs[Entrada de destino de OLE DB].Columns[F_MODIFICACION]"
                       cachedDataType="date"
                       cachedName="F_MODIFICACION"
@@ -4515,14 +4508,16 @@ where [refTable].[ID_PROMOCION] = ?</property>
                       cachedName="PROMOCION_CORTO"
                       externalMetadataColumnId="Package\J_04_PROMOCION\J_P04_PROMOCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[PROMOCION_CORTO]"
                       lineageId="Package\J_04_PROMOCION\Poner el ID_FASE y PROMOCION_CORTO, y además ID_UNIDAD_EJECUCION, y comprobar si existen.Outputs[Salida de columna derivada].Columns[PROMOCION_CORTO]" />
+                    <inputColumn
+                      refId="Package\J_04_PROMOCION\J_P04_PROMOCION.Inputs[Entrada de destino de OLE DB].Columns[Search Description]"
+                      cachedDataType="wstr"
+                      cachedLength="125"
+                      cachedName="Search Description"
+                      externalMetadataColumnId="Package\J_04_PROMOCION\J_P04_PROMOCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_PROMOCION]"
+                      lineageId="Package\J_04_PROMOCION\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\J_04_PROMOCION\J_P04_PROMOCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      dataType="wstr"
-                      length="125"
-                      name="DESCRIPCION" />
                     <externalMetadataColumn
                       refId="Package\J_04_PROMOCION\J_P04_PROMOCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       dataType="dbTimeStamp"
@@ -4542,6 +4537,11 @@ where [refTable].[ID_PROMOCION] = ?</property>
                       dataType="wstr"
                       length="5"
                       name="PROMOCION_CORTO" />
+                    <externalMetadataColumn
+                      refId="Package\J_04_PROMOCION\J_P04_PROMOCION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_PROMOCION]"
+                      dataType="wstr"
+                      length="125"
+                      name="DESC_PROMOCION" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -5012,7 +5012,7 @@ where [refTable].[ID_PROMOCION] = ?</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.J_P04_PROMOCION
  SET 
-DESCRIPCION=? 
+DESC_PROMOCION=? 
 ,F_MODIFICACION=?
 WHERE ID_PROMOCION = ?</property>
                 <property
@@ -6582,7 +6582,7 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_CALIFICACION" dataType="DT_WSTR" length="16" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_PROMOCION" dataType="DT_WSTR" length="12" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPCION" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_CALIFICACION" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_PROMOCION" dataType="DT_WSTR" length="12" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESC_CALIFICACION" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -6651,7 +6651,7 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
-                          name="CopyFromReferenceColumn">DESCRIPCION</property>
+                          name="CopyFromReferenceColumn">DESC_CALIFICACION</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -6776,25 +6776,25 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                       externalMetadataColumnId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROMOCION]"
                       lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[ID_PROMOCION]" />
                     <inputColumn
-                      refId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="DESCRIPCION"
-                      externalMetadataColumnId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
-                    <inputColumn
                       refId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].Columns[F_MODIFICACION]"
                       cachedDataType="date"
                       cachedName="F_MODIFICACION"
                       externalMetadataColumnId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       lineageId="Package\J_05_CALIFICACION\Quitar nulos y poner la fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                    <inputColumn
+                      refId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DESCRIPCION"
+                      externalMetadataColumnId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_CALIFICACION]"
+                      lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_CALIFICACION]"
                       dataType="wstr"
-                      length="16"
+                      length="20"
                       name="ID_CALIFICACION" />
                     <externalMetadataColumn
                       refId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROMOCION]"
@@ -6802,14 +6802,14 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                       length="12"
                       name="ID_PROMOCION" />
                     <externalMetadataColumn
-                      refId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      dataType="wstr"
-                      length="100"
-                      name="DESCRIPCION" />
-                    <externalMetadataColumn
                       refId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       dataType="dbTimeStamp"
                       name="F_MODIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_CALIFICACION]"
+                      dataType="wstr"
+                      length="100"
+                      name="DESC_CALIFICACION" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -7101,7 +7101,7 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.J_P05_CALIFICACION
  SET 
-DESCRIPCION=? 
+DESC_CALIFICACION=? 
 ,F_MODIFICACION=?
 WHERE ID_CALIFICACION = ?</property>
                 <property
@@ -7174,7 +7174,7 @@ WHERE ID_CALIFICACION = ?</property>
                     <externalMetadataColumn
                       refId="Package\J_05_CALIFICACION\update J_P05.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
                       dataType="wstr"
-                      length="16"
+                      length="20"
                       name="Param_2">
                       <properties>
                         <property
@@ -7985,7 +7985,7 @@ where [refTable].[ID_ELEMENTO] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_ELEMENTO" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPCION" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_CALIFICACION" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_ELEMENTO" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESC_ELEMENTO" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_CALIFICACION" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -8054,7 +8054,7 @@ where [refTable].[ID_ELEMENTO] = ?</property>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
-                          name="CopyFromReferenceColumn">DESCRIPCION</property>
+                          name="CopyFromReferenceColumn">DESC_ELEMENTO</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -8172,13 +8172,6 @@ where [refTable].[ID_ELEMENTO] = ?</property>
                       externalMetadataColumnId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_ELEMENTO]"
                       lineageId="Package\J_06_ELEMENTO\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ID_ELEMENTO]" />
                     <inputColumn
-                      refId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
-                      cachedDataType="wstr"
-                      cachedLength="30"
-                      cachedName="DESCRIPCION"
-                      externalMetadataColumnId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      lineageId="Package\J_06_ELEMENTO\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
-                    <inputColumn
                       refId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].Columns[ID_CALIFICACION]"
                       cachedDataType="wstr"
                       cachedLength="20"
@@ -8191,6 +8184,13 @@ where [refTable].[ID_ELEMENTO] = ?</property>
                       cachedName="F_MODIFICACION"
                       externalMetadataColumnId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       lineageId="Package\J_06_ELEMENTO\Quitar nulos y poner la fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                    <inputColumn
+                      refId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="DESCRIPCION"
+                      externalMetadataColumnId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_ELEMENTO]"
+                      lineageId="Package\J_06_ELEMENTO\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -8200,11 +8200,6 @@ where [refTable].[ID_ELEMENTO] = ?</property>
                       length="20"
                       name="ID_ELEMENTO" />
                     <externalMetadataColumn
-                      refId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      dataType="wstr"
-                      length="50"
-                      name="DESCRIPCION" />
-                    <externalMetadataColumn
                       refId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_CALIFICACION]"
                       dataType="wstr"
                       length="20"
@@ -8213,6 +8208,11 @@ where [refTable].[ID_ELEMENTO] = ?</property>
                       refId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       dataType="dbTimeStamp"
                       name="F_MODIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_ELEMENTO]"
+                      dataType="wstr"
+                      length="50"
+                      name="DESC_ELEMENTO" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -9178,7 +9178,7 @@ where [refTable].[ID_ELEMENTO] = ?</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.J_P06_ELEMENTO
  SET 
-DESCRIPCION=? 
+DESC_ELEMENTO=? 
 ,F_MODIFICACION=?
 WHERE ID_ELEMENTO = ?</property>
                 <property
@@ -9383,6 +9383,14 @@ WHERE ID_ELEMENTO = ?</property>
           Size="168,42"
           Id="Package\J_04_PROMOCION"
           TopLeft="96,175" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\J_05_CALIFICACION"
+          TopLeft="94,260" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\J_06_ELEMENTO"
+          TopLeft="210,360" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="190,114">
@@ -9417,10 +9425,6 @@ WHERE ID_ELEMENTO = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176,42"
-          Id="Package\J_05_CALIFICACION"
-          TopLeft="94,260" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="181,217">
@@ -9443,10 +9447,6 @@ WHERE ID_ELEMENTO = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\J_06_ELEMENTO"
-          TopLeft="210,360" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="182,302">
@@ -9490,29 +9490,17 @@ WHERE ID_ELEMENTO = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="190,42"
-          Id="Package\J_01,J_02 y J_03\Poner el ID_PROYECTO"
-          TopLeft="397.5,311.5" />
-        <NodeLayout
-          Size="173,42"
-          Id="Package\J_01,J_02 y J_03\Update J_P03_FASE"
-          TopLeft="1112,617.5" />
-        <NodeLayout
-          Size="202,42"
-          Id="Package\J_01,J_02 y J_03\Update J_P01_PROYECTO"
-          TopLeft="674.5,621.5" />
-        <NodeLayout
-          Size="249,42"
-          Id="Package\J_01,J_02 y J_03\Update J_P02_UNIDAD_EJECUCION"
-          TopLeft="174,616.5" />
-        <NodeLayout
-          Size="162,42"
-          Id="Package\J_01,J_02 y J_03\Nivel de jerarquia"
-          TopLeft="635.5,209.5" />
+          Size="213,42"
+          Id="Package\J_01,J_02 y J_03\Mirar si ha cambiado la desc"
+          TopLeft="676,524.5" />
         <NodeLayout
           Size="222,42"
           Id="Package\J_01,J_02 y J_03\Mirar si ha cambiado la desc 1 1"
           TopLeft="1087.5,515.5" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\J_01,J_02 y J_03\Mirar si ha cambiado la desc 1"
+          TopLeft="243.5,512.5" />
         <NodeLayout
           Size="212,42"
           Id="Package\J_01,J_02 y J_03\J_P02_UNIDAD_EJECUCION"
@@ -9522,41 +9510,53 @@ WHERE ID_ELEMENTO = ?</property>
           Id="Package\J_01,J_02 y J_03\Existe J_02?"
           TopLeft="198,413.5" />
         <NodeLayout
-          Size="165,42"
-          Id="Package\J_01,J_02 y J_03\J_P01_PROYECTO"
-          TopLeft="485,523.5" />
-        <NodeLayout
-          Size="222,42"
-          Id="Package\J_01,J_02 y J_03\Mirar si ha cambiado la desc 1"
-          TopLeft="243.5,512.5" />
+          Size="137,42"
+          Id="Package\J_01,J_02 y J_03\Existe J_03?"
+          TopLeft="896,413.5" />
         <NodeLayout
           Size="137,42"
           Id="Package\J_01,J_02 y J_03\J_P03_FASE"
           TopLeft="890,515.5" />
         <NodeLayout
-          Size="137,42"
-          Id="Package\J_01,J_02 y J_03\Existe J_03?"
-          TopLeft="896,413.5" />
+          Size="190,42"
+          Id="Package\J_01,J_02 y J_03\Poner el ID_PROYECTO"
+          TopLeft="397.5,311.5" />
         <NodeLayout
           Size="247,42"
           Id="Package\J_01,J_02 y J_03\Quitar nulos y poner la fecha actual"
           TopLeft="593,107.5" />
         <NodeLayout
-          Size="237,42"
-          Id="Package\J_01,J_02 y J_03\Poner el ID_UNIDAD_EJECUCION"
-          TopLeft="846,311.5" />
+          Size="202,42"
+          Id="Package\J_01,J_02 y J_03\Update J_P01_PROYECTO"
+          TopLeft="674.5,621.5" />
         <NodeLayout
-          Size="213,42"
-          Id="Package\J_01,J_02 y J_03\Mirar si ha cambiado la desc"
-          TopLeft="676,524.5" />
+          Size="138,42"
+          Id="Package\J_01,J_02 y J_03\VISESA$JOB"
+          TopLeft="647.5,5.49999999999977" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\J_01,J_02 y J_03\Update J_P02_UNIDAD_EJECUCION"
+          TopLeft="174,616.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\J_01,J_02 y J_03\Update J_P03_FASE"
+          TopLeft="1112,617.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\J_01,J_02 y J_03\Nivel de jerarquia"
+          TopLeft="635.5,209.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\J_01,J_02 y J_03\J_P01_PROYECTO"
+          TopLeft="485,523.5" />
         <NodeLayout
           Size="137,42"
           Id="Package\J_01,J_02 y J_03\Existe J_01?"
           TopLeft="656,420.5" />
         <NodeLayout
-          Size="138,42"
-          Id="Package\J_01,J_02 y J_03\VISESA$JOB"
-          TopLeft="647.5,5.49999999999977" />
+          Size="237,42"
+          Id="Package\J_01,J_02 y J_03\Poner el ID_UNIDAD_EJECUCION"
+          TopLeft="846,311.5" />
         <EdgeLayout
           Id="Package\J_01,J_02 y J_03.Paths[Unidad de Ejecucion]"
           TopLeft="678,251.5">
@@ -9755,7 +9755,7 @@ WHERE ID_ELEMENTO = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="6.43097656250005,29.4155844155844,199.638046875,12.1953125"
+              BoundingBox="6.43097656249999,29.4155844155844,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9829,6 +9829,62 @@ WHERE ID_ELEMENTO = ?</property>
             <mssgm:EdgeLabel
               BoundingBox="-66.5690234375,28.1948051948052,199.638046875,12.1953125"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_01,J_02 y J_03.Paths[Salida de columna derivada2]"
+          TopLeft="964.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_01,J_02 y J_03.Paths[Salida de columna derivada1]"
+          TopLeft="492.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-226,60"
+              Start="0,0"
+              End="-226,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-222,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-222,30"
+                    Point2="-226,30"
+                    Point3="-226,34" />
+                  <mssgle:LineSegment
+                    End="-226,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10009,62 +10065,6 @@ WHERE ID_ELEMENTO = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\J_01,J_02 y J_03.Paths[Salida de columna derivada1]"
-          TopLeft="492.5,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-226,60"
-              Start="0,0"
-              End="-226,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-222,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-222,30"
-                    Point2="-226,30"
-                    Point3="-226,34" />
-                  <mssgle:LineSegment
-                    End="-226,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\J_01,J_02 y J_03.Paths[Salida de columna derivada2]"
-          TopLeft="964.5,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -10087,46 +10087,20 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string"></Value>
+          type="q3:string">[J_P02_UNIDAD_EJECUCION]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\J_01,J_02 y J_03\J_P01_PROYECTO">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\J_01,J_02 y J_03\J_P03_FASE">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -10136,7 +10110,7 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10154,25 +10128,15 @@ WHERE ID_ELEMENTO = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\J_01,J_02 y J_03\Existe J_01?">
+    design-time-name="Package\J_01,J_02 y J_03\J_P03_FASE">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -10189,47 +10153,59 @@ WHERE ID_ELEMENTO = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\J_01,J_02 y J_03\J_P01_PROYECTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\J_01,J_02 y J_03\Existe J_01?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[J_P01_PROYECTO]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\J_04_PROMOCION">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="138,42"
-          Id="Package\J_04_PROMOCION\VISESA$JOB"
-          TopLeft="530.5,5.5" />
-        <NodeLayout
           Size="247,42"
           Id="Package\J_04_PROMOCION\Quitar nulos y poner la fecha actual"
           TopLeft="476,107.5" />
-        <NodeLayout
-          Size="186,42"
-          Id="Package\J_04_PROMOCION\Coger las promociones"
-          TopLeft="514,209.5" />
-        <NodeLayout
-          Size="559,42"
-          Id="Package\J_04_PROMOCION\Poner el ID_FASE y PROMOCION_CORTO, y además ID_UNIDAD_EJECUCION, y comprobar si existen"
-          TopLeft="320,311.5" />
-        <NodeLayout
-          Size="138,42"
-          Id="Package\J_04_PROMOCION\Multidifusión"
-          TopLeft="530.5,413.5" />
-        <NodeLayout
-          Size="137,42"
-          Id="Package\J_04_PROMOCION\Existe J_04?"
-          TopLeft="305.5,515.5" />
         <NodeLayout
           Size="213,42"
           Id="Package\J_04_PROMOCION\Mirar si ha cambiado la desc"
           TopLeft="5.5,617.5" />
         <NodeLayout
-          Size="173,42"
-          Id="Package\J_04_PROMOCION\J_P04_PROMOCION"
-          TopLeft="293.5,702.5" />
-        <NodeLayout
-          Size="210,42"
-          Id="Package\J_04_PROMOCION\Update J_P04_PROMOCION"
-          TopLeft="52,719.5" />
+          Size="138,42"
+          Id="Package\J_04_PROMOCION\VISESA$JOB"
+          TopLeft="530.5,5.5" />
         <NodeLayout
           Size="212,42"
           Id="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION"
@@ -10239,6 +10215,10 @@ WHERE ID_ELEMENTO = ?</property>
           Id="Package\J_04_PROMOCION\Existe J_02?"
           TopLeft="727.5,515.5" />
         <NodeLayout
+          Size="186,42"
+          Id="Package\J_04_PROMOCION\Coger las promociones"
+          TopLeft="514,209.5" />
+        <NodeLayout
           Size="137,42"
           Id="Package\J_04_PROMOCION\Existe J_03?"
           TopLeft="532.5,515.5" />
@@ -10246,50 +10226,34 @@ WHERE ID_ELEMENTO = ?</property>
           Size="137,42"
           Id="Package\J_04_PROMOCION\J_P03_FASE"
           TopLeft="511.5,719.5" />
-        <EdgeLayout
-          Id="Package\J_04_PROMOCION.Paths[Salida de origen de OLE DB]"
-          TopLeft="599.5,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\J_04_PROMOCION.Paths[Salida de columna derivada]"
-          TopLeft="603.25,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="559,42"
+          Id="Package\J_04_PROMOCION\Poner el ID_FASE y PROMOCION_CORTO, y además ID_UNIDAD_EJECUCION, y comprobar si existen"
+          TopLeft="320,311.5" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\J_04_PROMOCION\Update J_P04_PROMOCION"
+          TopLeft="52,719.5" />
+        <NodeLayout
+          Size="244,42"
+          Id="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1"
+          TopLeft="742.5,617.5" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\J_04_PROMOCION\Multidifusión"
+          TopLeft="530.5,413.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\J_04_PROMOCION\J_P04_PROMOCION"
+          TopLeft="293.5,702.5" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\J_04_PROMOCION\Existe J_04?"
+          TopLeft="305.5,515.5" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;"
+          TopLeft="517.5,617.5" />
         <EdgeLayout
           Id="Package\J_04_PROMOCION.Paths[Promocion]"
           TopLeft="603.25,251.5">
@@ -10315,8 +10279,100 @@ WHERE ID_ELEMENTO = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\J_04_PROMOCION.Paths[Salida de columna derivada1]"
-          TopLeft="599.5,353.5">
+          Id="Package\J_04_PROMOCION.Paths[Cambia]"
+          TopLeft="112,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45,60"
+              Start="0,0"
+              End="45,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="41,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41,30"
+                    Point2="45,30"
+                    Point3="45,34" />
+                  <mssgle:LineSegment
+                    End="45,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="5.60912109375,35,33.7817578125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_04_PROMOCION.Paths[Salida de origen de OLE DB]"
+          TopLeft="599.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_04_PROMOCION.Paths[Salida de multidifusión 2]"
+          TopLeft="632,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="164,60"
+              Start="0,0"
+              End="164,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.7582938388626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.7582938388626"
+                    Point2="0,20.7582938388626"
+                    Point3="4,20.7582938388626" />
+                  <mssgle:LineSegment
+                    End="160,20.7582938388626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="160,20.7582938388626"
+                    Point2="164,20.7582938388626"
+                    Point3="164,24.7582938388626" />
+                  <mssgle:LineSegment
+                    End="164,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_04_PROMOCION.Paths[Salida de multidifusión 1]"
+          TopLeft="600.25,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10371,38 +10427,74 @@ WHERE ID_ELEMENTO = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\J_04_PROMOCION.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="352.5,557.5">
+          Id="Package\J_04_PROMOCION.Paths[Salida de entradas no coincidentes de búsqueda2]"
+          TopLeft="601,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-240.5,60.0000000000001"
+              EndConnector="35.5,60"
               Start="0,0"
-              End="-240.5,52.5000000000001">
+              End="35.5,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.4155844155845" />
+                    End="0,26" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.4155844155845"
-                    Point2="0,24.4155844155845"
-                    Point3="-4,24.4155844155845" />
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
                   <mssgle:LineSegment
-                    End="-236.5,24.4155844155845" />
+                    End="31.5,30" />
                   <mssgle:CubicBezierSegment
-                    Point1="-236.5,24.4155844155845"
-                    Point2="-240.5,24.4155844155845"
-                    Point3="-240.5,28.4155844155845" />
+                    Point1="31.5,30"
+                    Point2="35.5,30"
+                    Point3="35.5,34" />
                   <mssgle:LineSegment
-                    End="-240.5,52.5000000000001" />
+                    End="35.5,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-220.0690234375,29.4155844155845,199.638046875,12.1953125"
+              BoundingBox="-89.1390234375,35,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_04_PROMOCION.Paths[Salida de entradas no coincidentes de búsqueda1]"
+          TopLeft="796,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.5,60"
+              Start="0,0"
+              End="68.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="64.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64.5,30"
+                    Point2="68.5,30"
+                    Point3="68.5,34" />
+                  <mssgle:LineSegment
+                    End="68.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-72.6390234375,35,213.778046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -10443,208 +10535,38 @@ WHERE ID_ELEMENTO = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\J_04_PROMOCION.Paths[Cambia]"
-          TopLeft="112,659.5">
+          Id="Package\J_04_PROMOCION.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="352.5,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="45,60"
+              EndConnector="-240.5,60.0000000000001"
               Start="0,0"
-              End="45,52.5">
+              End="-240.5,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
+                    End="0,20.4155844155845" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
+                    Point1="0,20.4155844155845"
+                    Point2="0,24.4155844155845"
+                    Point3="-4,24.4155844155845" />
                   <mssgle:LineSegment
-                    End="41,30" />
+                    End="-236.5,24.4155844155845" />
                   <mssgle:CubicBezierSegment
-                    Point1="41,30"
-                    Point2="45,30"
-                    Point3="45,34" />
+                    Point1="-236.5,24.4155844155845"
+                    Point2="-240.5,24.4155844155845"
+                    Point3="-240.5,28.4155844155845" />
                   <mssgle:LineSegment
-                    End="45,52.5" />
+                    End="-240.5,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="5.60912109375,35,33.7817578125,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\J_04_PROMOCION.Paths[Salida de multidifusión 1]"
-          TopLeft="600.25,455.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\J_04_PROMOCION.Paths[Salida de multidifusión 2]"
-          TopLeft="632,455.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="164,60"
-              Start="0,0"
-              End="164,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.7582938388626" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.7582938388626"
-                    Point2="0,20.7582938388626"
-                    Point3="4,20.7582938388626" />
-                  <mssgle:LineSegment
-                    End="160,20.7582938388626" />
-                  <mssgle:CubicBezierSegment
-                    Point1="160,20.7582938388626"
-                    Point2="164,20.7582938388626"
-                    Point3="164,24.7582938388626" />
-                  <mssgle:LineSegment
-                    End="164,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="244,42"
-          Id="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1"
-          TopLeft="742.5,617.5" />
-        <EdgeLayout
-          Id="Package\J_04_PROMOCION.Paths[Salida de entradas no coincidentes de búsqueda1]"
-          TopLeft="796,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="68.5,60"
-              Start="0,0"
-              End="68.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="64.5,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="64.5,30"
-                    Point2="68.5,30"
-                    Point3="68.5,34" />
-                  <mssgle:LineSegment
-                    End="68.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-72.6390234375,35,213.778046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\J_04_PROMOCION.Paths[Salida de columna derivada2]"
-          TopLeft="864.5,659.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-18,60"
-              Start="0,0"
-              End="-18,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-14,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-14,30"
-                    Point2="-18,30"
-                    Point3="-18,34" />
-                  <mssgle:LineSegment
-                    End="-18,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="238,42"
-          Id="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;"
-          TopLeft="517.5,617.5" />
-        <EdgeLayout
-          Id="Package\J_04_PROMOCION.Paths[Salida de entradas no coincidentes de búsqueda2]"
-          TopLeft="601,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="35.5,60"
-              Start="0,0"
-              End="35.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="31.5,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="31.5,30"
-                    Point2="35.5,30"
-                    Point3="35.5,34" />
-                  <mssgle:LineSegment
-                    End="35.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-89.1390234375,35,213.778046875,12.1953125"
+              BoundingBox="-220.0690234375,29.4155844155845,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -10682,6 +10604,84 @@ WHERE ID_ELEMENTO = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_04_PROMOCION.Paths[Salida de columna derivada2]"
+          TopLeft="864.5,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18,60"
+              Start="0,0"
+              End="-18,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-14,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14,30"
+                    Point2="-18,30"
+                    Point3="-18,34" />
+                  <mssgle:LineSegment
+                    End="-18,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_04_PROMOCION.Paths[Salida de columna derivada1]"
+          TopLeft="599.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_04_PROMOCION.Paths[Salida de columna derivada]"
+          TopLeft="603.25,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -10711,19 +10711,79 @@ WHERE ID_ELEMENTO = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\J_04_PROMOCION\J_P04_PROMOCION">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\J_04_PROMOCION\Existe J_04?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[J_P04_PROMOCION]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\J_05_CALIFICACION">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="247,42"
+          Id="Package\J_05_CALIFICACION\Quitar nulos y poner la fecha actual"
+          TopLeft="271.5,107.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\J_05_CALIFICACION\Existe J_P04?"
+          TopLeft="323.5,209.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\J_05_CALIFICACION\J_P05_CALIFICACION"
+          TopLeft="46.0000000000001,413.5" />
+        <NodeLayout
           Size="172,42"
           Id="Package\J_05_CALIFICACION\VISESA$Calificacion"
           TopLeft="309,5.5" />
         <NodeLayout
-          Size="247,42"
-          Id="Package\J_05_CALIFICACION\Quitar nulos y poner la fecha actual"
-          TopLeft="271.5,107.5" />
+          Size="143,42"
+          Id="Package\J_05_CALIFICACION\Existe J_P05?"
+          TopLeft="323.5,311.5" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\J_05_CALIFICACION\Mirar si ha cambiado la desc"
+          TopLeft="288.5,413.5" />
+        <NodeLayout
+          Size="257,42"
+          Id="Package\J_05_CALIFICACION\Calificacion sin promocion en la BBDD"
+          TopLeft="5.5,311.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\J_05_CALIFICACION\update J_P05"
+          TopLeft="323.5,515.5" />
         <EdgeLayout
           Id="Package\J_05_CALIFICACION.Paths[Salida de origen de OLE DB]"
           TopLeft="395,47.5">
@@ -10746,116 +10806,6 @@ WHERE ID_ELEMENTO = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="143,42"
-          Id="Package\J_05_CALIFICACION\Existe J_P04?"
-          TopLeft="323.5,209.5" />
-        <EdgeLayout
-          Id="Package\J_05_CALIFICACION.Paths[Salida de columna derivada]"
-          TopLeft="395,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="257,42"
-          Id="Package\J_05_CALIFICACION\Calificacion sin promocion en la BBDD"
-          TopLeft="5.5,311.5" />
-        <EdgeLayout
-          Id="Package\J_05_CALIFICACION.Paths[Salida de entradas no coincidentes de búsqueda]"
-          TopLeft="372.5,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-238.5,60"
-              Start="0,0"
-              End="-238.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.3983402489627" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.3983402489627"
-                    Point2="0,24.3983402489627"
-                    Point3="-4,24.3983402489627" />
-                  <mssgle:LineSegment
-                    End="-234.5,24.3983402489627" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-234.5,24.3983402489627"
-                    Point2="-238.5,24.3983402489627"
-                    Point3="-238.5,28.3983402489627" />
-                  <mssgle:LineSegment
-                    End="-238.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-226.1390234375,29.3983402489627,213.778046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="143,42"
-          Id="Package\J_05_CALIFICACION\Existe J_P05?"
-          TopLeft="323.5,311.5" />
-        <EdgeLayout
-          Id="Package\J_05_CALIFICACION.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="417.5,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-22.5,60"
-              Start="0,0"
-              End="-22.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.3983402489627" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.3983402489627"
-                    Point2="0,24.3983402489627"
-                    Point3="-4,24.3983402489627" />
-                  <mssgle:LineSegment
-                    End="-18.5,24.3983402489627" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,24.3983402489627"
-                    Point2="-22.5,24.3983402489627"
-                    Point3="-22.5,28.3983402489627" />
-                  <mssgle:LineSegment
-                    End="-22.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-111.0690234375,29.3983402489627,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="182,42"
-          Id="Package\J_05_CALIFICACION\J_P05_CALIFICACION"
-          TopLeft="46.0000000000001,413.5" />
         <EdgeLayout
           Id="Package\J_05_CALIFICACION.Paths[Salida de entradas no coincidentes de búsqueda1]"
           TopLeft="372.5,353.5">
@@ -10892,10 +10842,42 @@ WHERE ID_ELEMENTO = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="213,42"
-          Id="Package\J_05_CALIFICACION\Mirar si ha cambiado la desc"
-          TopLeft="288.5,413.5" />
+        <EdgeLayout
+          Id="Package\J_05_CALIFICACION.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="372.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-238.5,60"
+              Start="0,0"
+              End="-238.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3983402489627" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3983402489627"
+                    Point2="0,24.3983402489627"
+                    Point3="-4,24.3983402489627" />
+                  <mssgle:LineSegment
+                    End="-234.5,24.3983402489627" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-234.5,24.3983402489627"
+                    Point2="-238.5,24.3983402489627"
+                    Point3="-238.5,28.3983402489627" />
+                  <mssgle:LineSegment
+                    End="-238.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-226.1390234375,29.3983402489627,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\J_05_CALIFICACION.Paths[Salida de entradas coincidentes de búsqueda1]"
           TopLeft="417.5,353.5">
@@ -10932,10 +10914,64 @@ WHERE ID_ELEMENTO = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="143,42"
-          Id="Package\J_05_CALIFICACION\update J_P05"
-          TopLeft="323.5,515.5" />
+        <EdgeLayout
+          Id="Package\J_05_CALIFICACION.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="417.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22.5,60"
+              Start="0,0"
+              End="-22.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3983402489627" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3983402489627"
+                    Point2="0,24.3983402489627"
+                    Point3="-4,24.3983402489627" />
+                  <mssgle:LineSegment
+                    End="-18.5,24.3983402489627" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,24.3983402489627"
+                    Point2="-22.5,24.3983402489627"
+                    Point3="-22.5,28.3983402489627" />
+                  <mssgle:LineSegment
+                    End="-22.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-111.0690234375,29.3983402489627,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_05_CALIFICACION.Paths[Salida de columna derivada]"
+          TopLeft="395,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\J_05_CALIFICACION.Paths[Cambia]"
           TopLeft="395,455.5">
@@ -10964,7 +11000,30 @@ WHERE ID_ELEMENTO = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\J_05_CALIFICACION\VISESA$Calificacion">
+    design-time-name="Package\J_05_CALIFICACION\Existe J_P04?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[J_P04_PROMOCION]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\J_05_CALIFICACION\J_P05_CALIFICACION">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10977,25 +11036,15 @@ WHERE ID_ELEMENTO = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\J_05_CALIFICACION\Existe J_P04?">
+    design-time-name="Package\J_05_CALIFICACION\VISESA$Calificacion">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[J_P04_PROMOCION]</Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -11022,19 +11071,6 @@ WHERE ID_ELEMENTO = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\J_05_CALIFICACION\J_P05_CALIFICACION">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\J_06_ELEMENTO">
     <LayoutInfo>
@@ -11045,114 +11081,42 @@ WHERE ID_ELEMENTO = ?</property>
           Id="Package\J_06_ELEMENTO\Origen de OLE DB"
           TopLeft="302.5,5.5" />
         <NodeLayout
+          Size="137,42"
+          Id="Package\J_06_ELEMENTO\Existe J_05?"
+          TopLeft="316,209.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\J_06_ELEMENTO\J_P06_ELEMENTO"
+          TopLeft="52,413.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\J_06_ELEMENTO\Update J_P06"
+          TopLeft="312.5,515.5" />
+        <NodeLayout
           Size="247,42"
           Id="Package\J_06_ELEMENTO\Quitar nulos y poner la fecha actual"
           TopLeft="261,107.5" />
-        <EdgeLayout
-          Id="Package\J_06_ELEMENTO.Paths[Salida de origen de OLE DB]"
-          TopLeft="384.5,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="137,42"
           Id="Package\J_06_ELEMENTO\Existe J_06?"
           TopLeft="316,311.5" />
         <NodeLayout
-          Size="165,42"
-          Id="Package\J_06_ELEMENTO\J_P06_ELEMENTO"
-          TopLeft="52,413.5" />
-        <EdgeLayout
-          Id="Package\J_06_ELEMENTO.Paths[Salida de entradas no coincidentes de búsqueda]"
-          TopLeft="363,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-228.5,60"
-              Start="0,0"
-              End="-228.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.4155844155844" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.4155844155844"
-                    Point2="0,24.4155844155844"
-                    Point3="-4,24.4155844155844" />
-                  <mssgle:LineSegment
-                    End="-224.5,24.4155844155844" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-224.5,24.4155844155844"
-                    Point2="-228.5,24.4155844155844"
-                    Point3="-228.5,28.4155844155844" />
-                  <mssgle:LineSegment
-                    End="-228.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-221.1390234375,29.4155844155844,213.778046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="137,42"
-          Id="Package\J_06_ELEMENTO\Existe J_05?"
-          TopLeft="316,209.5" />
-        <EdgeLayout
-          Id="Package\J_06_ELEMENTO.Paths[Salida de columna derivada]"
-          TopLeft="384.5,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="213,42"
+          Id="Package\J_06_ELEMENTO\Mirar si ha cambiado la desc"
+          TopLeft="278,413.5" />
         <NodeLayout
           Size="250,42"
           Id="Package\J_06_ELEMENTO\Elemento sin calificacion en la BBDD"
           TopLeft="5.50000000000003,311.5" />
         <EdgeLayout
-          Id="Package\J_06_ELEMENTO.Paths[Salida de entradas no coincidentes de búsqueda1]"
-          TopLeft="363,251.5">
+          Id="Package\J_06_ELEMENTO.Paths[Salida de entradas coincidentes de búsqueda1]"
+          TopLeft="406,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-232.5,60"
+              EndConnector="-21.4999999999999,60"
               Start="0,0"
-              End="-232.5,52.5">
+              End="-21.4999999999999,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -11163,20 +11127,20 @@ WHERE ID_ELEMENTO = ?</property>
                     Point2="0,24.4155844155844"
                     Point3="-4,24.4155844155844" />
                   <mssgle:LineSegment
-                    End="-228.5,24.4155844155844" />
+                    End="-17.4999999999999,24.4155844155844" />
                   <mssgle:CubicBezierSegment
-                    Point1="-228.5,24.4155844155844"
-                    Point2="-232.5,24.4155844155844"
-                    Point3="-232.5,28.4155844155844" />
+                    Point1="-17.4999999999999,24.4155844155844"
+                    Point2="-21.4999999999999,24.4155844155844"
+                    Point3="-21.4999999999999,28.4155844155844" />
                   <mssgle:LineSegment
-                    End="-232.5,52.5" />
+                    End="-21.4999999999999,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-223.1390234375,29.4155844155844,213.778046875,12.1953125"
+              BoundingBox="-110.5690234375,29.4155844155844,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11216,50 +11180,28 @@ WHERE ID_ELEMENTO = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="213,42"
-          Id="Package\J_06_ELEMENTO\Mirar si ha cambiado la desc"
-          TopLeft="278,413.5" />
         <EdgeLayout
-          Id="Package\J_06_ELEMENTO.Paths[Salida de entradas coincidentes de búsqueda1]"
-          TopLeft="406,353.5">
+          Id="Package\J_06_ELEMENTO.Paths[Salida de columna derivada]"
+          TopLeft="384.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-21.4999999999999,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="-21.4999999999999,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.4155844155844" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.4155844155844"
-                    Point2="0,24.4155844155844"
-                    Point3="-4,24.4155844155844" />
-                  <mssgle:LineSegment
-                    End="-17.4999999999999,24.4155844155844" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-17.4999999999999,24.4155844155844"
-                    Point2="-21.4999999999999,24.4155844155844"
-                    Point3="-21.4999999999999,28.4155844155844" />
-                  <mssgle:LineSegment
-                    End="-21.4999999999999,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-110.5690234375,29.4155844155844,199.638046875,12.1953125"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="144,42"
-          Id="Package\J_06_ELEMENTO\Update J_P06"
-          TopLeft="312.5,515.5" />
         <EdgeLayout
           Id="Package\J_06_ELEMENTO.Paths[Cambia]"
           TopLeft="384.5,455.5">
@@ -11284,11 +11226,141 @@ WHERE ID_ELEMENTO = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_06_ELEMENTO.Paths[Salida de origen de OLE DB]"
+          TopLeft="384.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_06_ELEMENTO.Paths[Salida de entradas no coincidentes de búsqueda1]"
+          TopLeft="363,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-232.5,60"
+              Start="0,0"
+              End="-232.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4155844155844" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4155844155844"
+                    Point2="0,24.4155844155844"
+                    Point3="-4,24.4155844155844" />
+                  <mssgle:LineSegment
+                    End="-228.5,24.4155844155844" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-228.5,24.4155844155844"
+                    Point2="-232.5,24.4155844155844"
+                    Point3="-232.5,28.4155844155844" />
+                  <mssgle:LineSegment
+                    End="-232.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-223.1390234375,29.4155844155844,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\J_06_ELEMENTO.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="363,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-228.5,60"
+              Start="0,0"
+              End="-228.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4155844155844" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4155844155844"
+                    Point2="0,24.4155844155844"
+                    Point3="-4,24.4155844155844" />
+                  <mssgle:LineSegment
+                    End="-224.5,24.4155844155844" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-224.5,24.4155844155844"
+                    Point2="-228.5,24.4155844155844"
+                    Point3="-228.5,28.4155844155844" />
+                  <mssgle:LineSegment
+                    End="-228.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-221.1390234375,29.4155844155844,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\J_06_ELEMENTO\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\J_06_ELEMENTO\Existe J_05?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[J_P05_CALIFICACION]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\J_06_ELEMENTO\J_P06_ELEMENTO">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -11311,43 +11383,7 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\J_06_ELEMENTO\J_P06_ELEMENTO">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\J_06_ELEMENTO\Existe J_05?">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[J_P05_CALIFICACION]</Value>
+          type="q3:string">[J_P06_ELEMENTO]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
