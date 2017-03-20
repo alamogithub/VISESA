@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{BD790AC5-8D85-466B-849F-932DB1CE941F}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{8553F250-252E-4B44-ADCF-CEE09711D738}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -105,7 +105,7 @@ where [refTable].[ID_MUNICIPIO] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_MUNICIPIO" dataType="DT_WSTR" length="13" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPCION" dataType="DT_WSTR" length="35" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_PROVINCIA" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_MUNICIPIO" dataType="DT_WSTR" length="13" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESC_MUNICIPIO" dataType="DT_WSTR" length="35" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_PROVINCIA" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -174,7 +174,7 @@ where [refTable].[ID_MUNICIPIO] = ?</property>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
-                          name="CopyFromReferenceColumn">DESCRIPCION</property>
+                          name="CopyFromReferenceColumn">DESC_MUNICIPIO</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -285,13 +285,6 @@ where [refTable].[ID_MUNICIPIO] = ?</property>
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
-                      cachedDataType="wstr"
-                      cachedLength="35"
-                      cachedName="DESCRIPCION"
-                      externalMetadataColumnId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
-                    <inputColumn
                       refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].Columns[ID_PROVINCIA]"
                       cachedDataType="wstr"
                       cachedLength="10"
@@ -311,6 +304,13 @@ where [refTable].[ID_MUNICIPIO] = ?</property>
                       cachedName="ID_MUNICIPIO"
                       externalMetadataColumnId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_MUNICIPIO]"
                       lineageId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada].Columns[ID_MUNICIPIO]" />
+                    <inputColumn
+                      refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="DESCRIPCION"
+                      externalMetadataColumnId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_MUNICIPIO]"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -320,11 +320,6 @@ where [refTable].[ID_MUNICIPIO] = ?</property>
                       length="10"
                       name="ID_PROVINCIA" />
                     <externalMetadataColumn
-                      refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      dataType="wstr"
-                      length="35"
-                      name="DESCRIPCION" />
-                    <externalMetadataColumn
                       refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       dataType="dbTimeStamp"
                       name="F_MODIFICACION" />
@@ -333,6 +328,11 @@ where [refTable].[ID_MUNICIPIO] = ?</property>
                       dataType="wstr"
                       length="13"
                       name="ID_MUNICIPIO" />
+                    <externalMetadataColumn
+                      refId="Package\Municipio\J_T03_MUNICIPIO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_MUNICIPIO]"
+                      dataType="wstr"
+                      length="35"
+                      name="DESC_MUNICIPIO" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -629,7 +629,7 @@ where [refTable].[ID_MUNICIPIO] = ?</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.J_T03_MUNICIPIO
  SET 
-DESCRIPCION=? 
+DESC_MUNICIPIO=? 
 ,F_MODIFICACION=?
 WHERE ID_MUNICIPIO = ?</property>
                 <property
@@ -999,7 +999,7 @@ where [refTable].[ID_PAIS] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_PAIS" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRIPCION" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_PAIS" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESC_PAIS" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -1068,7 +1068,7 @@ where [refTable].[ID_PAIS] = ?</property>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
-                          name="CopyFromReferenceColumn">DESCRIPCION</property>
+                          name="CopyFromReferenceColumn">DESC_PAIS</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1186,18 +1186,18 @@ where [refTable].[ID_PAIS] = ?</property>
                       externalMetadataColumnId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PAIS]"
                       lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]" />
                     <inputColumn
-                      refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="DESCRIPCION"
-                      externalMetadataColumnId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
-                    <inputColumn
                       refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].Columns[F_MODIFICACION]"
                       cachedDataType="date"
                       cachedName="F_MODIFICACION"
                       externalMetadataColumnId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       lineageId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                    <inputColumn
+                      refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DESCRIPCION"
+                      externalMetadataColumnId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_PAIS]"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1207,14 +1207,14 @@ where [refTable].[ID_PAIS] = ?</property>
                       length="10"
                       name="ID_PAIS" />
                     <externalMetadataColumn
-                      refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      dataType="wstr"
-                      length="50"
-                      name="DESCRIPCION" />
-                    <externalMetadataColumn
                       refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       dataType="dbTimeStamp"
                       name="F_MODIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\J_T01_PAIS.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_PAIS]"
+                      dataType="wstr"
+                      length="50"
+                      name="DESC_PAIS" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1482,7 +1482,7 @@ where [refTable].[ID_PAIS] = ?</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.J_T01_PAIS
  SET 
-DESCRIPCION=? 
+DESC_PAIS=? 
 ,F_MODIFICACION=?
 WHERE ID_PAIS = ?</property>
                 <property
@@ -2027,13 +2027,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
                       externalMetadataColumnId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROVINCIA]"
                       lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]" />
                     <inputColumn
-                      refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="DESCRIPCION"
-                      externalMetadataColumnId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
-                    <inputColumn
                       refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].Columns[ID_PAIS]"
                       cachedDataType="wstr"
                       cachedLength="20"
@@ -2046,6 +2039,13 @@ where [refTable].[ID_PROVINCIA] = ?</property>
                       cachedName="F_MODIFICACION"
                       externalMetadataColumnId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       lineageId="Package\Provincia\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                    <inputColumn
+                      refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DESCRIPCION"
+                      externalMetadataColumnId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_PROVINCIA]"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2055,11 +2055,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
                       length="10"
                       name="ID_PROVINCIA" />
                     <externalMetadataColumn
-                      refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
-                      dataType="wstr"
-                      length="50"
-                      name="DESCRIPCION" />
-                    <externalMetadataColumn
                       refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PAIS]"
                       dataType="wstr"
                       length="20"
@@ -2068,6 +2063,11 @@ where [refTable].[ID_PROVINCIA] = ?</property>
                       refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
                       dataType="dbTimeStamp"
                       name="F_MODIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\Provincia\J_T02_PROVINCIA.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_PROVINCIA]"
+                      dataType="wstr"
+                      length="50"
+                      name="DESC_PROVINCIA" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2545,13 +2545,29 @@ where [refTable].[ID_PROVINCIA] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="168,42"
-          Id="Package\Municipio\VISESA$Municipios"
-          TopLeft="256,5.5" />
+          Size="160,42"
+          Id="Package\Municipio\Update Municipio"
+          TopLeft="260,413.5" />
         <NodeLayout
           Size="349,42"
           Id="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO"
           TopLeft="165.5,107.5" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Municipio\J_T03_MUNICIPIO"
+          TopLeft="5.50000000000003,311.5" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Municipio\VISESA$Municipios"
+          TopLeft="256,5.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Municipio\Existe municipio?"
+          TopLeft="277.5,209.5" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Municipio\Mirar si ha cambiado la desc"
+          TopLeft="233.5,311.5" />
         <EdgeLayout
           Id="Package\Municipio.Paths[Salida de origen de OLE DB]"
           TopLeft="340,47.5">
@@ -2574,48 +2590,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Municipio\Existe municipio?"
-          TopLeft="277.5,209.5" />
-        <EdgeLayout
-          Id="Package\Municipio.Paths[Salida de columna derivada]"
-          TopLeft="340,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17.5,60"
-              Start="0,0"
-              End="17.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="13.5,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.5,30"
-                    Point2="17.5,30"
-                    Point3="17.5,34" />
-                  <mssgle:LineSegment
-                    End="17.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="167,42"
-          Id="Package\Municipio\J_T03_MUNICIPIO"
-          TopLeft="5.50000000000003,311.5" />
         <EdgeLayout
           Id="Package\Municipio.Paths[Salida de entradas no coincidentes de búsqueda]"
           TopLeft="332.166666666667,251.5">
@@ -2652,10 +2626,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="213,42"
-          Id="Package\Municipio\Mirar si ha cambiado la desc"
-          TopLeft="233.5,311.5" />
         <EdgeLayout
           Id="Package\Municipio.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="382.833333333333,251.5">
@@ -2692,10 +2662,40 @@ where [refTable].[ID_PROVINCIA] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Municipio\Update Municipio"
-          TopLeft="260,413.5" />
+        <EdgeLayout
+          Id="Package\Municipio.Paths[Salida de columna derivada]"
+          TopLeft="340,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.5,60"
+              Start="0,0"
+              End="17.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="13.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,30"
+                    Point2="17.5,30"
+                    Point3="17.5,34" />
+                  <mssgle:LineSegment
+                    End="17.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Municipio.Paths[Cambia]"
           TopLeft="340,353.5">
@@ -2723,6 +2723,55 @@ where [refTable].[ID_PROVINCIA] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Municipio\J_T03_MUNICIPIO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Municipio\VISESA$Municipios">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Municipio\Existe municipio?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[J_T03_MUNICIPIO]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Pais">
     <LayoutInfo>
@@ -2745,13 +2794,13 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           Id="Package\Pais\VISESA$Country_Region"
           TopLeft="222.5,5.5" />
         <NodeLayout
-          Size="135,42"
-          Id="Package\Pais\J_T01_PAIS"
-          TopLeft="5.50000000000003,311.5" />
-        <NodeLayout
           Size="179,42"
           Id="Package\Pais\Existe Pais en BBDD?"
           TopLeft="257,209.5" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Pais\J_T01_PAIS"
+          TopLeft="5.50000000000003,311.5" />
         <EdgeLayout
           Id="Package\Pais.Paths[Salida de origen de OLE DB]"
           TopLeft="319.5,47.5">
@@ -2807,6 +2856,42 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-229.3890234375,29.3189368770764,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Pais.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="375,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-55.4999999999999,162"
+              Start="0,0"
+              End="-55.4999999999999,154.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.6611295681063" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.6611295681063"
+                    Point2="0,65.6611295681063"
+                    Point3="-4,65.6611295681063" />
+                  <mssgle:LineSegment
+                    End="-51.4999999999999,65.6611295681063" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-51.4999999999999,65.6611295681063"
+                    Point2="-55.4999999999999,65.6611295681063"
+                    Point3="-55.4999999999999,69.6611295681063" />
+                  <mssgle:LineSegment
+                    End="-55.4999999999999,154.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-127.5690234375,70.6611295681063,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2880,42 +2965,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Pais.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="375,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-55.4999999999999,162"
-              Start="0,0"
-              End="-55.4999999999999,154.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.6611295681063" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,61.6611295681063"
-                    Point2="0,65.6611295681063"
-                    Point3="-4,65.6611295681063" />
-                  <mssgle:LineSegment
-                    End="-51.4999999999999,65.6611295681063" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-51.4999999999999,65.6611295681063"
-                    Point2="-55.4999999999999,65.6611295681063"
-                    Point3="-55.4999999999999,69.6611295681063" />
-                  <mssgle:LineSegment
-                    End="-55.4999999999999,154.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-127.5690234375,70.6611295681063,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -2933,25 +2982,12 @@ where [refTable].[ID_PROVINCIA] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Pais\J_T01_PAIS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Pais\Existe Pais en BBDD?">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2968,6 +3004,19 @@ where [refTable].[ID_PROVINCIA] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Pais\J_T01_PAIS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Provincia">
     <LayoutInfo>
@@ -2977,6 +3026,14 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           Size="141,42"
           Id="Package\Provincia\VISESA$Area"
           TopLeft="207,51" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Provincia\J_T02_PROVINCIA"
+          TopLeft="180,345" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Provincia\Existe provicia?"
+          TopLeft="237,236" />
         <NodeLayout
           Size="235,42"
           Id="Package\Provincia\Quitar nulos y poner fecha actual"
@@ -3015,48 +3072,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="151,42"
-          Id="Package\Provincia\Existe provicia?"
-          TopLeft="237,236" />
-        <EdgeLayout
-          Id="Package\Provincia.Paths[Salida de columna derivada]"
-          TopLeft="324.5,195">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-12,41"
-              Start="0,0"
-              End="-12,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5"
-                    Point2="0,20.5"
-                    Point3="-4,20.5" />
-                  <mssgle:LineSegment
-                    End="-8,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-8,20.5"
-                    Point2="-12,20.5"
-                    Point3="-12,24.5" />
-                  <mssgle:LineSegment
-                    End="-12,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="167,42"
-          Id="Package\Provincia\J_T02_PROVINCIA"
-          TopLeft="180,345" />
         <EdgeLayout
           Id="Package\Provincia.Paths[Salida de entradas no coincidentes de búsqueda]"
           TopLeft="312.5,278">
@@ -3093,6 +3108,40 @@ where [refTable].[ID_PROVINCIA] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Provincia.Paths[Salida de columna derivada]"
+          TopLeft="324.5,195">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12,41"
+              Start="0,0"
+              End="-12,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-8,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8,20.5"
+                    Point2="-12,20.5"
+                    Point3="-12,24.5" />
+                  <mssgle:LineSegment
+                    End="-12,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -3110,29 +3159,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Provincia\Existe provicia?">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Provincia\J_T02_PROVINCIA">
     <Properties>
       <Property>
@@ -3146,51 +3172,25 @@ where [refTable].[ID_PROVINCIA] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Municipio\VISESA$Municipios">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Municipio\Existe municipio?">
+    design-time-name="Package\Provincia\Existe provicia?">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[J_T03_MUNICIPIO]</Value>
+          type="q3:string"></Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Municipio\J_T03_MUNICIPIO">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
