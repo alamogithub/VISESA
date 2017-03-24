@@ -1,0 +1,385 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="bfb3a33c-f884-46e2-8e33-b49bfb49d21f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>ZZ CUBO PRUEBA 1</ID>
+  <Name>ZZ CUBO PRUEBA 1</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="e128bf8c-a5c7-448c-9c17-228327519bca">
+    <DataSourceViewID>VISESABI</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="21f3bb2c-0186-4617-ba29-ccb44eb9abe1">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="69a03913-4725-4f03-baef-349dafbcc59e">
+      <ID>ID ELEMENTO</ID>
+      <Name>ID ELEMENTO</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6f3bad58-d7f2-436a-9a0f-cc7d6fc911d1">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="01c4a3b0-2ef0-4ff5-a4f7-d8e9038c50c7">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_ELEMENTO</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="4037ceb9-a03f-4844-91e3-7080d09b3be6">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2d20d560-af5a-42d6-9a84-9bc52182586f">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>Fecha_P1</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1f46bdfc-3d1f-4fca-b715-9cfecdec833b">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="fe17d7d9-4abd-4b99-87fb-0d45beb0223c">
+          <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+          <ColumnID>ID_ELEMENTO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="c9ac0b8b-c8dc-40c9-aadd-60e4cbb76305">
+          <AttributeID>Fecha Corta</AttributeID>
+          <Name>Fecha Corta</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6aab820c-6ee6-4743-850f-765fec42b7d9">
+          <AttributeID>ZZ CUBO PRUEBA - ID ELEMENTO</AttributeID>
+          <Name>ZZ CUBO PRUEBA - ID ELEMENTO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="da0e8df4-fd6c-4ae6-98e5-afa6b6d2dee0">
+          <AttributeID>ID REGIMEN ACCESO Y USO</AttributeID>
+          <Name>ID REGIMEN ACCESO Y USO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d36bb386-3592-4bdd-b8f4-6c75d5c72ed3">
+          <AttributeID>ID REGIMEN TENENCIA</AttributeID>
+          <Name>ID REGIMEN TENENCIA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="dda88d9d-c039-46c3-a69e-c985ffd00997">
+          <AttributeID>ID TIPO VIVIENDA</AttributeID>
+          <Name>ID TIPO VIVIENDA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="01df7ffc-ef8e-4c27-a976-2bfacc2a949d">
+          <AttributeID>ID MODIF CALIF</AttributeID>
+          <Name>ID MODIF CALIF</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3a34a748-33e1-4761-8155-583cabc48135">
+          <AttributeID>ID OK TECNICO</AttributeID>
+          <Name>ID OK TECNICO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b3480b95-50db-4ad7-a277-5d1ce6f5fe65">
+          <AttributeID>ID TIPO ELEMENTO</AttributeID>
+          <Name>ID TIPO ELEMENTO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b4e702ea-2d94-4c07-beb5-f3ba75bd258f">
+          <AttributeID>ID TIPO VENTA</AttributeID>
+          <Name>ID TIPO VENTA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fe4f28e6-8930-4195-9726-3857ef5dade8">
+          <AttributeID>ID ESTADO ESPECIAL</AttributeID>
+          <Name>ID ESTADO ESPECIAL</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9a4b26e9-d768-490e-a537-806414aa32d2">
+          <AttributeID>ID TIPO PRECIO</AttributeID>
+          <Name>ID TIPO PRECIO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="49325179-d275-4dec-8db7-90ad17972781">
+          <AttributeID>ID TIPO ANTICIPO</AttributeID>
+          <Name>ID TIPO ANTICIPO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b3a5c570-1db4-4cb3-a8da-e7a994361f21">
+          <AttributeID>ID TIPO RENTA</AttributeID>
+          <Name>ID TIPO RENTA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="82d7052b-ae57-4637-89d4-4a7b0bcf251f">
+          <AttributeID>ID TIPO CONTRAPRESTACION</AttributeID>
+          <Name>ID TIPO CONTRAPRESTACION</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="38cae4b1-3c8d-4dd3-887a-3fe9db1053c3">
+      <ID>Fecha Corta</ID>
+      <Name>Fecha Corta</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d113c7bd-f3c8-40c3-8ef1-fccd5544152d">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e0cc6a27-0188-4cfa-8258-1d900fe532a0">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>Fecha_Corta</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="93fd1140-069f-46c0-9104-ed54f8b90132">
+      <ID>ZZ CUBO PRUEBA - ID ELEMENTO</ID>
+      <Name>ZZ CUBO PRUEBA - ID ELEMENTO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="266d61ec-f107-4dab-b233-4de5dee506ab">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7be01303-52ed-48ff-b27b-0b9651cbcbac">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_ELEMENTO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d97c964f-711d-429d-bd2f-c84a1a5a4054">
+      <ID>ID REGIMEN ACCESO Y USO</ID>
+      <Name>ID REGIMEN ACCESO Y USO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3c7cf276-06e8-40c8-b4e4-c4cd62e63f72">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2e487483-4e33-43ad-bea1-ec3f52103e5b">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_REGIMEN_ACCESO_Y_USO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="328683e1-aa34-4c15-ba77-b638f9135071">
+      <ID>ID REGIMEN TENENCIA</ID>
+      <Name>ID REGIMEN TENENCIA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2bf040b9-6f78-42e4-ae5e-f97eaba4e0d7">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="59f601b4-ed6a-46cf-adce-e8d84ff874fb">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_REGIMEN_TENENCIA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7ea98472-eda2-438f-b637-75a16bcb06a7">
+      <ID>ID TIPO VIVIENDA</ID>
+      <Name>ID TIPO VIVIENDA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fe3ae776-bd80-49c8-9c7d-5854d762986d">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="944af9d5-b18d-48fc-8889-79b9525e86db">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_TIPO_VIVIENDA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="24bfe290-9134-4d79-872c-3d36c84eded7">
+      <ID>ID MODIF CALIF</ID>
+      <Name>ID MODIF CALIF</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="80d067a2-729f-44e6-943b-df65221149af">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="814291b5-7d90-41a9-94e9-df41e6d595e5">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_MODIF_CALIF</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b17cf057-ad81-4de3-b0e3-06bf16abe824">
+      <ID>ID OK TECNICO</ID>
+      <Name>ID OK TECNICO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d98d9430-c5e2-4aca-9500-d70bbf6dd97e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="77eb4281-799c-4955-a264-604e999b0a06">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_OK_TECNICO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="95804425-6b74-4def-8e2d-b929b3522320">
+      <ID>ID TIPO ELEMENTO</ID>
+      <Name>ID TIPO ELEMENTO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b28cb6cb-5668-49fa-9102-c1c3ef192ab0">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9f9cce5d-c59e-46bc-83d2-171bdd19ea3e">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_TIPO_ELEMENTO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7a34ef7c-5771-406c-a501-c1d2d2acb500">
+      <ID>ID TIPO VENTA</ID>
+      <Name>ID TIPO VENTA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1ce2878e-cf2d-433d-bd7e-bf736bc3e727">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2186c3b0-4904-4d3a-ae1a-62387c68b62b">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_TIPO_VENTA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="eec22424-3d5e-4fdc-9d40-bda1a08a4238">
+      <ID>ID ESTADO ESPECIAL</ID>
+      <Name>ID ESTADO ESPECIAL</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f548c07b-6994-4ab9-97e5-770947b3b53c">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b33bec79-34f9-4a68-a80f-2e09143afba7">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_ESTADO_ESPECIAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c870e1f9-79c7-4dd2-8ffd-664d6c8b17e9">
+      <ID>ID TIPO PRECIO</ID>
+      <Name>ID TIPO PRECIO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bf4c0f63-b0a2-4bee-b518-a1315f24e2fe">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4d104b1c-186a-4939-8e9c-4069f50b0773">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_TIPO_PRECIO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3d8a3ed3-366f-4b0a-967d-1481af7a51d0">
+      <ID>ID TIPO ANTICIPO</ID>
+      <Name>ID TIPO ANTICIPO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a05a1988-57d4-4397-9e37-ce029328ae2b">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d0e77981-8942-46ba-ba93-ef2d8339aaa9">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_TIPO_ANTICIPO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3230b754-287a-4c6a-9b18-ecc5ef6a4f29">
+      <ID>ID TIPO RENTA</ID>
+      <Name>ID TIPO RENTA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2b8c74ef-3055-44b4-99d5-0894469448b4">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="55d3f24f-e4e1-4b52-b318-4f4be22a14e3">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_TIPO_RENTA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5d278ac0-07a9-4625-bfdc-f9c601c8a46d">
+      <ID>ID TIPO CONTRAPRESTACION</ID>
+      <Name>ID TIPO CONTRAPRESTACION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="36b64b2f-dc49-4ce0-bd1b-e1103d92fca8">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7ab07019-6537-43d3-8a1e-acb89359051e">
+            <TableID>dbo_ZZ_CUBO_PRUEBA</TableID>
+            <ColumnID>ID_TIPO_CONTRAPRESTACION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
