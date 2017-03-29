@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{B3456C0A-2D33-48BB-837D-82EA28757496}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{5B93610C-E1AA-46FF-B57F-D718F50EAC3A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3579,6 +3579,81 @@ WHERE ID_FASE = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Cambiar la desc a &quot;No disponible&quot;1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1.Inputs[Entrada de columna derivada].Columns[Search Description]"
+                      cachedDataType="wstr"
+                      cachedLength="125"
+                      cachedName="Search Description"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\J_04_PROMOCION\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">"No disponible"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"No disponible"</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1.Inputs[Entrada de columna derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\J_04_PROMOCION\Coger las promociones"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
@@ -3661,6 +3736,285 @@ WHERE ID_FASE = ?</property>
                       refId="Package\J_04_PROMOCION\Coger las promociones.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\J_04_PROMOCION\Coger las promociones.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\J_04_PROMOCION\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[J_P01_PROYECTO]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\J_04_PROMOCION\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\J_04_PROMOCION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\J_04_PROMOCION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F_MODIFICACION]"
+                      cachedDataType="date"
+                      cachedName="F_MODIFICACION"
+                      externalMetadataColumnId="Package\J_04_PROMOCION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
+                      lineageId="Package\J_04_PROMOCION\Quitar nulos y poner la fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                    <inputColumn
+                      refId="Package\J_04_PROMOCION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ID_PROYECTO]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="ID_PROYECTO"
+                      externalMetadataColumnId="Package\J_04_PROMOCION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROYECTO]"
+                      lineageId="Package\J_04_PROMOCION\Poner el ID_FASE y PROMOCION_CORTO, y además ID_UNIDAD_EJECUCION, y comprobar si existen.Outputs[Salida de columna derivada].Columns[ID_PROYECTO]" />
+                    <inputColumn
+                      refId="Package\J_04_PROMOCION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Search Description]"
+                      cachedDataType="wstr"
+                      cachedLength="125"
+                      cachedName="Search Description"
+                      externalMetadataColumnId="Package\J_04_PROMOCION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_PROYECTO]"
+                      lineageId="Package\J_04_PROMOCION\VISESA$JOB.Outputs[Salida de origen de OLE DB].Columns[Search Description]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\J_04_PROMOCION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PROYECTO]"
+                      dataType="wstr"
+                      length="3"
+                      name="ID_PROYECTO" />
+                    <externalMetadataColumn
+                      refId="Package\J_04_PROMOCION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_PROYECTO]"
+                      dataType="wstr"
+                      length="100"
+                      name="DESC_PROYECTO" />
+                    <externalMetadataColumn
+                      refId="Package\J_04_PROMOCION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      name="F_MODIFICACION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\J_04_PROMOCION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\J_04_PROMOCION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\J_04_PROMOCION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\J_04_PROMOCION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\J_04_PROMOCION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\J_04_PROMOCION\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\J_04_PROMOCION\Existe J_01?"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Existe J_01?"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[J_P01_PROYECTO]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[J_P01_PROYECTO]) [refTable]
+where [refTable].[ID_PROYECTO] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_PROYECTO" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESC_PROYECTO" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\J_04_PROMOCION\Poner el ID_FASE y PROMOCION_CORTO, y además ID_UNIDAD_EJECUCION, y comprobar si existen.Outputs[Salida de columna derivada].Columns[ID_PROYECTO]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\J_04_PROMOCION\Existe J_01?.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\J_04_PROMOCION\Existe J_01?.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\J_04_PROMOCION\Existe J_01?.Inputs[Entrada de búsqueda].Columns[ID_PROYECTO]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="ID_PROYECTO"
+                      lineageId="Package\J_04_PROMOCION\Poner el ID_FASE y PROMOCION_CORTO, y además ID_UNIDAD_EJECUCION, y comprobar si existen.Outputs[Salida de columna derivada].Columns[ID_PROYECTO]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">ID_PROYECTO</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\J_04_PROMOCION\Existe J_01?.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\J_04_PROMOCION\Existe J_01?.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\J_04_PROMOCION\Existe J_01?.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\J_04_PROMOCION\Existe J_01?.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\J_04_PROMOCION\Existe J_01?.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\J_04_PROMOCION\Existe J_01?.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\J_04_PROMOCION\Existe J_01?.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\J_04_PROMOCION\Existe J_01?.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\J_04_PROMOCION\Existe J_01?.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\J_04_PROMOCION\Existe J_01?.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -4691,6 +5045,14 @@ where [refTable].[ID_PROMOCION] = ?</property>
                   refId="Package\J_04_PROMOCION\Multidifusión.Outputs[Salida de multidifusión 3]"
                   deleteOutputOnPathDetached="true"
                   name="Salida de multidifusión 3"
+                  synchronousInputId="Package\J_04_PROMOCION\Multidifusión.Inputs[Entrada de Multidifusión 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\J_04_PROMOCION\Multidifusión.Outputs[Salida de multidifusión 5]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Salida de multidifusión 5"
                   synchronousInputId="Package\J_04_PROMOCION\Multidifusión.Inputs[Entrada de Multidifusión 1]">
                   <externalMetadataColumns />
                 </output>
@@ -6227,6 +6589,21 @@ WHERE ID_PROMOCION = ?</property>
               name="Promocion"
               startId="Package\J_04_PROMOCION\Coger las promociones.Outputs[Promocion]" />
             <path
+              refId="Package\J_04_PROMOCION.Paths[Salida de columna derivada3]"
+              endId="Package\J_04_PROMOCION\J_P03_FASE.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\J_04_PROMOCION.Paths[Salida de columna derivada2]"
+              endId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\J_04_PROMOCION.Paths[Salida de columna derivada4]"
+              endId="Package\J_04_PROMOCION\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1.Outputs[Salida de columna derivada]" />
+            <path
               refId="Package\J_04_PROMOCION.Paths[Salida de columna derivada]"
               endId="Package\J_04_PROMOCION\Coger las promociones.Inputs[Entrada de división condicional]"
               name="Salida de columna derivada"
@@ -6236,16 +6613,6 @@ WHERE ID_PROMOCION = ?</property>
               endId="Package\J_04_PROMOCION\Multidifusión.Inputs[Entrada de Multidifusión 1]"
               name="Salida de columna derivada"
               startId="Package\J_04_PROMOCION\Poner el ID_FASE y PROMOCION_CORTO, y además ID_UNIDAD_EJECUCION, y comprobar si existen.Outputs[Salida de columna derivada]" />
-            <path
-              refId="Package\J_04_PROMOCION.Paths[Salida de columna derivada2]"
-              endId="Package\J_04_PROMOCION\J_P02_UNIDAD_EJECUCION.Inputs[Entrada de destino de OLE DB]"
-              name="Salida de columna derivada"
-              startId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1.Outputs[Salida de columna derivada]" />
-            <path
-              refId="Package\J_04_PROMOCION.Paths[Salida de columna derivada3]"
-              endId="Package\J_04_PROMOCION\J_P03_FASE.Inputs[Entrada de destino de OLE DB]"
-              name="Salida de columna derivada"
-              startId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\J_04_PROMOCION.Paths[Salida de entradas coincidentes de búsqueda]"
               endId="Package\J_04_PROMOCION\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional]"
@@ -6257,15 +6624,20 @@ WHERE ID_PROMOCION = ?</property>
               name="Salida de entradas no coincidentes de búsqueda"
               startId="Package\J_04_PROMOCION\Existe J_04?.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
-              refId="Package\J_04_PROMOCION.Paths[Salida de entradas no coincidentes de búsqueda1]"
-              endId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1.Inputs[Entrada de columna derivada]"
+              refId="Package\J_04_PROMOCION.Paths[Salida de entradas no coincidentes de búsqueda3]"
+              endId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1.Inputs[Entrada de columna derivada]"
               name="Salida de entradas no coincidentes de búsqueda"
-              startId="Package\J_04_PROMOCION\Existe J_02?.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+              startId="Package\J_04_PROMOCION\Existe J_01?.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
               refId="Package\J_04_PROMOCION.Paths[Salida de entradas no coincidentes de búsqueda2]"
               endId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;.Inputs[Entrada de columna derivada]"
               name="Salida de entradas no coincidentes de búsqueda"
               startId="Package\J_04_PROMOCION\Existe J_03?.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+            <path
+              refId="Package\J_04_PROMOCION.Paths[Salida de entradas no coincidentes de búsqueda1]"
+              endId="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1.Inputs[Entrada de columna derivada]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\J_04_PROMOCION\Existe J_02?.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
               refId="Package\J_04_PROMOCION.Paths[Salida de Multidifusión 1]"
               endId="Package\J_04_PROMOCION\Existe J_04?.Inputs[Entrada de búsqueda]"
@@ -6281,6 +6653,11 @@ WHERE ID_PROMOCION = ?</property>
               endId="Package\J_04_PROMOCION\Existe J_02?.Inputs[Entrada de búsqueda]"
               name="Salida de multidifusión 2"
               startId="Package\J_04_PROMOCION\Multidifusión.Outputs[Salida de multidifusión 2]" />
+            <path
+              refId="Package\J_04_PROMOCION.Paths[Salida de multidifusión 3]"
+              endId="Package\J_04_PROMOCION\Existe J_01?.Inputs[Entrada de búsqueda]"
+              name="Salida de multidifusión 3"
+              startId="Package\J_04_PROMOCION\Multidifusión.Outputs[Salida de multidifusión 3]" />
             <path
               refId="Package\J_04_PROMOCION.Paths[Salida de origen de OLE DB]"
               endId="Package\J_04_PROMOCION\Quitar nulos y poner la fecha actual.Inputs[Entrada de columna derivada]"
@@ -10087,7 +10464,7 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10097,7 +10474,7 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10110,7 +10487,7 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10172,7 +10549,7 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10182,7 +10559,7 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10193,7 +10570,7 @@ WHERE ID_ELEMENTO = ?</property>
     design-time-name="Package\J_04_PROMOCION">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="247,42"
           Id="Package\J_04_PROMOCION\Quitar nulos y poner la fecha actual"
@@ -10682,6 +11059,122 @@ WHERE ID_ELEMENTO = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="137,42"
+          Id="Package\J_04_PROMOCION\Existe J_01?"
+          TopLeft="872,486" />
+        <EdgeLayout
+          Id="Package\J_04_PROMOCION.Paths[Salida de multidifusión 3]"
+          TopLeft="638.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="302,30.5"
+              Start="0,0"
+              End="302,23">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,5.24242424242424" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,5.24242424242424"
+                    Point2="0,9.24242424242424"
+                    Point3="4,9.24242424242424" />
+                  <mssgle:LineSegment
+                    End="298,9.24242424242424" />
+                  <mssgle:CubicBezierSegment
+                    Point1="298,9.24242424242424"
+                    Point2="302,9.24242424242424"
+                    Point3="302,13.2424242424242" />
+                  <mssgle:LineSegment
+                    End="302,23" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="244,42"
+          Id="Package\J_04_PROMOCION\Cambiar la desc a &quot;No disponible&quot;1 1"
+          TopLeft="939.5,582.5" />
+        <EdgeLayout
+          Id="Package\J_04_PROMOCION.Paths[Salida de entradas no coincidentes de búsqueda3]"
+          TopLeft="940.5,528">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121,54.5"
+              Start="0,0"
+              End="121,47">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.25"
+                    Point2="0,27.25"
+                    Point3="4,27.25" />
+                  <mssgle:LineSegment
+                    End="117,27.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117,27.25"
+                    Point2="121,27.25"
+                    Point3="121,31.25" />
+                  <mssgle:LineSegment
+                    End="121,47" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-46.3890234375,32.25,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\J_04_PROMOCION\Destino de OLE DB"
+          TopLeft="1066,718" />
+        <EdgeLayout
+          Id="Package\J_04_PROMOCION.Paths[Salida de columna derivada4]"
+          TopLeft="1061.5,624.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="88.5,93.5"
+              Start="0,0"
+              End="88.5,86">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.75"
+                    Point2="0,46.75"
+                    Point3="4,46.75" />
+                  <mssgle:LineSegment
+                    End="84.5,46.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="84.5,46.75"
+                    Point2="88.5,46.75"
+                    Point3="88.5,50.75" />
+                  <mssgle:LineSegment
+                    End="88.5,86" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -10730,7 +11223,7 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10740,7 +11233,7 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10803,7 +11296,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10969,7 +11464,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11054,7 +11551,7 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -11064,7 +11561,7 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -11199,7 +11696,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11245,7 +11744,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11378,7 +11879,7 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -11388,10 +11889,46 @@ WHERE ID_ELEMENTO = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\J_04_PROMOCION\Existe J_01?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[J_P01_PROYECTO]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
           type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\J_04_PROMOCION\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

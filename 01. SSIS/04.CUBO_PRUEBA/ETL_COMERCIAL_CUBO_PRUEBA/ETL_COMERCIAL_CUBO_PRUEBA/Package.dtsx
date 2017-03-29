@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{117EAF6F-67F9-473A-9437-5F77F0A69111}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{03D61B18-62DC-431B-9945-13B6CE3EC64A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -440,6 +440,289 @@ where [refTable].[DESC_MUNICIPIO] = ?</property>
                       refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada].Columns[F_EJECUCION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="F_EJECUCION"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Derived Column 4]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Derived Column 4]"
+                      name="Derived Column 4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">F_EJECUCION</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Derived Column 1]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Derived Column 1]"
+                      name="Derived Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[GETUTCDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETUTCDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Derived Column 2]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Derived Column 2]"
+                      name="Derived Column 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Derived Column 3]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Derived Column 3]"
+                      name="Derived Column 3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[DAY]([GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DAY(GETDATE())</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Derived Column 5]"
+                      dataType="date"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada].Columns[Derived Column 5]"
+                      name="Derived Column 5"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[System::StartTime]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[F_EJECUCION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="F_EJECUCION"
+                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of F_EJECUCION]"
+                      dataType="dbTimeStampOffset"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of F_EJECUCION]"
+                      name="Copy of F_EJECUCION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy (2) of F_EJECUCION]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy (2) of F_EJECUCION]"
+                      name="Copy (2) of F_EJECUCION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy (3) of F_EJECUCION]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy (3) of F_EJECUCION]"
+                      name="Copy (3) of F_EJECUCION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2035,18 +2318,18 @@ where [refTable].[DESC_MUNICIPIO] = ?</property>
                       externalMetadataColumnId="Package\Tarea Flujo de datos\ZZ_CUBO_PRUEBA.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_TIPO_CONTRAPRESTACION]"
                       lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ID_TIPO_CONTRAPRESTACION]" />
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos\ZZ_CUBO_PRUEBA.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="F_EJECUCION"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos\ZZ_CUBO_PRUEBA.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
-                      lineageId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]" />
-                    <inputColumn
                       refId="Package\Tarea Flujo de datos\ZZ_CUBO_PRUEBA.Inputs[Entrada de destino de OLE DB].Columns[ID_MUNICIPIO]"
                       cachedDataType="wstr"
                       cachedLength="13"
                       cachedName="ID_MUNICIPIO"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\ZZ_CUBO_PRUEBA.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_MUNICIPIO]"
                       lineageId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_MUNICIPIO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\ZZ_CUBO_PRUEBA.Inputs[Entrada de destino de OLE DB].Columns[Copy (3) of F_EJECUCION]"
+                      cachedDataType="dbDate"
+                      cachedName="Copy (3) of F_EJECUCION"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\ZZ_CUBO_PRUEBA.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy (3) of F_EJECUCION]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2199,6 +2482,16 @@ where [refTable].[DESC_MUNICIPIO] = ?</property>
           </components>
           <paths>
             <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+              endId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de columna derivada"
+              startId="Package\Tarea Flujo de datos\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+              endId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda]"
+              name="Salida de conversión de datos"
+              startId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda]"
               endId="Package\Tarea Flujo de datos\ZZ_CUBO_PRUEBA.Inputs[Entrada de destino de OLE DB]"
               name="Salida de entradas coincidentes de búsqueda"
@@ -2210,7 +2503,7 @@ where [refTable].[DESC_MUNICIPIO] = ?</property>
               startId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
-              endId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda]"
+              endId="Package\Tarea Flujo de datos\Columna derivada.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
               startId="Package\Tarea Flujo de datos\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
           </paths>
@@ -2241,7 +2534,23 @@ where [refTable].[DESC_MUNICIPIO] = ?</property>
     design-time-name="Package\Tarea Flujo de datos">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Tarea Flujo de datos\Conversión de datos"
+          TopLeft="347,145" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Tarea Flujo de datos\Destino de archivo plano"
+          TopLeft="461,261" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Tarea Flujo de datos\Columna derivada"
+          TopLeft="366,87" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Tarea Flujo de datos\ZZ_CUBO_PRUEBA"
+          TopLeft="42,350" />
         <NodeLayout
           Size="164,42"
           Id="Package\Tarea Flujo de datos\Origen de OLE DB"
@@ -2249,33 +2558,33 @@ where [refTable].[DESC_MUNICIPIO] = ?</property>
         <NodeLayout
           Size="125,42"
           Id="Package\Tarea Flujo de datos\Búsqueda"
-          TopLeft="262,112" />
+          TopLeft="162,192" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
           TopLeft="255,64">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="69.5,48"
+              EndConnector="193,23"
               Start="0,0"
-              End="69.5,40.5">
+              End="193,15.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20" />
+                    End="0,7.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="4,24" />
+                    Point1="0,7.5"
+                    Point2="0,11.5"
+                    Point3="4,11.5" />
                   <mssgle:LineSegment
-                    End="65.5,24" />
+                    End="189,11.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="65.5,24"
-                    Point2="69.5,24"
-                    Point3="69.5,28" />
+                    Point1="189,11.5"
+                    Point2="193,11.5"
+                    Point3="193,15.5" />
                   <mssgle:LineSegment
-                    End="69.5,40.5" />
+                    End="193,15.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2284,77 +2593,162 @@ where [refTable].[DESC_MUNICIPIO] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Tarea Flujo de datos\ZZ_CUBO_PRUEBA"
-          TopLeft="238,268" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="323.25,154">
+          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="244,234">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,114"
+              EndConnector="314,27"
               Start="0,0"
-              End="0,106.5">
+              End="314,19.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,106.5" />
+                    End="0,7.00473933649289" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.00473933649289"
+                    Point2="0,11.0047393364929"
+                    Point3="4,11.0047393364929" />
+                  <mssgle:LineSegment
+                    End="310,11.0047393364929" />
+                  <mssgle:CubicBezierSegment
+                    Point1="310,11.0047393364929"
+                    Point2="314,11.0047393364929"
+                    Point3="314,15.0047393364929" />
+                  <mssgle:LineSegment
+                    End="314,19.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-108.50701171875,45.25,217.0140234375,16"
+              BoundingBox="50.1109765625,16.0047393364929,213.778046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="194,42"
-          Id="Package\Tarea Flujo de datos\Destino de archivo plano"
-          TopLeft="441,218" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas no coincidentes de búsqueda]"
-          TopLeft="344,154">
+          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="205,234">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="194,64"
+              EndConnector="-79,116"
               Start="0,0"
-              End="194,56.5">
+              End="-79,108.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.085308056872" />
+                    End="0,43.2796208530806" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.085308056872"
-                    Point2="0,26.085308056872"
-                    Point3="4,26.085308056872" />
+                    Point1="0,43.2796208530806"
+                    Point2="0,47.2796208530806"
+                    Point3="-4,47.2796208530806" />
                   <mssgle:LineSegment
-                    End="190,26.085308056872" />
+                    End="-75,47.2796208530806" />
                   <mssgle:CubicBezierSegment
-                    Point1="190,26.085308056872"
-                    Point2="194,26.085308056872"
-                    Point3="194,30.085308056872" />
+                    Point1="-75,47.2796208530806"
+                    Point2="-79,47.2796208530806"
+                    Point3="-79,51.2796208530806" />
                   <mssgle:LineSegment
-                    End="194,56.5" />
+                    End="-79,108.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-9.8890234375,31.085308056872,213.778046875,12.1953125"
+              BoundingBox="-139.3190234375,52.2796208530806,199.638046875,12.1953125"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+          TopLeft="347,166">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-60,41.3333333333333"
+              Start="0,0"
+              End="-52.5,41.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-30.6788990825688,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.6788990825688,0"
+                    Point2="-34.6788990825688,0"
+                    Point3="-34.6788990825688,4" />
+                  <mssgle:LineSegment
+                    End="-34.6788990825688,37.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.6788990825688,37.3333333333333"
+                    Point2="-34.6788990825688,41.3333333333333"
+                    Point3="-38.6788990825688,41.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-52.5,41.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+          TopLeft="530,108">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,58"
+              Start="0,0"
+              End="-0.5,58">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,54" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,54"
+                    Point2="22.5,58"
+                    Point3="18.5,58" />
+                  <mssgle:LineSegment
+                    End="-0.5,58" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\ZZ_CUBO_PRUEBA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tarea Flujo de datos\Origen de OLE DB">
     <Properties>
@@ -2374,7 +2768,7 @@ where [refTable].[DESC_MUNICIPIO] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2384,23 +2778,10 @@ where [refTable].[DESC_MUNICIPIO] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\ZZ_CUBO_PRUEBA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
