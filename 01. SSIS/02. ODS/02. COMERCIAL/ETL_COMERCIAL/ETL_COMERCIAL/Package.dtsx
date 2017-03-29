@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{2BCF4252-619C-42EC-A699-5957549C967D}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{92F7190E-F2CC-4764-8A00-484E80D55B2A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2871,13 +2871,13 @@ where [refTable].[DESC_ESTADO] = ?</property>
                   description="Especifica la instrucción SQL que genera la tabla de búsqueda."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[J_T03_MUNICIPIO_PARSEO]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[J_T03_MUNICIPIO_MAPEO]</property>
                 <property
                   dataType="System.String"
                   description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[J_T03_MUNICIPIO_PARSEO]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[J_T03_MUNICIPIO_MAPEO]) [refTable]
 where [refTable].[DESC_MUNICIPIO] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -8047,68 +8047,102 @@ where [refTable].[No_] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="306,42"
-          Id="Package\ETL_Comercial\Existe el municipio? y se pone el ID_MUNICIPIO"
-          TopLeft="260,515.5" />
-        <NodeLayout
-          Size="172,42"
-          Id="Package\ETL_Comercial\Se tratan las fechas"
-          TopLeft="236,923.5" />
-        <NodeLayout
-          Size="209,42"
-          Id="Package\ETL_Comercial\H_COMERCIAL_ACTIVIDAD"
-          TopLeft="238.5,1025.5" />
+          Size="205,42"
+          Id="Package\ETL_Comercial\Destino de archivo plano 1"
+          TopLeft="71.0000000000001,413.5" />
         <NodeLayout
           Size="278,42"
           Id="Package\ETL_Comercial\Existe el estado? y se pone el ID_ESTADO"
-          TopLeft="496,311.5" />
+          TopLeft="291.5,311.5" />
         <NodeLayout
-          Size="194,42"
-          Id="Package\ETL_Comercial\Destino de archivo plano"
-          TopLeft="5.50000000000011,617.5" />
-        <NodeLayout
-          Size="214,42"
-          Id="Package\ETL_Comercial\ZM_COMERCIAL_ELEMENTO"
-          TopLeft="460.5,5.5" />
-        <NodeLayout
-          Size="211,42"
-          Id="Package\ETL_Comercial\ZM_COMERCIAL_RELACION"
-          TopLeft="235.5,5.5" />
-        <NodeLayout
-          Size="293,42"
-          Id="Package\ETL_Comercial\Se pone el ID_MES y FECHA_MODIFICACION"
-          TopLeft="236,719.5" />
-        <NodeLayout
-          Size="126,42"
-          Id="Package\ETL_Comercial\Ordenar 1"
-          TopLeft="504.5,107.5" />
-        <NodeLayout
-          Size="175,42"
-          Id="Package\ETL_Comercial\Conversión de datos"
-          TopLeft="235,821.5" />
-        <NodeLayout
-          Size="187,42"
-          Id="Package\ETL_Comercial\Tratamiento de los null"
-          TopLeft="240.5,413.5" />
-        <NodeLayout
-          Size="205,42"
-          Id="Package\ETL_Comercial\Destino de archivo plano 1"
-          TopLeft="523,427.5" />
-        <NodeLayout
-          Size="98,42"
-          Id="Package\ETL_Comercial\Join"
-          TopLeft="468,209.5" />
+          Size="306,42"
+          Id="Package\ETL_Comercial\Existe el municipio? y se pone el ID_MUNICIPIO"
+          TopLeft="277.5,515.5" />
         <NodeLayout
           Size="341,42"
           Id="Package\ETL_Comercial\Se busca por relacion y se sacan los campos necesarios"
           TopLeft="260,617.5" />
         <NodeLayout
+          Size="126,42"
+          Id="Package\ETL_Comercial\Ordenar 1"
+          TopLeft="185.5,107.5" />
+        <NodeLayout
+          Size="293,42"
+          Id="Package\ETL_Comercial\Se pone el ID_MES y FECHA_MODIFICACION"
+          TopLeft="284,719.5" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\ETL_Comercial\Tratamiento de los null"
+          TopLeft="337,413.5" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\ETL_Comercial\ZM_COMERCIAL_ELEMENTO"
+          TopLeft="50.5,5.5" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\ETL_Comercial\ZM_COMERCIAL_RELACION"
+          TopLeft="325,5.5" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\ETL_Comercial\Destino de archivo plano"
+          TopLeft="5.50000000000006,617.5" />
+        <NodeLayout
           Size="117,42"
           Id="Package\ETL_Comercial\Ordenar"
-          TopLeft="327,107.5" />
+          TopLeft="372,107.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\ETL_Comercial\H_COMERCIAL_ACTIVIDAD"
+          TopLeft="326,1025.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\ETL_Comercial\Se tratan las fechas"
+          TopLeft="344.5,923.5" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\ETL_Comercial\Join"
+          TopLeft="381.5,209.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\ETL_Comercial\Conversión de datos"
+          TopLeft="343,821.5" />
         <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB1]"
-          TopLeft="567.5,47.5">
+          TopLeft="157.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91,60"
+              Start="0,0"
+              End="91,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="87,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87,30"
+                    Point2="91,30"
+                    Point3="91,34" />
+                  <mssgle:LineSegment
+                    End="91,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB]"
+          TopLeft="430.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8129,48 +8163,14 @@ where [refTable].[No_] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB]"
-          TopLeft="341,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="44.5,60"
-              Start="0,0"
-              End="44.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="40.5,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="40.5,30"
-                    Point2="44.5,30"
-                    Point3="44.5,34" />
-                  <mssgle:LineSegment
-                    End="44.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida de ordenación1]"
-          TopLeft="385.5,149.5">
+          TopLeft="430.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="116.5,60"
+              EndConnector="15,60"
               Start="0,0"
-              End="116.5,52.5">
+              End="15,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -8181,13 +8181,13 @@ where [refTable].[No_] = ?</property>
                     Point2="0,35.421686746988"
                     Point3="4,35.421686746988" />
                   <mssgle:LineSegment
-                    End="112.5,35.421686746988" />
+                    End="11,35.421686746988" />
                   <mssgle:CubicBezierSegment
-                    Point1="112.5,35.421686746988"
-                    Point2="116.5,35.421686746988"
-                    Point3="116.5,39.421686746988" />
+                    Point1="11,35.421686746988"
+                    Point2="15,35.421686746988"
+                    Point3="15,39.421686746988" />
                   <mssgle:LineSegment
-                    End="116.5,52.5" />
+                    End="15,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8198,13 +8198,13 @@ where [refTable].[No_] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida de ordenación]"
-          TopLeft="567.5,149.5">
+          TopLeft="248.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-35.5,60"
+              EndConnector="167,60"
               Start="0,0"
-              End="-35.5,52.5">
+              End="167,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -8213,15 +8213,15 @@ where [refTable].[No_] = ?</property>
                   <mssgle:CubicBezierSegment
                     Point1="0,31.421686746988"
                     Point2="0,35.421686746988"
-                    Point3="-4,35.421686746988" />
+                    Point3="4,35.421686746988" />
                   <mssgle:LineSegment
-                    End="-31.5,35.421686746988" />
+                    End="163,35.421686746988" />
                   <mssgle:CubicBezierSegment
-                    Point1="-31.5,35.421686746988"
-                    Point2="-35.5,35.421686746988"
-                    Point3="-35.5,39.421686746988" />
+                    Point1="163,35.421686746988"
+                    Point2="167,35.421686746988"
+                    Point3="167,39.421686746988" />
                   <mssgle:LineSegment
-                    End="-35.5,52.5" />
+                    End="167,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8232,121 +8232,13 @@ where [refTable].[No_] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida de entradas no coincidentes de búsqueda1]"
-          TopLeft="680,353.5">
+          TopLeft="385.5,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-54.5,74"
+              EndConnector="-212,60"
               Start="0,0"
-              End="-54.5,66.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.8540772532189" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.8540772532189"
-                    Point2="0,29.8540772532189"
-                    Point3="-4,29.8540772532189" />
-                  <mssgle:LineSegment
-                    End="-50.5,29.8540772532189" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-50.5,29.8540772532189"
-                    Point2="-54.5,29.8540772532189"
-                    Point3="-54.5,33.8540772532189" />
-                  <mssgle:LineSegment
-                    End="-54.5,66.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-134.1390234375,34.8540772532189,213.778046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de entradas no coincidentes de búsqueda]"
-          TopLeft="363.333333333333,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-260.833333333333,60"
-              Start="0,0"
-              End="-260.833333333333,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.1872561768531" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.1872561768531"
-                    Point2="0,24.1872561768531"
-                    Point3="-4,24.1872561768531" />
-                  <mssgle:LineSegment
-                    End="-256.833333333333,24.1872561768531" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-256.833333333333,24.1872561768531"
-                    Point2="-260.833333333333,24.1872561768531"
-                    Point3="-260.833333333333,28.1872561768531" />
-                  <mssgle:LineSegment
-                    End="-260.833333333333,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-237.305690104167,29.1872561768531,213.778046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda2]"
-          TopLeft="462.666666666667,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-32.1666666666666,60"
-              Start="0,0"
-              End="-32.1666666666666,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.1872561768531" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.1872561768531"
-                    Point2="0,24.1872561768531"
-                    Point3="-4,24.1872561768531" />
-                  <mssgle:LineSegment
-                    End="-28.1666666666666,24.1872561768531" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-28.1666666666666,24.1872561768531"
-                    Point2="-32.1666666666666,24.1872561768531"
-                    Point3="-32.1666666666666,28.1872561768531" />
-                  <mssgle:LineSegment
-                    End="-32.1666666666666,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-115.902356770833,29.1872561768531,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda1]"
-          TopLeft="590,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-256,60"
-              Start="0,0"
-              End="-256,52.5">
+              End="-212,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -8357,20 +8249,128 @@ where [refTable].[No_] = ?</property>
                     Point2="0,24.206008583691"
                     Point3="-4,24.206008583691" />
                   <mssgle:LineSegment
-                    End="-252,24.206008583691" />
+                    End="-208,24.206008583691" />
                   <mssgle:CubicBezierSegment
-                    Point1="-252,24.206008583691"
-                    Point2="-256,24.206008583691"
-                    Point3="-256,28.206008583691" />
+                    Point1="-208,24.206008583691"
+                    Point2="-212,24.206008583691"
+                    Point3="-212,28.206008583691" />
                   <mssgle:LineSegment
-                    End="-256,52.5" />
+                    End="-212,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-227.8190234375,29.206008583691,199.638046875,12.1953125"
+              BoundingBox="-212.8890234375,29.206008583691,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_Comercial.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="380.833333333333,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-278.333333333333,60"
+              Start="0,0"
+              End="-278.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1872561768531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1872561768531"
+                    Point2="0,24.1872561768531"
+                    Point3="-4,24.1872561768531" />
+                  <mssgle:LineSegment
+                    End="-274.333333333333,24.1872561768531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-274.333333333333,24.1872561768531"
+                    Point2="-278.333333333333,24.1872561768531"
+                    Point3="-278.333333333333,28.1872561768531" />
+                  <mssgle:LineSegment
+                    End="-278.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-246.055690104167,29.1872561768531,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda2]"
+          TopLeft="480.166666666667,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.6666666666667,60"
+              Start="0,0"
+              End="-49.6666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1872561768531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1872561768531"
+                    Point2="0,24.1872561768531"
+                    Point3="-4,24.1872561768531" />
+                  <mssgle:LineSegment
+                    End="-45.6666666666667,24.1872561768531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.6666666666667,24.1872561768531"
+                    Point2="-49.6666666666667,24.1872561768531"
+                    Point3="-49.6666666666667,28.1872561768531" />
+                  <mssgle:LineSegment
+                    End="-49.6666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-124.652356770833,29.1872561768531,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda1]"
+          TopLeft="475.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44.9999999999999,60"
+              Start="0,0"
+              End="-44.9999999999999,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.206008583691" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.206008583691"
+                    Point2="0,24.206008583691"
+                    Point3="-4,24.206008583691" />
+                  <mssgle:LineSegment
+                    End="-40.9999999999999,24.206008583691" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.9999999999999,24.206008583691"
+                    Point2="-44.9999999999999,24.206008583691"
+                    Point3="-44.9999999999999,28.206008583691" />
+                  <mssgle:LineSegment
+                    End="-44.9999999999999,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-122.3190234375,29.206008583691,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8380,39 +8380,27 @@ where [refTable].[No_] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-48,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="-48,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-44,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-44,30"
-                    Point2="-48,30"
-                    Point3="-48,34" />
-                  <mssgle:LineSegment
-                    End="-48,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-123.8190234375,35,199.638046875,12.1953125"
+              BoundingBox="-99.8190234375,20.15234375,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida de conversión de datos]"
-          TopLeft="322.25,863.5">
+          TopLeft="430.5,863.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8434,30 +8422,18 @@ where [refTable].[No_] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida de combinación de mezcla]"
-          TopLeft="517,251.5">
+          TopLeft="430.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="118,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="118,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="114,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="114,30"
-                    Point2="118,30"
-                    Point3="118,34" />
-                  <mssgle:LineSegment
-                    End="118,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8468,30 +8444,18 @@ where [refTable].[No_] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida de columna derivada2]"
-          TopLeft="322,965.5">
+          TopLeft="430.5,965.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="21,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="21,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="17,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17,30"
-                    Point2="21,30"
-                    Point3="21,34" />
-                  <mssgle:LineSegment
-                    End="21,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8502,30 +8466,18 @@ where [refTable].[No_] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida de columna derivada1]"
-          TopLeft="334,455.5">
+          TopLeft="430.5,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="79,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="79,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="75,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="75,30"
-                    Point2="79,30"
-                    Point3="79,34" />
-                  <mssgle:LineSegment
-                    End="79,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8536,30 +8488,18 @@ where [refTable].[No_] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida de columna derivada]"
-          TopLeft="382.5,761.5">
+          TopLeft="430.5,761.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-60,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="-60,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-56,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-56,30"
-                    Point2="-60,30"
-                    Point3="-60,34" />
-                  <mssgle:LineSegment
-                    End="-60,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8572,7 +8512,7 @@ where [refTable].[No_] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\ETL_Comercial\Existe el municipio? y se pone el ID_MUNICIPIO">
+    design-time-name="Package\ETL_Comercial\Existe el estado? y se pone el ID_ESTADO">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -8582,7 +8522,7 @@ where [refTable].[No_] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[J_T03_MUNICIPIO_PARSEO]</Value>
+          type="q3:string">[dbo].[M_ESTADO]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -8595,20 +8535,30 @@ where [refTable].[No_] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ETL_Comercial\H_COMERCIAL_ACTIVIDAD">
+    design-time-name="Package\ETL_Comercial\Existe el municipio? y se pone el ID_MUNICIPIO">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[J_T03_MUNICIPIO_MAPEO]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ETL_Comercial\Existe el estado? y se pone el ID_ESTADO">
+    design-time-name="Package\ETL_Comercial\Se busca por relacion y se sacan los campos necesarios">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -8618,7 +8568,7 @@ where [refTable].[No_] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[M_ESTADO]</Value>
+          type="q3:string">[dbo].[ZM_COMERCIAL_RELACION]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -8652,25 +8602,15 @@ where [refTable].[No_] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ETL_Comercial\Se busca por relacion y se sacan los campos necesarios">
+    design-time-name="Package\ETL_Comercial\H_COMERCIAL_ACTIVIDAD">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[ZM_COMERCIAL_RELACION]</Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
