@@ -787,7 +787,7 @@
       <xs:element name="VISESABI_x0020_1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="f9e927d8-c3a6-442e-b0ff-41c332193092">
         <xs:complexType>
           <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="dbo_H_COMERCIAL_ACTIVIDAD" msprop:DataSourceID="VISESABI 1" msprop:design-time-name="6dd7570b-dcc7-48a7-a2a2-37c841e372e7" msprop:FriendlyName="H_COMERCIAL_ACTIVIDAD" msprop:DbSchemaName="dbo" msprop:DbTableName="H_COMERCIAL_ACTIVIDAD" msprop:TableType="Table" msprop:QueryBuilder="SpecificQueryBuilder">
+            <xs:element name="dbo_H_COMERCIAL_ACTIVIDAD" msprop:DataSourceID="VISESABI 1" msprop:design-time-name="6dd7570b-dcc7-48a7-a2a2-37c841e372e7" msprop:IsLogical="True" msprop:FriendlyName="H_COMERCIAL_ACTIVIDAD" msprop:DbTableName="H_COMERCIAL_ACTIVIDAD" msprop:TableType="View" msprop:QueryDefinition="SELECT        FECHA_MODIFICACION, ID_MES, ID_ELEMENTO, TIPO_IVA, ID_REGIMEN_ACCESO_Y_USO, ID_REGIMEN_TENENCIA, ESTADO_PROMOCION, ID_TIPO_VIVIENDA, ID_MUNICIPIO, CODIGO_POSTAL, &#xD;&#xA;                         ELEMENTO_LIBRE, VIVIENDA_ADAPTADA, NO_FASE, ID_MODIF_CALIF, ID_OK_TECNICO, ID_PRODUCTO_PRINCIPAL, ID_TIPO_ELEMENTO, ID_TIPO_VENTA, ID_CARACTERISTICAS_VIVIENDA, ALQUILER, AROC, &#xD;&#xA;                         COMPRA_VENTA, ID_RELACION, ID_ESTADO, ID_ESTADO_ESPECIAL, ID_TIPO_PRECIO, PRECIO_VENTA, ID_TIPO_ANTICIPO, ID_TIPO_RENTA, ID_TIPO_CONTRAPRESTACION, AÑO_SORTEO, &#xD;&#xA;                         ID_MODALIDAD_COMPRA, ID_TIPO_ADJUDICACION, NUM_RES_Y_REN, NUM_RESCISIONES_CV, NUM_RESCISIONES_ANIO_EN_CURSO_CV, FECHA_ESCRITURA, PRIMERA_FECHA_ESCRITURA, &#xD;&#xA;                         FECHA_CONTRATO_CV, FECHA_FIRMA_CONTRATO_AROC, FECHA_ADJUDICACION, NUM_RES_AROC, NUM_RES_AROC_ANYO, TOTAL_ADJUDICACIONES, NUM_ADJ_DIRECTAS, [PRESUPUESTO _VISESA_AÑO], &#xD;&#xA;                         ESC_PREVISION_ATCL, ESC_PREVISION_NUEVA, ESC_PREVISION_ANUAL_ACTUAL&#xD;&#xA;FROM            H_COMERCIAL_ACTIVIDAD" msprop:QueryBuilder="SpecificQueryBuilder">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="FECHA_MODIFICACION" msprop:design-time-name="26670f8d-49be-4bd8-9228-c38ea0cf358d" msprop:DbColumnName="FECHA_MODIFICACION" msprop:FriendlyName="FECHA_MODIFICACION" type="xs:dateTime" minOccurs="0" />
@@ -885,7 +885,8 @@
                   <xs:element name="ESC_PREVISION_ANUAL_ACTUAL" msprop:design-time-name="9a3fad11-9f31-461b-86fa-3e1eed3584fb" msprop:DbColumnName="ESC_PREVISION_ANUAL_ACTUAL" msprop:FriendlyName="ESC_PREVISION_ANUAL_ACTUAL" type="xs:int" minOccurs="0" />
                   <xs:element name="FECHA_ADJUDICACION" msprop:design-time-name="b2a5de64-241c-4782-88a1-f966d8f65323" msprop:DbColumnName="FECHA_ADJUDICACION" type="xs:dateTime" minOccurs="0" />
                   <xs:element name="TOTAL_ADJUDICACIONES" msprop:design-time-name="9f57e972-1184-430e-be58-24226ca9c95d" msprop:DbColumnName="TOTAL_ADJUDICACIONES" type="xs:int" minOccurs="0" />
-                  <xs:element name="NUM_ADJ_DIRECTAS" msprop:DbColumnName="NUM_ADJ_DIRECTAS" msprop:design-time-name="a33143bf-eb25-46d0-8385-00396dff5ad4" type="xs:int" minOccurs="0" />
+                  <xs:element name="NUM_ADJ_DIRECTAS" msprop:design-time-name="a33143bf-eb25-46d0-8385-00396dff5ad4" msprop:DbColumnName="NUM_ADJ_DIRECTAS" type="xs:int" minOccurs="0" />
+                  <xs:element name="FECHA_FIRMA_CONTRATO_AROC" msprop:DbColumnName="FECHA_FIRMA_CONTRATO_AROC" msprop:design-time-name="ae871238-b2e5-4581-a5a7-ce4e8e78d2f7" type="xs:dateTime" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
