@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="102" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="983" scrolltop="25019" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="15055" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="102" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="7855" scrolltop="25019" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="15055" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -778,7 +778,7 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>983</Value>
+      <Value>7855</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
@@ -1103,16 +1103,6 @@
         </Attribute>
       </Attributes>
     </Dimension>
-    <Dimension dwd:design-time-name="0427fd4b-919c-4efd-82b3-b6fe326b26bc">
-      <ID>Año del sorteo</ID>
-      <Name>Año del sorteo</Name>
-      <DimensionID>H COMERCIAL ACTIVIDAD 2</DimensionID>
-      <Attributes>
-        <Attribute dwd:design-time-name="718a226c-730f-411f-88ef-cadd5d094755">
-          <AttributeID>AÑO SORTEO</AttributeID>
-        </Attribute>
-      </Attributes>
-    </Dimension>
     <Dimension dwd:design-time-name="ef8f9015-e68e-4843-82c9-99d55579fb55">
       <ID>Fecha de escritura</ID>
       <Name>Fecha de escritura</Name>
@@ -1197,38 +1187,86 @@
         </Hierarchy>
       </Hierarchies>
     </Dimension>
-    <Dimension dwd:design-time-name="6f7e87ed-a474-4503-97bd-74564e821cb2">
-      <ID>Jerarquía proyecto2</ID>
-      <Name>Jerarquía proyecto</Name>
-      <DimensionID>Jerarquía proyecto2</DimensionID>
+    <Dimension dwd:design-time-name="9c7cec4f-39a9-4791-a842-af3f68f7f4bd">
+      <ID>Fecha sorteo</ID>
+      <Name>Fecha sorteo</Name>
+      <DimensionID>Fecha sorteo</DimensionID>
       <Attributes>
-        <Attribute dwd:design-time-name="18762241-7e42-405f-93ec-96415a3da575">
+        <Attribute dwd:design-time-name="079fc4a6-3e1f-4729-adde-1e1a1a5fd7b6">
+          <AttributeID>PK Date</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e615f475-7b10-4757-96c5-27ab62fca440">
+          <AttributeID>Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2b281896-b645-4e97-81a7-d1df97deb949">
+          <AttributeID>Trimester</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3e22afdc-3d9b-4d77-9fdf-18f0297fc61f">
+          <AttributeID>Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6ab19e25-3773-4113-b94f-df063aaa8e0f">
+          <AttributeID>Day Of Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3236e7fb-cecb-45cd-9c7f-03752b62c6eb">
+          <AttributeID>Day Of Trimester</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="09ba9296-71bc-4194-a470-655cd7e38e0b">
+          <AttributeID>Day Of Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9282ecee-499b-46f2-b192-e5be9fe1662d">
+          <AttributeID>Month Of Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5f845bf4-c1bd-4053-8b79-3b93935869e0">
+          <AttributeID>Month Of Trimester</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7fa815fc-11a1-4079-a8ae-84c33dfe872a">
+          <AttributeID>Trimester Of Year</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="ee06a284-cfee-4b90-be81-3c04e0467ace">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="4de5fafe-fe06-47eb-9e4e-d809fcc2e41d">
+      <ID>Jerarquía proyecto2 1</ID>
+      <Name>Jerarquía proyecto</Name>
+      <DimensionID>J P06 ELEMENTO</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="41d27a23-29f8-4c04-9b17-2b767aa72b6b">
           <AttributeID>ID ELEMENTO</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="35644f47-8c77-4071-9252-2578e0595beb">
+        <Attribute dwd:design-time-name="8d30231a-38d8-462d-9f54-ecf93eb663b1">
           <AttributeID>ID CALIFICACION</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="88b0a44a-ceaf-4929-9218-cd3ec9ec4bfa">
+        <Attribute dwd:design-time-name="a2c0cb51-7dd8-4fc1-bd23-b4e4307d1c8c">
           <AttributeID>ID PROMOCION</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="e34ac95d-3535-4d3d-90ef-d735b04e1a1d">
+        <Attribute dwd:design-time-name="f03fb2c6-4b20-4228-af9f-933d990b4624">
           <AttributeID>DESC PROMOCION</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="a728b797-0b4f-4bd9-8790-af69250fc663">
+        <Attribute dwd:design-time-name="7dfea681-7048-43a4-b976-41a064e016d8">
+          <AttributeID>PROMOCION CORTO</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="984a9bf0-759a-44d5-98d0-93be8db93388">
+          <AttributeID>DESC PROMOCION LARGA</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="aa706953-27ee-4ca6-b2bd-52708b9df62a">
           <AttributeID>ID FASE</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="689e5a93-0db8-46db-9a6d-95b544ef7b35">
+        <Attribute dwd:design-time-name="87a045e3-7b8c-42dd-b49a-3882c4769dda">
           <AttributeID>ID UNIDAD EJECUCION</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="3b7d87ab-6edd-4b33-9278-bf69fe7b3046">
+        <Attribute dwd:design-time-name="4426186d-7960-4024-b94d-758fb901db86">
           <AttributeID>ID PROYECTO</AttributeID>
         </Attribute>
       </Attributes>
       <Hierarchies>
-        <Hierarchy dwd:design-time-name="98445c80-e950-4964-953f-670af359cd50">
+        <Hierarchy dwd:design-time-name="6afceacd-7f25-4e4a-83f0-98f72115c091">
           <HierarchyID>Hierarchy</HierarchyID>
         </Hierarchy>
-        <Hierarchy dwd:design-time-name="e1623a6a-c34f-413e-95b9-c174d7644e75">
+        <Hierarchy dwd:design-time-name="98937798-e927-482d-a182-c3de3e4939f0">
           <HierarchyID>Hierarchy 1</HierarchyID>
         </Hierarchy>
       </Hierarchies>
@@ -1463,6 +1501,31 @@
             <Source xsi:type="ColumnBinding" dwd:design-time-name="139493a7-917a-4169-924e-a7a96717d55d">
               <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
               <ColumnID>PREVISION_ANUAL_ACT</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="a39fdbca-7883-4db8-9af4-74e79da07dfe">
+          <ID>Minimum PRIMERA FECHA ESCRITURA</ID>
+          <Name>Fecha Entrega</Name>
+          <AggregateFunction>Min</AggregateFunction>
+          <DataType>Date</DataType>
+          <Source dwd:design-time-name="ad7c7ac9-1936-4856-bc12-b806de718d07">
+            <DataType>Date</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="f7dd8c12-d953-4819-ba5e-3c8dc866ccfa">
+              <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
+              <ColumnID>PRIMERA_FECHA_ESCRITURA</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>dd/MM/yyyy</FormatString>
+        </Measure>
+        <Measure dwd:design-time-name="a663a9f0-604b-4f86-a55c-2bc8d9eac202">
+          <ID>PTE CONTRATO</ID>
+          <Name>PTE CONTRATO</Name>
+          <Source dwd:design-time-name="a2d386dc-a4d4-46f5-9be9-1290fded0cb3">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="7ecc43e2-fc12-4d81-b64a-692285f4ca4c">
+              <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
+              <ColumnID>PTE_CONTRATO</ColumnID>
             </Source>
           </Source>
         </Measure>
@@ -1938,24 +2001,6 @@
             </Attribute>
           </Attributes>
         </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f2adab14-c522-4c77-bafd-8d40aecc2572">
-          <CubeDimensionID>Año del sorteo</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="370b55b1-9653-4534-bf39-1305a42a8d6d">
-              <AttributeID>AÑO SORTEO</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="0d097787-f7ac-4894-8a4a-411539c9e09e">
-                  <DataType>Date</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b985018c-cffb-46d1-b621-e2a57d1fe6b5">
-                    <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
-                    <ColumnID>AÑO_SORTEO</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
         <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1f6c9e5d-a513-4a01-b102-5518febe019b">
           <CubeDimensionID>Fecha de escritura</CubeDimensionID>
           <Attributes>
@@ -2012,19 +2057,39 @@
             </Attribute>
           </Attributes>
         </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f8ae9729-cf4d-4f05-a2f8-179dfccdf1c7">
-          <CubeDimensionID>Jerarquía proyecto2</CubeDimensionID>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1f8dd981-236f-4d60-b582-5520e3c0bfd1">
+          <CubeDimensionID>Jerarquía proyecto2 1</CubeDimensionID>
           <Attributes>
-            <Attribute dwd:design-time-name="3049e158-79c1-4f35-8620-f48836caf229">
+            <Attribute dwd:design-time-name="3f36874c-2656-4b4b-aa4c-5ff848d390dc">
               <AttributeID>ID ELEMENTO</AttributeID>
               <KeyColumns>
-                <KeyColumn dwd:design-time-name="d40f7ed6-ccb0-44a5-8c2f-8da06e598db8">
+                <KeyColumn dwd:design-time-name="6f655b09-3e33-45fa-926e-2fc972d8350a">
                   <DataType>WChar</DataType>
                   <DataSize>20</DataSize>
                   <NullProcessing>UnknownMember</NullProcessing>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0de0b048-5778-4b00-9195-ff0264b74e35">
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f57b155f-0533-4f09-a5c0-e6e4584dad90">
                     <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
                     <ColumnID>ID_ELEMENTO</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="7302490c-d56a-45e4-ae37-c2efa132df7f">
+          <CubeDimensionID>Fecha sorteo</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="2c0d52e0-c6e0-4a72-ae2f-9b70354c2b8c">
+              <AttributeID>PK Date</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ba9e418e-8bab-434d-8d97-e91a96fa9808">
+                  <DataType>Date</DataType>
+                  <NullProcessing>ZeroOrBlank</NullProcessing>
+                  <Format>dd/MM/yyyy</Format>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1ea4cf48-260f-4869-aab6-928aff550609">
+                    <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
+                    <ColumnID>AÑO_SORTEO</ColumnID>
                   </Source>
                 </KeyColumn>
               </KeyColumns>
@@ -2052,75 +2117,75 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;      
+CALCULATE;        
 CREATE MEMBER CURRENTCUBE.[Measures].[Entrega]
  AS FILTER([Fecha de escritura].[Jerarquia Temporal].[Year].members
          , [Measures].[Nº de viviendas]).ITEM(0).name, 
-VISIBLE = 1;      
+VISIBLE = 1;        
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº de viviendas]
  AS Sum([Measures].[Numero],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1;         
+VISIBLE = 1;           
 CREATE MEMBER CURRENTCUBE.[Measures].[Precio medio V+G+T  S/IVA]
  AS [Measures].[Precio_venta_total]/[Measures].[Nº de viviendas], 
-VISIBLE = 1;       
+VISIBLE = 1;         
 CREATE MEMBER CURRENTCUBE.[Measures].Precio_venta_total
  AS sum([Elemento libre].[Elemento libre].&amp;[0],[Measures].[Precio venta]), 
-VISIBLE = 0;       
+VISIBLE = 0;         
 CREATE MEMBER CURRENTCUBE.[Measures].p1
  AS sum(CROSSJOIN(CROSSJOIN( [ELEMENTO LIBRE].[Valor ELEMENTO LIBRE].&amp;[0],[M TIPO ELEMENTO 1].[Valor TIPO ELEMENTO].&amp;[0]), [M ESTADO 1].[Valor ESTADO].&amp;[9]),[Measures].[Numero]), 
-VISIBLE = 0  ;             
+VISIBLE = 0;               
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Total AROC]
  AS Sum([Measures].[Nº de viviendas],[Modalidad de compra].[Modalidad de compra].&amp;[2]), 
-VISIBLE = 1;             
+VISIBLE = 1;               
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº contratos AROC]
  AS Sum([Measures].[Nº Total AROC],[Estado].[Estado].&amp;[6]), 
-VISIBLE = 1;         
+VISIBLE = 1;           
 CREATE MEMBER CURRENTCUBE.[Measures].[Previsión contrato AROC]
  AS Sum([Measures].[Nº Total AROC],[Estado].[Estado].&amp;[5]), 
-VISIBLE = 1;            
+VISIBLE = 1;              
 CREATE MEMBER CURRENTCUBE.[Measures].Num_AROC_2016
  AS sum([Measures].[Num_AROC],[J TIEMPO FECHA CONTRATO AROC].[Jerarquia Temporal].[Year].&amp;[2016-01-01T00:00:00]), 
-VISIBLE = 0;                   
+VISIBLE = 0;                     
 CREATE MEMBER CURRENTCUBE.[Measures].[% Contratos]
  AS ([Measures].[Nº contratos (viviendas)]/[Measures].[Nº de viviendas]), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1  ;             
+VISIBLE = 1;               
 CREATE MEMBER CURRENTCUBE.[Measures].[% Escrituras]
  AS ([Measures].[Nº escrituras (viviendas)]/[Measures].[Nº de viviendas]), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1  ;                
+VISIBLE = 1;                  
                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº notificaciones en curso]
  AS SUM(EXISTING {[Estado].[Estado].&amp;[3] ,[Estado].[Estado].&amp;[4],[Estado].[Estado].&amp;[5]}
       ,[Measures].[Nº de viviendas]), 
-VISIBLE = 1  ;                                
+VISIBLE = 1;                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Aceptadas (pte contrato)]
  AS Sum([Measures].[Nº de viviendas],[Estado].[Estado].&amp;[5]), 
-VISIBLE = 1  ;                                
+VISIBLE = 1;                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº contratos (viviendas)]
  AS sum([Measures].[Contratos CV total],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1  ;             
+VISIBLE = 1;               
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº escrituras (viviendas)]
  AS sum([Measures].[Escrituras total],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1  ; 
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº contrato AROC]
  AS sum([Measures].[Contratos AROC total],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1  ; 
+VISIBLE = 0  ;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº contrato AROC2]
  AS sum(CROSSJOIN([Modalidad de compra].[Modalidad de compra].&amp;[2],[Estado].[Estado].&amp;[6]),[Measures].[Nº de viviendas]), 
-VISIBLE = 1  ; 
+VISIBLE = 0  ;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº contrato AROC año en curso]
  AS sum([Measures].[Contratos AROC año],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1  ;             
+VISIBLE = 1;               
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº escrituras año en curso]
  AS sum([Measures].[Escrituras año],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1  ;              
+VISIBLE = 0  ;                
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº contratos año en curso]
  AS sum([Measures].[Contratos CV año],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1  ;          
+VISIBLE = 0  ;            
 CREATE MEMBER CURRENTCUBE.[Measures].[Viviendas sin ocupar]
  AS [Measures].[Nº de viviendas]-[Measures].[Nº escrituras (viviendas)]-[Measures].[Nº contrato AROC], 
-VISIBLE = 1  ;              
+VISIBLE = 1;                
 CREATE MEMBER CURRENTCUBE.[Measures].Pr1
  AS iif
 ( 
@@ -2128,7 +2193,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].Pr1
     ([DIM_PROYECTO].[Jerarquia Proyecto].CurrentMember.lastchild,[Measures].[NUM RES Y REN]),
     0
 ), 
-VISIBLE = 1; </Text>
+VISIBLE = 0  ; </Text>
         </Command>
       </Commands>
     </MdxScript>
