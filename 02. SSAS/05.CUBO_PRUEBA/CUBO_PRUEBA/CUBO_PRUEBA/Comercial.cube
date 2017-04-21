@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="102" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="7855" scrolltop="25019" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="15055" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="102" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="7855" scrolltop="29500" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="15055" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -782,7 +782,7 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>25019</Value>
+      <Value>29500</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -1518,14 +1518,14 @@
           </Source>
           <FormatString>dd/MM/yyyy</FormatString>
         </Measure>
-        <Measure dwd:design-time-name="a663a9f0-604b-4f86-a55c-2bc8d9eac202">
-          <ID>PTE CONTRATO</ID>
-          <Name>PTE CONTRATO</Name>
-          <Source dwd:design-time-name="a2d386dc-a4d4-46f5-9be9-1290fded0cb3">
+        <Measure dwd:design-time-name="060cd811-7a9b-4205-bf59-0f5d82190918">
+          <ID>PTE ESCRITURA</ID>
+          <Name>PTE ESCRITURA</Name>
+          <Source dwd:design-time-name="98b13f84-faba-4c66-aa83-9efefacdbabb">
             <DataType>Integer</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="7ecc43e2-fc12-4d81-b64a-692285f4ca4c">
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="4a0cfe38-88a8-4d3b-b9f5-3adaee004f47">
               <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
-              <ColumnID>PTE_CONTRATO</ColumnID>
+              <ColumnID>PTE_ESCRITURA</ColumnID>
             </Source>
           </Source>
         </Measure>
@@ -2117,75 +2117,78 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;        
+CALCULATE;           
 CREATE MEMBER CURRENTCUBE.[Measures].[Entrega]
  AS FILTER([Fecha de escritura].[Jerarquia Temporal].[Year].members
          , [Measures].[Nº de viviendas]).ITEM(0).name, 
-VISIBLE = 1;        
+VISIBLE = 0  ;           
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº de viviendas]
  AS Sum([Measures].[Numero],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1;           
+VISIBLE = 1;              
 CREATE MEMBER CURRENTCUBE.[Measures].[Precio medio V+G+T  S/IVA]
  AS [Measures].[Precio_venta_total]/[Measures].[Nº de viviendas], 
-VISIBLE = 1;         
+VISIBLE = 1;            
 CREATE MEMBER CURRENTCUBE.[Measures].Precio_venta_total
  AS sum([Elemento libre].[Elemento libre].&amp;[0],[Measures].[Precio venta]), 
-VISIBLE = 0;         
+VISIBLE = 0;            
 CREATE MEMBER CURRENTCUBE.[Measures].p1
  AS sum(CROSSJOIN(CROSSJOIN( [ELEMENTO LIBRE].[Valor ELEMENTO LIBRE].&amp;[0],[M TIPO ELEMENTO 1].[Valor TIPO ELEMENTO].&amp;[0]), [M ESTADO 1].[Valor ESTADO].&amp;[9]),[Measures].[Numero]), 
-VISIBLE = 0;               
+VISIBLE = 0;                  
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Total AROC]
  AS Sum([Measures].[Nº de viviendas],[Modalidad de compra].[Modalidad de compra].&amp;[2]), 
-VISIBLE = 1;               
+VISIBLE = 1;                  
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº contratos AROC]
  AS Sum([Measures].[Nº Total AROC],[Estado].[Estado].&amp;[6]), 
-VISIBLE = 1;           
+VISIBLE = 1;              
 CREATE MEMBER CURRENTCUBE.[Measures].[Previsión contrato AROC]
  AS Sum([Measures].[Nº Total AROC],[Estado].[Estado].&amp;[5]), 
-VISIBLE = 1;              
+VISIBLE = 1;                 
 CREATE MEMBER CURRENTCUBE.[Measures].Num_AROC_2016
  AS sum([Measures].[Num_AROC],[J TIEMPO FECHA CONTRATO AROC].[Jerarquia Temporal].[Year].&amp;[2016-01-01T00:00:00]), 
-VISIBLE = 0;                     
+VISIBLE = 0;                        
 CREATE MEMBER CURRENTCUBE.[Measures].[% Contratos]
  AS ([Measures].[Nº contratos (viviendas)]/[Measures].[Nº de viviendas]), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;               
+VISIBLE = 1;   
+CREATE MEMBER CURRENTCUBE.[Measures].[Total Escrituras]
+ AS Sum([Measures].[Escrituras total],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
+VISIBLE = 1;                                     
+CREATE MEMBER CURRENTCUBE.[Measures].[Nº Aceptadas (pte contrato)]
+ AS Sum([Measures].[Nº de viviendas],[Estado].[Estado].&amp;[5]), 
+VISIBLE = 1;                  
 CREATE MEMBER CURRENTCUBE.[Measures].[% Escrituras]
  AS ([Measures].[Nº escrituras (viviendas)]/[Measures].[Nº de viviendas]), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;                  
+VISIBLE = 1;                     
                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº notificaciones en curso]
  AS SUM(EXISTING {[Estado].[Estado].&amp;[3] ,[Estado].[Estado].&amp;[4],[Estado].[Estado].&amp;[5]}
       ,[Measures].[Nº de viviendas]), 
-VISIBLE = 1;                                  
-CREATE MEMBER CURRENTCUBE.[Measures].[Nº Aceptadas (pte contrato)]
- AS Sum([Measures].[Nº de viviendas],[Estado].[Estado].&amp;[5]), 
-VISIBLE = 1;                                  
+VISIBLE = 1;                                     
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº contratos (viviendas)]
  AS sum([Measures].[Contratos CV total],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1;               
+VISIBLE = 1;                  
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº escrituras (viviendas)]
  AS sum([Measures].[Escrituras total],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1;   
-CREATE MEMBER CURRENTCUBE.[Measures].[Nº contrato AROC]
+VISIBLE = 1;      
+CREATE MEMBER CURRENTCUBE.[Measures].[Nº contrato AROC (viviendas)]
  AS sum([Measures].[Contratos AROC total],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 0  ;   
+VISIBLE = 0  ;      
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº contrato AROC2]
  AS sum(CROSSJOIN([Modalidad de compra].[Modalidad de compra].&amp;[2],[Estado].[Estado].&amp;[6]),[Measures].[Nº de viviendas]), 
-VISIBLE = 0  ;   
+VISIBLE = 0;      
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº contrato AROC año en curso]
  AS sum([Measures].[Contratos AROC año],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1;               
+VISIBLE = 1;                  
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº escrituras año en curso]
  AS sum([Measures].[Escrituras año],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 0  ;                
+VISIBLE = 0;                   
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº contratos año en curso]
  AS sum([Measures].[Contratos CV año],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 0  ;            
+VISIBLE = 0;               
 CREATE MEMBER CURRENTCUBE.[Measures].[Viviendas sin ocupar]
  AS [Measures].[Nº de viviendas]-[Measures].[Nº escrituras (viviendas)]-[Measures].[Nº contrato AROC], 
-VISIBLE = 1;                
+VISIBLE = 1;                   
 CREATE MEMBER CURRENTCUBE.[Measures].Pr1
  AS iif
 ( 
@@ -2193,7 +2196,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].Pr1
     ([DIM_PROYECTO].[Jerarquia Proyecto].CurrentMember.lastchild,[Measures].[NUM RES Y REN]),
     0
 ), 
-VISIBLE = 0  ; </Text>
+VISIBLE = 0; </Text>
         </Command>
       </Commands>
     </MdxScript>
