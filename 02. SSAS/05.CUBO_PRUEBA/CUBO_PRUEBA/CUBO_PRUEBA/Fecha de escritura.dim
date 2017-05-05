@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1554" scrolltop="-3889" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="6720" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1554" scrolltop="-3889" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="6191" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -120,12 +120,14 @@
   <Attributes>
     <Attribute dwd:design-time-name="52066231-9fde-48b7-84bb-3fb387afebee">
       <ID>PK Date</ID>
-      <Name>Fecha</Name>
+      <Name>Fecha de escritura</Name>
       <Type>Date</Type>
       <Usage>Key</Usage>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="78494420-8670-4d95-b232-c802c68fef3a">
           <DataType>Date</DataType>
+          <NullProcessing>Preserve</NullProcessing>
+          <Format>Standard</Format>
           <Source xsi:type="ColumnBinding" dwd:design-time-name="4f6a3a2e-a4e8-4144-ba56-01693aa952c4">
             <TableID>dbo_J_TIEMPO</TableID>
             <ColumnID>PK_Date</ColumnID>
@@ -135,6 +137,7 @@
       <NameColumn dwd:design-time-name="4ff8aedf-5129-4a7c-b5ec-d89d87a71cdd">
         <DataType>WChar</DataType>
         <DataSize>20</DataSize>
+        <NullProcessing>Preserve</NullProcessing>
         <Source xsi:type="ColumnBinding" dwd:design-time-name="459006f1-ea22-47f8-ad9e-01d5018f9aa1">
           <TableID>dbo_J_TIEMPO</TableID>
           <ColumnID>Fecha_Corta</ColumnID>
@@ -172,7 +175,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="938f734b-7bdc-41e2-bf4f-449163a735b6">
       <ID>Year</ID>
-      <Name>Año</Name>
+      <Name>Año de escritura</Name>
       <Type>Years</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="97fe30fb-38c8-4c92-8f8a-bb4570b53834">
@@ -197,7 +200,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="93fbea90-6420-441a-b065-8017575a6027">
       <ID>Trimester</ID>
-      <Name>Trimestre</Name>
+      <Name>Trimestre de escritura</Name>
       <Type>Trimesters</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="1bfea2ad-8485-4aa1-a76f-bd946289a9b1">
@@ -228,7 +231,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="bc1c5a36-2829-43ef-97f0-dbcdcb33e6c4">
       <ID>Month</ID>
-      <Name>Mes</Name>
+      <Name>Mes de escritura</Name>
       <Type>Months</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="2b865ede-0a4d-473e-9477-d84c9f3beeba">
@@ -314,7 +317,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="4e5463fa-cf2b-46c7-b048-41bd8a9a7fcd">
       <ID>Month Of Year</ID>
-      <Name>Mes del año</Name>
+      <Name>Mes del año de escritura</Name>
       <Type>MonthOfYear</Type>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="fa96ac1f-a9fa-4e4f-a7f8-1041c59dda2a">
@@ -325,6 +328,14 @@
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn dwd:design-time-name="11d80907-a47e-439c-a6ec-b2a98d3b84cd">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="df17d78d-d729-47ae-a231-864b3eb55da3">
+          <TableID>dbo_J_TIEMPO</TableID>
+          <ColumnID>Month_Of_Year_Name</ColumnID>
+        </Source>
+      </NameColumn>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>

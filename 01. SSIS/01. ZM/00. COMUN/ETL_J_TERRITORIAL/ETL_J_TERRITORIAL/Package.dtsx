@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{BC444488-B893-4087-9D51-A7676EB88FA5}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{03242636-4551-4622-A92F-838FCB6063EE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,6 +24,16 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=SRVCUBOS\NAV2013DESA;Initial Catalog=PRUEBAS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SRVSQL1\NAV2013]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E09353A2-A1D3-45B1-A715-D64E8F3BB712}"
+      DTS:ObjectName="SRVSQL1\NAV2013">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SRVSQL1\NAV2013;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -797,8 +807,8 @@ WHERE ID_MUNICIPIO = ?</property>
               <connections>
                 <connection
                   refId="Package\Municipio\VISESA$Municipios.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
-                  connectionManagerRefId="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQL1\NAV2013]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQL1\NAV2013]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -1650,8 +1660,8 @@ WHERE ID_PAIS = ?</property>
               <connections>
                 <connection
                   refId="Package\Pais\VISESA$Country_Region.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
-                  connectionManagerRefId="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQL1\NAV2013]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQL1\NAV2013]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -2294,8 +2304,8 @@ where [refTable].[ID_PROVINCIA] = ?</property>
               <connections>
                 <connection
                   refId="Package\Provincia\VISESA$Area.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
-                  connectionManagerRefId="Package.ConnectionManagers[SRVCUBOS\NAV2013DESA.PRUEBAS]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQL1\NAV2013]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQL1\NAV2013]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -2553,13 +2563,13 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           Id="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO"
           TopLeft="165.5,107.5" />
         <NodeLayout
-          Size="168,42"
-          Id="Package\Municipio\VISESA$Municipios"
-          TopLeft="256,5.5" />
-        <NodeLayout
           Size="167,42"
           Id="Package\Municipio\J_T03_MUNICIPIO"
           TopLeft="5.50000000000003,311.5" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Municipio\VISESA$Municipios"
+          TopLeft="256,5.5" />
         <NodeLayout
           Size="160,42"
           Id="Package\Municipio\Existe municipio?"
@@ -2736,7 +2746,7 @@ where [refTable].[ID_PROVINCIA] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Municipio\VISESA$Municipios">
+    design-time-name="Package\Municipio\J_T03_MUNICIPIO">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2749,7 +2759,7 @@ where [refTable].[ID_PROVINCIA] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Municipio\J_T03_MUNICIPIO">
+    design-time-name="Package\Municipio\VISESA$Municipios">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
