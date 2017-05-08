@@ -1296,7 +1296,7 @@
     </Dimension>
     <Dimension dwd:design-time-name="34c8159f-c3e6-4721-aa4d-6df5e907f49f">
       <ID>STOCK PROMO</ID>
-      <Name>STOCK PROMO</Name>
+      <Name>Promoción en STOCK</Name>
       <DimensionID>Promocion en STOCK</DimensionID>
       <Attributes>
         <Attribute dwd:design-time-name="5b27c699-53a4-4d60-bbb7-346c921337dd">
@@ -1325,7 +1325,7 @@
             </Source>
           </Source>
           <DisplayFolder>Viviendas</DisplayFolder>
-          <FormatString>#.##0,00 €;-#.##0,00 €</FormatString>
+          <FormatString>Currency</FormatString>
         </Measure>
         <Measure dwd:design-time-name="cb655708-cfe1-4c47-9298-6a4b926a184d">
           <ID>NUM RES Y REN</ID>
@@ -2254,72 +2254,73 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;                     
+CALCULATE;                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Entrega]
  AS FILTER([Fecha de escritura].[Jerarquia Temporal].[Year].members
          , [Measures].[Nº de viviendas]).ITEM(0).name, 
-VISIBLE = 0;                     
+VISIBLE = 0;                      
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Viviendas]
  AS Sum([Measures].[Número],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                        
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                         
 CREATE MEMBER CURRENTCUBE.[Measures].[Precio medio V+G+T  S/IVA]
  AS [Measures].[Precio_venta_total]/[Measures].[Nº Viviendas], 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                      
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                       
 CREATE MEMBER CURRENTCUBE.[Measures].Precio_venta_total
  AS sum([Elemento libre].[Elemento libre].&amp;[0],[Measures].[Precio Venta]), 
-VISIBLE = 0;                      
+VISIBLE = 0;                       
 CREATE MEMBER CURRENTCUBE.[Measures].p1
  AS sum(CROSSJOIN(CROSSJOIN( [ELEMENTO LIBRE].[Valor ELEMENTO LIBRE].&amp;[0],[M TIPO ELEMENTO 1].[Valor TIPO ELEMENTO].&amp;[0]), [M ESTADO 1].[Valor ESTADO].&amp;[9]),[Measures].[Numero]), 
-VISIBLE = 0;                            
+VISIBLE = 0;                             
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Total AROC]
  AS Sum([Measures].[Nº Viviendas],[Modalidad de compra].[Modalidad de compra].&amp;[2]), 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                            
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                             
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC]
  AS Sum([Measures].[Nº Total AROC],[Estado].[Estado].&amp;[6]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                        
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                         
 CREATE MEMBER CURRENTCUBE.[Measures].[Previsión contrato AROC]
  AS Sum([Measures].[Nº Total AROC],[Estado].[Estado].&amp;[5]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                           
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                            
 CREATE MEMBER CURRENTCUBE.[Measures].Num_AROC_2016
  AS sum([Measures].[Num_AROC],[J TIEMPO FECHA CONTRATO AROC].[Jerarquia Temporal].[Year].&amp;[2016-01-01T00:00:00]), 
-VISIBLE = 0;                                  
+VISIBLE = 0;                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[% Contratos]
  AS ([Measures].[Nº Contratos (Viviendas)]/[Measures].[Nº Viviendas]), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;             
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';              
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Total Escrituras]
  AS Sum([Measures].[Nº Escrituras Total],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                                               
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Aceptadas (Pte Contrato)]
  AS Sum([Measures].[Nº Viviendas],[Estado].[Estado].&amp;[5]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Gestion CV' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                            
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Gestion CV' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                             
 CREATE MEMBER CURRENTCUBE.[Measures].[% Escrituras]
  AS ([Measures].[Nº Escrituras (Viviendas)]/[Measures].[Nº Viviendas]), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                               
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                
                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Notificaciones en Curso]
  AS SUM(EXISTING {[Estado].[Estado].&amp;[3] ,[Estado].[Estado].&amp;[4],[Estado].[Estado].&amp;[5]}
       ,[Measures].[Nº Viviendas]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Gestion CV' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                                               
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Gestion CV' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos (Viviendas)]
  AS sum([Measures].[Nº Contratos CV Total],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                            
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                             
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Escrituras (Viviendas)]
  AS sum([Measures].[Nº Escrituras Total],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC (Viviendas)]
  AS sum([Measures].[Nº Contratos AROC Total],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC2]
  AS sum(CROSSJOIN([Modalidad de compra].[Modalidad de compra].&amp;[2],[Estado].[Estado].&amp;[6]),[Measures].[Nº Viviendas]), 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC Año en Curso]
  AS sum([Measures].[Nº Contratos AROC Año],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                         
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                          
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Viviendas Sin Ocupar]
  AS [Measures].[Nº Viviendas]-[Measures].[Nº Escrituras (Viviendas)]-[Measures].[Nº Contratos AROC (Viviendas)], 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                             
+FORMAT_STRING = "0", 
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                              
 CREATE MEMBER CURRENTCUBE.[Measures].Pr1
  AS iif
 ( 
