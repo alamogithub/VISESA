@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{12582BF0-B3B3-48E3-B7F6-BFA1E5A5AC6D}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{F9323104-D78B-4329-BDAD-03FCE3FEAD09}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -45,7 +45,7 @@
         DTS:Name="ConnectionString">"Data Source="+ @[User::Ruta_Fichero] +@[User::Anyo_Corte_Texto]+ @[User::Mes_Corte_Texto] +@[User::Nombre_Fichero]+  " ;Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=EXCEL 12.0;"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=L:\INFOVISESA\BUSINESS INTELLIGENCE\COMERCIAL\2017\4\Comercial_PLANTILLA.xlsx ;Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=EXCEL 12.0;" />
+          DTS:ConnectionString="Data Source=L:\INFOVISESA\BUSINESS INTELLIGENCE\COMERCIAL\2017\5\Comercial_PLANTILLA.xlsx ;Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=EXCEL 12.0;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -111,7 +111,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Corte">
       <DTS:VariableValue
-        DTS:DataType="7">4/30/2017</DTS:VariableValue>
+        DTS:DataType="7">5/31/2017</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -122,7 +122,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Sistema">
       <DTS:VariableValue
-        DTS:DataType="7">4/25/2017 5:58:32 PM</DTS:VariableValue>
+        DTS:DataType="7">5/9/2017 9:29:45 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -133,7 +133,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Mes_Corte">
       <DTS:VariableValue
-        DTS:DataType="3">4</DTS:VariableValue>
+        DTS:DataType="3">5</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -144,7 +144,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Mes_Corte_Texto">
       <DTS:VariableValue
-        DTS:DataType="8">4\</DTS:VariableValue>
+        DTS:DataType="8">5\</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -4635,13 +4635,11 @@
                       name="PREVISION_ENERO" />
                     <externalMetadataColumn
                       refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PREVISION_JULIO]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="PREVISION_JULIO" />
                     <externalMetadataColumn
                       refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PREVISION_ANUAL_ACT]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="PREVISION_ANUAL_ACT" />
                     <externalMetadataColumn
                       refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
@@ -9783,7 +9781,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\ZM_COMERCIAL_ELEMENTO\VISESA$Elemento Comercial">
+    design-time-name="Package\ZM_COMERCIAL_ELEMENTO\ZM_COMERCIAL_ELEMENTO">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9796,7 +9794,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ZM_COMERCIAL_ELEMENTO\ZM_COMERCIAL_ELEMENTO">
+    design-time-name="Package\ZM_COMERCIAL_ELEMENTO\VISESA$Elemento Comercial">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9814,9 +9812,21 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="175,42"
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1"
+          TopLeft="274.5,145.5" />
+        <NodeLayout
           Size="168,42"
           Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB"
           TopLeft="8.00000000000003,209.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB 1"
+          TopLeft="292.5,249.5" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1"
+          TopLeft="308.5,23.5" />
         <NodeLayout
           Size="183,42"
           Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA"
@@ -9826,19 +9836,31 @@
           Id="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual"
           TopLeft="9.00000000000003,107.5" />
         <EdgeLayout
-          Id="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de origen de OLE DB]"
-          TopLeft="94.5,47.5">
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de columna derivada1]"
+          TopLeft="362,187.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="19,62"
               Start="0,0"
-              End="0,52.5">
+              End="19,54.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="4,31" />
+                  <mssgle:LineSegment
+                    End="15,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15,31"
+                    Point2="19,31"
+                    Point3="19,35" />
+                  <mssgle:LineSegment
+                    End="19,54.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9869,18 +9891,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="183,42"
-          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1"
-          TopLeft="308.5,23.5" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB 1"
-          TopLeft="292.5,249.5" />
-        <NodeLayout
-          Size="175,42"
-          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1"
-          TopLeft="274.5,145.5" />
         <EdgeLayout
           Id="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de origen de OLE DB1]"
           TopLeft="400,65.5">
@@ -9916,31 +9926,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de columna derivada1]"
-          TopLeft="362,187.5">
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de origen de OLE DB]"
+          TopLeft="94.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="19,62"
+              EndConnector="0,60"
               Start="0,0"
-              End="19,54.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27"
-                    Point2="0,31"
-                    Point3="4,31" />
-                  <mssgle:LineSegment
-                    End="15,31" />
-                  <mssgle:CubicBezierSegment
-                    Point1="15,31"
-                    Point2="19,31"
-                    Point3="19,35" />
-                  <mssgle:LineSegment
-                    End="19,54.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

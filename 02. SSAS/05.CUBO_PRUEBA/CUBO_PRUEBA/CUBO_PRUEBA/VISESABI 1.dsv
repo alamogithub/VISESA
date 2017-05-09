@@ -800,7 +800,7 @@
       <xs:element name="VISESABI_x0020_1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="f9e927d8-c3a6-442e-b0ff-41c332193092">
         <xs:complexType>
           <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="dbo_H_COMERCIAL_ACTIVIDAD" msprop:design-time-name="6dd7570b-dcc7-48a7-a2a2-37c841e372e7" msprop:FriendlyName="H_COMERCIAL_ACTIVIDAD" msprop:DbSchemaName="dbo" msprop:DbTableName="H_COMERCIAL_ACTIVIDAD" msprop:TableType="Table" msprop:QueryBuilder="SpecificQueryBuilder">
+            <xs:element name="dbo_H_COMERCIAL_ACTIVIDAD" msprop:design-time-name="6dd7570b-dcc7-48a7-a2a2-37c841e372e7" msprop:IsLogical="True" msprop:FriendlyName="H_COMERCIAL_ACTIVIDAD" msprop:DbTableName="H_COMERCIAL_ACTIVIDAD" msprop:TableType="View" msprop:QueryDefinition="SELECT        FECHA_MODIFICACION, ID_MES, ID_ELEMENTO, TIPO_IVA, ID_REGIMEN_ACCESO_Y_USO, ID_REGIMEN_TENENCIA, ESTADO_PROMOCION, ID_TIPO_VIVIENDA, ID_MUNICIPIO, CODIGO_POSTAL, &#xD;&#xA;                         ELEMENTO_LIBRE, VIVIENDA_ADAPTADA, NO_FASE, ID_MODIF_CALIF, ID_OK_TECNICO, ID_PRODUCTO_PRINCIPAL, ID_TIPO_ELEMENTO, ID_TIPO_VENTA, ID_CARACTERISTICAS_VIVIENDA, ALQUILER, AROC, &#xD;&#xA;                         COMPRA_VENTA, ID_RELACION, ID_ESTADO, ID_ESTADO_ESPECIAL, ID_TIPO_PRECIO, PRECIO_VENTA, ID_TIPO_ANTICIPO, ID_TIPO_RENTA, ID_TIPO_CONTRAPRESTACION, ANYO_SORTEO, &#xD;&#xA;                         ID_MODALIDAD_COMPRA, ID_TIPO_ADJUDICACION, NUM_RES_Y_REN, NUM_RESCISIONES_CV, NUM_RESCISIONES_ANIO_EN_CURSO_CV, FECHA_ESCRITURA, PRIMERA_FECHA_ESCRITURA, &#xD;&#xA;                         FECHA_CONTRATO_CV, FECHA_CONTRATO_AROC, FECHA_ADJUDICACION, NUM_RES_AROC, NUM_RES_AROC_ANYO, TOTAL_ADJUDICACIONES, NUM_ADJ_DIRECTAS, PRESUPUESTO, PREVISION_ENERO, &#xD;&#xA;                         PREVISION_JULIO, PREVISION_ANUAL_ACT, CONTRATOS_CV_TOTAL, CONTRATOS_AROC_TOTAL, CONTRATOS_CV_ANIO, CONTRATOS_AROC_ANIO, ESCRITURAS_TOTAL, ESCRITURAS_ANIO, &#xD;&#xA;                         ESCRITURAS_CV_AROC_ANIO, CLIENTE, PTE_ESCRITURA, PREV_CONTRATO_AROC, ADJUDICACION, ADMITIDOS_SORTEO, STOCK, STOCK_PROMO, NUM_VIVIENDAS&#xD;&#xA;FROM            H_COMERCIAL_ACTIVIDAD" msprop:QueryBuilder="SpecificQueryBuilder">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="FECHA_MODIFICACION" msprop:design-time-name="26670f8d-49be-4bd8-9228-c38ea0cf358d" msprop:DbColumnName="FECHA_MODIFICACION" msprop:FriendlyName="FECHA_MODIFICACION" type="xs:dateTime" minOccurs="0" />
@@ -925,7 +925,8 @@
                   </xs:element>
                   <xs:element name="ADMITIDOS_SORTEO" msprop:design-time-name="69dde4f8-2d3f-452d-a1e8-128c08a9bcab" msprop:DbColumnName="ADMITIDOS_SORTEO" type="xs:int" minOccurs="0" />
                   <xs:element name="STOCK" msprop:design-time-name="883ba3cd-7140-4115-a4c9-ee88f2fad893" msprop:DbColumnName="STOCK" type="xs:int" minOccurs="0" />
-                  <xs:element name="STOCK_PROMO" msprop:DbColumnName="STOCK_PROMO" msprop:design-time-name="3dcf04fa-1bd6-416f-bad0-5a8ffcad2ae6" type="xs:int" minOccurs="0" />
+                  <xs:element name="STOCK_PROMO" msprop:design-time-name="3dcf04fa-1bd6-416f-bad0-5a8ffcad2ae6" msprop:DbColumnName="STOCK_PROMO" type="xs:int" minOccurs="0" />
+                  <xs:element name="NUM_VIVIENDAS" msprop:DbColumnName="NUM_VIVIENDAS" msprop:design-time-name="44bfd8a2-323c-41ce-a496-47721183e7ac" type="xs:int" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
