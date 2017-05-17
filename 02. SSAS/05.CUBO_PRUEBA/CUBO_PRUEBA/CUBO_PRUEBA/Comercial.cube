@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="102" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-5000" scrolltop="-1508" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="12621" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="102" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="7015" scrolltop="26679" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="12621" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -778,11 +778,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>-5000</Value>
+      <Value>7015</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-1508</Value>
+      <Value>26679</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -1372,6 +1372,16 @@
         </Attribute>
       </Attributes>
     </Dimension>
+    <Dimension dwd:design-time-name="798e3299-b10d-4f7a-9249-ca146f78a039">
+      <ID>Cliente</ID>
+      <Name>Cliente</Name>
+      <DimensionID>H COMERCIAL ACTIVIDAD 3</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="b1773cd1-8cbd-4c38-821c-eaf3f8c2373b">
+          <AttributeID>CLIENTE</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
   </Dimensions>
   <MeasureGroups>
     <MeasureGroup dwd:design-time-name="3304ba68-9be3-45e7-a774-969f975d6a85">
@@ -1421,7 +1431,7 @@
         </Measure>
         <Measure dwd:design-time-name="0b6cc0d4-fddd-47c6-9da6-66b51bc8b66a">
           <ID>NUM RESCISIONES ANIO EN CURSO CV</ID>
-          <Name>Nº Rescisiones Año en Curso</Name>
+          <Name>Nº Rescisiones Año</Name>
           <Source dwd:design-time-name="5ef0584e-5482-44d3-aeca-0e9d6e1e81d5">
             <DataType>Integer</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="32971f23-2e18-43e2-a17f-e2e6a0b4db4a">
@@ -1445,7 +1455,7 @@
         </Measure>
         <Measure dwd:design-time-name="98780a0b-c4ac-48ad-b3cd-0df771bea8e3">
           <ID>NUM RES AROC ANYO</ID>
-          <Name>Nº Rescisiones Año en Curso AROC</Name>
+          <Name>Nº Rescisiones Año AROC</Name>
           <Source dwd:design-time-name="f01a7aad-b778-4a3f-8d4e-92abcca870dd">
             <DataType>Integer</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="99367709-74b5-4b71-9f69-0bf20bf690f6">
@@ -1469,7 +1479,7 @@
         </Measure>
         <Measure dwd:design-time-name="8ef6ba20-d280-4594-855e-134a2418a9b2">
           <ID>CONTRATOS CV TOTAL</ID>
-          <Name>Nº Contratos CV Total</Name>
+          <Name>Nº Contratos CV Global</Name>
           <Source dwd:design-time-name="5bb2840c-3ce8-4be7-b581-380dbdccaac0">
             <DataType>Integer</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="bdd39a11-1c23-4a85-ba09-272e7c7b218a">
@@ -1493,7 +1503,7 @@
         </Measure>
         <Measure dwd:design-time-name="ff006e50-0031-4340-bad7-e2fecd94c414">
           <ID>H COMERCIAL ACTIVIDAD Count</ID>
-          <Name>Número</Name>
+          <Name>Número Elementos</Name>
           <AggregateFunction>Count</AggregateFunction>
           <Source dwd:design-time-name="4e693b5d-5d99-4848-aab8-5cce9ed6bb5c">
             <DataType>Integer</DataType>
@@ -1529,7 +1539,7 @@
         </Measure>
         <Measure dwd:design-time-name="9e53633a-427c-436f-bcd4-d9163e2728d7">
           <ID>ESCRITURAS TOTAL</ID>
-          <Name>Nº Escrituras Total</Name>
+          <Name>Nº Escrituras Global</Name>
           <Source dwd:design-time-name="8dd4996f-7862-4c94-9a33-4c02f6745ffc">
             <DataType>Integer</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="f531eb54-e54d-4eb4-8fa6-4cbbaefc3a26">
@@ -1537,12 +1547,11 @@
               <ColumnID>ESCRITURAS_TOTAL</ColumnID>
             </Source>
           </Source>
-          <Visible>false</Visible>
           <DisplayFolder>Escrituras</DisplayFolder>
         </Measure>
         <Measure dwd:design-time-name="a265465a-a744-456f-8ede-018ca816eeda">
           <ID>CONTRATOS AROC TOTAL</ID>
-          <Name>Nº Contratos AROC Total</Name>
+          <Name>Nº Contratos AROC Global</Name>
           <Source dwd:design-time-name="9d88d7e2-f807-463b-a44c-d292979e9806">
             <DataType>Integer</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="0031452e-fd04-4430-9801-d86fe0059e44">
@@ -1550,7 +1559,6 @@
               <ColumnID>CONTRATOS_AROC_TOTAL</ColumnID>
             </Source>
           </Source>
-          <Visible>false</Visible>
           <DisplayFolder>Contratos</DisplayFolder>
         </Measure>
         <Measure dwd:design-time-name="2890c793-c2ea-4092-af9e-3fe6732d257b">
@@ -1677,6 +1685,55 @@
               <ColumnID>NUM_VIVIENDAS</ColumnID>
             </Source>
           </Source>
+          <DisplayFolder>Viviendas</DisplayFolder>
+        </Measure>
+        <Measure dwd:design-time-name="fe228bbc-fdd2-40fa-aaa1-70749fa2db6d">
+          <ID>ESCRITURAS VIV</ID>
+          <Name>Nº Escrituras</Name>
+          <Source dwd:design-time-name="6c978112-1652-4809-8eb4-b9371ca793f9">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="8f8db33c-ab0e-4ce7-aeb1-65bafa07f7c2">
+              <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
+              <ColumnID>ESCRITURAS_VIV</ColumnID>
+            </Source>
+          </Source>
+          <DisplayFolder>Escrituras</DisplayFolder>
+        </Measure>
+        <Measure dwd:design-time-name="f33c5036-dcef-49fe-9ff4-a689c563acaa">
+          <ID>CONTRATOS CV VIV</ID>
+          <Name>Nº Contratos CV</Name>
+          <Source dwd:design-time-name="8f63a5d6-7377-4308-a1c8-a5c34231208c">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="04d514bf-f401-433b-a2cb-f13ae6f3a4eb">
+              <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
+              <ColumnID>CONTRATOS_CV_VIV</ColumnID>
+            </Source>
+          </Source>
+          <DisplayFolder>Contratos</DisplayFolder>
+        </Measure>
+        <Measure dwd:design-time-name="586ebaa1-cb32-47ad-ae88-dd68d50c88f1">
+          <ID>CONTRATOS AROC VIV</ID>
+          <Name>Nº Contratos AROC</Name>
+          <Source dwd:design-time-name="be9a8680-a576-4ce1-92a0-64e57b3a6065">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="f3191ab1-a53a-40b6-a1a8-aa4c57ad89b1">
+              <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
+              <ColumnID>CONTRATOS_AROC_VIV</ColumnID>
+            </Source>
+          </Source>
+          <DisplayFolder>Contratos</DisplayFolder>
+        </Measure>
+        <Measure dwd:design-time-name="cb4901e8-f048-405d-becc-f48ae57d7440">
+          <ID>PRECIO VTG</ID>
+          <Name>Precio VGT</Name>
+          <Source dwd:design-time-name="20f6f845-1e27-4172-879a-130a7be021e6">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="0b315905-f91c-46a8-bc26-16d941f49732">
+              <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
+              <ColumnID>PRECIO_VTG</ColumnID>
+            </Source>
+          </Source>
+          <DisplayFolder>Viviendas</DisplayFolder>
         </Measure>
       </Measures>
       <StorageMode>Molap</StorageMode>
@@ -2283,6 +2340,25 @@
             </Attribute>
           </Attributes>
         </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f8561790-b8f4-42bd-a9b0-be72c9339d4a">
+          <CubeDimensionID>Cliente</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="12baff40-0ae6-4682-b6f2-327054a0031d">
+              <AttributeID>CLIENTE</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c06d7ae3-c238-4468-bc87-18452d8d3f1a">
+                  <DataType>WChar</DataType>
+                  <DataSize>30</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ee17f249-ea3d-48bd-bd31-a61534da2f70">
+                    <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
+                    <ColumnID>CLIENTE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
       </Dimensions>
       <Partitions />
       <AggregationDesigns />
@@ -2304,73 +2380,74 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;                               
-CREATE MEMBER CURRENTCUBE.[Measures].[Entrega]
- AS FILTER([Fecha de escritura].[Jerarquia Temporal].[Year].members
-         , [Measures].[Nº de viviendas]).ITEM(0).name, 
-VISIBLE = 0;                               
-CREATE MEMBER CURRENTCUBE.[Measures].[Nº Viviendas2]
- AS Sum([Measures].[Número],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                  
+CALCULATE;                                       
 CREATE MEMBER CURRENTCUBE.[Measures].[Precio medio V+G+T  S/IVA]
- AS [Measures].[Precio_venta_total]/[Measures].[Nº Viviendas], 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                
+ AS [Measures].[Precio VGT]/[Measures].[Nº Viviendas], 
+FORMAT_STRING = "Currency", 
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                                                 
+CREATE MEMBER CURRENTCUBE.[Measures].[% Contratos]
+ AS ([Measures].[Nº Contratos CV]/[Measures].[Nº Viviendas]), 
+FORMAT_STRING = "Percent", 
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                     
 CREATE MEMBER CURRENTCUBE.[Measures].Precio_venta_total
  AS sum([Elemento libre].[Elemento libre].&amp;[0],[Measures].[Precio Venta]), 
-VISIBLE = 0;                                
-CREATE MEMBER CURRENTCUBE.[Measures].p1
- AS sum(CROSSJOIN(CROSSJOIN( [ELEMENTO LIBRE].[Valor ELEMENTO LIBRE].&amp;[0],[M TIPO ELEMENTO 1].[Valor TIPO ELEMENTO].&amp;[0]), [M ESTADO 1].[Valor ESTADO].&amp;[9]),[Measures].[Numero]), 
-VISIBLE = 0;                                      
-CREATE MEMBER CURRENTCUBE.[Measures].[Nº Total AROC]
- AS Sum([Measures].[Nº Viviendas],[Modalidad de compra].[Modalidad de compra].&amp;[2]), 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                      
-CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC]
- AS Sum([Measures].[Nº Total AROC],[Estado].[Estado].&amp;[6]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                  
-CREATE MEMBER CURRENTCUBE.[Measures].[Previsión contrato AROC]
- AS Sum([Measures].[Nº Total AROC],[Estado].[Estado].&amp;[5]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                     
-CREATE MEMBER CURRENTCUBE.[Measures].Num_AROC_2016
- AS sum([Measures].[Num_AROC],[J TIEMPO FECHA CONTRATO AROC].[Jerarquia Temporal].[Year].&amp;[2016-01-01T00:00:00]), 
-VISIBLE = 0;                                            
-CREATE MEMBER CURRENTCUBE.[Measures].[% Contratos]
- AS ([Measures].[Nº Contratos (Viviendas)]/[Measures].[Nº Viviendas]), 
+VISIBLE = 0;                                           
+CREATE MEMBER CURRENTCUBE.[Measures].[% Escrituras]
+ AS ([Measures].[Nº Escrituras]/[Measures].[Nº Viviendas]), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                       
-CREATE MEMBER CURRENTCUBE.[Measures].[Nº Total Escrituras]
- AS Sum([Measures].[Nº Escrituras Total],[Measures].[Nº Viviendas]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                         
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                        
+CREATE MEMBER CURRENTCUBE.[Measures].[Nº Viviendas Sin Ocupar]
+ AS [Measures].[Nº Viviendas]-[Measures].[Nº Escrituras]-[Measures].[Nº Contratos AROC], 
+FORMAT_STRING = "0", 
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Aceptadas (Pte Contrato)]
  AS Sum([Measures].[Nº Viviendas],[Estado].[Estado].&amp;[5]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Gestion CV' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                      
-CREATE MEMBER CURRENTCUBE.[Measures].[% Escrituras]
- AS ([Measures].[Nº Escrituras (Viviendas)]/[Measures].[Nº Viviendas]), 
-FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                         
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Gestion CV' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                              
                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Notificaciones en Curso]
  AS SUM(EXISTING {[Estado].[Estado].&amp;[3] ,[Estado].[Estado].&amp;[4],[Estado].[Estado].&amp;[5]}
       ,[Measures].[Nº Viviendas]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Gestion CV' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                         
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Gestion CV' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                           
+CREATE MEMBER CURRENTCUBE.[Measures].[Nº Total AROC]
+ AS Sum([Measures].[Nº Viviendas],[Modalidad de compra].[Modalidad de compra].&amp;[2]), 
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                       
+CREATE MEMBER CURRENTCUBE.[Measures].[Previsión contrato AROC2]
+ AS Sum([Measures].[Nº Total AROC],[Estado].[Estado].&amp;[5]), 
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                     
+CREATE MEMBER CURRENTCUBE.[Measures].p1
+ AS sum(CROSSJOIN(CROSSJOIN( [ELEMENTO LIBRE].[Valor ELEMENTO LIBRE].&amp;[0],[M TIPO ELEMENTO 1].[Valor TIPO ELEMENTO].&amp;[0]), [M ESTADO 1].[Valor ESTADO].&amp;[9]),[Measures].[Número de elementos]), 
+VISIBLE = 0;                                    
+CREATE MEMBER CURRENTCUBE.[Measures].[Nº Viviendas2]
+ AS Sum([Measures].[Número de elementos],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                           
+CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC3]
+ AS Sum([Measures].[Nº Total AROC],[Estado].[Estado].&amp;[6]), 
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                    
+CREATE MEMBER CURRENTCUBE.[Measures].[Entrega]
+ AS FILTER([Fecha de escritura].[Jerarquia Temporal].[Year].members
+         , [Measures].[Nº de viviendas]).ITEM(0).name, 
+VISIBLE = 0;                                          
+CREATE MEMBER CURRENTCUBE.[Measures].Num_AROC_2016
+ AS sum([Measures].[Num_AROC],[J TIEMPO FECHA CONTRATO AROC].[Jerarquia Temporal].[Year].&amp;[2016-01-01T00:00:00]), 
+VISIBLE = 0;                            
+CREATE MEMBER CURRENTCUBE.[Measures].[Nº Total Escrituras]
+ AS Sum([Measures].[Nº Escrituras Total],[Measures].[Nº Viviendas]), 
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos (Viviendas)]
- AS sum([Measures].[Nº Viviendas],[Measures].[Nº Contratos CV Total]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                                      
+ AS sum([Measures].[Nº Viviendas],[Measures].[Nº Contratos CV]), 
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                           
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Escrituras (Viviendas)]
- AS sum([Measures].[Nº Viviendas],[Measures].[Nº Escrituras Total]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores'  ;                          
+ AS sum([Measures].[Nº Viviendas],[Measures].[Nº Escrituras]), 
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                               
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC (Viviendas)]
- AS sum([Measures].[Nº Viviendas],[Measures].[Nº Contratos AROC Total]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                          
+ AS sum([Measures].[Nº Viviendas],[Measures].[Nº Contratos AROC]), 
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                               
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC2]
  AS sum(CROSSJOIN([Modalidad de compra].[Modalidad de compra].&amp;[2],[Estado].[Estado].&amp;[6]),[Measures].[Nº Viviendas]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                          
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                               
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC Año en Curso]
  AS sum([Measures].[Nº Contratos AROC Año],[Measures].[Nº Viviendas]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                   
-CREATE MEMBER CURRENTCUBE.[Measures].[Nº Viviendas Sin Ocupar]
- AS [Measures].[Nº Viviendas]-[Measures].[Nº Escrituras (Viviendas)]-[Measures].[Nº Contratos AROC (Viviendas)], 
-FORMAT_STRING = "0", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                       
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                            
 CREATE MEMBER CURRENTCUBE.[Measures].Pr1
  AS iif
 ( 
