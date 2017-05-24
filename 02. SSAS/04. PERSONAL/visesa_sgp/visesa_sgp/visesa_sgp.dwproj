@@ -1,0 +1,137 @@
+﻿<Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <ProductVersion>13.0.1701.8</ProductVersion>
+  <SchemaVersion>9.0.2.10</SchemaVersion>
+  <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkZGw1MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAiIHhtbG5zOmRkbDUwMF81MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAvNTAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
+  <Database>
+    <Name>visesa_sgp.database</Name>
+    <FullPath>visesa_sgp.database</FullPath>
+  </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>Formacion.cube</Name>
+      <FullPath>Formacion.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Formacion.partitions</Name>
+          <FullPath>Formacion.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Personas.cube</Name>
+      <FullPath>Personas.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Personas.partitions</Name>
+          <FullPath>Personas.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Situaciones.cube</Name>
+      <FullPath>Situaciones.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Situaciones.partitions</Name>
+          <FullPath>Situaciones.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>Aux Centros Trabajo.dim</Name>
+      <FullPath>Aux Centros Trabajo.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Aux Empresas.dim</Name>
+      <FullPath>Aux Empresas.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Contratos.dim</Name>
+      <FullPath>Contratos.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Formacion-asistentes.dim</Name>
+      <FullPath>Formacion-asistentes.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Formacion-cursos.dim</Name>
+      <FullPath>Formacion-cursos.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Personas.dim</Name>
+      <FullPath>Personas.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Puestos.dim</Name>
+      <FullPath>Puestos.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Situaciones.dim</Name>
+      <FullPath>Situaciones.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tiempo.dim</Name>
+      <FullPath>Tiempo.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>VISESA SGP.ds</Name>
+      <FullPath>VISESA SGP.ds</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Visesa Ulcd.ds</Name>
+      <FullPath>Visesa Ulcd.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>VISESA SGP.dsv</Name>
+      <FullPath>VISESA SGP.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Visesa Ulcd.dsv</Name>
+      <FullPath>Visesa Ulcd.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
+  <Roles>
+    <ProjectItem>
+      <Name>Irakurlea.role</Name>
+      <FullPath>Irakurlea.role</FullPath>
+    </ProjectItem>
+  </Roles>
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>VISESA SGP</Id>
+            <Name>VISESA SGP</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQL1\CUBOS;Persist Security Info=True;Password=;User ID=;Initial Catalog=visesa_sgp</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>Visesa Ulcd</Id>
+            <Name>Visesa Ulcd</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQL1\CUBOS;Persist Security Info=True;Password=;User ID=;Initial Catalog=visesa_ulcd</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>VISESA SGP</Id>
+            <Name>VISESA SGP</Name>
+            <Value xsi:type="xsd:int">1</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>Visesa Ulcd</Id>
+            <Name>Visesa Ulcd</Name>
+            <Value xsi:type="xsd:int">1</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+        <DeploymentServerEdition>Standard</DeploymentServerEdition>
+      </Options>
+    </Configuration>
+  </Configurations>
+</Project>

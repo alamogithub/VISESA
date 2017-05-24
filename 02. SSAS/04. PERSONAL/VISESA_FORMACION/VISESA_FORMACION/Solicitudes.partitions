@@ -1,0 +1,33 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="fbfd657b-eea8-4b24-b3f4-383be6ee40b0" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Solicitudes</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Vac Solicitud</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="e85e74f6-6515-4213-b35b-0a1ba27deec9">
+          <ID>Vac Solicitud</ID>
+          <Name>Vac Solicitud</Name>
+          <CreatedTimestamp>2014-01-21T23:02:03.99Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-09-08T09:02:38.303333Z</LastSchemaUpdate>
+          <LastProcessed>2017-05-24T04:00:09.646667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="b215f954-88e3-425d-ac22-5ce8a2114590">
+            <DataSourceViewID>VISESA SGP</DataSourceViewID>
+            <TableID>dbo_vac_solicitud</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="4974f10d-7ff9-4f79-b2f1-589b9639029d">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="9a9e1608-4dc4-44dc-bd8a-1b39b61b0f57" />
+          </ProactiveCaching>
+          <EstimatedSize>777888</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

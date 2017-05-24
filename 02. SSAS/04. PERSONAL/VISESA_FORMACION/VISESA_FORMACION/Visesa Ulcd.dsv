@@ -1,0 +1,928 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Visesa Ulcd</ID>
+  <Name>Visesa Ulcd</Name>
+  <CreatedTimestamp>2016-09-13T22:35:57.363333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2016-09-13T22:35:57.363333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Visesa Ulcd</DataSourceID>
+  <Schema>
+    <xs:schema id="Visesa_x0020_Ulcd" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Visesa_x0020_Ulcd" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_aplicaciones" msprop:DbTableName="aplicaciones" msprop:FriendlyName="aplicaciones" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidAplicacion" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidAplicacion" msprop:FriendlyName="pidAplicacion" type="xs:decimal" />
+                  <xs:element name="codigo" msprop:DbColumnName="codigo" msprop:FriendlyName="codigo">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="nombre" msprop:DbColumnName="nombre" msprop:FriendlyName="nombre">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="diccionario" msprop:DbColumnName="diccionario" msprop:FriendlyName="diccionario" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_aplicacionesNodos" msprop:DbTableName="aplicacionesNodos" msprop:FriendlyName="aplicacionesNodos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidAplicacionNodo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidAplicacionNodo" msprop:FriendlyName="pidAplicacionNodo" type="xs:decimal" />
+                  <xs:element name="sidNodoOrigen" msprop:DbColumnName="sidNodoOrigen" msprop:FriendlyName="sidNodoOrigen" type="xs:decimal" />
+                  <xs:element name="sidAplicacion" msprop:DbColumnName="sidAplicacion" msprop:FriendlyName="sidAplicacion" type="xs:decimal" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_aplicacionesPersonas" msprop:DbTableName="aplicacionesPersonas" msprop:FriendlyName="aplicacionesPersonas" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidAplicacionPersona" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidAplicacionPersona" msprop:FriendlyName="pidAplicacionPersona" type="xs:decimal" />
+                  <xs:element name="sidaplicacion" msprop:DbColumnName="sidaplicacion" msprop:FriendlyName="sidaplicacion" type="xs:decimal" />
+                  <xs:element name="sidPersona" msprop:DbColumnName="sidPersona" msprop:FriendlyName="sidPersona" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_aplicacionesPuestos" msprop:DbTableName="aplicacionesPuestos" msprop:FriendlyName="aplicacionesPuestos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidAplicacionPuesto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidAplicacionPuesto" msprop:FriendlyName="pidAplicacionPuesto" type="xs:decimal" />
+                  <xs:element name="sidAplicacion" msprop:DbColumnName="sidAplicacion" msprop:FriendlyName="sidAplicacion" type="xs:decimal" />
+                  <xs:element name="sidPuesto" msprop:DbColumnName="sidPuesto" msprop:FriendlyName="sidPuesto" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_entidades" msprop:DbTableName="entidades" msprop:FriendlyName="entidades" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidEntidad" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidEntidad" msprop:FriendlyName="pidEntidad" type="xs:decimal" />
+                  <xs:element name="codigo" msprop:DbColumnName="codigo" msprop:FriendlyName="codigo">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="nombre" msprop:DbColumnName="nombre" msprop:FriendlyName="nombre">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="sidModulo" msprop:DbColumnName="sidModulo" msprop:FriendlyName="sidModulo" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_funcionalidades" msprop:DbTableName="funcionalidades" msprop:FriendlyName="funcionalidades" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidFuncionalidad" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidFuncionalidad" msprop:FriendlyName="pidFuncionalidad" type="xs:decimal" />
+                  <xs:element name="codigo" msprop:DbColumnName="codigo" msprop:FriendlyName="codigo">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="nombre" msprop:DbColumnName="nombre" msprop:FriendlyName="nombre">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="sidEntidad" msprop:DbColumnName="sidEntidad" msprop:FriendlyName="sidEntidad" type="xs:decimal" />
+                  <xs:element name="sidModulo" msprop:DbColumnName="sidModulo" msprop:FriendlyName="sidModulo" type="xs:decimal" />
+                  <xs:element name="ambito" msprop:DbColumnName="ambito" msprop:FriendlyName="ambito" type="xs:int" minOccurs="0" />
+                  <xs:element name="personal" msprop:DbColumnName="personal" msprop:FriendlyName="personal" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_grupos" msprop:DbTableName="grupos" msprop:FriendlyName="grupos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidGrupo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidGrupo" msprop:FriendlyName="pidGrupo" type="xs:decimal" />
+                  <xs:element name="nombre" msprop:DbColumnName="nombre" msprop:FriendlyName="nombre">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="sidGrupoOrigen" msprop:DbColumnName="sidGrupoOrigen" msprop:FriendlyName="sidGrupoOrigen" type="xs:decimal" />
+                  <xs:element name="sidAplicacion" msprop:DbColumnName="sidAplicacion" msprop:FriendlyName="sidAplicacion" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_gruposorigen" msprop:DbTableName="gruposorigen" msprop:FriendlyName="gruposorigen" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidGrupoOrigen" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidGrupoOrigen" msprop:FriendlyName="pidGrupoOrigen" type="xs:decimal" />
+                  <xs:element name="fecha" msprop:DbColumnName="fecha" msprop:FriendlyName="fecha" type="xs:dateTime" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_grupospersonas" msprop:DbTableName="grupospersonas" msprop:FriendlyName="grupospersonas" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidGrupoPersona" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidGrupoPersona" msprop:FriendlyName="pidGrupoPersona" type="xs:decimal" />
+                  <xs:element name="sidGrupo" msprop:DbColumnName="sidGrupo" msprop:FriendlyName="sidGrupo" type="xs:decimal" />
+                  <xs:element name="sidPersona" msprop:DbColumnName="sidPersona" msprop:FriendlyName="sidPersona" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_historicosnodos" msprop:DbTableName="historicosnodos" msprop:FriendlyName="historicosnodos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidHistoricoNodo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidHistoricoNodo" msprop:FriendlyName="pidHistoricoNodo" type="xs:int" />
+                  <xs:element name="sidNodo" msprop:DbColumnName="sidNodo" msprop:FriendlyName="sidNodo" type="xs:int" />
+                  <xs:element name="descripcion" msprop:DbColumnName="descripcion" msprop:FriendlyName="descripcion">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="codigo" msprop:DbColumnName="codigo" msprop:FriendlyName="codigo">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="nivel" msprop:DbColumnName="nivel" msprop:FriendlyName="nivel" type="xs:int" />
+                  <xs:element name="orden" msprop:DbColumnName="orden" msprop:FriendlyName="orden" type="xs:int" />
+                  <xs:element name="sidNodoPadre" msprop:DbColumnName="sidNodoPadre" msprop:FriendlyName="sidNodoPadre" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="sidNodoOrigen" msprop:DbColumnName="sidNodoOrigen" msprop:FriendlyName="sidNodoOrigen" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="sidTipoNodo" msprop:DbColumnName="sidTipoNodo" msprop:FriendlyName="sidTipoNodo" type="xs:int" />
+                  <xs:element name="codigoOrden" msprop:DbColumnName="codigoOrden" msprop:FriendlyName="codigoOrden">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1000" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="fechaInicio" msprop:DbColumnName="fechaInicio" msprop:FriendlyName="fechaInicio" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="fechaFin" msprop:DbColumnName="fechaFin" msprop:FriendlyName="fechaFin" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="organigrama" msprop:DbColumnName="organigrama" msprop:FriendlyName="organigrama" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_historicospersonas" msprop:DbTableName="historicospersonas" msprop:FriendlyName="historicospersonas" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidHistoricoPersona" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidHistoricoPersona" msprop:FriendlyName="pidHistoricoPersona" type="xs:decimal" />
+                  <xs:element name="sidPersona" msprop:DbColumnName="sidPersona" msprop:FriendlyName="sidPersona" type="xs:decimal" />
+                  <xs:element name="sidNodoOrigen" msprop:DbColumnName="sidNodoOrigen" msprop:FriendlyName="sidNodoOrigen" type="xs:decimal" />
+                  <xs:element name="sidMotivo" msprop:DbColumnName="sidMotivo" msprop:FriendlyName="sidMotivo" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="fechaAlta" msprop:DbColumnName="fechaAlta" msprop:FriendlyName="fechaAlta" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="fechaBaja" msprop:DbColumnName="fechaBaja" msprop:FriendlyName="fechaBaja" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_modulos" msprop:DbTableName="modulos" msprop:FriendlyName="modulos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidModulo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidModulo" msprop:FriendlyName="pidModulo" type="xs:decimal" />
+                  <xs:element name="codigo" msprop:DbColumnName="codigo" msprop:FriendlyName="codigo">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="nombre" msprop:DbColumnName="nombre" msprop:FriendlyName="nombre">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="sidAplicacion" msprop:DbColumnName="sidAplicacion" msprop:FriendlyName="sidAplicacion" type="xs:decimal" />
+                  <xs:element name="periodo" msprop:DbColumnName="periodo" msprop:FriendlyName="periodo" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_niveles" msprop:DbTableName="niveles" msprop:FriendlyName="niveles" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidNivel" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidNivel" msprop:FriendlyName="pidNivel" type="xs:decimal" />
+                  <xs:element name="sidAplicacion" msprop:DbColumnName="sidAplicacion" msprop:FriendlyName="sidAplicacion" type="xs:decimal" />
+                  <xs:element name="descripcion" msprop:DbColumnName="descripcion" msprop:FriendlyName="descripcion">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="borrado" msprop:DbColumnName="borrado" msprop:FriendlyName="borrado" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_nivelesOrganizativos" msprop:DbTableName="nivelesOrganizativos" msprop:FriendlyName="nivelesOrganizativos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidNivelOrganizativo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidNivelOrganizativo" msprop:FriendlyName="pidNivelOrganizativo" type="xs:decimal" />
+                  <xs:element name="nombre" msprop:DbColumnName="nombre" msprop:FriendlyName="nombre">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="sidNivel" msprop:DbColumnName="sidNivel" msprop:FriendlyName="sidNivel" type="xs:decimal" />
+                  <xs:element name="sidNodoOrigen" msprop:DbColumnName="sidNodoOrigen" msprop:FriendlyName="sidNodoOrigen" type="xs:decimal" />
+                  <xs:element name="codigo" msprop:DbColumnName="codigo" msprop:FriendlyName="codigo" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="puestoResponsable" msprop:DbColumnName="puestoResponsable" msprop:FriendlyName="puestoResponsable" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="borrado" msprop:DbColumnName="borrado" msprop:FriendlyName="borrado" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_nodos" msprop:DbTableName="nodos" msprop:FriendlyName="nodos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidNodo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidNodo" msprop:FriendlyName="pidNodo" type="xs:decimal" />
+                  <xs:element name="descripcion" msprop:DbColumnName="descripcion" msprop:FriendlyName="descripcion">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="codigo" msprop:DbColumnName="codigo" msprop:FriendlyName="codigo">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="nivel" msprop:DbColumnName="nivel" msprop:FriendlyName="nivel" type="xs:int" />
+                  <xs:element name="orden" msprop:DbColumnName="orden" msprop:FriendlyName="orden" type="xs:int" />
+                  <xs:element name="sidNodoPadre" msprop:DbColumnName="sidNodoPadre" msprop:FriendlyName="sidNodoPadre" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="sidNodoOrigen" msprop:DbColumnName="sidNodoOrigen" msprop:FriendlyName="sidNodoOrigen" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="sidTipoNodo" msprop:DbColumnName="sidTipoNodo" msprop:FriendlyName="sidTipoNodo" type="xs:int" />
+                  <xs:element name="codigoOrden" msprop:DbColumnName="codigoOrden" msprop:FriendlyName="codigoOrden">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1000" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="fechaInicio" msprop:DbColumnName="fechaInicio" msprop:FriendlyName="fechaInicio" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="organigrama" msprop:DbColumnName="organigrama" msprop:FriendlyName="organigrama" type="xs:int" minOccurs="0" />
+                  <xs:element name="borrado" msprop:DbColumnName="borrado" msprop:FriendlyName="borrado" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_nodosOrigen" msprop:DbTableName="nodosOrigen" msprop:FriendlyName="nodosOrigen" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidNodoOrigen" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidNodoOrigen" msprop:FriendlyName="pidNodoOrigen" type="xs:decimal" />
+                  <xs:element name="fecha" msprop:DbColumnName="fecha" msprop:FriendlyName="fecha" type="xs:dateTime" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_nodospersona" msprop:DbTableName="nodospersona" msprop:FriendlyName="nodospersona" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidNodoPersona" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidNodoPersona" msprop:FriendlyName="pidNodoPersona" type="xs:decimal" />
+                  <xs:element name="sidPersona" msprop:DbColumnName="sidPersona" msprop:FriendlyName="sidPersona" type="xs:decimal" />
+                  <xs:element name="sidNodoOrigen" msprop:DbColumnName="sidNodoOrigen" msprop:FriendlyName="sidNodoOrigen" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_nodosPuestos" msprop:DbTableName="nodosPuestos" msprop:FriendlyName="nodosPuestos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidNodoPuesto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidNodoPuesto" msprop:FriendlyName="pidNodoPuesto" type="xs:decimal" />
+                  <xs:element name="sidPuesto" msprop:DbColumnName="sidPuesto" msprop:FriendlyName="sidPuesto" type="xs:decimal" />
+                  <xs:element name="sidNodoOrigen" msprop:DbColumnName="sidNodoOrigen" msprop:FriendlyName="sidNodoOrigen" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_periodos" msprop:DbTableName="periodos" msprop:FriendlyName="periodos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidPeriodo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidPeriodo" msprop:FriendlyName="pidPeriodo" type="xs:decimal" />
+                  <xs:element name="nombre" msprop:DbColumnName="nombre" msprop:FriendlyName="nombre">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="fechaInicio" msprop:DbColumnName="fechaInicio" msprop:FriendlyName="fechaInicio" type="xs:dateTime" />
+                  <xs:element name="fechaFin" msprop:DbColumnName="fechaFin" msprop:FriendlyName="fechaFin" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="sidModulo" msprop:DbColumnName="sidModulo" msprop:FriendlyName="sidModulo" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_permisos" msprop:DbTableName="permisos" msprop:FriendlyName="permisos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidPermiso" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidPermiso" msprop:FriendlyName="pidPermiso" type="xs:decimal" />
+                  <xs:element name="sidRol" msprop:DbColumnName="sidRol" msprop:FriendlyName="sidRol" type="xs:decimal" />
+                  <xs:element name="sidFuncionalidad" msprop:DbColumnName="sidFuncionalidad" msprop:FriendlyName="sidFuncionalidad" type="xs:decimal" />
+                  <xs:element name="ambito" msprop:DbColumnName="ambito" msprop:FriendlyName="ambito" type="xs:int" />
+                  <xs:element name="personal" msprop:DbColumnName="personal" msprop:FriendlyName="personal" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_permisosambitos" msprop:DbTableName="permisosambitos" msprop:FriendlyName="permisosambitos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidPermisoAmbito" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidPermisoAmbito" msprop:FriendlyName="pidPermisoAmbito" type="xs:decimal" />
+                  <xs:element name="sidFuncionalidad" msprop:DbColumnName="sidFuncionalidad" msprop:FriendlyName="sidFuncionalidad" type="xs:decimal" />
+                  <xs:element name="sidRolUsuario" msprop:DbColumnName="sidRolUsuario" msprop:FriendlyName="sidRolUsuario" type="xs:decimal" />
+                  <xs:element name="sidNodoOrigen" msprop:DbColumnName="sidNodoOrigen" msprop:FriendlyName="sidNodoOrigen" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_permisosPersonal" msprop:DbTableName="permisosPersonal" msprop:FriendlyName="permisosPersonal" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidPermisoPersonal" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidPermisoPersonal" msprop:FriendlyName="pidPermisoPersonal" type="xs:decimal" />
+                  <xs:element name="sidFuncionalidad" msprop:DbColumnName="sidFuncionalidad" msprop:FriendlyName="sidFuncionalidad" type="xs:decimal" />
+                  <xs:element name="sidRolUsuario" msprop:DbColumnName="sidRolUsuario" msprop:FriendlyName="sidRolUsuario" type="xs:decimal" />
+                  <xs:element name="sidPersona" msprop:DbColumnName="sidPersona" msprop:FriendlyName="sidPersona" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_personas" msprop:DbTableName="personas" msprop:FriendlyName="personas" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidPersona" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidPersona" msprop:FriendlyName="pidPersona" type="xs:decimal" />
+                  <xs:element name="nombre" msprop:DbColumnName="nombre" msprop:FriendlyName="nombre">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="sidUsuario" msprop:DbColumnName="sidUsuario" msprop:FriendlyName="sidUsuario" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="apellido1" msprop:DbColumnName="apellido1" msprop:FriendlyName="apellido1">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="apellido2" msprop:DbColumnName="apellido2" msprop:FriendlyName="apellido2" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="dni" msprop:DbColumnName="dni" msprop:FriendlyName="dni">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="email" msprop:DbColumnName="email" msprop:FriendlyName="email" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="emailPersonal" msprop:DbColumnName="emailPersonal" msprop:FriendlyName="emailPersonal" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="nss" msprop:DbColumnName="nss" msprop:FriendlyName="nss" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="fechaNacimiento" msprop:DbColumnName="fechaNacimiento" msprop:FriendlyName="fechaNacimiento" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="lugarNacimiento" msprop:DbColumnName="lugarNacimiento" msprop:FriendlyName="lugarNacimiento" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="300" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="domicilio" msprop:DbColumnName="domicilio" msprop:FriendlyName="domicilio" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="cp" msprop:DbColumnName="cp" msprop:FriendlyName="cp" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="localidad" msprop:DbColumnName="localidad" msprop:FriendlyName="localidad" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="provincia" msprop:DbColumnName="provincia" msprop:FriendlyName="provincia" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="telefono" msprop:DbColumnName="telefono" msprop:FriendlyName="telefono" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="tlfMovil" msprop:DbColumnName="tlfMovil" msprop:FriendlyName="tlfMovil" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="esResponsable" msprop:DbColumnName="esResponsable" msprop:FriendlyName="esResponsable" type="xs:int" minOccurs="0" />
+                  <xs:element name="responsableFormacion" msprop:DbColumnName="responsableFormacion" msprop:FriendlyName="responsableFormacion" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="responsableVacaciones" msprop:DbColumnName="responsableVacaciones" msprop:FriendlyName="responsableVacaciones" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="sidCalendario" msprop:DbColumnName="sidCalendario" msprop:FriendlyName="sidCalendario" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="sidCalendarioAnualActivo" msprop:DbColumnName="sidCalendarioAnualActivo" msprop:FriendlyName="sidCalendarioAnualActivo" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="fechaCalendarioAnual" msprop:DbColumnName="fechaCalendarioAnual" msprop:FriendlyName="fechaCalendarioAnual" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="calendarioAnualCerrado" msprop:DbColumnName="calendarioAnualCerrado" msprop:FriendlyName="calendarioAnualCerrado" type="xs:int" minOccurs="0" />
+                  <xs:element name="fechaCierreCalendarioAnual" msprop:DbColumnName="fechaCierreCalendarioAnual" msprop:FriendlyName="fechaCierreCalendarioAnual" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="foto" msprop:DbColumnName="foto" msprop:FriendlyName="foto" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="200" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="supervisorDep" msprop:DbColumnName="supervisorDep" msprop:FriendlyName="supervisorDep" type="xs:boolean" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_puestos" msprop:DbTableName="puestos" msprop:FriendlyName="puestos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidPuesto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidPuesto" msprop:FriendlyName="pidPuesto" type="xs:decimal" />
+                  <xs:element name="nombre" msprop:DbColumnName="nombre" msprop:FriendlyName="nombre">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="sidNodoOrigen" msprop:DbColumnName="sidNodoOrigen" msprop:FriendlyName="sidNodoOrigen" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="fechaCreacion" msprop:DbColumnName="fechaCreacion" msprop:FriendlyName="fechaCreacion" type="xs:dateTime" />
+                  <xs:element name="tipoManoObra" msprop:DbColumnName="tipoManoObra" msprop:FriendlyName="tipoManoObra" type="xs:int" minOccurs="0" />
+                  <xs:element name="tipoPuesto" msprop:DbColumnName="tipoPuesto" msprop:FriendlyName="tipoPuesto" type="xs:int" minOccurs="0" />
+                  <xs:element name="tipoPersonal" msprop:DbColumnName="tipoPersonal" msprop:FriendlyName="tipoPersonal" type="xs:int" minOccurs="0" />
+                  <xs:element name="sidResponsable" msprop:DbColumnName="sidResponsable" msprop:FriendlyName="sidResponsable" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="indiceEstructural" msprop:DbColumnName="indiceEstructural" msprop:FriendlyName="indiceEstructural" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="valorado" msprop:DbColumnName="valorado" msprop:FriendlyName="valorado" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="2000" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="borrado" msprop:DbColumnName="borrado" msprop:FriendlyName="borrado" type="xs:int" />
+                  <xs:element name="sidContrata" msprop:DbColumnName="sidContrata" msprop:FriendlyName="sidContrata" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="sidOficina" msprop:DbColumnName="sidOficina" msprop:FriendlyName="sidOficina" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="costeHora" msprop:DbColumnName="costeHora" msprop:FriendlyName="costeHora" type="xs:double" minOccurs="0" />
+                  <xs:element name="sidGrupos" msprop:DbColumnName="sidGrupos" msprop:FriendlyName="sidGrupos" type="xs:int" minOccurs="0" />
+                  <xs:element name="sidNivelSalarial" msprop:DbColumnName="sidNivelSalarial" msprop:FriendlyName="sidNivelSalarial" type="xs:int" minOccurs="0" />
+                  <xs:element name="nombreEus" msprop:DbColumnName="nombreEus" msprop:FriendlyName="nombreEus" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_relevos" msprop:DbTableName="relevos" msprop:FriendlyName="relevos" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidRelevo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidRelevo" msprop:FriendlyName="pidRelevo" type="xs:decimal" />
+                  <xs:element name="sidNodoOrigen" msprop:DbColumnName="sidNodoOrigen" msprop:FriendlyName="sidNodoOrigen" type="xs:decimal" />
+                  <xs:element name="nombre" msprop:DbColumnName="nombre" msprop:FriendlyName="nombre" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="borrado" msprop:DbColumnName="borrado" msprop:FriendlyName="borrado" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_roles" msprop:DbTableName="roles" msprop:FriendlyName="roles" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidRol" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidRol" msprop:FriendlyName="pidRol" type="xs:decimal" />
+                  <xs:element name="nombre" msprop:DbColumnName="nombre" msprop:FriendlyName="nombre">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="sidModulo" msprop:DbColumnName="sidModulo" msprop:FriendlyName="sidModulo" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_rolesUsuarios" msprop:DbTableName="rolesUsuarios" msprop:FriendlyName="rolesUsuarios" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidRolUsuario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidRolUsuario" msprop:FriendlyName="pidRolUsuario" type="xs:decimal" />
+                  <xs:element name="sidRol" msprop:DbColumnName="sidRol" msprop:FriendlyName="sidRol" type="xs:decimal" />
+                  <xs:element name="sidUsuario" msprop:DbColumnName="sidUsuario" msprop:FriendlyName="sidUsuario" type="xs:decimal" />
+                  <xs:element name="sidPeriodo" msprop:DbColumnName="sidPeriodo" msprop:FriendlyName="sidPeriodo" type="xs:decimal" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_usuarios" msprop:DbTableName="usuarios" msprop:FriendlyName="usuarios" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidUsuario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidUsuario" msprop:FriendlyName="pidUsuario" type="xs:decimal" />
+                  <xs:element name="login" msprop:DbColumnName="login" msprop:FriendlyName="login">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="password" msprop:DbColumnName="password" msprop:FriendlyName="password" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="tipoValidacion" msprop:DbColumnName="tipoValidacion" msprop:FriendlyName="tipoValidacion" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_vac_calendarios" msprop:DbTableName="vac_calendarios" msprop:FriendlyName="vac_calendarios" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="pidCalendario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="pidCalendario" msprop:FriendlyName="pidCalendario" type="xs:decimal" />
+                  <xs:element name="descripcion" msprop:DbColumnName="descripcion" msprop:FriendlyName="descripcion" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="borrado" msprop:DbColumnName="borrado" msprop:FriendlyName="borrado" type="xs:int" minOccurs="0" />
+                  <xs:element name="fechaBorrado" msprop:DbColumnName="fechaBorrado" msprop:FriendlyName="fechaBorrado" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_aplicaciones" />
+          <xs:field xpath="pidAplicacion" />
+        </xs:unique>
+        <xs:unique name="dbo_aplicacionesNodos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_aplicacionesNodos" />
+          <xs:field xpath="pidAplicacionNodo" />
+        </xs:unique>
+        <xs:unique name="dbo_aplicacionesPersonas_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_aplicacionesPersonas" />
+          <xs:field xpath="pidAplicacionPersona" />
+        </xs:unique>
+        <xs:unique name="dbo_aplicacionesPuestos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_aplicacionesPuestos" />
+          <xs:field xpath="pidAplicacionPuesto" />
+        </xs:unique>
+        <xs:unique name="dbo_entidades_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_entidades" />
+          <xs:field xpath="pidEntidad" />
+        </xs:unique>
+        <xs:unique name="dbo_funcionalidades_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_funcionalidades" />
+          <xs:field xpath="pidFuncionalidad" />
+        </xs:unique>
+        <xs:unique name="dbo_grupos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_grupos" />
+          <xs:field xpath="pidGrupo" />
+        </xs:unique>
+        <xs:unique name="dbo_gruposorigen_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_gruposorigen" />
+          <xs:field xpath="pidGrupoOrigen" />
+        </xs:unique>
+        <xs:unique name="dbo_grupospersonas_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_grupospersonas" />
+          <xs:field xpath="pidGrupoPersona" />
+        </xs:unique>
+        <xs:unique name="dbo_historicosnodos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_historicosnodos" />
+          <xs:field xpath="pidHistoricoNodo" />
+        </xs:unique>
+        <xs:unique name="dbo_historicospersonas_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_historicospersonas" />
+          <xs:field xpath="pidHistoricoPersona" />
+        </xs:unique>
+        <xs:unique name="dbo_modulos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_modulos" />
+          <xs:field xpath="pidModulo" />
+        </xs:unique>
+        <xs:unique name="dbo_niveles_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_niveles" />
+          <xs:field xpath="pidNivel" />
+        </xs:unique>
+        <xs:unique name="dbo_nivelesOrganizativos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_nivelesOrganizativos" />
+          <xs:field xpath="pidNivelOrganizativo" />
+        </xs:unique>
+        <xs:unique name="dbo_nodos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_nodos" />
+          <xs:field xpath="pidNodo" />
+        </xs:unique>
+        <xs:unique name="dbo_nodosOrigen_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_nodosOrigen" />
+          <xs:field xpath="pidNodoOrigen" />
+        </xs:unique>
+        <xs:unique name="dbo_nodospersona_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_nodospersona" />
+          <xs:field xpath="pidNodoPersona" />
+        </xs:unique>
+        <xs:unique name="dbo_nodosPuestos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_nodosPuestos" />
+          <xs:field xpath="pidNodoPuesto" />
+        </xs:unique>
+        <xs:unique name="dbo_periodos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_periodos" />
+          <xs:field xpath="pidPeriodo" />
+        </xs:unique>
+        <xs:unique name="dbo_permisos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_permisos" />
+          <xs:field xpath="pidPermiso" />
+        </xs:unique>
+        <xs:unique name="dbo_permisosambitos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_permisosambitos" />
+          <xs:field xpath="pidPermisoAmbito" />
+        </xs:unique>
+        <xs:unique name="dbo_permisosPersonal_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_permisosPersonal" />
+          <xs:field xpath="pidPermisoPersonal" />
+        </xs:unique>
+        <xs:unique name="dbo_personas_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_personas" />
+          <xs:field xpath="pidPersona" />
+        </xs:unique>
+        <xs:unique name="dbo_puestos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_puestos" />
+          <xs:field xpath="pidPuesto" />
+        </xs:unique>
+        <xs:unique name="dbo_relevos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_relevos" />
+          <xs:field xpath="pidRelevo" />
+        </xs:unique>
+        <xs:unique name="dbo_roles_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_roles" />
+          <xs:field xpath="pidRol" />
+        </xs:unique>
+        <xs:unique name="dbo_rolesUsuarios_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_rolesUsuarios" />
+          <xs:field xpath="pidRolUsuario" />
+        </xs:unique>
+        <xs:unique name="dbo_usuarios_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_usuarios" />
+          <xs:field xpath="pidUsuario" />
+        </xs:unique>
+        <xs:unique name="dbo_vac_calendarios_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_vac_calendarios" />
+          <xs:field xpath="pidCalendario" />
+        </xs:unique>
+        <xs:keyref name="FK_rolesUsuarios_roles" refer="dbo_roles_Constraint1">
+          <xs:selector xpath=".//dbo_rolesUsuarios" />
+          <xs:field xpath="sidRol" />
+        </xs:keyref>
+        <xs:keyref name="FK_rolesUsuarios_periodos" refer="dbo_periodos_Constraint1">
+          <xs:selector xpath=".//dbo_rolesUsuarios" />
+          <xs:field xpath="sidPeriodo" />
+        </xs:keyref>
+        <xs:keyref name="FK_rolesUsuarios_usuarios" refer="dbo_usuarios_Constraint1">
+          <xs:selector xpath=".//dbo_rolesUsuarios" />
+          <xs:field xpath="sidUsuario" />
+        </xs:keyref>
+        <xs:keyref name="FK_roles_modulos" refer="dbo_modulos_Constraint1">
+          <xs:selector xpath=".//dbo_roles" />
+          <xs:field xpath="sidModulo" />
+        </xs:keyref>
+        <xs:keyref name="FK_relevos_nodosOrigen" refer="dbo_nodosOrigen_Constraint1">
+          <xs:selector xpath=".//dbo_relevos" />
+          <xs:field xpath="sidNodoOrigen" />
+        </xs:keyref>
+        <xs:keyref name="FK_puestos_nodosOrigen" refer="dbo_nodosOrigen_Constraint1">
+          <xs:selector xpath=".//dbo_puestos" />
+          <xs:field xpath="sidNodoOrigen" />
+        </xs:keyref>
+        <xs:keyref name="FK_puestos_personas" refer="dbo_personas_Constraint1">
+          <xs:selector xpath=".//dbo_puestos" />
+          <xs:field xpath="sidResponsable" />
+        </xs:keyref>
+        <xs:keyref name="FK_personas_usuarios" refer="dbo_usuarios_Constraint1">
+          <xs:selector xpath=".//dbo_personas" />
+          <xs:field xpath="sidUsuario" />
+        </xs:keyref>
+        <xs:keyref name="FK_personas_respVacaciones" refer="dbo_personas_Constraint1">
+          <xs:selector xpath=".//dbo_personas" />
+          <xs:field xpath="responsableVacaciones" />
+        </xs:keyref>
+        <xs:keyref name="FK_personas_respFormacion" refer="dbo_personas_Constraint1">
+          <xs:selector xpath=".//dbo_personas" />
+          <xs:field xpath="responsableFormacion" />
+        </xs:keyref>
+        <xs:keyref name="FK_permisosPersonal_personas" refer="dbo_personas_Constraint1">
+          <xs:selector xpath=".//dbo_permisosPersonal" />
+          <xs:field xpath="sidPersona" />
+        </xs:keyref>
+        <xs:keyref name="FK_permisosPersonal_funcionalidades" refer="dbo_funcionalidades_Constraint1">
+          <xs:selector xpath=".//dbo_permisosPersonal" />
+          <xs:field xpath="sidFuncionalidad" />
+        </xs:keyref>
+        <xs:keyref name="FK_permisosPersonal_rolesUsuarios" refer="dbo_rolesUsuarios_Constraint1">
+          <xs:selector xpath=".//dbo_permisosPersonal" />
+          <xs:field xpath="sidRolUsuario" />
+        </xs:keyref>
+        <xs:keyref name="FK_permisosambitos_funcionalidades" refer="dbo_funcionalidades_Constraint1">
+          <xs:selector xpath=".//dbo_permisosambitos" />
+          <xs:field xpath="sidFuncionalidad" />
+        </xs:keyref>
+        <xs:keyref name="FK_permisosambitos_rolesUsuarios" refer="dbo_rolesUsuarios_Constraint1">
+          <xs:selector xpath=".//dbo_permisosambitos" />
+          <xs:field xpath="sidRolUsuario" />
+        </xs:keyref>
+        <xs:keyref name="FK_permisosambitos_nodosOrigen" refer="dbo_nodosOrigen_Constraint1">
+          <xs:selector xpath=".//dbo_permisosambitos" />
+          <xs:field xpath="sidNodoOrigen" />
+        </xs:keyref>
+        <xs:keyref name="FK_permisos_funcionalidades" refer="dbo_funcionalidades_Constraint1">
+          <xs:selector xpath=".//dbo_permisos" />
+          <xs:field xpath="sidFuncionalidad" />
+        </xs:keyref>
+        <xs:keyref name="FK_permisos_roles" refer="dbo_roles_Constraint1">
+          <xs:selector xpath=".//dbo_permisos" />
+          <xs:field xpath="sidRol" />
+        </xs:keyref>
+        <xs:keyref name="FK_periodos_modulos" refer="dbo_modulos_Constraint1">
+          <xs:selector xpath=".//dbo_periodos" />
+          <xs:field xpath="sidModulo" />
+        </xs:keyref>
+        <xs:keyref name="FK_nodosPuestos_puestos" refer="dbo_puestos_Constraint1">
+          <xs:selector xpath=".//dbo_nodosPuestos" />
+          <xs:field xpath="sidPuesto" />
+        </xs:keyref>
+        <xs:keyref name="FK_nodosPuestos_nodosOrigen" refer="dbo_nodosOrigen_Constraint1">
+          <xs:selector xpath=".//dbo_nodosPuestos" />
+          <xs:field xpath="sidNodoOrigen" />
+        </xs:keyref>
+        <xs:keyref name="FK_nodospersona_nodosOrigen1" refer="dbo_nodosOrigen_Constraint1">
+          <xs:selector xpath=".//dbo_nodospersona" />
+          <xs:field xpath="sidNodoOrigen" />
+        </xs:keyref>
+        <xs:keyref name="FK_nodospersona_personas" refer="dbo_personas_Constraint1">
+          <xs:selector xpath=".//dbo_nodospersona" />
+          <xs:field xpath="sidPersona" />
+        </xs:keyref>
+        <xs:keyref name="FK_nodos_nodosOrigen" refer="dbo_nodosOrigen_Constraint1">
+          <xs:selector xpath=".//dbo_nodos" />
+          <xs:field xpath="sidNodoOrigen" />
+        </xs:keyref>
+        <xs:keyref name="FK_nodos_nodos" refer="dbo_nodos_Constraint1">
+          <xs:selector xpath=".//dbo_nodos" />
+          <xs:field xpath="sidNodoPadre" />
+        </xs:keyref>
+        <xs:keyref name="FK_nivelesOrganizativos_nodosOrigen" refer="dbo_nodosOrigen_Constraint1">
+          <xs:selector xpath=".//dbo_nivelesOrganizativos" />
+          <xs:field xpath="sidNodoOrigen" />
+        </xs:keyref>
+        <xs:keyref name="FK_nivelesOrganizativos_puestos" refer="dbo_puestos_Constraint1">
+          <xs:selector xpath=".//dbo_nivelesOrganizativos" />
+          <xs:field xpath="puestoResponsable" />
+        </xs:keyref>
+        <xs:keyref name="FK_nivelesOrganizativos_niveles" refer="dbo_niveles_Constraint1">
+          <xs:selector xpath=".//dbo_nivelesOrganizativos" />
+          <xs:field xpath="sidNivel" />
+        </xs:keyref>
+        <xs:keyref name="FK_niveles_aplicaciones" refer="Constraint1">
+          <xs:selector xpath=".//dbo_niveles" />
+          <xs:field xpath="sidAplicacion" />
+        </xs:keyref>
+        <xs:keyref name="FK_modulos_aplicaciones" refer="Constraint1">
+          <xs:selector xpath=".//dbo_modulos" />
+          <xs:field xpath="sidAplicacion" />
+        </xs:keyref>
+        <xs:keyref name="FK_historicospersonas_nodosOrigen" refer="dbo_nodosOrigen_Constraint1">
+          <xs:selector xpath=".//dbo_historicospersonas" />
+          <xs:field xpath="sidNodoOrigen" />
+        </xs:keyref>
+        <xs:keyref name="FK_historicospersonas_personas" refer="dbo_personas_Constraint1">
+          <xs:selector xpath=".//dbo_historicospersonas" />
+          <xs:field xpath="sidPersona" />
+        </xs:keyref>
+        <xs:keyref name="FK_historicosnodos_nodosOrigen" refer="dbo_nodosOrigen_Constraint1">
+          <xs:selector xpath=".//dbo_historicosnodos" />
+          <xs:field xpath="sidNodoOrigen" />
+        </xs:keyref>
+        <xs:keyref name="FK_grupospersonas_personas" refer="dbo_personas_Constraint1">
+          <xs:selector xpath=".//dbo_grupospersonas" />
+          <xs:field xpath="sidPersona" />
+        </xs:keyref>
+        <xs:keyref name="FK_grupospersonas_grupos" refer="dbo_grupos_Constraint1">
+          <xs:selector xpath=".//dbo_grupospersonas" />
+          <xs:field xpath="sidGrupo" />
+        </xs:keyref>
+        <xs:keyref name="FK_grupos_gruposorigen" refer="dbo_gruposorigen_Constraint1">
+          <xs:selector xpath=".//dbo_grupos" />
+          <xs:field xpath="sidGrupoOrigen" />
+        </xs:keyref>
+        <xs:keyref name="FK_grupos_aplicaciones" refer="Constraint1">
+          <xs:selector xpath=".//dbo_grupos" />
+          <xs:field xpath="sidAplicacion" />
+        </xs:keyref>
+        <xs:keyref name="FK_funcionalidades_entidades" refer="dbo_entidades_Constraint1">
+          <xs:selector xpath=".//dbo_funcionalidades" />
+          <xs:field xpath="sidEntidad" />
+        </xs:keyref>
+        <xs:keyref name="FK_funcionalidades_modulos" refer="dbo_modulos_Constraint1">
+          <xs:selector xpath=".//dbo_funcionalidades" />
+          <xs:field xpath="sidModulo" />
+        </xs:keyref>
+        <xs:keyref name="FK_entidades_modulos" refer="dbo_modulos_Constraint1">
+          <xs:selector xpath=".//dbo_entidades" />
+          <xs:field xpath="sidModulo" />
+        </xs:keyref>
+        <xs:keyref name="FK_aplicacionesPuestos_puestos" refer="dbo_puestos_Constraint1">
+          <xs:selector xpath=".//dbo_aplicacionesPuestos" />
+          <xs:field xpath="sidPuesto" />
+        </xs:keyref>
+        <xs:keyref name="FK_aplicacionesPuestos_aplicaciones" refer="Constraint1">
+          <xs:selector xpath=".//dbo_aplicacionesPuestos" />
+          <xs:field xpath="sidAplicacion" />
+        </xs:keyref>
+        <xs:keyref name="FK_aplicacionesPersonas_personas" refer="dbo_personas_Constraint1">
+          <xs:selector xpath=".//dbo_aplicacionesPersonas" />
+          <xs:field xpath="sidPersona" />
+        </xs:keyref>
+        <xs:keyref name="FK_aplicacionesPersonas_aplicaciones" refer="Constraint1">
+          <xs:selector xpath=".//dbo_aplicacionesPersonas" />
+          <xs:field xpath="sidaplicacion" />
+        </xs:keyref>
+        <xs:keyref name="FK_aplicacionesNodos_aplicaciones" refer="Constraint1">
+          <xs:selector xpath=".//dbo_aplicacionesNodos" />
+          <xs:field xpath="sidAplicacion" />
+        </xs:keyref>
+        <xs:keyref name="FK_aplicacionesNodos_nodosOrigen" refer="dbo_nodosOrigen_Constraint1">
+          <xs:selector xpath=".//dbo_aplicacionesNodos" />
+          <xs:field xpath="sidNodoOrigen" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <Visesa_x0020_Ulcd xmlns="" />
+  </Schema>
+</DataSourceView>

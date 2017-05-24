@@ -1,0 +1,145 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="22cc4649-d187-4d21-9ed8-549671835e28" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Formacion</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>q Eval</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="613b2f36-558d-4bf1-bf31-8a5676ea5c0f">
+          <ID>q Eval</ID>
+          <Name>q Eval</Name>
+          <CreatedTimestamp>2014-01-21T23:02:03.73Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-09-29T07:24:29.496667Z</LastSchemaUpdate>
+          <LastProcessed>2017-05-24T04:00:08.74Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="950e5b6d-511d-4aed-8f90-f1c174079650">
+            <DataSourceViewID>VISESA SGP</DataSourceViewID>
+            <TableID>eval</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="82f9c739-2753-4f50-9431-883e942bddab">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="7af0399e-c1f1-4333-9fd5-e4fea98639af" />
+          </ProactiveCaching>
+          <EstimatedSize>23533</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>q Asistentes Formaciones</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="85935dad-f1eb-4874-8af1-1ad7c99f3786">
+          <ID>q Asistentes Formaciones</ID>
+          <Name>q Asistentes Formaciones</Name>
+          <CreatedTimestamp>2014-01-21T23:02:03.776667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-09-29T07:24:29.513333Z</LastSchemaUpdate>
+          <LastProcessed>2017-05-24T04:00:09.24Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="4ea16a1a-00c3-4174-b314-395238fa2f22">
+            <DataSourceViewID>VISESA SGP</DataSourceViewID>
+            <TableID>form_asis_eval</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="2c2efaf6-bdc2-413b-9c08-5f8ebea777e6">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="0dba7049-6918-497d-85ff-02fdfe7504c3" />
+          </ProactiveCaching>
+          <EstimatedSize>290945</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Asistentes</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="99b8fd0a-d359-46b4-ba88-cb036ad1cf88">
+          <ID>q Asistentes Formaciones</ID>
+          <Name>q Asistentes Formaciones</Name>
+          <CreatedTimestamp>2014-01-21T23:02:03.836667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-09-29T07:24:29.526667Z</LastSchemaUpdate>
+          <LastProcessed>2017-05-24T04:00:08.99Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3ac06c84-3327-45bf-b4ef-4e94da4a9ac5">
+            <DataSourceViewID>VISESA SGP</DataSourceViewID>
+            <TableID>form_asis_eval</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="cdf1f035-5163-4ae9-b98a-974043a3d4c5">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="1d61061b-5c70-44da-8523-e57a21d5f704" />
+          </ProactiveCaching>
+          <EstimatedSize>178664</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Asistentes 1</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3d22b63a-e58c-4964-89c6-268da2ac3802">
+          <ID>q Asistentes Formaciones</ID>
+          <Name>q Asistentes Formaciones</Name>
+          <CreatedTimestamp>2014-01-21T23:02:03.873333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-09-29T07:24:29.543333Z</LastSchemaUpdate>
+          <LastProcessed>2017-05-24T04:00:08.523333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="194cd1cc-b280-4eec-9360-a66987459afb">
+            <DataSourceViewID>VISESA SGP</DataSourceViewID>
+            <TableID>form_asis_eval</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="f98d3e17-fa8b-4eb5-8576-ccb3a27f431d">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="614b40d8-60a5-495d-83b5-e9737d904ad8" />
+          </ProactiveCaching>
+          <EstimatedSize>173774</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>q Presupuestos</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c882932f-4df2-4873-8f47-a4036efe1b70">
+          <ID>q Presupuestos</ID>
+          <Name>q Presupuestos</Name>
+          <CreatedTimestamp>2014-01-21T23:02:03.893333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2016-09-29T07:24:29.56Z</LastSchemaUpdate>
+          <LastProcessed>2017-05-24T04:00:09.303333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="8d41180e-da8c-4af3-8089-d0311c147830">
+            <DataSourceViewID>VISESA SGP</DataSourceViewID>
+            <TableID>q_presupuestos</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="86cdfc0d-f362-4671-b36b-9fa8b45e1903">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="95ef75b5-4081-43cb-8a0d-0f092ae4f89e" />
+          </ProactiveCaching>
+          <EstimatedSize>968</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>
