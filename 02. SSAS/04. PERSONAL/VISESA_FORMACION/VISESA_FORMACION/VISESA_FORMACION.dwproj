@@ -122,24 +122,24 @@
           <ConfigurationSetting>
             <Id>VISESA SGP</Id>
             <Name>VISESA SGP</Name>
-            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQL1\CUBOS;Persist Security Info=True;Password=;User ID=;Initial Catalog=visesa_sgp</Value>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=visesa_sgp</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>Visesa Ulcd</Id>
             <Name>Visesa Ulcd</Name>
-            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=SRVSQL1\CUBOS;Persist Security Info=True;Password=;User ID=;Initial Catalog=visesa_ulcd</Value>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=visesa_ulcd</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
           <ConfigurationSetting>
             <Id>VISESA SGP</Id>
             <Name>VISESA SGP</Name>
-            <Value xsi:type="xsd:int">1</Value>
+            <Value xsi:type="xsd:int">0</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
             <Id>Visesa Ulcd</Id>
             <Name>Visesa Ulcd</Name>
-            <Value xsi:type="xsd:int">1</Value>
+            <Value xsi:type="xsd:int">0</Value>
           </ConfigurationSetting>
         </ConnectionSecurityMappings>
         <DeploymentServerEdition>Standard</DeploymentServerEdition>
