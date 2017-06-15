@@ -1,6 +1,6 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="2caced1a-998c-4828-82f0-4abceda5b182" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
-  <ID>M BOOLEAN</ID>
-  <Name>Vivienda adaptada</Name>
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="5f9391b8-a60f-478d-bf3b-ae0cbff0b062" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>M TIPO ANTICIPO 1</ID>
+  <Name>Tipo de anticipo</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
   <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
   <Annotations>
@@ -19,13 +19,13 @@
           <layoutmanager>
             <ddsxmlobj />
           </layoutmanager>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="M_BOOLEAN" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="3493" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="M_TIPO_ANTICIPO" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="4286" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
-              <ddsxmlobjectstreaminitwrapper binary="000c0000a50d000057070000" />
+              <ddsxmlobjectstreaminitwrapper binary="000c0000be10000057070000" />
             </control>
             <layoutobject>
               <ddsxmlobj>
-                <property name="LogicalObject" value="dbo_M_BOOLEAN" vartype="8" />
+                <property name="LogicalObject" value="dbo_M_TIPO_ANTICIPO" vartype="8" />
               </ddsxmlobj>
             </layoutobject>
             <shape groupshapeid="0" groupnode="0" />
@@ -68,35 +68,37 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="a0e9c8e3-6254-423b-80ce-84cd596e4a6f">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="25699113-4b98-47fd-8954-0b253f9435f4">
     <DataSourceViewID>VISESABI 1</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="c6137b96-03fe-4e98-b705-72f78402f852">
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="2b69a63f-899a-40e3-85b3-0879a62c6ed2">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="f319c0ef-6174-4dc4-b48c-e00219a2cd26">
-      <ID>ID BOOLEAN</ID>
-      <Name>Vivienda adaptada</Name>
+    <Attribute dwd:design-time-name="4ed1df84-a9fb-4996-a707-9afafd8bdeaa">
+      <ID>ID TIPO ANTICIPO</ID>
+      <Name>Tipo de anticipo</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a18817b4-95ab-4cb0-8c1f-fdac36494f45">
+        <KeyColumn dwd:design-time-name="9991c6be-e48b-41ca-b315-981ef04ac76f">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="0b55fc5c-5b1e-4738-9e62-e9f789a9469b">
-            <TableID>dbo_M_BOOLEAN</TableID>
-            <ColumnID>ID_BOOLEAN</ColumnID>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8a29e2a6-c559-46d1-a751-78f1676cfb50">
+            <TableID>dbo_M_TIPO_ANTICIPO</TableID>
+            <ColumnID>ID_TIPO_ANTICIPO</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="5e26a6b5-8f53-43c9-b1d3-0fe75d2295bb">
+      <NameColumn dwd:design-time-name="16da5f7d-bf13-4293-be77-1bf85c299eaa">
         <DataType>WChar</DataType>
-        <DataSize>20</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="ed948503-3e2d-4ae2-b6fa-4ddd0967fa44">
-          <TableID>dbo_M_BOOLEAN</TableID>
-          <ColumnID>DESC_BOOLEAN</ColumnID>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="42d5e4a0-95dc-4104-ba8f-d684385cfc1a">
+          <TableID>dbo_M_TIPO_ANTICIPO</TableID>
+          <ColumnID>DESC_TIPO_ANTICIPO</ColumnID>
         </Source>
       </NameColumn>
       <OrderBy>Key</OrderBy>
