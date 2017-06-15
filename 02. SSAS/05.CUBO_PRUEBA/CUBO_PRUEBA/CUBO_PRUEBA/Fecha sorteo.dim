@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="a85f1ef6-45ed-43cb-b727-9a90dfbc598f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Fecha sorteo</ID>
   <Name>Fecha sorteo</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1554" scrolltop="-3889" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="6403" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1554" scrolltop="-3889" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="6191" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -107,63 +107,64 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="ae5bb8a5-a745-4528-9d0d-5b008ed653c9">
     <DataSourceViewID>VISESABI</DataSourceViewID>
   </Source>
   <Type>Time</Type>
   <UnknownMember>Hidden</UnknownMember>
-  <ErrorConfiguration>
+  <ErrorConfiguration dwd:design-time-name="e8263464-7a35-4d2c-bb71-fa8c265b9bd8">
     <KeyNotFound>IgnoreError</KeyNotFound>
     <NullKeyNotAllowed>IgnoreError</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute>
+    <Attribute dwd:design-time-name="212b2267-f953-40d0-ba45-e3f0f40db10c">
       <ID>PK Date</ID>
-      <Name>Fecha</Name>
+      <Name>Fecha del sorteo</Name>
       <Type>Date</Type>
       <Usage>Key</Usage>
+      <EstimatedCount>18265</EstimatedCount>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="7df5b352-c9e8-4a57-afe1-8ca708135a93">
           <DataType>Date</DataType>
           <NullProcessing>ZeroOrBlank</NullProcessing>
           <Format>dd/MM/yyyy</Format>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6f89deba-f3d8-4322-98e9-09c108365d58">
             <TableID>dbo_J_TIEMPO</TableID>
             <ColumnID>PK_Date</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="a536d597-b9b0-4d53-b938-c68071420ae5">
         <DataType>WChar</DataType>
         <DataSize>20</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="99f19396-2545-4ff6-a9b3-eef45acecea8">
           <TableID>dbo_J_TIEMPO</TableID>
           <ColumnID>Fecha_Corta</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="bff2e72b-715e-4b89-a92f-fff4c455aef9">
           <AttributeID>Day Of Year</AttributeID>
           <Name>Dia del año</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="95474b2e-7a72-436b-bd67-d8d0c2431349">
           <AttributeID>Day Of Month</AttributeID>
           <Name>Dia del mes</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f833d9e0-4726-4b38-a311-8e39173e2f15">
           <AttributeID>Day Of Trimester</AttributeID>
           <Name>Dia del trimestre</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="38d7b192-a9e6-4f92-bb60-2431a00366fa">
           <AttributeID>Month</AttributeID>
           <Name>Mes</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ddc95737-33e2-47d8-897b-b690658095ad">
           <AttributeID>Month Of Year</AttributeID>
           <Name>Mes del año</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e631bd1f-9355-41ee-aa7e-8907cf49df4b">
           <AttributeID>Month Of Trimester</AttributeID>
           <Name>Mes del trimestre</Name>
         </AttributeRelationship>
@@ -172,23 +173,24 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="3b0ee178-6536-4c2c-bace-fd71443cc53c">
       <ID>Year</ID>
-      <Name>Año</Name>
+      <Name>Año del sorteo</Name>
       <Type>Years</Type>
+      <EstimatedCount>52</EstimatedCount>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="73df238c-5ce5-4cc4-973a-1edac957fc0d">
           <DataType>Date</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f2441b1f-c84e-4372-96da-6efb102f1559">
             <TableID>dbo_J_TIEMPO</TableID>
             <ColumnID>Year</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="7afd9265-d449-49d4-8d37-6c0102c1158f">
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="296f9c7f-8ee0-4165-9b63-2347e886e8f3">
           <TableID>dbo_J_TIEMPO</TableID>
           <ColumnID>Year_Name</ColumnID>
         </Source>
@@ -197,29 +199,30 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="93dc4db1-e140-464c-8d41-1fed238ff331">
       <ID>Trimester</ID>
-      <Name>Trimestre</Name>
+      <Name>Trimestre del sorteo</Name>
       <Type>Trimesters</Type>
+      <EstimatedCount>152</EstimatedCount>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="076ddd76-a18d-4cea-975e-5140ee9ae78e">
           <DataType>Date</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="47598f3c-48c2-4890-bf78-75ff4b04b9bf">
             <TableID>dbo_J_TIEMPO</TableID>
             <ColumnID>Trimester</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="c035f0da-f1e7-4fe7-9c20-7de714ddbe40">
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a887d94a-31b1-4c21-a7d1-eac0dafdc172">
           <TableID>dbo_J_TIEMPO</TableID>
           <ColumnID>Trimester_Name</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="79bb7de6-f394-4a0b-988b-7555f841bfaa">
           <AttributeID>Year</AttributeID>
           <Name>Año</Name>
         </AttributeRelationship>
@@ -228,33 +231,34 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="776b4cd1-574c-4b4a-99d4-63622063e1ea">
       <ID>Month</ID>
-      <Name>Mes</Name>
+      <Name>Mes del sorteo</Name>
       <Type>Months</Type>
+      <EstimatedCount>602</EstimatedCount>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="26787f2e-4575-4421-b1ac-ec8496b7eb2a">
           <DataType>Date</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="574c1ff5-8824-417a-97ab-c7fa286899a1">
             <TableID>dbo_J_TIEMPO</TableID>
             <ColumnID>Month</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="7a4eade8-22dc-4902-94f5-2a3813e18e97">
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3609ca59-58fe-4f1d-803f-8657f9c98584">
           <TableID>dbo_J_TIEMPO</TableID>
           <ColumnID>Month_Name</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6c1a211d-7f8a-49c6-b5d7-4f38631d773e">
           <AttributeID>Trimester</AttributeID>
           <Name>Trimestre</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c6277722-7e6f-4cfd-bc84-70db8c3c83cd">
           <AttributeID>Trimester Of Year</AttributeID>
           <Name>Trimestre del año</Name>
         </AttributeRelationship>
@@ -263,14 +267,15 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="96e2eec6-8057-4e20-947b-2f2b02519d21">
       <ID>Day Of Year</ID>
       <Name>Dia del año</Name>
       <Type>DayOfYear</Type>
+      <EstimatedCount>366</EstimatedCount>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="eeadcb33-18c2-4cb4-924e-28b7d439c174">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d689e682-381b-482e-b25d-7921aec985d6">
             <TableID>dbo_J_TIEMPO</TableID>
             <ColumnID>Day_Of_Year</ColumnID>
           </Source>
@@ -280,14 +285,15 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="ba870852-34e1-4742-b514-03bb6c0f9d3d">
       <ID>Day Of Trimester</ID>
       <Name>Dia del trimestre</Name>
       <Type>DayOfTrimester</Type>
+      <EstimatedCount>123</EstimatedCount>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="77434033-fdf3-4c69-84be-7fa310a2097a">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a4f21e33-88a3-4414-a682-d0645880bde6">
             <TableID>dbo_J_TIEMPO</TableID>
             <ColumnID>Day_Of_Trimester</ColumnID>
           </Source>
@@ -297,14 +303,15 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="2e30f5b6-89c9-4ebd-beb6-e5dbf77b73b6">
       <ID>Day Of Month</ID>
       <Name>Dia del mes</Name>
       <Type>DayOfMonth</Type>
+      <EstimatedCount>31</EstimatedCount>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="4e702f4d-db42-4f6c-ba3b-9b82f4ba374a">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="98167599-f81d-49c0-b9a5-48bafe16c085">
             <TableID>dbo_J_TIEMPO</TableID>
             <ColumnID>Day_Of_Month</ColumnID>
           </Source>
@@ -314,14 +321,15 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="9d840910-205a-4144-8c1e-f6534e3797ff">
       <ID>Month Of Year</ID>
-      <Name>Mes del año</Name>
+      <Name>Mes del año del sorteo</Name>
       <Type>MonthOfYear</Type>
+      <EstimatedCount>12</EstimatedCount>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="c5ae49d4-806b-47c7-8109-0e2a83ca2bf8">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1b961d6a-5430-4f9c-b9cb-576a9b476c6b">
             <TableID>dbo_J_TIEMPO</TableID>
             <ColumnID>Month_Of_Year</ColumnID>
           </Source>
@@ -331,14 +339,15 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="f3a07c65-46af-40b8-9fca-079760775519">
       <ID>Month Of Trimester</ID>
       <Name>Mes del trimestre</Name>
       <Type>MonthOfTrimester</Type>
+      <EstimatedCount>4</EstimatedCount>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="b782ee3a-4ff2-4ed2-b18e-a7b68780ce69">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7325a227-3c29-45b7-b2d7-63ca6fde3fba">
             <TableID>dbo_J_TIEMPO</TableID>
             <ColumnID>Month_Of_Trimester</ColumnID>
           </Source>
@@ -348,14 +357,15 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="2932f954-2952-4fc4-9e42-d69c74aa6c21">
       <ID>Trimester Of Year</ID>
       <Name>Trimestre del año</Name>
       <Type>TrimesterOfYear</Type>
+      <EstimatedCount>3</EstimatedCount>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="c8a1b873-e403-4bb7-8d31-d4decec78738">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="dd59803f-abb1-4be6-872f-5531b4636ded">
             <TableID>dbo_J_TIEMPO</TableID>
             <ColumnID>Trimester_Of_Year</ColumnID>
           </Source>
@@ -367,26 +377,26 @@
     </Attribute>
   </Attributes>
   <Hierarchies>
-    <Hierarchy>
+    <Hierarchy dwd:design-time-name="d5c04eaa-b94f-4d5e-a745-c5dcf25a9fd8">
       <ID>Hierarchy</ID>
       <Name>Jerarquia Temporal</Name>
       <Levels>
-        <Level>
+        <Level dwd:design-time-name="7adb2a52-7e99-4293-95ad-817a3ba7ca3b">
           <ID>Year</ID>
           <Name>Year</Name>
           <SourceAttributeID>Year</SourceAttributeID>
         </Level>
-        <Level>
+        <Level dwd:design-time-name="d9136f54-0834-431c-8d15-9f1342bbf078">
           <ID>Trimester</ID>
           <Name>Trimester</Name>
           <SourceAttributeID>Trimester</SourceAttributeID>
         </Level>
-        <Level>
+        <Level dwd:design-time-name="fdfb37d3-d109-40d6-b791-69612f9cee18">
           <ID>Month</ID>
           <Name>Month</Name>
           <SourceAttributeID>Month</SourceAttributeID>
         </Level>
-        <Level>
+        <Level dwd:design-time-name="fa035398-bb18-4a1e-85a3-d62e527c1e4a">
           <ID>PK Date</ID>
           <Name>PK Date</Name>
           <SourceAttributeID>PK Date</SourceAttributeID>

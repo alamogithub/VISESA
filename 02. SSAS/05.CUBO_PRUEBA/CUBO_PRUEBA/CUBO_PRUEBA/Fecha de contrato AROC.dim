@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1554" scrolltop="-3889" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="6403" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1554" scrolltop="-3889" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="6191" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -120,9 +120,10 @@
   <Attributes>
     <Attribute dwd:design-time-name="3a16e493-8331-4f30-b360-cb9b7831df5b">
       <ID>PK Date</ID>
-      <Name>Fecha</Name>
+      <Name>Fecha contrato AROC</Name>
       <Type>Date</Type>
       <Usage>Key</Usage>
+      <EstimatedCount>18265</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="dc17a317-5625-48cd-a594-393c6a6708ae">
           <DataType>Date</DataType>
@@ -174,8 +175,9 @@
     </Attribute>
     <Attribute dwd:design-time-name="82d9b5c9-5ba3-46ac-b394-9d557cd174bc">
       <ID>Year</ID>
-      <Name>Año</Name>
+      <Name>Año contrato AROC</Name>
       <Type>Years</Type>
+      <EstimatedCount>52</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="318cf18c-da64-4c4f-806a-9c7831206ad8">
           <DataType>Date</DataType>
@@ -199,8 +201,9 @@
     </Attribute>
     <Attribute dwd:design-time-name="1f98dba7-b4ec-4c0b-8ca8-c6ff62dff93e">
       <ID>Trimester</ID>
-      <Name>Trimestre</Name>
+      <Name>Trimestre contrato AROC</Name>
       <Type>Trimesters</Type>
+      <EstimatedCount>152</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="aaeed012-6e57-4a9c-979b-e5f7933c1127">
           <DataType>Date</DataType>
@@ -230,8 +233,9 @@
     </Attribute>
     <Attribute dwd:design-time-name="8fc4020e-10e8-4b02-8f05-5daf6632fb2c">
       <ID>Month</ID>
-      <Name>Mes</Name>
+      <Name>Mes contrato AROC</Name>
       <Type>Months</Type>
+      <EstimatedCount>602</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="3f5820c1-f567-40df-b89c-daeeb5e470f9">
           <DataType>Date</DataType>
@@ -267,6 +271,7 @@
       <ID>Day Of Year</ID>
       <Name>Dia del año</Name>
       <Type>DayOfYear</Type>
+      <EstimatedCount>366</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="fa081cf6-810d-43b9-96d1-e81e6694cad2">
           <DataType>Integer</DataType>
@@ -284,6 +289,7 @@
       <ID>Day Of Trimester</ID>
       <Name>Dia del trimestre</Name>
       <Type>DayOfTrimester</Type>
+      <EstimatedCount>123</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="08e21883-30fb-4cbd-86af-9aa6a3b644a0">
           <DataType>Integer</DataType>
@@ -301,6 +307,7 @@
       <ID>Day Of Month</ID>
       <Name>Dia del mes</Name>
       <Type>DayOfMonth</Type>
+      <EstimatedCount>31</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="175a1e05-5a23-4ace-bda3-a59e09e0d9a3">
           <DataType>Integer</DataType>
@@ -316,8 +323,9 @@
     </Attribute>
     <Attribute dwd:design-time-name="babf87f0-a74d-49fe-98ea-b618e0169d27">
       <ID>Month Of Year</ID>
-      <Name>Mes del año</Name>
+      <Name>Mes del año contrato AROC</Name>
       <Type>MonthOfYear</Type>
+      <EstimatedCount>12</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="c0c0f43f-44d3-4b20-a525-234b667cc91c">
           <DataType>Integer</DataType>
@@ -335,6 +343,7 @@
       <ID>Month Of Trimester</ID>
       <Name>Mes del trimestre</Name>
       <Type>MonthOfTrimester</Type>
+      <EstimatedCount>4</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="09f22287-e87a-49a9-97fe-81e706bc4009">
           <DataType>Integer</DataType>
@@ -352,6 +361,7 @@
       <ID>Trimester Of Year</ID>
       <Name>Trimestre del año</Name>
       <Type>TrimesterOfYear</Type>
+      <EstimatedCount>3</EstimatedCount>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="44f4254d-5d96-4c31-8c9a-e44bd285a494">
           <DataType>Integer</DataType>

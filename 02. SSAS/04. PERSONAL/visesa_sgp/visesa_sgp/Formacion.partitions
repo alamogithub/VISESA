@@ -1,0 +1,61 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="948debdb-63f4-4494-9d5f-785f6415aa2a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Formacion</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Sgp f Asistentes</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="79389350-29dc-43ae-8201-9740ae958758">
+          <ID>Sgp f Asistentes</ID>
+          <Name>Sgp f Asistentes</Name>
+          <CreatedTimestamp>2014-01-21T23:29:16.293333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2014-01-21T23:33:21.363333Z</LastSchemaUpdate>
+          <LastProcessed>2017-05-23T05:00:05.59Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6908f418-4404-412d-9dd6-db0c62f3539e">
+            <DataSourceViewID>VISESA SGP</DataSourceViewID>
+            <TableID>dbo_sgp_f_asistentes</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="badcb2a4-f91e-43af-871e-bec979c8d44a">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ec8b0750-1f04-458f-9a85-518ad5afb3c0" />
+          </ProactiveCaching>
+          <EstimatedSize>134084</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Sgp f Formacion</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ffd63e2c-4dbc-4dcc-83eb-001c104e6cf8">
+          <ID>Sgp f Formacion</ID>
+          <Name>Sgp f Formacion</Name>
+          <CreatedTimestamp>2014-01-21T23:29:16.333333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2014-01-21T23:33:21.396667Z</LastSchemaUpdate>
+          <LastProcessed>2017-05-23T05:00:05.666667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="bf95d0d4-adb5-4f50-8593-b8d322031820">
+            <DataSourceViewID>VISESA SGP</DataSourceViewID>
+            <TableID>dbo_sgp_f_formacion</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="39cc11fd-f9e6-4729-b110-970802da6858">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="a8096aa6-1bc9-4a65-8edd-cf647bf1ebc4" />
+          </ProactiveCaching>
+          <EstimatedSize>18872</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

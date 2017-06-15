@@ -1,0 +1,808 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>q Asistentes Formaciones</ID>
+  <Name>Asistentes Formaciones</Name>
+  <CreatedTimestamp>2014-01-21T23:02:03.063333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2016-09-29T07:24:29.48Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1568" scrolltop="-3889" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7567" y="15266" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="q_asistentes_formaciones" left="417" top="-1958" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="4233" height="12091" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000891000003b2f0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="form_asis_eval" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-1568</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-3889</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>417</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>-1958</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="179">
+            <Shape Id="Pid Asistente" Expanded="true">
+              <Attributes>
+                <Attribute Id="Pid Asistente" />
+                <Attribute Id="Borrado" />
+                <Attribute Id="Horas Laborales Previstas" />
+                <Attribute Id="Horas Laborales Reales" />
+                <Attribute Id="Pid Formacion" />
+                <Attribute Id="Incluir Plan" />
+                <Attribute Id="Matricula" />
+                <Attribute Id="Nohaceformacion" />
+                <Attribute Id="Pid Prioridad" />
+                <Attribute Id="Sid Nivel" />
+                <Attribute Id="Sid Persona" />
+                <Attribute Id="Tipo Gestion" />
+                <Attribute Id="Validacion" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Coste Repartido" Expanded="false">
+              <Attributes>
+                <Attribute Id="Coste Repartido" />
+              </Attributes>
+              <Position x="248" y="20" />
+            </Shape>
+            <Shape Id="Pid Ejercicio" Expanded="false">
+              <Attributes>
+                <Attribute Id="Pid Ejercicio" />
+              </Attributes>
+              <Position x="248" y="68" />
+            </Shape>
+            <Shape Id="Denominacion" Expanded="false">
+              <Attributes>
+                <Attribute Id="Denominacion" />
+              </Attributes>
+              <Position x="248" y="116" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2017-05-24T04:00:04.293333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>VISESA SGP</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration>
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>3082</Language>
+  <Collation>Modern_Spanish_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>Pid Asistente</ID>
+      <Name>Pid Asistente</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>pidAsistente</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>pidAsistente</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>Pid Formacion</AttributeID>
+          <Name>Id Formacion</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Sid Persona</AttributeID>
+          <Name>Sid Persona</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Validacion</AttributeID>
+          <Name>Validacion</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Nohaceformacion</AttributeID>
+          <Name>Nohaceformacion</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Horas Laborales Previstas</AttributeID>
+          <Name>Horas Laborales Previstas</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Horas Laborales Reales</AttributeID>
+          <Name>Horas Laborales Reales</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Matricula</AttributeID>
+          <Name>Matricula</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Denominacion</AttributeID>
+          <Name>Formacion</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Incluir Plan</AttributeID>
+          <Name>Incluir Plan</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Pid Ejercicio</AttributeID>
+          <Name>Ejercicio</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Pid Prioridad</AttributeID>
+          <Name>Prioridad</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Borrado</AttributeID>
+          <Name>Borrado</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Tipo Gestion</AttributeID>
+          <Name>Tipo Gestion</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Incluir Costes</AttributeID>
+          <Name>Incluir Costes</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Sid Nivel Asistente</AttributeID>
+          <Name>Sid Nivel Asistente</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Sid Nivel Dpto</AttributeID>
+          <Name>Sid Nivel Dpto</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Sid Responsable</AttributeID>
+          <Name>Sid Responsable</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Envio Convocatoria</AttributeID>
+          <Name>Envio Convocatoria</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Num Asistentes</AttributeID>
+          <Name>Num Asistentes</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Previsto</AttributeID>
+          <Name>Previsto</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Asistencia</AttributeID>
+          <Name>Asistencia</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Formacion Online</AttributeID>
+          <Name>Formacion Online</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Con Idioma</AttributeID>
+          <Name>Con Idioma</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Pid Formacion</ID>
+      <Name>Id Formacion</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>pidFormacion</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>pidFormacion</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Sid Persona</ID>
+      <Name>Sid Persona</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>sidPersona</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>sidPersona</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Validacion</ID>
+      <Name>Validacion</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>validacion</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>validacion</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Nohaceformacion</ID>
+      <Name>Nohaceformacion</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>Nohaceformacion</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>Nohaceformacion</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Horas Laborales Previstas</ID>
+      <Name>Horas Laborales Previstas</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>horasLaboralesPrevistas</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>horasLaboralesPrevistas</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Horas Laborales Reales</ID>
+      <Name>Horas Laborales Reales</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>horasLaboralesReales</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>horasLaboralesReales</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Matricula</ID>
+      <Name>Matricula</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>matricula</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>matricula</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Denominacion</ID>
+      <Name>Formacion</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>500</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>denominacion</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>500</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>denominacion</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Incluir Plan</ID>
+      <Name>Incluir Plan</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>incluirPlan</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>incluirPlan</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Pid Ejercicio</ID>
+      <Name>Ejercicio</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>pidEjercicio</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>ejercicio</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Pid Prioridad</ID>
+      <Name>Prioridad</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>pidPrioridad</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>250</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>prioridad</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Borrado</ID>
+      <Name>Borrado</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>borrado</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>borrado</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Tipo Gestion</ID>
+      <Name>Tipo Gestion</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>tipoGestion</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>tipoGestion</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Incluir Costes</ID>
+      <Name>Incluir Costes</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>incluirCostes</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>incluirCostes</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Sid Nivel Asistente</ID>
+      <Name>Sid Nivel Asistente</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>sidNivelAsistente</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>sidNivelAsistente</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Sid Nivel Dpto</ID>
+      <Name>Sid Nivel Dpto</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>sidNivelDpto</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>sidNivelDpto</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Sid Responsable</ID>
+      <Name>Sid Responsable</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>sidResponsable</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>sidResponsable</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Envio Convocatoria</ID>
+      <Name>Envio Convocatoria</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>envioConvocatoria</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>envioConvocatoria</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Num Asistentes</ID>
+      <Name>Num Asistentes</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>num_asistentes</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>num_asistentes</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Previsto</ID>
+      <Name>Previsto</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>previsto</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>previsto</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Asistencia</ID>
+      <Name>Asistencia</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>asistencia</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>asistencia</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Formacion Online</ID>
+      <Name>Formacion Online</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>FormacionOnline</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>FormacionOnline</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Con Idioma</ID>
+      <Name>Con Idioma</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>form_asis_eval</TableID>
+            <ColumnID>conIdioma</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>form_asis_eval</TableID>
+          <ColumnID>conIdioma</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy>
+      <ID>Jerarquía</ID>
+      <Name>Check incluir costes</Name>
+      <Levels>
+        <Level>
+          <ID>Incluir Costes</ID>
+          <Name>Incluir Costes</Name>
+          <SourceAttributeID>Incluir Costes</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Ejercicio</ID>
+          <Name>Ejercicio</Name>
+          <SourceAttributeID>Pid Ejercicio</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Formacion</ID>
+          <Name>Formacion</Name>
+          <SourceAttributeID>Denominacion</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

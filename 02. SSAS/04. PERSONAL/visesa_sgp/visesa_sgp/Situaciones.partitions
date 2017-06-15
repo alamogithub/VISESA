@@ -1,0 +1,33 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="863a0041-5aaf-470b-a552-1fcd2442620f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Situaciones</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Situaciones</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="fa83b884-b8a5-49a0-8a91-b20e64930e83">
+          <ID>Sgp p Situaciones</ID>
+          <Name>Sgp p Situaciones</Name>
+          <CreatedTimestamp>2014-01-21T23:29:16.206667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2014-01-21T23:29:16.206667Z</LastSchemaUpdate>
+          <LastProcessed>2017-05-23T05:00:06.09Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="783f7b35-8123-48b1-aa8a-a6c0438db2bc">
+            <DataSourceViewID>VISESA SGP</DataSourceViewID>
+            <TableID>dbo_sgp_p_situaciones</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="2168e868-a5cf-4d41-941a-8cf38c971c80">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="2449d977-8bef-4373-9f14-0ae89c3f4490" />
+          </ProactiveCaching>
+          <EstimatedSize>806</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>
