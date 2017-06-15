@@ -1,0 +1,812 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/20/2017 10:10:11 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLBI"
+  DTS:CreatorName="OSATU\proyectobi2"
+  DTS:DTSID="{8671BA71-2174-4E32-B2D6-FAA4361E8E74}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4001.0"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{9432960E-4988-43CE-A7C9-38933DFF8AE9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{27767362-12DC-4D6D-87F1-73F5B8DABA9C}"
+      DTS:ObjectName="SRVSQLBI\VISESABI.VISESABI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SRVSQLBI\VISESABI;Initial Catalog=VISESABI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7A635281-EF28-4121-987F-300C85621A2E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="YEAR(@[User::Fecha_Corte])"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Anyo_Corte">
+      <DTS:VariableValue
+        DTS:DataType="3">2016</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E5ADC995-374B-4E89-8590-A8F24B5CD6E5}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="DAY(GETDATE())"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Dia_Ejecucion">
+      <DTS:VariableValue
+        DTS:DataType="3">27</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F502396-4852-4708-B4C6-AC543A78823B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DATE)( &quot;31/12/2016&quot;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Fecha_Corte">
+      <DTS:VariableValue
+        DTS:DataType="7">12/31/2016</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{834B11E6-81DD-476D-B3DA-954E8489DC4B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="GETDATE()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Fecha_Sistema">
+      <DTS:VariableValue
+        DTS:DataType="7">4/27/2017 10:29:04 AM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Borra H_PROD_CUADRO por Fecha_Corte"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{483B7853-8D9A-486A-8968-23BDA81650B8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Borra H_PROD_CUADRO por Fecha_Corte"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27767362-12DC-4D6D-87F1-73F5B8DABA9C}"
+          SQLTask:SqlStatementSource="delete from [VISESABI].[dbo].[H_PROD_CUADRO] where [ID_MES]=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Fecha_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Borra H_PROD_FASE por Fecha_Corte"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{c85aab8d-13eb-4845-ad39-d8fb76f45da6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Borra H_PROD_FASE por Fecha_Corte"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27767362-12DC-4D6D-87F1-73F5B8DABA9C}"
+          SQLTask:SqlStatementSource="delete from [VISESABI].[dbo].[H_PROD_FASE] where [ID_MES]=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Fecha_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Borra H_PROD_HISTORICO por Fecha_Corte 3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{ff9dea1a-edad-435d-866f-c38299531d68}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Borra H_PROD_HISTORICO por Fecha_Corte 3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27767362-12DC-4D6D-87F1-73F5B8DABA9C}"
+          SQLTask:SqlStatementSource="delete from [VISESABI].[dbo].[H_PROD_HISTORICO] where [ID_MES]=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Fecha_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Borra H_PROD_SITUACION por Fecha_Corte"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{8ad14d14-9c59-4d92-8eaa-3cf8f242eed3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Borra H_PROD_SITUACION por Fecha_Corte"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27767362-12DC-4D6D-87F1-73F5B8DABA9C}"
+          SQLTask:SqlStatementSource="delete from [VISESABI].[dbo].[H_PROD_SITUACION] where [ID_MES]=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Fecha_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Carga H_PROD_CUADRO"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{C2885BCD-C83A-4CBD-96E7-5CE0B2F89F8B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga H_PROD_CUADRO"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27767362-12DC-4D6D-87F1-73F5B8DABA9C}"
+          SQLTask:SqlStatementSource="declare @Fecha_Corte date&#xA;&#xA;set @Fecha_Corte=?&#xA;&#xA;insert into H_PROD_CUADRO&#xA;select CONVERT (date, CURRENT_TIMESTAMP,103)  as f_modificacion,&#xA;convert(date,@Fecha_Corte, 103) as id_mes,&#xA;real.ORDEN as ORDEN,&#xA;real.ANYO_PREV_ESC1 as ANYO_PREV_ESC1,&#xA;real.PORC_VENTA as PORC_VENTA,&#xA;real.PORC_ALQUILER as PORC_ALQUILER,&#xA;real.CONTRATO_PROG as CONTRATO_PROG,&#xA;map.COD_UNIDAD_DESTINO  as PROMOCION_CORTO_PROD,&#xA;real.MUNICIPIO_PROD as MUNICIPIO_CUADRO_PROD,&#xA;real.NUM_VIVIENDAS as NUM_VIVIENDAS,&#xA;real.TIPO_VIVIENDA_PROD as TIPO_VIVIENDA_PROD,&#xA;real.DS_PP as DS_PP,&#xA;real.NUM_REALOJOS_VENTA as NUM_REALOJOS_VENTA,&#xA;real.NUM_REALOJOS_ALQ as NUM_REALOJOS_ALQ,&#xA;real.NUM_OP_VENTAS_ORG_OFI as NUM_OP_VENTAS_ORG_OFI,&#xA;real.NUM_DEMANDA_TOTAL as NUM_DEMANDA_TOTAL,&#xA;real.NUM_REQ_9_36 as NUM_REQ_9_36,&#xA;real.NUM_DEMANDA_COMPRA as NUM_DEMANDA_COMPRA,&#xA;real.NUM_DEMANDA_TOTAL2 as NUM_DEMANDA_TOTAL2,&#xA;real.NUM_REQ_3_25 as NUM_REQ_3_25,&#xA;real.NUM_DEMANDA_ALQ as NUM_DEMANDA_ALQ,&#xA;real.ESTADO_PROD as ESTADO_PROD,&#xA;real.REDACTOR_PROY as REDACTOR_PROY,&#xA;real.CONTRATA as CONTRATA,&#xA;case when real.F_APROB_DEF_PROY_URB&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_APROB_DEF_PROY_URB end  as F_APROB_DEF_PROY_URB_REAL,&#xA;case when real.F_INI_OBRA_URB&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_INI_OBRA_URB end   as F_INI_OBRA_URB_REAL,&#xA;case when real.F_REC_OBRA_URB&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_REC_OBRA_URB end   as F_REC_OBRA_URB_REAL,&#xA;case when real.F_INI_PROY&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_INI_PROY end   as F_INI_PROY_REAL,&#xA;case when real.F_LIC_PROY_EJEC&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_LIC_PROY_EJEC end   as F_LIC_PROY_EJEC_REAL,&#xA;case when real.F_SOLIC_CALIF&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_SOLIC_CALIF end   as F_SOLIC_CALIF_REAL,&#xA;case when real.F_CALIF_PROV&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_CALIF_PROV end   as F_CALIF_PROV_REAL,&#xA;case when real.F_ADJ_SORTEO&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_ADJ_SORTEO end   as F_ADJ_SORTEO_REAL,&#xA;case when real.F_INI_FIRMA_CONT&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_INI_FIRMA_CONT end   as F_INI_FIRMA_CONT_REAL,&#xA;case when real.F_LICENCIA_OBRA&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_LICENCIA_OBRA end   as F_LICENCIA_OBRA_REAL,&#xA;case when real.F_LIC_OBRA&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_LIC_OBRA end   as F_LIC_OBRA_REAL,&#xA;case when real.F_ADJ_OBRA_CONSEJO&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_ADJ_OBRA_CONSEJO end   as F_ADJ_OBRA_CONSEJO_REAL,&#xA;case when real.F_FIRMA_CONT&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_FIRMA_CONT end   as F_FIRMA_CONT_REAL,&#xA;case when real.F_ACTA_REP&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_ACTA_REP end   as F_ACTA_REP_REAL,&#xA;case when real.F_SOLIC_DON&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_SOLIC_DON end   as F_SOLIC_DON_REAL,&#xA;case when real.F_FIRMA_ON_CONST&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_FIRMA_ON_CONST end   as F_FIRMA_ON_CONST_REAL,&#xA;case when real.F_DON_CONST_INSCRITA&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_DON_CONST_INSCRITA end   as F_DON_CONST_INSCRITA_REAL,&#xA;case when real.F_FIN_OBRA&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_FIN_OBRA end   as F_FIN_OBRA_REAL,&#xA;case when real.F_REC_OBRA&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_REC_OBRA end   as F_REC_OBRA_REAL,&#xA;case when real.F_SOLIC_CALIF_DEF&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_SOLIC_CALIF_DEF end   as F_SOLIC_CALIF_DEF_REAL,&#xA;case when real.F_LPO_COND&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_LPO_COND end   as F_LPO_COND_REAL,&#xA;case when real.F_CALIF_DEF&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_CALIF_DEF end   as F_CALIF_DEF_REAL,&#xA;case when real.F_FIRMA_OBRA_NUEVA&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_FIRMA_OBRA_NUEVA end   as F_FIRMA_OBRA_NUEVA_REAL,&#xA;case when real.F_INSCRIP_ON&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_INSCRIP_ON end   as F_INSCRIP_ON_REAL,&#xA;case when real.F_INI_ESCRIT&gt;=convert(date,@Fecha_Corte, 103) then null else real.F_INI_ESCRIT end   as F_INI_ESCRIT_REAL,&#xA;prev.F_APROB_DEF_PROY_URB as F_APROB_DEF_PROY_URB_PREV,&#xA;prev.F_INI_OBRA_URB as F_INI_OBRA_URB_PREV,&#xA;prev.F_REC_OBRA_URB as F_REC_OBRA_URB_PREV,&#xA;prev.F_INI_PROY as F_INI_PROY_PREV,&#xA;prev.F_LIC_PROY_EJEC as F_LIC_PROY_EJEC_PREV,&#xA;prev.F_SOLIC_CALIF as F_SOLIC_CALIF_PREV,&#xA;prev.F_CALIF_PROV as F_CALIF_PROV_PREV,&#xA;prev.F_ADJ_SORTEO as F_ADJ_SORTEO_PREV,&#xA;prev.F_INI_FIRMA_CONT as F_INI_FIRMA_CONT_PREV,&#xA;prev.F_LICENCIA_OBRA as F_LICENCIA_OBRA_PREV,&#xA;prev.F_LIC_OBRA as F_LIC_OBRA_PREV,&#xA;prev.F_ADJ_OBRA_CONSEJO as F_ADJ_OBRA_CONSEJO_PREV,&#xA;prev.F_FIRMA_CONT as F_FIRMA_CONT_PREV,&#xA;prev.F_ACTA_REP as F_ACTA_REP_PREV,&#xA;prev.F_SOLIC_DON as F_SOLIC_DON_PREV,&#xA;prev.F_FIRMA_ON_CONST as F_FIRMA_ON_CONST_PREV,&#xA;prev.F_DON_CONST_INSCRITA as F_DON_CONST_INSCRITA_PREV,&#xA;prev.F_FIN_OBRA as F_FIN_OBRA_PREV,&#xA;prev.F_REC_OBRA as F_REC_OBRA_PREV,&#xA;prev.F_SOLIC_CALIF_DEF as F_SOLIC_CALIF_DEF_PREV,&#xA;prev.F_LPO_COND as F_LPO_COND_PREV,&#xA;prev.F_CALIF_DEF as F_CALIF_DEF_PREV,&#xA;prev.F_FIRMA_OBRA_NUEVA as F_FIRMA_OBRA_NUEVA_PREV,&#xA;prev.F_INSCRIP_ON as F_INSCRIP_ON_PREV,&#xA;prev.F_INI_ESCRIT as F_INI_ESCRIT_PREV,&#xA;case when real.CONTRATO_PROG is not null and real.F_LIC_PROY_EJEC&gt;convert(date,@Fecha_Corte, 103) then 1&#xA;&#x9; when real.CONTRATO_PROG is not null and real.F_LIC_PROY_EJEC&lt;=convert(date,@Fecha_Corte, 103) and real.F_CALIF_PROV&gt;convert(date,@Fecha_Corte, 103) then 2&#xA;&#x9; when real.CONTRATO_PROG is not null and real.F_LIC_PROY_EJEC&lt;=convert(date,@Fecha_Corte, 103) and real.F_CALIF_PROV&lt;=convert(date,@Fecha_Corte, 103) and real.F_LIC_OBRA&gt;convert(date,@Fecha_Corte, 103) then 3&#xA;     when real.CONTRATO_PROG is not null and real.F_LIC_PROY_EJEC&lt;=convert(date,@Fecha_Corte, 103) and real.F_CALIF_PROV&lt;=convert(date,@Fecha_Corte, 103) and real.F_LIC_OBRA&lt;=convert(date,@Fecha_Corte, 103) and real.F_ADJ_OBRA_CONSEJO&gt;convert(date,@Fecha_Corte, 103) then 4&#xA;&#x9; when real.CONTRATO_PROG is not null and real.F_LIC_PROY_EJEC&lt;=convert(date,@Fecha_Corte, 103) and real.F_CALIF_PROV&lt;=convert(date,@Fecha_Corte, 103) and real.F_LIC_OBRA&lt;=convert(date,@Fecha_Corte, 103) and real.F_ADJ_OBRA_CONSEJO&lt;=convert(date,@Fecha_Corte, 103) and real.F_ACTA_REP&gt;convert(date,@Fecha_Corte, 103) then 5&#xA;&#x9; when real.CONTRATO_PROG is not null and real.F_LIC_PROY_EJEC&lt;=convert(date,@Fecha_Corte, 103) and real.F_CALIF_PROV&lt;=convert(date,@Fecha_Corte, 103) and real.F_LIC_OBRA&lt;=convert(date,@Fecha_Corte, 103) and real.F_ADJ_OBRA_CONSEJO&lt;=convert(date,@Fecha_Corte, 103) and real.F_ACTA_REP&lt;=convert(date,@Fecha_Corte, 103) and real.F_FIN_OBRA&gt;convert(date,@Fecha_Corte, 103) then 6&#xA;&#x9; when real.CONTRATO_PROG is not null and real.F_LIC_PROY_EJEC&lt;=convert(date,@Fecha_Corte, 103) and real.F_CALIF_PROV&lt;=convert(date,@Fecha_Corte, 103) and real.F_LIC_OBRA&lt;=convert(date,@Fecha_Corte, 103) and real.F_ADJ_OBRA_CONSEJO&lt;=convert(date,@Fecha_Corte, 103) and real.F_ACTA_REP&lt;=convert(date,@Fecha_Corte, 103) and real.F_FIN_OBRA&lt;=convert(date,@Fecha_Corte, 103) and real.F_CALIF_DEF&gt;convert(date,@Fecha_Corte, 103)then 7&#xA;&#x9; when real.CONTRATO_PROG is not null and real.F_LIC_PROY_EJEC&lt;=convert(date,@Fecha_Corte, 103) and real.F_CALIF_PROV&lt;=convert(date,@Fecha_Corte, 103) and real.F_LIC_OBRA&lt;=convert(date,@Fecha_Corte, 103) and real.F_ADJ_OBRA_CONSEJO&lt;=convert(date,@Fecha_Corte, 103) and real.F_ACTA_REP&lt;=convert(date,@Fecha_Corte, 103) and real.F_FIN_OBRA&lt;=convert(date,@Fecha_Corte, 103) and real.F_CALIF_DEF&lt;=convert(date,@Fecha_Corte, 103) and real.F_INI_ESCRIT&gt;convert(date,@Fecha_Corte, 103) then 8&#xA;&#x9; else 0 end as id_fase&#xA;from ZM_PROD_CUADRO_REAL real&#xA;left join ZM_MAPEOS map on (real.PROMOCION_CORTO_PROD=map.COD_UNIDAD_ORIGEN and map.CONCEPTO='PROMOCIONES')&#xA;left join ZM_PROD_CUADRO_PREVISION prev on (real.orden=prev.orden)&#xA;where real.orden is not null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Fecha_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Carga H_PROD_FASE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{7db5d1e9-5641-44de-a5f1-373223ce26b9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga H_PROD_FASE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27767362-12DC-4D6D-87F1-73F5B8DABA9C}"
+          SQLTask:SqlStatementSource="declare @Fecha_Corte date&#xA;&#xA;set @Fecha_Corte=?&#xA;&#xA;insert into h_prod_fase &#xA;select f_modificacion, id_mes, promocion_corto_prod, id_fase, &#xA;sum(num_vpo) as num_vpo, sum(num_vs) as num_vs, sum(num_vpt) as num_vpt, sum(num_total) as num_total from(&#xA;select &#xA; CONVERT (date, CURRENT_TIMESTAMP,103)  as f_modificacion,&#xA;convert(date,@Fecha_Corte, 103) as id_mes,&#xA;PROMOCION_CORTO_PROD,&#xA;id_FASE,&#xA;case when tipo_vivienda_prod='VPO' then sum(num_viviendas) else 0 end as NUM_VPO,&#xA;case when tipo_vivienda_prod='VS' then sum(num_viviendas)  else 0 end as NUM_VS,&#xA;case when tipo_vivienda_prod='VPO' then sum(num_viviendas)  else 0 end as NUM_VPT,&#xA;sum(num_viviendas) as NUM_TOTAL&#xA;from h_prod_cuadro&#xA;where promocion_corto_prod is not null and ID_MES=@Fecha_Corte&#xA;group by promocion_corto_prod, tipo_vivienda_prod, id_fase&#xA;)  t1&#xA;group by f_modificacion, id_mes,promocion_corto_prod,  id_fase" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Fecha_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Carga H_PROD_HISTORICO"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{a9ed1a56-3209-4a3e-a550-edb9c75c9d25}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga H_PROD_HISTORICO"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27767362-12DC-4D6D-87F1-73F5B8DABA9C}"
+          SQLTask:SqlStatementSource="declare @Fecha_Corte date&#xA;&#xA;set @Fecha_Corte=?&#xA;&#xA;insert into H_PROD_HISTORICO&#xA;select CONVERT (date, CURRENT_TIMESTAMP,103)  as f_modificacion,&#xA;convert(date,@Fecha_Corte, 103) as id_mes,&#xA;ESTADO_HISTORICO,&#xA;map.COD_UNIDAD_DESTINO as promocion_corto,&#xA;jer.DESC_PROMOCION as desc_promocion_his_prod,&#xA;MUNICIPIO_PROD as municipio_his_prod,&#xA;num_vs,&#xA;num_vpoa,&#xA;num_vpo,&#xA;num_vpt,&#xA;num_vl,&#xA;num_ada,&#xA;num_total&#xA; from ZM_PROD_HISTORICO his&#xA;left join ZM_MAPEOS map on (his.PROMOCION_CORTO=map.COD_UNIDAD_ORIGEN and map.CONCEPTO='PROMOCIONES')&#xA;left join J_P04_PROMOCION jer on (map.COD_UNIDAD_DESTINO=jer.PROMOCION_CORTO)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Fecha_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Carga H_PROD_SITUACION (contrato prog)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{2d1dd4f1-85dd-40ba-9e05-107818efe6a6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga H_PROD_SITUACION (contrato prog)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27767362-12DC-4D6D-87F1-73F5B8DABA9C}"
+          SQLTask:SqlStatementSource="declare @Fecha_Corte date&#xA;&#xA;set @Fecha_Corte=?&#xA;&#xA;UPDATE&#xA;    H_PROD_SITUACION &#xA;SET&#xA;    CONTRATO_PROG = Tr.CONTRATO_PROG&#xA;   FROM&#xA;    H_PROD_SITUACION AS Ta&#xA;    INNER JOIN (select distinct PROMOCION_CORTO_PROD, CONTRATO_PROG from H_PROD_CUADRO where ID_MES=@Fecha_Corte) as tr &#xA;        ON Ta.PROMOCION_CORTO_PROD = Tr.PROMOCION_CORTO_PROD " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Fecha_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Carga H_PROD_SITUACION (objetivos)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{fafa2388-273d-4ce9-85c1-1dda26d109ac}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga H_PROD_SITUACION (objetivos)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27767362-12DC-4D6D-87F1-73F5B8DABA9C}"
+          SQLTask:SqlStatementSource="declare @Fecha_Corte date&#xA;&#xA;set @Fecha_Corte=?&#xA;&#xA;insert into H_PROD_SITUACION&#xA;select  CONVERT (date, CURRENT_TIMESTAMP,103)  as f_modificacion,&#xA;convert(date,@Fecha_Corte, 103) as id_mes,&#xA;[ID_SITUACION] as id_situacion_prod,&#xA;null as contrato_prog&#xA;            ,isnull(map.COD_UNIDAD_DESTINO, t1.PROMOCION_CORTO_PROD) as promocion_corto_prod,&#xA;isnull(jer.DESC_PROMOCION,t1.DESC_PROMOCION_PROD) as desc_promocion_prod,&#xA;null as num_viviendas_real,&#xA;null as num_viviendas_prev,&#xA;     sum( [NUM_VIVIENDAS_OBJ]) as num_viviendas_obj&#xA;       from ZM_PROD_OBJETIVOS t1&#xA;left join ZM_MAPEOS map on (t1.PROMOCION_CORTO_prod=map.COD_UNIDAD_ORIGEN and map.CONCEPTO='PROMOCIONES')&#xA;left join J_P04_PROMOCION jer on (map.COD_UNIDAD_DESTINO=jer.PROMOCION_CORTO)&#xA;group by [ID_SITUACION] &#xA;            ,isnull(map.COD_UNIDAD_DESTINO, t1.PROMOCION_CORTO_PROD),&#xA;isnull(jer.DESC_PROMOCION,t1.DESC_PROMOCION_PROD)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Fecha_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Carga H_PROD_SITUACION (previstos)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{2b93e34e-2dec-4f7e-9f67-1efed9ae9fe6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga H_PROD_SITUACION (previstos)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27767362-12DC-4D6D-87F1-73F5B8DABA9C}"
+          SQLTask:SqlStatementSource="declare @Fecha_Corte date, @Anyo_Corte integer&#xA;&#xA;set @Fecha_Corte=?&#xA;set @Anyo_Corte=?&#xA;&#xA;UPDATE&#xA;    H_PROD_SITUACION &#xA;SET&#xA;    NUM_VIVIENDAS_prev = Tr.num_viviendas_prev&#xA;   FROM&#xA;    H_PROD_SITUACION AS Ta&#xA;    INNER JOIN (select '1' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_prev &#xA;from H_PROD_CUADRO where  datepart(yyyy,F_INI_PROY_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD&#xA;union all&#xA;select '2' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_prev &#xA;from H_PROD_CUADRO where  datepart(yyyy,F_INI_PROY_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD&#xA;union all&#xA;select '3' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_prev &#xA;from H_PROD_CUADRO where  datepart(yyyy,F_INI_PROY_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD&#xA;union all&#xA;select '4' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_prev &#xA;from H_PROD_CUADRO where  datepart(yyyy,F_INI_PROY_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD&#xA;union all&#xA;select '5' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_prev &#xA;from H_PROD_CUADRO where  datepart(yyyy,F_INI_PROY_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD&#xA;union all&#xA;select '6' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_prev &#xA;from H_PROD_CUADRO where  datepart(yyyy,F_INI_PROY_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD&#xA;union all&#xA;select '7' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_prev &#xA;from H_PROD_CUADRO where  datepart(yyyy,F_INI_PROY_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD) as tr &#xA;                ON Ta.PROMOCION_CORTO_PROD = Tr.PROMOCION_CORTO_PROD and ta.ID_SITUACION_PROD=Tr.id_situacion_prod&#xA;and Ta.ID_MES=@Fecha_Corte" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Fecha_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::Anyo_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="131"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Carga H_PROD_SITUACION (reales)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{7c5d02dc-acd0-4949-81f3-b952b704a0b8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga H_PROD_SITUACION (reales)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27767362-12DC-4D6D-87F1-73F5B8DABA9C}"
+          SQLTask:SqlStatementSource="declare @Fecha_Corte date, @Anyo_Corte integer&#xA;&#xA;set @Fecha_Corte=?&#xA;set @Anyo_Corte=?&#xA;&#xA;UPDATE&#xA;    H_PROD_SITUACION &#xA;SET&#xA;    NUM_VIVIENDAS_REAL = Tr.num_viviendas_real&#xA;   FROM&#xA;    H_PROD_SITUACION AS Ta&#xA;    INNER JOIN (select '1' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_real &#xA;from H_PROD_CUADRO where datepart(yyyy,F_INI_PROY_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD&#xA;union all&#xA;select '2' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_real &#xA;from H_PROD_CUADRO where datepart(yyyy,F_CALIF_PROV_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD&#xA;union all&#xA;select '3' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_real &#xA;from H_PROD_CUADRO where datepart(yyyy,F_ADJ_SORTEO_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD&#xA;union all&#xA;select '4' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_real &#xA;from H_PROD_CUADRO where datepart(yyyy,F_LIC_OBRA_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD&#xA;union all&#xA;select '5' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_real &#xA;from H_PROD_CUADRO where datepart(yyyy,F_ADJ_OBRA_CONSEJO_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD&#xA;union all&#xA;select '6' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_real &#xA;from H_PROD_CUADRO where datepart(yyyy,F_REC_OBRA_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD&#xA;union all&#xA;select '7' as id_situacion_prod, PROMOCION_CORTO_PROD, sum(num_viviendas) as num_viviendas_real &#xA;from H_PROD_CUADRO where datepart(yyyy,F_ACTA_REP_REAL)=@Anyo_Corte and ID_MES=@Fecha_Corte&#xA;group by PROMOCION_CORTO_PROD) as tr &#xA;        ON Ta.PROMOCION_CORTO_PROD = Tr.PROMOCION_CORTO_PROD and ta.ID_SITUACION_PROD=Tr.id_situacion_prod&#xA;and Ta.ID_MES=@Fecha_Corte" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Fecha_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::Anyo_Corte"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="131"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A34B8FC4-4E5E-482F-930C-3C994C6E949E}"
+      DTS:From="Package\Borra H_PROD_CUADRO por Fecha_Corte"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Carga H_PROD_CUADRO" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{125339F7-FB1C-4FA4-9109-893FAE367DC3}"
+      DTS:From="Package\Borra H_PROD_FASE por Fecha_Corte"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Carga H_PROD_FASE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{E9284535-0486-49C0-8536-93C32863206E}"
+      DTS:From="Package\Carga H_PROD_CUADRO"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Borra H_PROD_FASE por Fecha_Corte" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{3BBEAE2A-2FAA-40BE-BDDE-DCAB8536B1D0}"
+      DTS:From="Package\Borra H_PROD_SITUACION por Fecha_Corte"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Carga H_PROD_SITUACION (objetivos)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{61121E08-9A00-4C39-BBFA-1BEAD600733F}"
+      DTS:From="Package\Carga H_PROD_FASE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Borra H_PROD_SITUACION por Fecha_Corte" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{990A3524-41E8-485E-A388-C16E397AF505}"
+      DTS:From="Package\Carga H_PROD_SITUACION (reales)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Carga H_PROD_SITUACION (previstos)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{2E7B2C36-0D89-4195-8B21-1E6B552268D9}"
+      DTS:From="Package\Borra H_PROD_HISTORICO por Fecha_Corte 3"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Carga H_PROD_HISTORICO" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{37D08D41-1844-45A0-88A0-E5ACE99AFB5D}"
+      DTS:From="Package\Carga H_PROD_SITUACION (objetivos)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Carga H_PROD_SITUACION (reales)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{BA4E6B97-B551-4F2C-85F2-088A35DC5559}"
+      DTS:From="Package\Carga H_PROD_SITUACION (previstos)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Carga H_PROD_SITUACION (contrato prog)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{7A81ABDB-E31A-4539-917D-CDE8469F84BF}"
+      DTS:From="Package\Carga H_PROD_SITUACION (contrato prog)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Borra H_PROD_HISTORICO por Fecha_Corte 3" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="276,42"
+          Id="Package\Borra H_PROD_CUADRO por Fecha_Corte"
+          TopLeft="220.25,51.25" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\Borra H_PROD_FASE por Fecha_Corte"
+          TopLeft="216.5,165.25" />
+        <NodeLayout
+          Size="299,42"
+          Id="Package\Borra H_PROD_HISTORICO por Fecha_Corte 3"
+          TopLeft="201.5,510.75" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\Borra H_PROD_SITUACION por Fecha_Corte"
+          TopLeft="209,270.5" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Carga H_PROD_CUADRO"
+          TopLeft="650.25,75.75" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Carga H_PROD_FASE"
+          TopLeft="640.25,187.25" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\Carga H_PROD_HISTORICO"
+          TopLeft="640.25,534" />
+        <NodeLayout
+          Size="264,42"
+          Id="Package\Carga H_PROD_SITUACION (contrato prog)"
+          TopLeft="550.25,411" />
+        <NodeLayout
+          Size="264,42"
+          Id="Package\Carga H_PROD_SITUACION (objetivos)"
+          TopLeft="550.25,297.5" />
+        <NodeLayout
+          Size="264,42"
+          Id="Package\Carga H_PROD_SITUACION (previstos)"
+          TopLeft="839,412.25" />
+        <NodeLayout
+          Size="250,42"
+          Id="Package\Carga H_PROD_SITUACION (reales)"
+          TopLeft="849,331" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="496.25,72.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="154,24.5"
+              Start="0,0"
+              End="146.5,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="73,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="73,0"
+                    Point2="77,0"
+                    Point3="77,4" />
+                  <mssgle:LineSegment
+                    End="77,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="77,20.5"
+                    Point2="77,24.5"
+                    Point3="81,24.5" />
+                  <mssgle:LineSegment
+                    End="146.5,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="492.5,186.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="147.75,22"
+              Start="0,0"
+              End="140.25,22">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="69.875,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.875,0"
+                    Point2="73.875,0"
+                    Point3="73.875,4" />
+                  <mssgle:LineSegment
+                    End="73.875,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="73.875,18"
+                    Point2="73.875,22"
+                    Point3="77.875,22" />
+                  <mssgle:LineSegment
+                    End="140.25,22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="748.75,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-394.25,47.5"
+              Start="0,0"
+              End="-394.25,40">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.75"
+                    Point2="0,23.75"
+                    Point3="-4,23.75" />
+                  <mssgle:LineSegment
+                    End="-390.25,23.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-390.25,23.75"
+                    Point2="-394.25,23.75"
+                    Point3="-394.25,27.75" />
+                  <mssgle:LineSegment
+                    End="-394.25,40" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="485,291.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.25,27.0000000000001"
+              Start="0,0"
+              End="57.75,27.0000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="28.625,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.625,0"
+                    Point2="32.625,0"
+                    Point3="32.625,4" />
+                  <mssgle:LineSegment
+                    End="32.625,23.0000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.625,23.0000000000001"
+                    Point2="32.625,27.0000000000001"
+                    Point3="36.625,27.0000000000001" />
+                  <mssgle:LineSegment
+                    End="57.75,27.0000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="738.75,229.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-391.75,41.2500000000001"
+              Start="0,0"
+              End="-391.75,33.7500000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.625"
+                    Point2="0,20.625"
+                    Point3="-4,20.625" />
+                  <mssgle:LineSegment
+                    End="-387.75,20.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-387.75,20.625"
+                    Point2="-391.75,20.625"
+                    Point3="-391.75,24.625" />
+                  <mssgle:LineSegment
+                    End="-391.75,33.7500000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="972.5,373">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.2499999999999"
+              Start="0,0"
+              End="0,31.7499999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7499999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="500.5,531.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139.75,23.25"
+              Start="0,0"
+              End="132.25,23.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="65.875,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.875,0"
+                    Point2="69.875,0"
+                    Point3="69.875,4" />
+                  <mssgle:LineSegment
+                    End="69.875,19.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.875,19.25"
+                    Point2="69.875,23.25"
+                    Point3="73.875,23.25" />
+                  <mssgle:LineSegment
+                    End="132.25,23.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="814.25,318.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.75,33.4999999999999"
+              Start="0,0"
+              End="27.25,33.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="13.375,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.375,0"
+                    Point2="17.375,0"
+                    Point3="17.375,4" />
+                  <mssgle:LineSegment
+                    End="17.375,29.4999999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.375,29.4999999999999"
+                    Point2="17.375,33.4999999999999"
+                    Point3="21.375,33.4999999999999" />
+                  <mssgle:LineSegment
+                    End="27.25,33.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="839,432.625">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24.75,0"
+              Start="0,0"
+              End="-17.25,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-17.25,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="682.25,453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-331.25,57.75"
+              Start="0,0"
+              End="-331.25,50.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.875"
+                    Point2="0,28.875"
+                    Point3="-4,28.875" />
+                  <mssgle:LineSegment
+                    End="-327.25,28.875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-327.25,28.875"
+                    Point2="-331.25,28.875"
+                    Point3="-331.25,32.875" />
+                  <mssgle:LineSegment
+                    End="-331.25,50.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
