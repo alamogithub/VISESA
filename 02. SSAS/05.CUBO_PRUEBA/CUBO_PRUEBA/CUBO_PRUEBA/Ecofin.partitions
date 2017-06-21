@@ -1,0 +1,105 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c97d20fe-3599-4b93-9bd8-c1e69061a206" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Ecofin</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>H ECOFIN AF</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="8de482ec-7753-4bae-b0da-063b3338652c">
+          <ID>H ECOFIN AF</ID>
+          <Name>H ECOFIN AF</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6691ef2a-a124-4621-a019-21c452933971">
+            <DataSourceViewID>Ecofin</DataSourceViewID>
+            <TableID>dbo_H_ECOFIN_AF</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H ECOFIN MOVIMIENTOS</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="9bf3f7c9-e4da-430e-96ed-ed4c9776f0df">
+          <ID>H ECOFIN MOVIMIENTOS</ID>
+          <Name>H ECOFIN MOVIMIENTOS</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="8483a201-c6dc-4416-a702-892dd8acea10">
+            <DataSourceViewID>Ecofin</DataSourceViewID>
+            <TableID>dbo_H_ECOFIN_MOVIMIENTOS</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H ECOFIN SALDOS</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="f7702b81-51d2-4b2b-b747-b802d002be8c">
+          <ID>H ECOFIN SALDOS</ID>
+          <Name>H ECOFIN SALDOS</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="1147c795-bc05-4d0b-8315-77feec8f4d8b">
+            <DataSourceViewID>Ecofin</DataSourceViewID>
+            <TableID>dbo_H_ECOFIN_SALDOS</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>V ECOFIN COMERCIAL</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3ee6ae5f-5e25-4a0a-b307-82f30bc1e984">
+          <ID>V ECOFIN COMERCIAL</ID>
+          <Name>V ECOFIN COMERCIAL</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="85f8e7e9-86a9-4a1b-8854-378a144abff8">
+            <DataSourceViewID>Ecofin</DataSourceViewID>
+            <TableID>dbo_V_ECOFIN_COMERCIAL</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H INDICADORES</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="4c8dd543-b8cb-4ba2-bf02-699cb850ef34">
+          <ID>H INDICADORES</ID>
+          <Name>H INDICADORES</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="a1186296-d15c-4a6c-a083-8d52ce714f96">
+            <DataSourceViewID>Ecofin</DataSourceViewID>
+            <TableID>dbo_H_INDICADORES</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

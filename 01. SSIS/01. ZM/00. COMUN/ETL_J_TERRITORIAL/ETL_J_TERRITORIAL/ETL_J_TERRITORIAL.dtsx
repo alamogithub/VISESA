@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SRVSQLBI"
   DTS:CreatorName="OSATU\proyectobi"
-  DTS:DTSID="{FA4123A8-51FB-4D50-BCDF-4962F185781F}"
+  DTS:DTSID="{CCE0FF7F-85C9-48BA-8131-7584729D38E6}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.4001.0"
   DTS:LocaleID="3082"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="ETL_J_TERRITORIAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{3B3D9093-BF67-4B4C-BBB8-61E741628E61}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{3E2D4F54-6446-42E4-B99E-8758C8091868}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -47,7 +47,22 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="SRVSQLBI\VISESABI.VISESABI"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Escribe entradas del registro sobre eventos en una base de datos de SQL Server"
+      DTS:DTSID="{565AD792-2EA3-49E3-8984-B9C6F764ABD8}"
+      DTS:ObjectName="Proveedor de registro SSIS para SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
   <DTS:Variables />
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="2" />
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Municipio"
@@ -59,6 +74,8 @@
       DTS:ObjectName="Municipio"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -953,6 +970,8 @@ WHERE ID_MUNICIPIO = ?</property>
       DTS:ObjectName="Pais"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -1811,6 +1830,8 @@ WHERE ID_PAIS = ?</property>
       DTS:ObjectName="Provincia"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -3484,19 +3505,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Provincia\VISESA$Area">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Provincia\J_T02_PROVINCIA">
     <Properties>
       <Property>
@@ -3515,7 +3523,7 @@ where [refTable].[ID_PROVINCIA] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3525,10 +3533,23 @@ where [refTable].[ID_PROVINCIA] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Provincia\VISESA$Area">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

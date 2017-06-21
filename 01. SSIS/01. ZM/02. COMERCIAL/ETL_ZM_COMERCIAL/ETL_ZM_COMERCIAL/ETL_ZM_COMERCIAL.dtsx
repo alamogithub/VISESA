@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SRVSQLBI"
   DTS:CreatorName="OSATU\proyectobi"
-  DTS:DTSID="{48E16F60-7313-4DE1-96E7-1DCCC84E5652}"
+  DTS:DTSID="{2CFF37A0-0F4C-4193-8953-82254BA44165}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.4001.0"
   DTS:LocaleID="3082"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="ETL_ZM_COMERCIAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{BDE7AD08-93B0-4DA5-99A9-897C9319473F}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{0AB840AC-1764-4AB0-B179-2D5C035BB54D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -79,6 +79,18 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="SRVSQLBI\VISESABI.VISESABI"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Escribe entradas del registro sobre eventos en una base de datos de SQL Server"
+      DTS:DTSID="{F6E956C2-A92A-41AC-8291-F312C89FED14}"
+      DTS:ObjectName="Proveedor de registro SSIS para SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -122,7 +134,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Sistema">
       <DTS:VariableValue
-        DTS:DataType="7">5/23/2017 9:39:12 AM</DTS:VariableValue>
+        DTS:DataType="7">6/7/2017 10:04:14 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -165,6 +177,9 @@
         DTS:DataType="8">L:\INFOVISESA\BUSINESS INTELLIGENCE\COMERCIAL\</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="2" />
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Deletes"
@@ -177,6 +192,8 @@
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{2726A2EE-06C0-43D1-B1F6-DAA663A12E5D}"
@@ -193,6 +210,8 @@
       DTS:ObjectName="ZM_COMERCIAL_ELEMENTO"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -4101,6 +4120,8 @@
       DTS:ObjectName="ZM_COMERCIAL_PRESUPUESTOS"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -4656,6 +4677,8 @@
       DTS:ObjectName="ZM_COMERCIAL_RELACION"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -5499,6 +5522,51 @@
                       lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Mandato SEPA]"
                       name="Mandato SEPA"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha aviso pago 1]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha aviso pago 1]"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha aviso pago 1]"
+                      name="Fecha aviso pago 1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha aviso pago 2]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha aviso pago 2]"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha aviso pago 2]"
+                      name="Fecha aviso pago 2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha aviso pago 3]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha aviso pago 3]"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha aviso pago 3]"
+                      name="Fecha aviso pago 3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha aviso pago 4]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha aviso pago 4]"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha aviso pago 4]"
+                      name="Fecha aviso pago 4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha aviso pago 5]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha aviso pago 5]"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha aviso pago 5]"
+                      name="Fecha aviso pago 5"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5832,6 +5900,26 @@
                       dataType="wstr"
                       length="35"
                       name="Mandato SEPA" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha aviso pago 1]"
+                      dataType="dbTimeStamp"
+                      name="Fecha aviso pago 1" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha aviso pago 2]"
+                      dataType="dbTimeStamp"
+                      name="Fecha aviso pago 2" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha aviso pago 3]"
+                      dataType="dbTimeStamp"
+                      name="Fecha aviso pago 3" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha aviso pago 4]"
+                      dataType="dbTimeStamp"
+                      name="Fecha aviso pago 4" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha aviso pago 5]"
+                      dataType="dbTimeStamp"
+                      name="Fecha aviso pago 5" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -6244,6 +6332,31 @@
                       length="35"
                       lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Mandato SEPA]"
                       name="Mandato SEPA" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha aviso pago 1]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha aviso pago 1]"
+                      name="Fecha aviso pago 1" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha aviso pago 2]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha aviso pago 2]"
+                      name="Fecha aviso pago 2" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha aviso pago 3]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha aviso pago 3]"
+                      name="Fecha aviso pago 3" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha aviso pago 4]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha aviso pago 4]"
+                      name="Fecha aviso pago 4" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha aviso pago 5]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha aviso pago 5]"
+                      name="Fecha aviso pago 5" />
                     <outputColumn
                       refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -7210,6 +7323,8 @@
       DTS:ObjectName="ZM_COMERCIAL_RES_IMP_AROC"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <pipeline
           version="1">

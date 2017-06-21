@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{B012AD18-4C74-4C32-8BC1-36E5655C049A}">
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{10A77404-EEBD-4DA1-8D40-5A3FAD8CB277}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -53,7 +53,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{8C2F7183-7B74-48A3-9D83-DA231AC961B5}"
-          SQLTask:SqlStatementSource="delete from M_CUENTAS_CONTABLES &#xA;delete from M_ORIGEN_ENTRADA &#xA;delete from M_GR_CONTAB_NEGOCIO &#xA;delete from M_GR_CONTAB_PRODUCTO &#xA;delete from M_NO_SERIES &#xA;delete from M_VAT_GR_CONTAB_NEGOCIO &#xA;delete from M_VAT_GR_CONTAB_PRODUCTO &#xA;&#xA;insert into M_CUENTAS_CONTABLES values (999,'No disponible')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('999','No disponible')&#xA;insert into M_GR_CONTAB_PRODUCTO values ('999','No disponible')&#xA;insert into M_NO_SERIES values ('999','No disponible')&#xA;insert into M_ORIGEN_ENTRADA values ('999','No disponible')&#xA;insert into M_VAT_GR_CONTAB_NEGOCIO values ('999','No disponible')&#xA;insert into M_VAT_GR_CONTAB_PRODUCTO values ('999','No disponible')&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="delete from M_CUENTAS_CONTABLES &#xA;delete from M_ORIGEN_ENTRADA &#xA;delete from M_GR_CONTAB_NEGOCIO &#xA;delete from M_GR_CONTAB_PRODUCTO &#xA;delete from M_NO_SERIES &#xA;delete from M_VAT_GR_CONTAB_NEGOCIO &#xA;delete from M_VAT_GR_CONTAB_PRODUCTO &#xA;&#xA;insert into M_CUENTAS_CONTABLES values (999,'No disponible')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('999','No disponible')&#xA;insert into M_GR_CONTAB_PRODUCTO values ('999','No disponible')&#xA;insert into M_NO_SERIES values ('999','No disponible')&#xA;insert into M_ORIGEN_ENTRADA values ('999','No disponible')&#xA;insert into M_VAT_GR_CONTAB_NEGOCIO values ('999','No disponible')&#xA;insert into M_VAT_GR_CONTAB_PRODUCTO values ('999','No disponible')&#xA;&#xA;insert into M_GR_CONTAB_NEGOCIO values ('ALQOPCOMPR','ALQOPCOMPR')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('INST. TECN','INST. TECN')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('AROCTERREN','AROCTERREN')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('MAQUINARIA','MAQUINARIA')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('MOBILIARIO','MOBILIARIO')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('EQUINFOATC','EQUINFOATC')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('APLIINFOPR','APLIINFOPR')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('EQU.INFORM','EQU.INFORM')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('TERRENOS','TERRENOS')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('OTROMATERI','OTROMATERI')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('PROPINDUST','PROPINDUST')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('CONSTRUC','CONSTRUCT')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('EQUINFOR','EQUINFOR')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('APLIINFOR','APLIINFOR')&#xA;&#xA;insert into M_CUENTAS_CONTABLES values ('','No disponible')&#xA;insert into M_GR_CONTAB_NEGOCIO values ('','No disponible')&#xA;insert into M_GR_CONTAB_PRODUCTO values ('','No disponible')&#xA;insert into M_NO_SERIES values ('','No disponible')&#xA;insert into M_ORIGEN_ENTRADA values ('','No disponible')&#xA;insert into M_VAT_GR_CONTAB_NEGOCIO values ('','No disponible')&#xA;insert into M_VAT_GR_CONTAB_PRODUCTO values ('','No disponible')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -10722,79 +10722,13 @@ Description as DESCR
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="253,42"
-          Id="Package\Carga maestras\VISESA$Gen_ Product Posting Group"
-          TopLeft="88,204" />
-        <NodeLayout
-          Size="213,42"
-          Id="Package\Carga maestras\M_GR_CONTAB_PRODUCTO"
-          TopLeft="402,218" />
-        <EdgeLayout
-          Id="Package\Carga maestras.Paths[Salida de origen de OLE DB]"
-          TopLeft="341,225">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="61,14"
-              Start="0,0"
-              End="53.5,14">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="26.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26.5,0"
-                    Point2="30.5,0"
-                    Point3="30.5,4" />
-                  <mssgle:LineSegment
-                    End="30.5,10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="30.5,10"
-                    Point2="30.5,14"
-                    Point3="34.5,14" />
-                  <mssgle:LineSegment
-                    End="53.5,14" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="204,42"
-          Id="Package\Carga maestras\M_GR_CONTAB_NEGOCIO"
-          TopLeft="399,161" />
-        <NodeLayout
-          Size="257,42"
-          Id="Package\Carga maestras\VISESA$Gen_ Business Posting Group"
-          TopLeft="85,147" />
-        <NodeLayout
-          Size="183,42"
-          Id="Package\Carga maestras\M_ORIGEN_ENTRADA"
-          TopLeft="420,102" />
-        <NodeLayout
-          Size="201,42"
-          Id="Package\Carga maestras\M_CUENTAS_CONTABLES"
-          TopLeft="419,46" />
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Carga maestras\VISESA$G_L Account"
-          TopLeft="105,32" />
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Carga maestras\VISESA$Source Code"
-          TopLeft="106,88" />
-        <NodeLayout
-          Size="238,42"
-          Id="Package\Carga maestras\M_VAT_GR_CONTAB_PRODUCTO"
-          TopLeft="427,378" />
-        <NodeLayout
           Size="229,42"
           Id="Package\Carga maestras\M_VAT_GR_CONTAB_NEGOCIO"
           TopLeft="425,326" />
+        <NodeLayout
+          Size="252,42"
+          Id="Package\Carga maestras\VISESA$VAT Business Posting Group"
+          TopLeft="111,312" />
         <NodeLayout
           Size="148,42"
           Id="Package\Carga maestras\M_NO_SERIES"
@@ -10804,141 +10738,71 @@ Description as DESCR
           Id="Package\Carga maestras\VISESA$No_ Series"
           TopLeft="109,256" />
         <NodeLayout
-          Size="252,42"
-          Id="Package\Carga maestras\VISESA$VAT Business Posting Group"
-          TopLeft="111,312" />
+          Size="204,42"
+          Id="Package\Carga maestras\M_GR_CONTAB_NEGOCIO"
+          TopLeft="399,161" />
+        <NodeLayout
+          Size="253,42"
+          Id="Package\Carga maestras\VISESA$Gen_ Product Posting Group"
+          TopLeft="88,204" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\Carga maestras\M_VAT_GR_CONTAB_PRODUCTO"
+          TopLeft="427,378" />
         <NodeLayout
           Size="247,42"
           Id="Package\Carga maestras\VISESA$VAT Product Posting Group"
           TopLeft="113,364" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Carga maestras\M_ORIGEN_ENTRADA"
+          TopLeft="420,102" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Carga maestras\VISESA$Source Code"
+          TopLeft="106,88" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Carga maestras\M_GR_CONTAB_PRODUCTO"
+          TopLeft="402,218" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Carga maestras\VISESA$G_L Account"
+          TopLeft="105,32" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Carga maestras\M_CUENTAS_CONTABLES"
+          TopLeft="419,46" />
+        <NodeLayout
+          Size="257,42"
+          Id="Package\Carga maestras\VISESA$Gen_ Business Posting Group"
+          TopLeft="85,147" />
         <EdgeLayout
-          Id="Package\Carga maestras.Paths[Salida de origen de OLE DB1]"
-          TopLeft="342,168">
+          Id="Package\Carga maestras.Paths[Salida de origen de OLE DB6]"
+          TopLeft="360,385">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="57,14"
+              EndConnector="67,14"
               Start="0,0"
-              End="49.5,14">
+              End="59.5,14">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="24.5,0" />
+                    End="29.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="24.5,0"
-                    Point2="28.5,0"
-                    Point3="28.5,4" />
+                    Point1="29.5,0"
+                    Point2="33.5,0"
+                    Point3="33.5,4" />
                   <mssgle:LineSegment
-                    End="28.5,10" />
+                    End="33.5,10" />
                   <mssgle:CubicBezierSegment
-                    Point1="28.5,10"
-                    Point2="28.5,14"
-                    Point3="32.5,14" />
+                    Point1="33.5,10"
+                    Point2="33.5,14"
+                    Point3="37.5,14" />
                   <mssgle:LineSegment
-                    End="49.5,14" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Carga maestras.Paths[Salida de origen de OLE DB2]"
-          TopLeft="284,53">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="135,14"
-              Start="0,0"
-              End="127.5,14">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="63.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="63.5,0"
-                    Point2="67.5,0"
-                    Point3="67.5,4" />
-                  <mssgle:LineSegment
-                    End="67.5,10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="67.5,10"
-                    Point2="67.5,14"
-                    Point3="71.5,14" />
-                  <mssgle:LineSegment
-                    End="127.5,14" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Carga maestras.Paths[Salida de origen de OLE DB3]"
-          TopLeft="285,109">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="135,14"
-              Start="0,0"
-              End="127.5,14">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="63.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="63.5,0"
-                    Point2="67.5,0"
-                    Point3="67.5,4" />
-                  <mssgle:LineSegment
-                    End="67.5,10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="67.5,10"
-                    Point2="67.5,14"
-                    Point3="71.5,14" />
-                  <mssgle:LineSegment
-                    End="127.5,14" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Carga maestras.Paths[Salida de origen de OLE DB4]"
-          TopLeft="279,277">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="144,14"
-              Start="0,0"
-              End="136.5,14">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="68,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="68,0"
-                    Point2="72,0"
-                    Point3="72,4" />
-                  <mssgle:LineSegment
-                    End="72,10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="72,10"
-                    Point2="72,14"
-                    Point3="76,14" />
-                  <mssgle:LineSegment
-                    End="136.5,14" />
+                    End="59.5,14" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10982,31 +10846,167 @@ Description as DESCR
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga maestras.Paths[Salida de origen de OLE DB6]"
-          TopLeft="360,385">
+          Id="Package\Carga maestras.Paths[Salida de origen de OLE DB4]"
+          TopLeft="279,277">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="67,14"
+              EndConnector="144,14"
               Start="0,0"
-              End="59.5,14">
+              End="136.5,14">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="29.5,0" />
+                    End="68,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="29.5,0"
-                    Point2="33.5,0"
-                    Point3="33.5,4" />
+                    Point1="68,0"
+                    Point2="72,0"
+                    Point3="72,4" />
                   <mssgle:LineSegment
-                    End="33.5,10" />
+                    End="72,10" />
                   <mssgle:CubicBezierSegment
-                    Point1="33.5,10"
-                    Point2="33.5,14"
-                    Point3="37.5,14" />
+                    Point1="72,10"
+                    Point2="72,14"
+                    Point3="76,14" />
                   <mssgle:LineSegment
-                    End="59.5,14" />
+                    End="136.5,14" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga maestras.Paths[Salida de origen de OLE DB3]"
+          TopLeft="285,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135,14"
+              Start="0,0"
+              End="127.5,14">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63.5,0"
+                    Point2="67.5,0"
+                    Point3="67.5,4" />
+                  <mssgle:LineSegment
+                    End="67.5,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.5,10"
+                    Point2="67.5,14"
+                    Point3="71.5,14" />
+                  <mssgle:LineSegment
+                    End="127.5,14" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga maestras.Paths[Salida de origen de OLE DB2]"
+          TopLeft="284,53">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135,14"
+              Start="0,0"
+              End="127.5,14">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63.5,0"
+                    Point2="67.5,0"
+                    Point3="67.5,4" />
+                  <mssgle:LineSegment
+                    End="67.5,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.5,10"
+                    Point2="67.5,14"
+                    Point3="71.5,14" />
+                  <mssgle:LineSegment
+                    End="127.5,14" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga maestras.Paths[Salida de origen de OLE DB1]"
+          TopLeft="342,168">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57,14"
+              Start="0,0"
+              End="49.5,14">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="24.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.5,0"
+                    Point2="28.5,0"
+                    Point3="28.5,4" />
+                  <mssgle:LineSegment
+                    End="28.5,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.5,10"
+                    Point2="28.5,14"
+                    Point3="32.5,14" />
+                  <mssgle:LineSegment
+                    End="49.5,14" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga maestras.Paths[Salida de origen de OLE DB]"
+          TopLeft="341,225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61,14"
+              Start="0,0"
+              End="53.5,14">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="26.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5,0"
+                    Point2="30.5,0"
+                    Point3="30.5,4" />
+                  <mssgle:LineSegment
+                    End="30.5,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.5,10"
+                    Point2="30.5,14"
+                    Point3="34.5,14" />
+                  <mssgle:LineSegment
+                    End="53.5,14" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11022,7 +11022,7 @@ Description as DESCR
     design-time-name="Package\Carga ZM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="195,42"
           Id="Package\Carga ZM\VISESA$FA Ledger Entry"
@@ -11078,7 +11078,9 @@ Description as DESCR
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11112,7 +11114,9 @@ Description as DESCR
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11146,7 +11150,9 @@ Description as DESCR
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -17,6 +17,16 @@
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Ecofin.cube</Name>
+      <FullPath>Ecofin.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Ecofin.partitions</Name>
+          <FullPath>Ecofin.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
   </Cubes>
   <Dimensions>
     <ProjectItem>
@@ -171,6 +181,106 @@
       <Name>Adjudicacion Directa.dim</Name>
       <FullPath>Adjudicacion Directa.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Grupo contable negocio.dim</Name>
+      <FullPath>Grupo contable negocio.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo bien.dim</Name>
+      <FullPath>Tipo bien.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo IVA.dim</Name>
+      <FullPath>Tipo IVA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo contrapartida.dim</Name>
+      <FullPath>Tipo Contrapartida.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Metodo amortizacion.dim</Name>
+      <FullPath>Metodo amortizacion.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo registro AF.dim</Name>
+      <FullPath>Tipo registro AF.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Categoria registro.dim</Name>
+      <FullPath>Categoria registro.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo documento.dim</Name>
+      <FullPath>Tipo documento.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo elemento ecofin.dim</Name>
+      <FullPath>Tipo elemento ecofin.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Elemento-Calificación.dim</Name>
+      <FullPath>Elemento-Calificación.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Promocion-Fase-UE-Proyecto.dim</Name>
+      <FullPath>Promocion-Fase-UE-Proyecto.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo gasto.dim</Name>
+      <FullPath>Tipo gasto.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Jerarquia temporal.dim</Name>
+      <FullPath>Jerarquia temporal.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Residencia.dim</Name>
+      <FullPath>Residencia.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Modalidad IRPF.dim</Name>
+      <FullPath>Modalidad IRPF.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo procedencia mov contable.dim</Name>
+      <FullPath>Tipo procedencia mov contable.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo movimiento AF.dim</Name>
+      <FullPath>Tipo movimiento AF.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Cuentas contables.dim</Name>
+      <FullPath>Cuentas contables.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Origen entrada.dim</Name>
+      <FullPath>Origen entrada.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Grupo contable producto.dim</Name>
+      <FullPath>Grupo contable producto.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>No series.dim</Name>
+      <FullPath>No series.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>VAT grupo contable negocio.dim</Name>
+      <FullPath>VAT grupo contable negocio.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>VAT grupo contable producto.dim</Name>
+      <FullPath>VAT grupo contable producto.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Indicadores.dim</Name>
+      <FullPath>Indicadores.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Cuenta contrapartida.dim</Name>
+      <FullPath>Cuenta contrapartida.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>
@@ -180,6 +290,10 @@
     <ProjectItem>
       <Name>VISESABI 1.ds</Name>
       <FullPath>VISESABI 1.ds</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Ecofin.ds</Name>
+      <FullPath>Ecofin.ds</FullPath>
     </ProjectItem>
   </DataSources>
   <DataSourceViews>
@@ -191,7 +305,17 @@
       <Name>VISESABI 1.dsv</Name>
       <FullPath>VISESABI 1.dsv</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Ecofin.dsv</Name>
+      <FullPath>Ecofin.dsv</FullPath>
+    </ProjectItem>
   </DataSourceViews>
+  <Roles>
+    <ProjectItem>
+      <Name>Role.role</Name>
+      <FullPath>Role.role</FullPath>
+    </ProjectItem>
+  </Roles>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
@@ -207,6 +331,11 @@
             <Name>VISESABI 1</Name>
             <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
           </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>Ecofin</Id>
+            <Name>Ecofin</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
+          </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
           <ConfigurationSetting>
@@ -217,6 +346,11 @@
           <ConfigurationSetting>
             <Id>VISESABI 1</Id>
             <Name>VISESABI 1</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>Ecofin</Id>
+            <Name>Ecofin</Name>
             <Value xsi:type="xsd:int">0</Value>
           </ConfigurationSetting>
         </ConnectionSecurityMappings>
