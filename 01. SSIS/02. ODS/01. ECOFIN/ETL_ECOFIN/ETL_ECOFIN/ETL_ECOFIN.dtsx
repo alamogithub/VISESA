@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_ECOFIN"
   DTS:PackageType="5"
-  DTS:VersionBuild="79"
-  DTS:VersionGUID="{24D8B5E3-9E21-4E84-AD5C-2AF79E77E661}">
+  DTS:VersionBuild="80"
+  DTS:VersionGUID="{913C3AED-B99E-46D3-8C1D-606F2BF8BC68}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -82,7 +82,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{6A8FAA23-A9FC-401C-B6FA-529E1B0B6DAC}"
-          SQLTask:SqlStatementSource="delete from [dbo].[H_ECOFIN_AF]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="delete from [dbo].[H_ECOFIN_AF] where id_af not like '999'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
