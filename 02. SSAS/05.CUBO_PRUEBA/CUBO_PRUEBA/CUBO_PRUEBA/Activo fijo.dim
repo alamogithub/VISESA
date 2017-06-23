@@ -6,6 +6,32 @@
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-263" scrolltop="-3861" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="6694" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="H_ECOFIN_AF" left="20" top="-3016" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="5450" height="10688" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000c00004a150000c0290000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_H_ECOFIN_AF" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
@@ -21,19 +47,19 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>0</Value>
+      <Value>-263</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>0</Value>
+      <Value>-3861</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
-      <Value>0</Value>
+      <Value>20</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
-      <Value>0</Value>
+      <Value>-3016</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
@@ -71,7 +97,23 @@
       <AttributeRelationships>
         <AttributeRelationship dwd:design-time-name="92e2df39-6580-49e4-8c7d-c74258c0637b">
           <AttributeID>DESC ACTIVO FIJO</AttributeID>
-          <Name>DESC ACTIVO FIJO</Name>
+          <Name>Desc AF</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="bca90d8e-6792-4993-bd6b-887f2e1f5c5f">
+          <AttributeID>ID GR CONT NEGOCIO</AttributeID>
+          <Name>Grupo contable negocio</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="43ec82fa-c013-43c4-af3d-d95ffddb7ce0">
+          <AttributeID>GRUPO ASIGNACION ACT</AttributeID>
+          <Name>Grupo asignación act</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="42d29194-45ea-43cd-84f1-bad3673b7d6c">
+          <AttributeID>UNIDAD ASIGNACION ACT</AttributeID>
+          <Name>Unidad asignación act</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b5f274d3-17f3-4ee3-9788-ba4bdff50f29">
+          <AttributeID>ID CATEGORIA REGISTRO AF</AttributeID>
+          <Name>ID CATEGORIA REGISTRO AF</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
@@ -80,7 +122,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="556a516a-ec16-49bb-b58e-928bec1f5631">
       <ID>DESC ACTIVO FIJO</ID>
-      <Name>DESC ACTIVO FIJO</Name>
+      <Name>Desc AF</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="b7f18618-dd6c-428a-a01e-6f57bf5c749e">
           <DataType>WChar</DataType>
@@ -92,6 +134,77 @@
         </KeyColumn>
       </KeyColumns>
       <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="daf1db25-250a-48f9-9012-2910b4565e5e">
+      <ID>ID GR CONT NEGOCIO</ID>
+      <Name>Grupo contable negocio</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7681fff3-c4a8-487d-8f00-d25217e4aa55">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fa85ac9e-b3d0-494e-849f-5426ff4a1cf3">
+            <TableID>dbo_H_ECOFIN_AF</TableID>
+            <ColumnID>ID_GR_CONT_NEGOCIO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="96fe1974-3e56-49a3-957f-fe8fcb4393c0">
+      <ID>GRUPO ASIGNACION ACT</ID>
+      <Name>Grupo asignación act</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f87c187b-85bc-41b9-95fd-8e280c448fad">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a6715d07-8742-4d2f-a10c-b704d04f95fe">
+            <TableID>dbo_H_ECOFIN_AF</TableID>
+            <ColumnID>GRUPO_ASIGNACION_ACT</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f02541da-da8c-49ef-ae7d-2a3c8485c316">
+      <ID>UNIDAD ASIGNACION ACT</ID>
+      <Name>Unidad asignación act</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="00f7b71a-8029-45cb-8e62-6d18f7cb0c74">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6ecd63af-060e-4ae7-b01a-c9af460baca9">
+            <TableID>dbo_H_ECOFIN_AF</TableID>
+            <ColumnID>UNIDAD_ASIGNACION_ACT</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5fd617b1-6010-47a6-835d-d5ed1bab5fbc">
+      <ID>ID CATEGORIA REGISTRO AF</ID>
+      <Name>ID CATEGORIA REGISTRO AF</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7cbede62-1bf8-4378-b746-709ca59d647e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b1e8e206-0c56-4b5f-93bf-10c5d759df6e">
+            <TableID>dbo_H_ECOFIN_AF</TableID>
+            <ColumnID>ID_CATEGORIA_REGISTRO_AF</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0fea99c2-a46d-45ac-a665-8de9f34872a1">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e5510fba-c066-4f25-bcc0-3df1d89f4435">
+          <TableID>dbo_M_CATEGORIA_REGISTRO</TableID>
+          <ColumnID>DESC_CATEGORIA_REGISTRO_AF</ColumnID>
+        </Source>
+      </NameColumn>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
