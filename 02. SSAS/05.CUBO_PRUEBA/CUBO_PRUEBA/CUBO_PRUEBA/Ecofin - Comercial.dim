@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="8" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="81" scrolltop="-4262" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="4630" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="8" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="81" scrolltop="-4324" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="4630" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -82,7 +82,7 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-4262</Value>
+      <Value>-4324</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -143,10 +143,6 @@
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="a49f1991-b0eb-4963-bbdd-9f44fc331e05">
-          <AttributeID>Tipo Elemento</AttributeID>
-          <Name>Tipo Elemento</Name>
-        </AttributeRelationship>
         <AttributeRelationship dwd:design-time-name="e3857653-448e-47c6-8205-5a06d66a2255">
           <AttributeID>Prom</AttributeID>
           <Name>Prom</Name>
@@ -155,26 +151,12 @@
           <AttributeID>Tipo Vivienda</AttributeID>
           <Name>Tipo Vivienda</Name>
         </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="037c004f-c3d2-4abb-85c9-233a3865f214">
+          <AttributeID>Tipo Elemento</AttributeID>
+          <Name>Tipo Elemento</Name>
+        </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
-      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
-      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
-    </Attribute>
-    <Attribute dwd:design-time-name="32ab3b43-cbf2-49a4-a27b-87fdaa14d187">
-      <ID>Tipo Elemento</ID>
-      <Name>Tipo Elemento</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="7cfdeee0-6df0-4c2a-90bf-2900af5a2c61">
-          <DataType>WChar</DataType>
-          <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="80640f46-7107-4290-9ee7-cd7316d1a5da">
-            <TableID>dbo_V_ECOFIN_COMERCIAL</TableID>
-            <ColumnID>tipo_elemento</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-      <OrderBy>Key</OrderBy>
-      <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
@@ -209,6 +191,22 @@
         </KeyColumn>
       </KeyColumns>
       <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="49d5272f-fb67-4741-835e-2dc5b3a5927f">
+      <ID>Tipo Elemento</ID>
+      <Name>Tipo Elemento</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a4f7a276-897a-410f-9092-bfe8317ecb8c">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ad88bddc-c677-4d0f-9172-314be6bf3bce">
+            <TableID>dbo_V_ECOFIN_COMERCIAL</TableID>
+            <ColumnID>tipo_elemento</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
