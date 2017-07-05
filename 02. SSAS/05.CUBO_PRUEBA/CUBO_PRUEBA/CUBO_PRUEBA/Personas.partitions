@@ -1,0 +1,85 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="38fa15fd-ca2e-4c0e-982a-d9464cf880ad" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Personas</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>H PERSONAL ASISTENTE</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="24d31aa2-68d5-46be-8e00-80d8795c0d9b">
+          <ID>H PERSONAL ASISTENTE</ID>
+          <Name>H PERSONAL ASISTENTE</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="903a2cc6-2f4d-4ea7-aff3-251f6392b472">
+            <DataSourceViewID>Personas</DataSourceViewID>
+            <TableID>dbo_H_PERSONAL_ASISTENTE</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H PERSONAL ENCUESTAS</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="753a4616-0df6-439d-a598-17f86f8e5eb7">
+          <ID>H PERSONAL ENCUESTAS</ID>
+          <Name>H PERSONAL ENCUESTAS</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="61200cb0-e8e7-4395-a692-e88f517ff779">
+            <DataSourceViewID>Personas</DataSourceViewID>
+            <TableID>dbo_H_PERSONAL_ENCUESTAS</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H PERSONAL FORMACION</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="d85b1a90-3663-4d78-be07-811e5e2dc781">
+          <ID>H PERSONAL FORMACION</ID>
+          <Name>H PERSONAL FORMACION</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="a5f4705b-055e-4bff-bf5e-c292a7c2518b">
+            <DataSourceViewID>Personas</DataSourceViewID>
+            <TableID>dbo_H_PERSONAL_FORMACION</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H PERSONAL PRESUPUESTOS</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="96cdbfcb-2f3f-4116-b4c8-1a615f0f28d2">
+          <ID>H PERSONAL PRESUPUESTOS</ID>
+          <Name>H PERSONAL PRESUPUESTOS</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="f62228e7-9ae7-4eb0-98f2-3f21aa61f6de">
+            <DataSourceViewID>Personas</DataSourceViewID>
+            <TableID>dbo_H_PERSONAL_PRESUPUESTOS</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

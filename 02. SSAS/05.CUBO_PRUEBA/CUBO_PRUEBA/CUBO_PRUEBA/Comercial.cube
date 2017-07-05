@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="106" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="7015" scrolltop="26679" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="11060" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="106" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2064" scrolltop="-7364" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="16457" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -739,7 +739,7 @@
               <point x="8926" y="22151" />
             </connector>
           </ddscontrol>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="J_TIEMPO" left="0" top="0" logicalid="101" controlid="49" masterid="0" hint1="0" hint2="0" width="5363" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="J_TIEMPO" left="-459" top="-2364" logicalid="101" controlid="49" masterid="0" hint1="0" hint2="0" width="5363" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobjectstreaminitwrapper binary="000c0000f314000088130000" />
             </control>
@@ -800,19 +800,19 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>7015</Value>
+      <Value>-2064</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>26679</Value>
+      <Value>-7364</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
-      <Value>0</Value>
+      <Value>-459</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
-      <Value>0</Value>
+      <Value>-2364</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
@@ -2452,77 +2452,78 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;                                        
+CALCULATE;                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[Precio medio V+G+T  S/IVA]
  AS [Measures].[Precio VGT]/[Measures].[Nº Viviendas], 
 FORMAT_STRING = "Currency", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                  
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                      
 CREATE MEMBER CURRENTCUBE.[Measures].[% Contratos]
  AS ([Measures].[Nº Contratos CV]/[Measures].[Nº Viviendas]), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                      
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                          
 CREATE MEMBER CURRENTCUBE.[Measures].Precio_venta_total
  AS sum([Elemento libre].[Elemento libre].&amp;[0],[Measures].[Precio Venta]), 
-VISIBLE = 0;                                            
+VISIBLE = 0;                                                
 CREATE MEMBER CURRENTCUBE.[Measures].[% Escrituras]
  AS ([Measures].[Nº Escrituras]/[Measures].[Nº Viviendas]), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                         
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Viviendas Sin Ocupar]
  AS [Measures].[Nº Viviendas]-[Measures].[Nº Escrituras]-[Measures].[Nº Contratos AROC], 
 FORMAT_STRING = "0", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                               
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Aceptadas (Pte Contrato)]
  AS Sum([Measures].[Nº Viviendas],[Estado].[Estado].&amp;[5]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Gestion CV' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                               
+FORMAT_STRING = "0", 
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Gestion CV' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                   
                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Notificaciones en Curso]
  AS SUM(EXISTING {[Estado].[Estado].&amp;[3] ,[Estado].[Estado].&amp;[4],[Estado].[Estado].&amp;[5]}
       ,[Measures].[Nº Viviendas]), 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'Gestion CV' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                            
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'Gestion CV' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Total AROC]
  AS Sum([Measures].[Nº Viviendas],[Modalidad de compra].[Modalidad de compra].&amp;[2]), 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                        
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[Previsión contrato AROC2]
  AS Sum([Measures].[Nº Total AROC],[Estado].[Estado].&amp;[5]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                      
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                          
 CREATE MEMBER CURRENTCUBE.[Measures].p1
  AS sum(CROSSJOIN(CROSSJOIN( [ELEMENTO LIBRE].[Valor ELEMENTO LIBRE].&amp;[0],[M TIPO ELEMENTO 1].[Valor TIPO ELEMENTO].&amp;[0]), [M ESTADO 1].[Valor ESTADO].&amp;[9]),[Measures].[Número de elementos]), 
-VISIBLE = 0; 
+VISIBLE = 0;     
 CREATE MEMBER CURRENTCUBE.[Measures].prueba2
  AS [Modalidad de compra].[Modalidad de compra].currentMember.membervalue, 
-VISIBLE = 0  ;                                     
+VISIBLE = 0;                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Viviendas2]
  AS Sum([Measures].[Número de elementos],[Tipo de elemento].[Tipo de elemento].&amp;[0]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                            
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Viviendas' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC3]
  AS Sum([Measures].[Nº Total AROC],[Estado].[Estado].&amp;[6]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                     
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[Entrega]
  AS FILTER([Fecha de escritura].[Jerarquia Temporal].[Year].members
          , [Measures].[Nº de viviendas]).ITEM(0).name, 
-VISIBLE = 0;                                           
+VISIBLE = 0;                                               
 CREATE MEMBER CURRENTCUBE.[Measures].Num_AROC_2016
  AS sum([Measures].[Num_AROC],[J TIEMPO FECHA CONTRATO AROC].[Jerarquia Temporal].[Year].&amp;[2016-01-01T00:00:00]), 
-VISIBLE = 0;                             
+VISIBLE = 0;                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Total Escrituras]
  AS Sum([Measures].[Nº Escrituras Total],[Measures].[Nº Viviendas]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                               
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos (Viviendas)]
  AS sum([Measures].[Nº Viviendas],[Measures].[Nº Contratos CV]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                            
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Escrituras (Viviendas)]
  AS sum([Measures].[Nº Viviendas],[Measures].[Nº Escrituras]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Escrituras' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC (Viviendas)]
  AS sum([Measures].[Nº Viviendas],[Measures].[Nº Contratos AROC]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC2]
  AS sum(CROSSJOIN([Modalidad de compra].[Modalidad de compra].&amp;[2],[Estado].[Estado].&amp;[6]),[Measures].[Nº Viviendas]), 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC Año en Curso]
  AS sum([Measures].[Nº Contratos AROC Año],[Measures].[Nº Viviendas]), 
-VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                             
+VISIBLE = 0 ,  DISPLAY_FOLDER = 'Contratos' ,  ASSOCIATED_MEASURE_GROUP = 'Indicadores';                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].Pr1
  AS iif
 ( 
