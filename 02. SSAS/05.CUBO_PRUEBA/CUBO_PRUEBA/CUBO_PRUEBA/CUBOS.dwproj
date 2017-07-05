@@ -27,6 +27,16 @@
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Personas.cube</Name>
+      <FullPath>Personas.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Personas.partitions</Name>
+          <FullPath>Personas.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
   </Cubes>
   <Dimensions>
     <ProjectItem>
@@ -205,6 +215,22 @@
       <Name>Fecha Corte Ecofin.dim</Name>
       <FullPath>Fecha Corte Ecofin.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>H PERSONAL FORMACION.dim</Name>
+      <FullPath>H PERSONAL FORMACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>J PERSONAL NODOS.dim</Name>
+      <FullPath>J PERSONAL NODOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>H PERSONAL ASISTENTE.dim</Name>
+      <FullPath>H PERSONAL ASISTENTE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>H PERSONAL ENCUESTAS.dim</Name>
+      <FullPath>H PERSONAL ENCUESTAS.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>
@@ -219,6 +245,10 @@
       <Name>Ecofin.ds</Name>
       <FullPath>Ecofin.ds</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>COMERCIAL.ds</Name>
+      <FullPath>COMERCIAL.ds</FullPath>
+    </ProjectItem>
   </DataSources>
   <DataSourceViews>
     <ProjectItem>
@@ -232,6 +262,10 @@
     <ProjectItem>
       <Name>Ecofin.dsv</Name>
       <FullPath>Ecofin.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Personas.dsv</Name>
+      <FullPath>Personas.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
   <Roles>
@@ -268,6 +302,11 @@
             <Name>Ecofin</Name>
             <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
           </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>COMERCIAL</Id>
+            <Name>COMERCIAL</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
+          </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
           <ConfigurationSetting>
@@ -283,6 +322,11 @@
           <ConfigurationSetting>
             <Id>Ecofin</Id>
             <Name>Ecofin</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>COMERCIAL</Id>
+            <Name>COMERCIAL</Name>
             <Value xsi:type="xsd:int">0</Value>
           </ConfigurationSetting>
         </ConnectionSecurityMappings>

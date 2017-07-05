@@ -1,0 +1,131 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="51581427-6891-4eac-bde4-3ac119c9e65a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>H PERSONAL ENCUESTAS</ID>
+  <Name>H PERSONAL ENCUESTAS</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d4c8d915-6e8e-48cb-899a-613a63fc7602">
+    <DataSourceViewID>Personas</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="4df32c8b-d5b5-4526-9cc1-f95ef631c7e4">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="6ee911a3-44fc-47b6-b4ad-1673adbb6fda">
+      <ID>ID ENCUESTA</ID>
+      <Name>ID ENCUESTA</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="181ebed3-7061-4b65-a5af-4ed8b64b36d5">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e57c8d6c-6692-46af-ae70-3f3555a27b9c">
+            <TableID>dbo_H_PERSONAL_ENCUESTAS</TableID>
+            <ColumnID>ID_ENCUESTA</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="ee30abd4-e760-4683-a35a-baf1ac19bb2a">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="84958810-df64-4724-98f6-1150a3332f52">
+            <TableID>dbo_H_PERSONAL_ENCUESTAS</TableID>
+            <ColumnID>ID_TIPO_ENCUESTA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7e3c46e8-095d-4eb5-84a8-7df80e343728">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3efaade9-bb32-45d0-b270-46b599d9bc78">
+          <TableID>dbo_H_PERSONAL_ENCUESTAS</TableID>
+          <ColumnID>ID_ENCUESTA</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="0f009ec8-20fa-49d6-a1bb-a067a2c7b9b6">
+          <AttributeID>ID ASISTENTE</AttributeID>
+          <Name>ID ASISTENTE</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ddd8d2c4-29c6-42a3-96b2-90cfce89c1da">
+          <AttributeID>ID TIPO ENCUESTA</AttributeID>
+          <Name>ID TIPO ENCUESTA</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4fc20193-f164-4d76-bbac-64bf708bac4c">
+      <ID>ID ASISTENTE</ID>
+      <Name>ID ASISTENTE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ed2b44be-a32c-43a4-b858-b4dc2eebdb14">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c754be7e-d0e5-4d1d-9f6b-aa77277aca2d">
+            <TableID>dbo_H_PERSONAL_ENCUESTAS</TableID>
+            <ColumnID>ID_ASISTENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7e079739-f9ed-4506-bc64-6df24d94e7ff">
+      <ID>ID TIPO ENCUESTA</ID>
+      <Name>ID TIPO ENCUESTA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="38d37b92-56e1-46ee-bc0b-df74e19de8e0">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1a93c689-2a66-4871-b65a-788ff885ef1a">
+            <TableID>dbo_H_PERSONAL_ENCUESTAS</TableID>
+            <ColumnID>ID_TIPO_ENCUESTA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
