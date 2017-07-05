@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_ECOFIN"
   DTS:PackageType="5"
-  DTS:VersionBuild="97"
-  DTS:VersionGUID="{4CE870BB-A9D4-43ED-B703-5EA5CF740CF8}">
+  DTS:VersionBuild="107"
+  DTS:VersionGUID="{9C9A5B45-71ED-43A9-A919-681672F9F8C1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -54,12 +54,12 @@
       DTS:CreationName=""
       DTS:DTSID="{E57455B5-1DC1-4736-B569-0CE30782F867}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="(DT_DBTIMESTAMP) (DT_WSTR,200)(DT_DBDATE)(&quot;31/03/2017&quot;)"
+      DTS:Expression="(DT_DBTIMESTAMP) (DT_WSTR,200)(DT_DBDATE)(&quot;31/12/2016&quot;)"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="F_CORTE">
       <DTS:VariableValue
-        DTS:DataType="7">3/31/2017</DTS:VariableValue>
+        DTS:DataType="7">12/31/2016</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:LoggingOptions
@@ -70,6 +70,7 @@
       DTS:refId="Package\Borra H_ECOFIN_AF"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Borra H_ECOFIN_AF"
+      DTS:Disabled="True"
       DTS:DTSID="{50D522E2-5050-4052-9B93-A87939E3A77B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -89,6 +90,7 @@
       DTS:refId="Package\Borra H_ECOFIN_MOVIMIENTOS"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
+      DTS:Disabled="True"
       DTS:DTSID="{a4936d44-6db8-4827-83eb-e4408e7e6b40}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -108,6 +110,7 @@
       DTS:refId="Package\Borra H_ECOFIN_SALDOS"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
+      DTS:Disabled="True"
       DTS:DTSID="{57d72dd4-decb-4317-8414-97bfffbae5df}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -134,6 +137,7 @@
       DTS:refId="Package\Borra H_INDICADORES"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Borra H_ECOFIN_AF"
+      DTS:Disabled="True"
       DTS:DTSID="{829ba23b-88b2-4d7d-9787-fa43ce3f83de}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -186,6 +190,7 @@
       DTS:refId="Package\Carga H_ECOFIN_AF"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Carga H_ECOFIN_AF"
+      DTS:Disabled="True"
       DTS:DTSID="{B6C98E93-8F96-4B12-9E66-B4073915EF89}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -205,6 +210,7 @@
       DTS:refId="Package\Carga H_ECOFIN_MOVIMIENTOS"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
+      DTS:Disabled="True"
       DTS:DTSID="{a34a192f-3897-4abc-a405-60d733c72877}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -217,7 +223,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{6A8FAA23-A9FC-401C-B6FA-529E1B0B6DAC}"
-          SQLTask:SqlStatementSource="declare @Fecha_Corte date&#xA;&#xA;set @Fecha_Corte=?&#xA;&#xA;insert into H_ECOFIN_MOVIMIENTOS&#xA; select &#xA;convert(date,CURRENT_TIMESTAMP,103) as F_MODIFICACION,&#xA;coalesce(replace([Source Type],'0','999'),'999') as ID_TIPO_PROCEDENCIA_MOV,&#xA;case when [FA Entry No_]&lt;&gt;0 then [Source No_] else '999' end as ID_AF,&#xA;coalesce(replace([Tipo gasto],'0','999'),'999') as ID_TIPO_GASTO,&#xA;coalesce(replace(gl.[Document Type],'0','999'),'999') as ID_TIPO_DOCUMENTO,&#xA;coalesce(replace(gl.[Gen_ Posting Type],'0','999'),'999') as ID_TIPO_IVA,&#xA;case when LTRIM(RTRIM(gl.[Tipo elemento])) &lt;&gt;0 then LTRIM(RTRIM(gl.[Tipo elemento]))-1 else 0 end as ID_TIPO_ELEMENTO,&#xA;coalesce(gl.[Bal_ Account Type],'999') as ID_TIPO_CONTRAPARTIDA,&#xA;coalesce([Residencia],'999') as ID_RESIDENCIA,&#xA;gl.[Posting Date] as F_REGISTRO,&#xA;gl.[Document No_] as COD_DOCUMENTO,&#xA;gl.[Description] as DESC_CODUMENTO,&#xA;coalesce(gl.[Bal_ Account No_],'999') as ID_CUENTA_CONTRAPARTIDA,&#xA;gl.[Amount] as SALDO,&#xA;gl.[VAT Amount] as IMPORTE_IVA,&#xA;gl.[Debit Amount] as IMPORTE_DEBE,&#xA;gl.[Credit Amount] as IMPORTE_HABER,&#xA;gl.[Document Date] as F_EMISION_DOCUMENTO,&#xA;gl.[External Document No_] as COD_DOCUMENTO_EXTERNO,&#xA;coalesce(gl.[G_L Account No_],'999') as ID_CUENTA,&#xA;replace(gl.[Source Code],'','999') as ID_ORIGEN_ENTRADA,&#xA;case when len(gl.[Gen_ Bus_ Posting Group])=0 then '999' else gl.[Gen_ Bus_ Posting Group] end as  ID_GR_CONT_NEGOCIO,&#xA;case when len(gl.[Gen_ Prod_ Posting Group])=0 then '999' else gl.[Gen_ Prod_ Posting Group] end as ID_GR_CONT_PRODUCTO,&#xA;case when len(gl.[No_ Series])=0 then '999' else [No_ Series] end as ID_NO_SERIES,&#xA;case when len(gl.[VAT Bus_ Posting Group])=0 then '999' else [VAT Bus_ Posting Group] end as ID_GR_IVA_NEGOCIO,&#xA;case when len(gl.[VAT Prod_ Posting Group])=0 then '999' else [VAT Prod_ Posting Group] end as ID_GR_IVA_PRODUCTO,&#xA;gl.[Source No_] as COD_PROC_ENTRADA,&#xA;gl.[Global Dimension 1 Code] as GRUPO_ASIGNACION_ACT,&#xA;gl.[Global Dimension 2 Code] as UNIDAD_ASIGNACION_ACT,&#xA;coalesce(ce.No_,'999') as ID_ELEMENTO,&#xA;case when len(substring(gl.[Global Dimension 2 Code],0,13))&lt;10 then '999' else substring(gl.[Global Dimension 2 Code],0,13)end as ID_PROMOCION,&#xA;gl.[Identifica cobro subvención] as COBRO_SUBVENCION,&#xA;gl.[Global Dimension 5 Code] as CONTRATO_PROGRAMA&#xA;FROM ZM_ECOFIN_G_L_Entry gl&#xA;left join V_ZM_COMERCIAL_ELEMENTO ce on (substring(gl.[Global Dimension 2 Code],0,13)=ce.[No_ promocion]and LTRIM(RTRIM(replace(gl.[Tipo elemento],0,1)-1))=ce.[Tipo elemento] and gl.[Global Dimension 6 Code]=ce.[No_ interno] )&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="declare @Fecha_Corte date&#xA;&#xA;set @Fecha_Corte=?&#xA;&#xA;insert into H_ECOFIN_MOVIMIENTOS&#xA; select [Entry No_] as ID_ENTRADA,&#xA;convert(date,CURRENT_TIMESTAMP,103) as F_MODIFICACION,&#xA;case when (len([Source Type])=0 or [Source Type]=0 )then '999' else  [Source Type] end as ID_TIPO_PROCEDENCIA_MOV,&#xA;case when [FA Entry No_]&lt;&gt;0 then [Source No_] else '999' end as ID_AF,&#xA;case when (len([Tipo gasto])=0 or [Tipo gasto] in(0,10)) then '999' else [Tipo gasto] end as ID_TIPO_GASTO,&#xA;case when (len(gl.[Document Type])=0 or gl.[Document Type]=0) then '999' else gl.[Document Type] end as ID_TIPO_DOCUMENTO,&#xA;case when (len(gl.[Gen_ Posting Type])=0 or gl.[Gen_ Posting Type]=0) then '999' else gl.[Gen_ Posting Type] end as ID_TIPO_IVA,&#xA;case when LTRIM(RTRIM(gl.[Tipo elemento])) &lt;&gt;0 then LTRIM(RTRIM(gl.[Tipo elemento]))-1 else 0 end as ID_TIPO_ELEMENTO,&#xA;case when len(gl.[Bal_ Account Type])=0 then '999' else gl.[Bal_ Account Type] end as ID_TIPO_CONTRAPARTIDA,&#xA;case when len([Residencia])=0 then '999' else [Residencia] end as ID_RESIDENCIA,&#xA;gl.[Posting Date] as F_REGISTRO,&#xA;gl.[Document No_] as COD_DOCUMENTO,&#xA;gl.[Description] as DESC_CODUMENTO,&#xA;gl.[Bal_ Account No_] as ID_CUENTA_CONTRAPARTIDA,&#xA;gl.[Amount] as SALDO,&#xA;gl.[VAT Amount] as IMPORTE_IVA,&#xA;gl.[Debit Amount] as IMPORTE_DEBE,&#xA;gl.[Credit Amount] as IMPORTE_HABER,&#xA;gl.[Document Date] as F_EMISION_DOCUMENTO,&#xA;gl.[External Document No_] as COD_DOCUMENTO_EXTERNO,&#xA;gl.[G_L Account No_] as ID_CUENTA,&#xA;case when len(gl.[Source Code])=0 then '999' else gl.[Source Code] end as ID_ORIGEN_ENTRADA,&#xA;case when len(gl.[Gen_ Bus_ Posting Group])=0 then '999' else gl.[Gen_ Bus_ Posting Group] end as  ID_GR_CONT_NEGOCIO,&#xA;case when len(gl.[Gen_ Prod_ Posting Group])=0 then '999' else gl.[Gen_ Prod_ Posting Group] end as ID_GR_CONT_PRODUCTO,&#xA;case when len(gl.[No_ Series])=0 then '999' else [No_ Series] end as ID_NO_SERIES,&#xA;case when len(gl.[VAT Bus_ Posting Group])=0 then '999' else [VAT Bus_ Posting Group] end as ID_GR_IVA_NEGOCIO,&#xA;case when len(gl.[VAT Prod_ Posting Group])=0 then '999' else [VAT Prod_ Posting Group] end as ID_GR_IVA_PRODUCTO,&#xA;gl.[Source No_] as COD_PROC_ENTRADA,&#xA;gl.[Global Dimension 1 Code] as GRUPO_ASIGNACION_ACT,&#xA;gl.[Global Dimension 2 Code] as UNIDAD_ASIGNACION_ACT,&#xA;coalesce(ce.No_,'999') as ID_ELEMENTO,&#xA;case when len(substring(gl.[Global Dimension 2 Code],0,13))&lt;10 then '999' else substring(gl.[Global Dimension 2 Code],0,13)end as ID_PROMOCION,&#xA;gl.[Identifica cobro subvención] as COBRO_SUBVENCION,&#xA;gl.[Global Dimension 5 Code] as CONTRATO_PROGRAMA&#xA;FROM ZM_ECOFIN_G_L_Entry gl&#xA;left join V_ZM_COMERCIAL_ELEMENTO ce on (substring(gl.[Global Dimension 2 Code],0,13)=ce.[No_ promocion]and LTRIM(RTRIM(replace(gl.[Tipo elemento],0,1)-1))=ce.[Tipo elemento] and gl.[Global Dimension 6 Code]=ce.[No_ interno] )&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::F_CORTE"
@@ -231,6 +237,7 @@
       DTS:refId="Package\Carga H_ECOFIN_SALDOS"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
+      DTS:Disabled="True"
       DTS:DTSID="{645c9a46-e5fe-4a9e-9265-e6474ffe3146}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -257,6 +264,7 @@
       DTS:refId="Package\Carga H_INDICADORES"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Calcula indicadores"
+      DTS:Disabled="True"
       DTS:DTSID="{34250b4b-de6e-419a-8515-79cce34394df}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -295,7 +303,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{6A8FAA23-A9FC-401C-B6FA-529E1B0B6DAC}"
-          SQLTask:SqlStatementSource="declare @Fecha_Corte date&#xA;&#xA;set @Fecha_Corte=?&#xA;&#xA;insert into V_ECOFIN_COMERCIAL&#xA;select @Fecha_Corte as ID_MES, tipo_elemento, prom, promo,  sum(num_elementos) as NUM_ELEMENTOS,tipo_vivienda,&#xA;&#x9;sum(ingresos) as ingresos, &#xA;sum(coste_venta)as coste_venta,&#xA;sum(subvenciones) as subvenciones,&#xA;sum(ingresos)-sum(coste_venta)+sum(subvenciones) as margen,&#xA;case when sum(ingresos)=0 then 0 else (sum(ingresos)-sum(coste_venta)+sum(subvenciones))/sum(ingresos) end as POR_CENTAS&#xA;  from(&#xA;select  desc_tipo_elemento as TIPO_ELEMENTO, &#xA; PROM,&#xA; PROMO, tipo_vivienda,&#xA;sum(num_elementos) as NUM_ELEMENTOS,&#xA;&#x9;sum(ingresos) as ingresos, &#xA;sum(coste_venta)as coste_venta,&#xA;sum(subvenciones) as subvenciones,&#xA;sum(ingresos)-sum(coste_venta)+sum(subvenciones) as margen,&#xA;case when sum(ingresos)= 0 then 0 else (sum(ingresos)-sum(coste_venta)+sum(subvenciones))/sum(ingresos) end as POR_VENTAS&#xA;from (select act.id_elemento, pro.ID_PROMOCION, act.id_tipo_elemento as id_tipo_elemento,desc_tipo_elemento as TIPO_ELEMENTO, &#xA;case when act.id_tipo_elemento &lt;&gt; 0 and desc_tipo_elemento='Garaje' then null&#xA;&#x9;when act.id_tipo_elemento &lt;&gt; 0 and desc_tipo_elemento='Local' then null&#xA;&#x9;when act.id_tipo_elemento &lt;&gt; 0 and desc_tipo_elemento='Trastero' then null&#xA;    else  pro.PROMOCION_CORTO end as PROM,&#xA;case when act.id_tipo_elemento &lt;&gt; 0 and desc_tipo_elemento='Garaje' then 'VENTA GARAJES LIBRES'&#xA;&#x9;when act.id_tipo_elemento &lt;&gt; 0 and desc_tipo_elemento='Local' then 'VENTA LOCALES'&#xA;&#x9;when act.id_tipo_elemento &lt;&gt; 0 and desc_tipo_elemento='Trastero' then 'VENTA TRASTEROS'&#xA;&#x9;else pro.DESC_PROMOCION end as PROMO,&#xA;case when act.id_tipo_elemento &lt;&gt; 0  then null&#xA;&#x9;else DESC_CORTA_TIPO_VIVIENDA end as TIPO_VIVIENDA,&#xA;case when act.id_tipo_elemento &lt;&gt; 0 and ELEMENTO_LIBRE=1 then sum(1) &#xA;&#x9;&#x9;when act.id_tipo_elemento=0 then sum (1)&#xA;&#x9;&#x9;else 0 end as NUM_ELEMENTOS &#xA;&#x9;&#x9;from H_COMERCIAL_ACTIVIDAD act&#xA;left join V_J_PROYECTO pro on (act.ID_ELEMENTO=pro.ID_ELEMENTO)&#xA;left join M_TIPO_ELEMENTO tipoe on (act.ID_TIPO_ELEMENTO=tipoe.ID_TIPO_ELEMENTO)&#xA;left join M_TIPO_VIVIENDA tipov on (act.ID_TIPO_VIVIENDA=tipov.ID_TIPO_VIVIENDA)&#xA;where  act.id_mes in (select max(id_mes) from H_COMERCIAL_ACTIVIDAD)&#xA;and act.FECHA_ESCRITURA  between convert(date,'01/01/'+convert(varchar,year(ID_MES)),103) and ID_MES &#xA;and act.id_estado=9 &#xA;group by   act.id_elemento,pro.ID_PROMOCION,act.id_tipo_elemento,desc_tipo_elemento,DESC_CORTA_TIPO_VIVIENDA,pro.DESC_PROMOCION,pro.PROMOCION_CORTO, act.id_tipo_elemento, ELEMENTO_LIBRE&#xA;) act &#xA;left join ( Select id_elemento,id_promocion, ID_TIPO_ELEMENTO,&#xA;sum(ingresos) as ingresos, &#xA;sum(coste_venta)as coste_venta,&#xA;sum(subvenciones) as subvenciones&#xA;from(&#xA;select  id_elemento,[ID_PROMOCION] as id_promocion,&#xA;ID_TIPO_ELEMENTO as id_tipo_elemento,&#xA;case when ID_CUENTA in (7000000, 7000001,7000002,7000003) then sum(SALDO)&#xA;&#x9;else 0 end as INGRESOS,&#xA;&#x9;case when ID_CUENTA=6100000  then sum(SALDO)&#xA;&#x9;else 0 end as COSTE_VENTA,&#xA;&#x9;&#x9;case when ID_CUENTA=7460000  then sum(SALDO)&#xA;&#x9;else 0 end as SUBVENCIONES&#xA;&#x9;&#x9;from H_ECOFIN_MOVIMIENTOS&#x9;&#xA;&#x9;&#x9;where F_REGISTRO between convert(date,'01/01/'+convert(varchar,year( @Fecha_Corte)),103) and  @Fecha_Corte &#xA;&#x9;&#x9;group by id_elemento, [ID_PROMOCION],ID_TIPO_ELEMENTO ,ID_CUENTA&#xA;&#x9;&#x9;&#x9;)aux group by id_elemento,id_promocion,ID_TIPO_ELEMENTO&#xA;) eco on (act.id_promocion=eco.ID_promocion and act.ID_ELEMENTO=eco.ID_ELEMENTO and act.ID_TIPO_ELEMENTO=eco.ID_TIPO_ELEMENTO)&#xA;left join J_P04_PROMOCION pro on (act.ID_PROMOCION=pro.ID_PROMOCION)&#xA;left join M_TIPO_ELEMENTO tipoe on (act.ID_TIPO_ELEMENTO=tipoe.ID_TIPO_ELEMENTO)&#xA;group by desc_tipo_elemento,prom, promo, act.id_tipo_elemento, tipo_vivienda&#xA;)aux &#xA;group by tipo_elemento, prom, promo, tipo_vivienda&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="declare @Fecha_Corte date&#xA;&#xA;set @Fecha_Corte=?&#xA;&#xA;insert into V_ECOFIN_COMERCIAL&#xA;select @Fecha_Corte as ID_MES, tipo_elemento, prom, promo,  sum(num_elementos) as NUM_ELEMENTOS,tipo_vivienda,contrato_programa,&#xA;&#x9;sum(ingresos) as ingresos, &#xA;sum(coste_venta)as coste_venta,&#xA;sum(subvenciones) as subvenciones,&#xA;sum(ingresos)-sum(coste_venta)+sum(subvenciones) as margen,&#xA;case when sum(ingresos)=0 then 0 else (sum(ingresos)-sum(coste_venta)+sum(subvenciones))/sum(ingresos) end as POR_CENTAS&#xA;  from(&#xA;select  desc_tipo_elemento as TIPO_ELEMENTO, &#xA; PROM,&#xA; PROMO, tipo_vivienda,eco.contrato_programa,&#xA;sum(num_elementos) as NUM_ELEMENTOS,&#xA;&#x9;sum(ingresos) as ingresos, &#xA;sum(coste_venta)as coste_venta,&#xA;sum(subvenciones) as subvenciones,&#xA;sum(ingresos)-sum(coste_venta)+sum(subvenciones) as margen,&#xA;case when sum(ingresos)= 0 then 0 else (sum(ingresos)-sum(coste_venta)+sum(subvenciones))/sum(ingresos) end as POR_VENTAS&#xA;from (select act.id_elemento, pro.ID_PROMOCION, act.id_tipo_elemento as id_tipo_elemento,desc_tipo_elemento as TIPO_ELEMENTO,  null as contrato_programa,&#xA;case when act.id_tipo_elemento &lt;&gt; 0 and desc_tipo_elemento='Garaje' then null&#xA;&#x9;when act.id_tipo_elemento &lt;&gt; 0 and desc_tipo_elemento='Local' then null&#xA;&#x9;when act.id_tipo_elemento &lt;&gt; 0 and desc_tipo_elemento='Trastero' then null&#xA;    else  pro.PROMOCION_CORTO end as PROM,&#xA;case when act.id_tipo_elemento &lt;&gt; 0 and desc_tipo_elemento='Garaje' then 'VENTA GARAJES LIBRES'&#xA;&#x9;when act.id_tipo_elemento &lt;&gt; 0 and desc_tipo_elemento='Local' then 'VENTA LOCALES'&#xA;&#x9;when act.id_tipo_elemento &lt;&gt; 0 and desc_tipo_elemento='Trastero' then 'VENTA TRASTEROS'&#xA;&#x9;else pro.DESC_PROMOCION end as PROMO,&#xA;case when act.id_tipo_elemento &lt;&gt; 0  then null&#xA;&#x9;else DESC_CORTA_TIPO_VIVIENDA end as TIPO_VIVIENDA,&#xA;case when act.id_tipo_elemento &lt;&gt; 0 and ELEMENTO_LIBRE=1 then sum(1) &#xA;&#x9;&#x9;when act.id_tipo_elemento=0 then sum (1)&#xA;&#x9;&#x9;else 0 end as NUM_ELEMENTOS &#xA;&#x9;&#x9;from H_COMERCIAL_ACTIVIDAD act&#xA;left join V_J_PROYECTO pro on (act.ID_ELEMENTO=pro.ID_ELEMENTO)&#xA;left join M_TIPO_ELEMENTO tipoe on (act.ID_TIPO_ELEMENTO=tipoe.ID_TIPO_ELEMENTO)&#xA;left join M_TIPO_VIVIENDA tipov on (act.ID_TIPO_VIVIENDA=tipov.ID_TIPO_VIVIENDA)&#xA;where  act.id_mes in (select max(id_mes) from H_COMERCIAL_ACTIVIDAD)&#xA;and act.FECHA_ESCRITURA  between convert(date,'01/01/'+convert(varchar,year(ID_MES)),103) and ID_MES &#xA;and act.id_estado=9 &#xA;group by   act.id_elemento,pro.ID_PROMOCION,act.id_tipo_elemento,desc_tipo_elemento,DESC_CORTA_TIPO_VIVIENDA,pro.DESC_PROMOCION,pro.PROMOCION_CORTO, act.id_tipo_elemento, ELEMENTO_LIBRE&#xA;) act &#xA;left join ( Select id_elemento,id_promocion, ID_TIPO_ELEMENTO,contrato_programa,&#xA;sum(ingresos) as ingresos, &#xA;sum(coste_venta)as coste_venta,&#xA;sum(subvenciones) as subvenciones&#xA;from(&#xA;select  id_elemento,[ID_PROMOCION] as id_promocion,&#xA;ID_TIPO_ELEMENTO as id_tipo_elemento,contrato_programa,&#xA;case when ID_CUENTA in (7000000, 7000001,7000002,7000003) then sum(SALDO)&#xA;&#x9;else 0 end as INGRESOS,&#xA;&#x9;case when ID_CUENTA=6100000  then sum(SALDO)&#xA;&#x9;else 0 end as COSTE_VENTA,&#xA;&#x9;&#x9;case when ID_CUENTA=7460000  then sum(SALDO)&#xA;&#x9;else 0 end as SUBVENCIONES&#xA;&#x9;&#x9;from H_ECOFIN_MOVIMIENTOS&#x9;&#xA;&#x9;&#x9;where F_REGISTRO between convert(date,'01/01/'+convert(varchar,year( @Fecha_Corte)),103) and  @Fecha_Corte &#xA;&#x9;&#x9;group by id_elemento, [ID_PROMOCION],ID_TIPO_ELEMENTO ,ID_CUENTA,contrato_programa&#xA;&#x9;&#x9;&#x9;)aux group by id_elemento,id_promocion,ID_TIPO_ELEMENTO,contrato_programa&#xA;) eco on (act.id_promocion=eco.ID_promocion and act.ID_ELEMENTO=eco.ID_ELEMENTO and act.ID_TIPO_ELEMENTO=eco.ID_TIPO_ELEMENTO)&#xA;left join J_P04_PROMOCION pro on (act.ID_PROMOCION=pro.ID_PROMOCION)&#xA;left join M_TIPO_ELEMENTO tipoe on (act.ID_TIPO_ELEMENTO=tipoe.ID_TIPO_ELEMENTO)&#xA;group by desc_tipo_elemento,prom, promo, act.id_tipo_elemento, tipo_vivienda,eco.contrato_programa&#xA;)aux where contrato_programa not like ''&#xA;group by tipo_elemento, prom, promo, tipo_vivienda,contrato_programa&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::F_CORTE"
