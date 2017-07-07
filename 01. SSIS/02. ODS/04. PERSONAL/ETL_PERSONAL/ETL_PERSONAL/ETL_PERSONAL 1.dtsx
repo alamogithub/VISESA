@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_PERSONAL 1"
   DTS:PackageType="5"
-  DTS:VersionBuild="75"
-  DTS:VersionGUID="{8551E611-B342-4FF1-8DCC-2B989C26159F}">
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{A797CFAE-FCDB-4993-958D-65285B33D2EF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -413,6 +413,34 @@ where [refTable].[ID_FORMACION] = ?</property>
                           name="CopyFromReferenceColumn">MATRICULA</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_PREV_ASISTENTE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_PREV_ASISTENTE]"
+                      name="HORAS_LAB_PREV_ASISTENTE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">HORAS_LAB_PREV</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_REAL_ASISTENTE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_REAL_ASISTENTE]"
+                      name="HORAS_LAB_REAL_ASISTENTE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">HORAS_LAB_REAL</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -763,20 +791,20 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
               </outputs>
             </component>
             <component
-              refId="Package\ASISTENTES\coste repartido y mapeo boolean"
+              refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
               description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
-              name="coste repartido y mapeo boolean"
+              name="coste repartido, HORAS y mapeo boolean"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada]"
+                  refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada]"
                   description="Entrada en la transformación Columna derivada"
                   name="Entrada de columna derivada">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada].Columns[envioConvocatoria]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[envioConvocatoria]"
                       cachedDataType="i4"
                       cachedName="envioConvocatoria"
                       errorOrTruncationOperation="Cálculo"
@@ -799,28 +827,28 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada].Columns[Estado]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[Estado]"
                       cachedDataType="numeric"
                       cachedName="Estado"
                       cachedPrecision="18"
                       lineageId="Package\ASISTENTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Estado]" />
                     <inputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada].Columns[costeF]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[costeF]"
                       cachedDataType="r4"
                       cachedName="costeF"
                       lineageId="Package\ASISTENTES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[costeF]" />
                     <inputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada].Columns[MATRICULA]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[MATRICULA]"
                       cachedDataType="r8"
                       cachedName="MATRICULA"
                       lineageId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[MATRICULA]" />
                     <inputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada].Columns[NUM_ASISTENTES]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[NUM_ASISTENTES]"
                       cachedDataType="i4"
                       cachedName="NUM_ASISTENTES"
                       lineageId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[NUM_ASISTENTES]" />
                     <inputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada].Columns[Nohaceformacion]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[Nohaceformacion]"
                       cachedDataType="i4"
                       cachedName="Nohaceformacion"
                       errorOrTruncationOperation="Cálculo"
@@ -843,17 +871,17 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada].Columns[ID_INCLUIR_COSTES]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[ID_INCLUIR_COSTES]"
                       cachedDataType="i4"
                       cachedName="ID_INCLUIR_COSTES"
                       lineageId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_INCLUIR_COSTES]" />
                     <inputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada].Columns[ID_COSTES_PROPORCIONALES]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[ID_COSTES_PROPORCIONALES]"
                       cachedDataType="i4"
                       cachedName="ID_COSTES_PROPORCIONALES"
                       lineageId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_COSTES_PROPORCIONALES]" />
                     <inputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada].Columns[previsto]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[previsto]"
                       cachedDataType="i4"
                       cachedName="previsto"
                       errorOrTruncationOperation="Cálculo"
@@ -876,7 +904,7 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada].Columns[validacion]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[validacion]"
                       cachedDataType="i4"
                       cachedName="validacion"
                       errorOrTruncationOperation="Cálculo"
@@ -899,7 +927,7 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada].Columns[recomendarFormacion]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[recomendarFormacion]"
                       cachedDataType="i4"
                       cachedName="recomendarFormacion"
                       errorOrTruncationOperation="Cálculo"
@@ -921,24 +949,70 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                           name="FriendlyExpression">recomendarFormacion == 1 ? 1 : 0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[HORAS_LAB_PREV_ASISTENTE]"
+                      cachedDataType="r8"
+                      cachedName="HORAS_LAB_PREV_ASISTENTE"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_PREV_ASISTENTE]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]} == 1 &amp;&amp; #{Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nohaceformacion]} != 1 ? #{Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_PREV_ASISTENTE]} : NULL(DT_R8)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">envioConvocatoria == 1 &amp;&amp; Nohaceformacion != 1 ? HORAS_LAB_PREV_ASISTENTE : NULL(DT_R8)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[HORAS_LAB_REAL_ASISTENTE]"
+                      cachedDataType="r8"
+                      cachedName="HORAS_LAB_REAL_ASISTENTE"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_REAL_ASISTENTE]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]} == 1 &amp;&amp; #{Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nohaceformacion]} != 1 ? #{Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_REAL_ASISTENTE]} : NULL(DT_R8)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">envioConvocatoria == 1 &amp;&amp; Nohaceformacion != 1 ? HORAS_LAB_REAL_ASISTENTE : NULL(DT_R8)</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\ASISTENTES\coste repartido y mapeo boolean.Outputs[Salida de columna derivada]"
+                  refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada]"
                   description="Salida predeterminada de la transformación Columna derivada"
                   exclusionGroup="1"
                   name="Salida de columna derivada"
-                  synchronousInputId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada]">
+                  synchronousInputId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Outputs[Salida de columna derivada].Columns[coste_repartido]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada].Columns[coste_repartido]"
                       dataType="r8"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\ASISTENTES\coste repartido y mapeo boolean.Outputs[Salida de columna derivada].Columns[coste_repartido]"
+                      lineageId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada].Columns[coste_repartido]"
                       name="coste_repartido"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -959,23 +1033,23 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\ASISTENTES\coste repartido y mapeo boolean.Outputs[Salida de error de columna derivada]"
+                  refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de error de columna derivada]"
                   description="Salida de error de la transformación Columna derivada"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de columna derivada"
-                  synchronousInputId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada]">
+                  synchronousInputId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\ASISTENTES\coste repartido y mapeo boolean.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      lineageId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\ASISTENTES\coste repartido y mapeo boolean.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      refId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\ASISTENTES\coste repartido y mapeo boolean.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      lineageId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1300,7 +1374,7 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                       cachedDataType="r8"
                       cachedName="coste_repartido"
                       externalMetadataColumnId="Package\ASISTENTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[COSTE_REPARTIDO]"
-                      lineageId="Package\ASISTENTES\coste repartido y mapeo boolean.Outputs[Salida de columna derivada].Columns[coste_repartido]" />
+                      lineageId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada].Columns[coste_repartido]" />
                     <inputColumn
                       refId="Package\ASISTENTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[Nohaceformacion]"
                       cachedDataType="i4"
@@ -1327,6 +1401,18 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                       cachedPrecision="18"
                       externalMetadataColumnId="Package\ASISTENTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_ESTADO_CONVOCATORIA]"
                       lineageId="Package\ASISTENTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Estado]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[HORAS_LAB_PREV_ASISTENTE]"
+                      cachedDataType="r8"
+                      cachedName="HORAS_LAB_PREV_ASISTENTE"
+                      externalMetadataColumnId="Package\ASISTENTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[HORAS_LAB_PREV_ASISTENTE]"
+                      lineageId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_PREV_ASISTENTE]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[HORAS_LAB_REAL_ASISTENTE]"
+                      cachedDataType="r8"
+                      cachedName="HORAS_LAB_REAL_ASISTENTE"
+                      externalMetadataColumnId="Package\ASISTENTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[HORAS_LAB_REAL_ASISTENTE]"
+                      lineageId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_REAL_ASISTENTE]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1383,6 +1469,14 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                       refId="Package\ASISTENTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_ENVIO_CONVOCATORIA]"
                       dataType="i4"
                       name="ID_ENVIO_CONVOCATORIA" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[HORAS_LAB_PREV_ASISTENTE]"
+                      dataType="r8"
+                      name="HORAS_LAB_PREV_ASISTENTE" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[HORAS_LAB_REAL_ASISTENTE]"
+                      dataType="r8"
+                      name="HORAS_LAB_REAL_ASISTENTE" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1862,7 +1956,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
               refId="Package\ASISTENTES.Paths[Salida de columna derivada1]"
               endId="Package\ASISTENTES\Búsqueda.Inputs[Entrada de búsqueda]"
               name="Salida de columna derivada"
-              startId="Package\ASISTENTES\coste repartido y mapeo boolean.Outputs[Salida de columna derivada]" />
+              startId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\ASISTENTES.Paths[Salida de conversión de datos]"
               endId="Package\ASISTENTES\Coste y replacenull.Inputs[Entrada de columna derivada]"
@@ -1870,7 +1964,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
               startId="Package\ASISTENTES\Conversión de datos.Outputs[Salida de conversión de datos]" />
             <path
               refId="Package\ASISTENTES.Paths[Salida de entradas coincidentes de búsqueda]"
-              endId="Package\ASISTENTES\coste repartido y mapeo boolean.Inputs[Entrada de columna derivada]"
+              endId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada]"
               name="Salida de entradas coincidentes de búsqueda"
               startId="Package\ASISTENTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
@@ -11786,8 +11880,8 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
           Id="Package\ASISTENTES\H_PERSONAL_ASISTENTES"
           TopLeft="583,450" />
         <NodeLayout
-          Size="234,42"
-          Id="Package\ASISTENTES\coste repartido y mapeo boolean"
+          Size="274,42"
+          Id="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean"
           TopLeft="258.5,409.5" />
         <NodeLayout
           Size="125,42"
@@ -11828,9 +11922,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11864,9 +11956,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11947,33 +12037,33 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="203.333333333333,52"
+              EndConnector="216.666666666667,52"
               Start="0,0"
-              End="203.333333333333,44.5">
+              End="216.666666666667,44.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.9881154499151" />
+                    End="0,27.0188679245283" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.9881154499151"
-                    Point2="0,30.9881154499151"
-                    Point3="4,30.9881154499151" />
+                    Point1="0,27.0188679245283"
+                    Point2="0,31.0188679245283"
+                    Point3="4,31.0188679245283" />
                   <mssgle:LineSegment
-                    End="199.333333333333,30.9881154499151" />
+                    End="212.666666666667,31.0188679245283" />
                   <mssgle:CubicBezierSegment
-                    Point1="199.333333333333,30.9881154499151"
-                    Point2="203.333333333333,30.9881154499151"
-                    Point3="203.333333333333,34.9881154499151" />
+                    Point1="212.666666666667,31.0188679245283"
+                    Point2="216.666666666667,31.0188679245283"
+                    Point3="216.666666666667,35.0188679245283" />
                   <mssgle:LineSegment
-                    End="203.333333333333,44.5" />
+                    End="216.666666666667,44.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="1.84764322916649,35.9881154499151,199.638046875,12.1953125"
+              BoundingBox="8.51430989583331,36.0188679245283,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -12008,45 +12098,41 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ASISTENTES.Paths[Salida de columna derivada1]"
-          TopLeft="413.166666666667,409.5">
+          TopLeft="439.833333333333,409.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="136.833333333333,-37.5"
+              EndConnector="110.166666666667,-37.5"
               Start="0,0"
-              End="136.833333333333,-30">
+              End="110.166666666667,-30">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-14.6136045114789" />
+                    End="0,-14.590575781785" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-14.6136045114789"
-                    Point2="0,-18.6136045114789"
-                    Point3="4,-18.6136045114789" />
+                    Point1="0,-14.590575781785"
+                    Point2="0,-18.590575781785"
+                    Point3="4,-18.590575781785" />
                   <mssgle:LineSegment
-                    End="132.833333333333,-18.6136045114789" />
+                    End="106.166666666667,-18.590575781785" />
                   <mssgle:CubicBezierSegment
-                    Point1="132.833333333333,-18.6136045114789"
-                    Point2="136.833333333333,-18.6136045114789"
-                    Point3="136.833333333333,-22.6136045114789" />
+                    Point1="106.166666666667,-18.590575781785"
+                    Point2="110.166666666667,-18.590575781785"
+                    Point3="110.166666666667,-22.590575781785" />
                   <mssgle:LineSegment
-                    End="136.833333333333,-30" />
+                    End="110.166666666667,-30" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12071,7 +12157,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -12081,7 +12167,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -12655,65 +12741,39 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
     design-time-name="Package\MAESTRAS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="205,42"
           Id="Package\MAESTRAS\M_PERSONAL_PRIORIDAD"
           TopLeft="423,564" />
         <NodeLayout
-          Size="163,42"
-          Id="Package\MAESTRAS\sgp_f_prioridades"
-          TopLeft="239,396" />
-        <NodeLayout
-          Size="207,42"
-          Id="Package\MAESTRAS\M_PERSONAL_EJERCICIOS"
-          TopLeft="549,294" />
-        <NodeLayout
-          Size="136,42"
-          Id="Package\MAESTRAS\EJERCICIOS"
-          TopLeft="561,91" />
+          Size="131,42"
+          Id="Package\MAESTRAS\PROCESOS"
+          TopLeft="239,666" />
         <NodeLayout
           Size="226,42"
           Id="Package\MAESTRAS\sgp_f_convocatorias_ESTADOS"
           TopLeft="242.5,94" />
         <NodeLayout
+          Size="207,42"
+          Id="Package\MAESTRAS\M_PERSONAL_EJERCICIOS"
+          TopLeft="549,294" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\MAESTRAS\sgp_f_prioridades"
+          TopLeft="239,396" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\MAESTRAS\EJERCICIOS"
+          TopLeft="561,91" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\MAESTRAS\M_PERSONAL_PROCESOS"
+          TopLeft="430,826" />
+        <NodeLayout
           Size="285,42"
           Id="Package\MAESTRAS\M_PERSONAL_CONVOCATORIAS_ESTADOS"
           TopLeft="239,275" />
-        <EdgeLayout
-          Id="Package\MAESTRAS.Paths[Salida de origen de OLE DB2]"
-          TopLeft="320.5,438">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="205,126"
-              Start="0,0"
-              End="205,118.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,59" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,59"
-                    Point2="0,63"
-                    Point3="4,63" />
-                  <mssgle:LineSegment
-                    End="201,63" />
-                  <mssgle:CubicBezierSegment
-                    Point1="201,63"
-                    Point2="205,63"
-                    Point3="205,67" />
-                  <mssgle:LineSegment
-                    End="205,118.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\MAESTRAS.Paths[Salida de origen de OLE DB1]"
           TopLeft="629,133">
@@ -12745,7 +12805,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12779,17 +12841,11 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="131,42"
-          Id="Package\MAESTRAS\PROCESOS"
-          TopLeft="239,666" />
-        <NodeLayout
-          Size="202,42"
-          Id="Package\MAESTRAS\M_PERSONAL_PROCESOS"
-          TopLeft="430,826" />
         <EdgeLayout
           Id="Package\MAESTRAS.Paths[Salida de origen de OLE DB3]"
           TopLeft="304.5,708">
@@ -12821,7 +12877,45 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MAESTRAS.Paths[Salida de origen de OLE DB2]"
+          TopLeft="320.5,438">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="205,126"
+              Start="0,0"
+              End="205,118.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59"
+                    Point2="0,63"
+                    Point3="4,63" />
+                  <mssgle:LineSegment
+                    End="201,63" />
+                  <mssgle:CubicBezierSegment
+                    Point1="201,63"
+                    Point2="205,63"
+                    Point3="205,67" />
+                  <mssgle:LineSegment
+                    End="205,118.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
