@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="8" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1977" scrolltop="4989" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9763" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="8" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1977" scrolltop="-2171" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8758" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -82,7 +82,7 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>4989</Value>
+      <Value>-2171</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -216,6 +216,14 @@
         <AttributeRelationship dwd:design-time-name="f60ed0fe-48e9-49d4-a4d3-d5607c3d577f">
           <AttributeID>IDIOMA</AttributeID>
           <Name>Idioma</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b2c5fd5d-f031-495a-92d5-55ab5a045089">
+          <AttributeID>ID NODO RESP</AttributeID>
+          <Name>ID NODO RESP</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f05b32ad-e819-4676-96ae-08a073308af3">
+          <AttributeID>ID NODO FORMADOR INTERNO</AttributeID>
+          <Name>ID NODO FORMADOR INTERNO</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
@@ -478,7 +486,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="0ea71f23-9aad-4882-987d-c1d6d5e96786">
       <ID>ID COSTES PROPORCIONALES</ID>
-      <Name>Costes Proporcionales</Name>
+      <Name>Costes No Proporcionales</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="a6a0df36-6ecc-4a97-8952-6e3602042daf">
           <DataType>Integer</DataType>
@@ -581,6 +589,52 @@
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f12de363-af7a-48ac-9a4d-e93e36b71518">
+      <ID>ID NODO RESP</ID>
+      <Name>ID NODO RESP</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3273fd0a-137d-438b-b7f0-2297ca121696">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0628df6f-8fc9-4771-b600-5c11312374f1">
+            <TableID>dbo_H_PERSONAL_FORMACION</TableID>
+            <ColumnID>ID_NODO_RESP</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c647e090-d073-480b-9a05-75d0e0375434">
+        <DataType>WChar</DataType>
+        <DataSize>255</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8ff1c327-c605-4535-95d3-ebc5f5a2c4ad">
+          <TableID>NODO_RESPONSABLE</TableID>
+          <ColumnID>descripcion</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5de12f22-d1fe-4861-b8c5-ca70ef42b519">
+      <ID>ID NODO FORMADOR INTERNO</ID>
+      <Name>ID NODO FORMADOR INTERNO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4866c5d9-5431-4c89-88e8-03fab10ae753">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="be0943c6-f5b9-495d-9539-d1f838fde0d7">
+            <TableID>dbo_H_PERSONAL_FORMACION</TableID>
+            <ColumnID>ID_NODO_FORMADOR_INTERNO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5dbba66c-7f31-41c2-b903-955c953da69f">
+        <DataType>WChar</DataType>
+        <DataSize>255</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f04415b7-7d0f-486c-97e4-065ad729b27a">
+          <TableID>NODO_ZM_FORMADOR_INTERNO</TableID>
+          <ColumnID>descripcion</ColumnID>
+        </Source>
+      </NameColumn>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>

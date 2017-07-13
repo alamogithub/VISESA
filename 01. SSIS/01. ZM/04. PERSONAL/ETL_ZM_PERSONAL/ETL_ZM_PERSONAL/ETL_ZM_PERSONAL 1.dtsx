@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_ZM_PERSONAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="89"
-  DTS:VersionGUID="{D9E5C16F-AAF6-4679-A843-4CA3488FB9C5}">
+  DTS:VersionBuild="95"
+  DTS:VersionGUID="{50497871-6EDD-43B8-A041-7DD00FF0B851}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -114,14 +114,14 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SGP DELETE 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E23D28E3-94F6-40AF-ABFA-FEAA3A2D53DD}"
-          SQLTask:SqlStatementSource="DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_SGP_F_ASISTENTES]&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_CONVOCATORIAS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EJERCICIOS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALSATISFACCION&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALSATISFORM&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_FORMACION&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_ITEMEVALSATIS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_PERSONAS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_PRESUPUESTOS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_PRIORIDADES&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_VALORITEMEVALSATIS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_PROFESIONES&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_PUESTOSPROFESIONES&#xA;&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_VALORITEMEVALEFICAZ&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_ITEMEVALEFICAZ&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALEFICACIA&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALEFICAZFORM&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_SGP_F_ASISTENTES]&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_CONVOCATORIAS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EJERCICIOS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALSATISFACCION&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALSATISFORM&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_FORMACION&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_ITEMEVALSATIS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_PERSONAS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_PRESUPUESTOS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_PRIORIDADES&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_VALORITEMEVALSATIS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_PROFESIONES&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_PUESTOSPROFESIONES&#xA;&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_VALORITEMEVALEFICAZ&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_ITEMEVALEFICAZ&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALEFICACIA&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALEFICAZFORM&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_HISTORICOSNODOS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -10597,6 +10597,79 @@
               </outputs>
             </component>
             <component
+              refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada 1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Outputs[Salida de columna derivada].Columns[F_EJECUCION]"
+                      dataType="date"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Outputs[Salida de columna derivada].Columns[F_EJECUCION]"
+                      name="F_EJECUCION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[System::StartTime]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 2"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
@@ -10608,6 +10681,37 @@
                   refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 2.Inputs[Entrada de columna derivada]"
                   description="Entrada en la transformación Columna derivada"
                   name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 2.Inputs[Entrada de columna derivada].Columns[pidEjercicio]"
+                      cachedDataType="numeric"
+                      cachedName="pidEjercicio"
+                      cachedPrecision="18"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\sgp_f_ejercicios.Outputs[Salida de origen de OLE DB].Columns[pidEjercicio]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 2.Inputs[Entrada de columna derivada].Columns[fechaFin]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaFin"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\sgp_f_ejercicios.Outputs[Salida de origen de OLE DB].Columns[fechaFin]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\SGP Tarea Flujo de datos 6\sgp_f_ejercicios.Outputs[Salida de origen de OLE DB].Columns[pidEjercicio]} == 22 ? (DT_DBTIMESTAMP)"31-12-2016" : #{Package\SGP Tarea Flujo de datos 6\sgp_f_ejercicios.Outputs[Salida de origen de OLE DB].Columns[fechaFin]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">pidEjercicio == 22 ? (DT_DBTIMESTAMP)"31-12-2016" : fechaFin</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -10751,6 +10855,214 @@
                       refId="Package\SGP Tarea Flujo de datos 6\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\SGP Tarea Flujo de datos 6\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[historicospersonas]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.visesa_ulcd]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.visesa_ulcd]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoPersona]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[pidHistoricoPersona]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoPersona]"
+                      name="pidHistoricoPersona"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidPersona]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]"
+                      name="sidPersona"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidMotivo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidMotivo]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidMotivo]"
+                      name="sidMotivo"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
+                      name="fechaAlta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
+                      name="fechaBaja"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[pidHistoricoPersona]"
+                      dataType="numeric"
+                      name="pidHistoricoPersona"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidPersona]"
+                      dataType="numeric"
+                      name="sidPersona"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      dataType="numeric"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidMotivo]"
+                      dataType="numeric"
+                      name="sidMotivo"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      name="fechaAlta" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      name="fechaBaja" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[pidHistoricoPersona]"
+                      dataType="numeric"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[pidHistoricoPersona]"
+                      name="pidHistoricoPersona"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidPersona]"
+                      dataType="numeric"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidPersona]"
+                      name="sidPersona"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      dataType="numeric"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidMotivo]"
+                      dataType="numeric"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidMotivo]"
+                      name="sidMotivo"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
+                      name="fechaAlta" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
+                      name="fechaBaja" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -11585,6 +11897,187 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
               </outputs>
             </component>
             <component
+              refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ZM_PERSONAL_HISTORICOS_PERSONAS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[ZM_PERSONAL_HISTORICOS_PERSONAS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[pidHistoricoPersona]"
+                      cachedDataType="numeric"
+                      cachedName="pidHistoricoPersona"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidHistoricoPersona]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoPersona]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[sidPersona]"
+                      cachedDataType="numeric"
+                      cachedName="sidPersona"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidPersona]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[sidNodoOrigen]"
+                      cachedDataType="numeric"
+                      cachedName="sidNodoOrigen"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[sidMotivo]"
+                      cachedDataType="numeric"
+                      cachedName="sidMotivo"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidMotivo]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidMotivo]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[fechaAlta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaAlta"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaAlta]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[fechaBaja]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaBaja"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaBaja]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
+                      cachedDataType="date"
+                      cachedName="F_EJECUCION"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Outputs[Salida de columna derivada].Columns[F_EJECUCION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidHistoricoPersona]"
+                      dataType="numeric"
+                      name="pidHistoricoPersona"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidPersona]"
+                      dataType="numeric"
+                      name="sidPersona"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      dataType="numeric"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidMotivo]"
+                      dataType="numeric"
+                      name="sidMotivo"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      name="fechaAlta" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      name="fechaBaja" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      name="F_EJECUCION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_SGP_F_ASISTENTES"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
@@ -12189,6 +12682,11 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
               name="Salida de columna derivada"
               startId="Package\SGP Tarea Flujo de datos 6\Columna derivada 2.Outputs[Salida de columna derivada]" />
             <path
+              refId="Package\SGP Tarea Flujo de datos 6.Paths[Salida de columna derivada2]"
+              endId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Outputs[Salida de columna derivada]" />
+            <path
               refId="Package\SGP Tarea Flujo de datos 6.Paths[Salida de origen de OLE DB]"
               endId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
@@ -12198,6 +12696,11 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
               endId="Package\SGP Tarea Flujo de datos 6\Columna derivada 2.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
               startId="Package\SGP Tarea Flujo de datos 6\sgp_f_ejercicios.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\SGP Tarea Flujo de datos 6.Paths[Salida de origen de OLE DB2]"
+              endId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\SGP Tarea Flujo de datos 6.Paths[Salida predeterminada de división condicional]"
               endId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_SGP_F_EJERCICIOS.Inputs[Entrada de destino de OLE DB]"
@@ -12216,14 +12719,14 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="ULCD DELETE 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{20B7FAE9-3CC2-43D9-A3CC-5A5696F6851A}"
-          SQLTask:SqlStatementSource="&#xA;DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_NODOS]&#xA;DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_NODOSPERSONA]&#xA;DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_NODOSPUESTOS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_NODOS]&#xA;DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_NODOSPERSONA]&#xA;DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_NODOSPUESTOS]&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAL_HISTORICOS_PERSONAS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -12308,6 +12811,79 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
                       refId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada 1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Outputs[Salida de columna derivada].Columns[F_EJECUCION]"
+                      dataType="date"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Outputs[Salida de columna derivada].Columns[F_EJECUCION]"
+                      name="F_EJECUCION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[System::StartTime]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -12543,6 +13119,352 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
                       refId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="historicosNodos"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[historicosnodos]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.visesa_ulcd]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.visesa_ulcd]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoNodo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[pidHistoricoNodo]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoNodo]"
+                      name="pidHistoricoNodo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[sidNodo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodo]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[sidNodo]"
+                      name="sidNodo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[descripcion]"
+                      length="255"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[descripcion]"
+                      name="descripcion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[codigo]"
+                      length="250"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[codigo]"
+                      name="codigo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[nivel]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[nivel]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[nivel]"
+                      name="nivel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[orden]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[orden]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[orden]"
+                      name="orden"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[sidNodoPadre]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoPadre]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[sidNodoPadre]"
+                      name="sidNodoPadre"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[sidTipoNodo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[sidTipoNodo]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[sidTipoNodo]"
+                      name="sidTipoNodo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[codigoOrden]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[codigoOrden]"
+                      length="1000"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[codigoOrden]"
+                      name="codigoOrden"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaInicio]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[fechaInicio]"
+                      name="fechaInicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaFin]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[fechaFin]"
+                      name="fechaFin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[organigrama]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[organigrama]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[organigrama]"
+                      name="organigrama"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[pidHistoricoNodo]"
+                      dataType="i4"
+                      name="pidHistoricoNodo" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodo]"
+                      dataType="i4"
+                      name="sidNodo" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="codigo" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[nivel]"
+                      dataType="i4"
+                      name="nivel" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[orden]"
+                      dataType="i4"
+                      name="orden" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoPadre]"
+                      dataType="numeric"
+                      name="sidNodoPadre"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      dataType="numeric"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[sidTipoNodo]"
+                      dataType="i4"
+                      name="sidTipoNodo" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[codigoOrden]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="codigoOrden" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      name="fechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      name="fechaFin" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].ExternalColumns[organigrama]"
+                      dataType="i4"
+                      name="organigrama" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[pidHistoricoNodo]"
+                      dataType="i4"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[pidHistoricoNodo]"
+                      name="pidHistoricoNodo" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[sidNodo]"
+                      dataType="i4"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[sidNodo]"
+                      name="sidNodo" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[codigo]"
+                      name="codigo" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[nivel]"
+                      dataType="i4"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[nivel]"
+                      name="nivel" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[orden]"
+                      dataType="i4"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[orden]"
+                      name="orden" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoPadre]"
+                      dataType="numeric"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoPadre]"
+                      name="sidNodoPadre"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      dataType="numeric"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[sidTipoNodo]"
+                      dataType="i4"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[sidTipoNodo]"
+                      name="sidTipoNodo" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[codigoOrden]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[codigoOrden]"
+                      name="codigoOrden" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[fechaInicio]"
+                      name="fechaInicio" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[fechaFin]"
+                      name="fechaFin" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[organigrama]"
+                      dataType="i4"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[organigrama]"
+                      name="organigrama" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -13184,6 +14106,265 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
               </outputs>
             </component>
             <component
+              refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ZM_PERSONAS_HISTORICOSNODOS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[ZM_PERSONAS_HISTORICOSNODOS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[pidHistoricoNodo]"
+                      cachedDataType="i4"
+                      cachedName="pidHistoricoNodo"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidHistoricoNodo]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoNodo]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[sidNodo]"
+                      cachedDataType="i4"
+                      cachedName="sidNodo"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodo]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[sidNodo]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="descripcion"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[descripcion]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[codigo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="codigo"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[codigo]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[codigo]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[nivel]"
+                      cachedDataType="i4"
+                      cachedName="nivel"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[nivel]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[nivel]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[orden]"
+                      cachedDataType="i4"
+                      cachedName="orden"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[orden]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[orden]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[sidNodoPadre]"
+                      cachedDataType="numeric"
+                      cachedName="sidNodoPadre"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodoPadre]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[sidNodoPadre]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[sidNodoOrigen]"
+                      cachedDataType="numeric"
+                      cachedName="sidNodoOrigen"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[sidTipoNodo]"
+                      cachedDataType="i4"
+                      cachedName="sidTipoNodo"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidTipoNodo]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[sidTipoNodo]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[codigoOrden]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="codigoOrden"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[codigoOrden]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[codigoOrden]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[fechaInicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaInicio"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaInicio]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[fechaInicio]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[fechaFin]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaFin"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaFin]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[fechaFin]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[organigrama]"
+                      cachedDataType="i4"
+                      cachedName="organigrama"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[organigrama]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB].Columns[organigrama]" />
+                    <inputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
+                      cachedDataType="date"
+                      cachedName="F_EJECUCION"
+                      externalMetadataColumnId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Outputs[Salida de columna derivada].Columns[F_EJECUCION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidHistoricoNodo]"
+                      dataType="i4"
+                      name="pidHistoricoNodo" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodo]"
+                      dataType="i4"
+                      name="sidNodo" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="codigo" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[nivel]"
+                      dataType="i4"
+                      name="nivel" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[orden]"
+                      dataType="i4"
+                      name="orden" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodoPadre]"
+                      dataType="numeric"
+                      name="sidNodoPadre"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      dataType="numeric"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidTipoNodo]"
+                      dataType="i4"
+                      name="sidTipoNodo" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[codigoOrden]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="codigoOrden" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      name="fechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      name="fechaFin" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[organigrama]"
+                      dataType="i4"
+                      name="organigrama" />
+                    <externalMetadataColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      name="F_EJECUCION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOS"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
@@ -13750,6 +14931,11 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
               name="Salida de columna derivada"
               startId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 2 1.Outputs[Salida de columna derivada]" />
             <path
+              refId="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de columna derivada3]"
+              endId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Outputs[Salida de columna derivada]" />
+            <path
               refId="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de origen de OLE DB]"
               endId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
@@ -13764,6 +14950,11 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
               endId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 2 1.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
               startId="Package\ULCD Tarea Flujo de datos 5 1\nodos.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de origen de OLE DB3]"
+              endId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida predeterminada de división condicional]"
               endId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOS.Inputs[Entrada de destino de OLE DB]"
@@ -15296,32 +16487,32 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="277,42"
+          Id="Package\SGP Tarea Flujo de datos 5 1\ZM_PERSONAS_SGP_F_CONVOCATORIAS"
+          TopLeft="334,209.5" />
+        <NodeLayout
           Size="268,42"
           Id="Package\SGP Tarea Flujo de datos 5 1\ZM_PERSONAS_SGP_F_PRESUPUESTOS"
-          TopLeft="5.5,209.5" />
+          TopLeft="5.50000000000006,209.5" />
         <NodeLayout
           Size="173,42"
           Id="Package\SGP Tarea Flujo de datos 5 1\Columna derivada 3 1"
-          TopLeft="676,107.5" />
+          TopLeft="386,107.5" />
         <NodeLayout
           Size="173,42"
           Id="Package\SGP Tarea Flujo de datos 5 1\sgp_f_presupuestos"
-          TopLeft="53,5.5" />
-        <NodeLayout
-          Size="173,42"
-          Id="Package\SGP Tarea Flujo de datos 5 1\Columna derivada 3"
-          TopLeft="53,107.5" />
+          TopLeft="53,5.49999999999989" />
         <NodeLayout
           Size="175,42"
           Id="Package\SGP Tarea Flujo de datos 5 1\sgp_f_convocatorias"
-          TopLeft="675,5.49999999999989" />
+          TopLeft="385,5.49999999999989" />
         <NodeLayout
-          Size="277,42"
-          Id="Package\SGP Tarea Flujo de datos 5 1\ZM_PERSONAS_SGP_F_CONVOCATORIAS"
-          TopLeft="624,209.5" />
+          Size="173,42"
+          Id="Package\SGP Tarea Flujo de datos 5 1\Columna derivada 3"
+          TopLeft="53.0000000000001,107.5" />
         <EdgeLayout
           Id="Package\SGP Tarea Flujo de datos 5 1.Paths[Salida de origen de OLE DB1]"
-          TopLeft="762.5,47.4999999999999">
+          TopLeft="472.5,47.4999999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15343,7 +16534,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SGP Tarea Flujo de datos 5 1.Paths[Salida de origen de OLE DB]"
-          TopLeft="139.5,47.5">
+          TopLeft="139.5,47.4999999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15365,7 +16556,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SGP Tarea Flujo de datos 5 1.Paths[Salida de columna derivada1]"
-          TopLeft="762.5,149.5">
+          TopLeft="472.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15440,102 +16631,50 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     design-time-name="Package\SGP Tarea Flujo de datos 6">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="157,42"
-          Id="Package\SGP Tarea Flujo de datos 6\sgp_f_asistentes"
-          TopLeft="319.5,5.49999999999989" />
-        <NodeLayout
-          Size="164,42"
-          Id="Package\SGP Tarea Flujo de datos 6\Columna derivada 2"
-          TopLeft="583,84.5" />
-        <NodeLayout
-          Size="154,42"
-          Id="Package\SGP Tarea Flujo de datos 6\sgp_f_ejercicios"
-          TopLeft="557,5.49999999999989" />
-        <NodeLayout
-          Size="252,42"
-          Id="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_SGP_F_ASISTENTES"
-          TopLeft="200.5,204.5" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\SGP Tarea Flujo de datos 6\División condicional"
-          TopLeft="516,147" />
+          TopLeft="380,209.5" />
+        <NodeLayout
+          Size="252,42"
+          Id="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_SGP_F_ASISTENTES"
+          TopLeft="651.5,311.5" />
+        <NodeLayout
+          Size="274,42"
+          Id="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS"
+          TopLeft="5.5,311.5" />
         <NodeLayout
           Size="164,42"
-          Id="Package\SGP Tarea Flujo de datos 6\Columna derivada 1"
-          TopLeft="316,107.5" />
+          Id="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB"
+          TopLeft="60.5,107.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1"
+          TopLeft="60.5,209.5" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\SGP Tarea Flujo de datos 6\sgp_f_ejercicios"
+          TopLeft="388.5,5.49999999999989" />
         <NodeLayout
           Size="250,42"
           Id="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_SGP_F_EJERCICIOS"
-          TopLeft="547,209.5" />
+          TopLeft="340.5,311.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SGP Tarea Flujo de datos 6\Columna derivada 2"
+          TopLeft="383.5,107.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SGP Tarea Flujo de datos 6\Columna derivada 1"
+          TopLeft="695.5,209.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\SGP Tarea Flujo de datos 6\sgp_f_asistentes"
+          TopLeft="699,107.5" />
         <EdgeLayout
-          Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida predeterminada de división condicional]"
-          TopLeft="687,168">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-15,41.5"
-              Start="0,0"
-              End="-15,34">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-11,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-11,0"
-                    Point2="-15,0"
-                    Point3="-15,4" />
-                  <mssgle:LineSegment
-                    End="-15,34" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-115.92279296875,-18.1953125,201.8455859375,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida de origen de OLE DB1]"
-          TopLeft="634,47.4999999999999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="31,37.0000000000001"
-              Start="0,0"
-              End="31,29.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.5000000000001" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.5000000000001"
-                    Point2="0,18.5000000000001"
-                    Point3="4,18.5000000000001" />
-                  <mssgle:LineSegment
-                    End="27,18.5000000000001" />
-                  <mssgle:CubicBezierSegment
-                    Point1="27,18.5000000000001"
-                    Point2="31,18.5000000000001"
-                    Point3="31,22.5000000000001" />
-                  <mssgle:LineSegment
-                    End="31,29.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida de origen de OLE DB]"
-          TopLeft="398,47.4999999999999">
+          Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida de columna derivada2]"
+          TopLeft="142.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15557,24 +16696,18 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida de columna derivada1]"
-          TopLeft="583,105.5">
+          TopLeft="465.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="18.5,41.5"
+              EndConnector="0,60"
               Start="0,0"
-              End="18.5,34">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="14.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="14.5,0"
-                    Point2="18.5,0"
-                    Point3="18.5,4" />
-                  <mssgle:LineSegment
-                    End="18.5,34" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15585,30 +16718,108 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida de columna derivada]"
-          TopLeft="398,149.5">
+          TopLeft="777.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-71.5,55"
+              EndConnector="0,60"
               Start="0,0"
-              End="-71.5,47.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.5"
-                    Point2="0,27.5"
-                    Point3="-4,27.5" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida predeterminada de división condicional]"
+          TopLeft="465.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-67.5,27.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-67.5,27.5"
-                    Point2="-71.5,27.5"
-                    Point3="-71.5,31.5" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.92279296875,20.15234375,201.8455859375,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida de origen de OLE DB2]"
+          TopLeft="142.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-71.5,47.5" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida de origen de OLE DB1]"
+          TopLeft="465.5,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida de origen de OLE DB]"
+          TopLeft="777.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15621,15 +16832,33 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 6\sgp_f_asistentes">
+    design-time-name="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_SGP_F_ASISTENTES">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_SGP_F_ASISTENTES">
+    design-time-name="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15654,61 +16883,131 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SGP Tarea Flujo de datos 6\sgp_f_asistentes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\ULCD Tarea Flujo de datos 5 1">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="236,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPUESTOS"
-          TopLeft="584,288" />
-        <NodeLayout
-          Size="145,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\nodospersona"
-          TopLeft="348,27" />
-        <NodeLayout
-          Size="107,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\nodos"
-          TopLeft="842,27" />
-        <NodeLayout
-          Size="164,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 2"
-          TopLeft="592,133" />
-        <NodeLayout
-          Size="192,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOS"
-          TopLeft="846,281" />
+          Size="237,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPERSONA"
+          TopLeft="869,311.5" />
         <NodeLayout
           Size="144,42"
           Id="Package\ULCD Tarea Flujo de datos 5 1\nodosPuestos"
-          TopLeft="591,33" />
+          TopLeft="51.5,107.5" />
+        <NodeLayout
+          Size="107,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\nodos"
+          TopLeft="345,5.5" />
         <NodeLayout
           Size="164,42"
           Id="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 2 1"
-          TopLeft="816,138" />
+          TopLeft="316.5,107.5" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOS"
+          TopLeft="302.5,311.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 2"
+          TopLeft="41.5,209.5" />
+        <NodeLayout
+          Size="253,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS"
+          TopLeft="555,311.5" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos"
+          TopLeft="605,107.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1"
+          TopLeft="590.5,209.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\nodospersona"
+          TopLeft="915,107.5" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPUESTOS"
+          TopLeft="5.5,311.5" />
         <NodeLayout
           Size="164,42"
           Id="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1"
-          TopLeft="353,146" />
+          TopLeft="905.5,209.5" />
         <NodeLayout
-          Size="237,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPERSONA"
-          TopLeft="314,308" />
+          Size="171,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\División condicional"
+          TopLeft="313,209.5" />
         <EdgeLayout
-          Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de origen de OLE DB2]"
-          TopLeft="896.75,69">
+          Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida predeterminada de división condicional]"
+          TopLeft="398.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,69"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,61.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,61.5" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.92279296875,20.15234375,201.8455859375,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de origen de OLE DB3]"
+          TopLeft="681.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de origen de OLE DB2]"
+          TopLeft="398.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15719,30 +17018,18 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de origen de OLE DB1]"
-          TopLeft="663,75">
+          TopLeft="123.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11,58"
+              EndConnector="0,60"
               Start="0,0"
-              End="11,50.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25"
-                    Point2="0,29"
-                    Point3="4,29" />
-                  <mssgle:LineSegment
-                    End="7,29" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7,29"
-                    Point2="11,29"
-                    Point3="11,33" />
-                  <mssgle:LineSegment
-                    End="11,50.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15753,30 +17040,62 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de origen de OLE DB]"
-          TopLeft="420.5,69">
+          TopLeft="987.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14.5,77"
+              EndConnector="0,60"
               Start="0,0"
-              End="14.5,69.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.5"
-                    Point2="0,38.5"
-                    Point3="4,38.5" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de columna derivada3]"
+          TopLeft="681.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="10.5,38.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10.5,38.5"
-                    Point2="14.5,38.5"
-                    Point3="14.5,42.5" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de columna derivada2]"
+          TopLeft="398.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="14.5,69.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15787,30 +17106,18 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de columna derivada1]"
-          TopLeft="674,175">
+          TopLeft="123.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="28,113"
+              EndConnector="0,60"
               Start="0,0"
-              End="28,105.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,52.5"
-                    Point2="0,56.5"
-                    Point3="4,56.5" />
-                  <mssgle:LineSegment
-                    End="24,56.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24,56.5"
-                    Point2="28,56.5"
-                    Point3="28,60.5" />
-                  <mssgle:LineSegment
-                    End="28,105.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15821,98 +17128,24 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de columna derivada]"
-          TopLeft="433.75,188">
+          TopLeft="987.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,120"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,112.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,112.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="171,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\División condicional"
-          TopLeft="756,375" />
-        <EdgeLayout
-          Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de columna derivada2]"
-          TopLeft="898,180">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-56.5,195"
-              Start="0,0"
-              End="-56.5,187.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,93.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,93.5"
-                    Point2="0,97.5"
-                    Point3="-4,97.5" />
-                  <mssgle:LineSegment
-                    End="-52.5,97.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-52.5,97.5"
-                    Point2="-56.5,97.5"
-                    Point3="-56.5,101.5" />
-                  <mssgle:LineSegment
-                    End="-56.5,187.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida predeterminada de división condicional]"
-          TopLeft="868.666666666667,375">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="73.3333333333334,-52"
-              Start="0,0"
-              End="73.3333333333334,-44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-17.0892236384705" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-17.0892236384705"
-                    Point2="0,-21.0892236384705"
-                    Point3="4,-21.0892236384705" />
-                  <mssgle:LineSegment
-                    End="69.3333333333334,-21.0892236384705" />
-                  <mssgle:CubicBezierSegment
-                    Point1="69.3333333333334,-21.0892236384705"
-                    Point2="73.3333333333334,-21.0892236384705"
-                    Point3="73.3333333333334,-25.0892236384705" />
-                  <mssgle:LineSegment
-                    End="73.3333333333334,-44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-64.2561263020833,-16.0892236384705,201.8455859375,12.1953125"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -15932,7 +17165,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPUESTOS">
+    design-time-name="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15945,7 +17178,33 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOS">
+    design-time-name="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPUESTOS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
