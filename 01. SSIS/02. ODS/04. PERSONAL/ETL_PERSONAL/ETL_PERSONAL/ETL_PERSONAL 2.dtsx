@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_PERSONAL 1"
   DTS:PackageType="5"
-  DTS:VersionBuild="85"
-  DTS:VersionGUID="{8A7B6EFA-96D0-453B-ADD2-240C19ADE1F5}">
+  DTS:VersionBuild="109"
+  DTS:VersionGUID="{67C71AC5-D799-4AA0-891B-8F24E03DBB99}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -59,6 +59,23 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\A mano un registro"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{83FA53BC-A8D8-48DB-9DA5-C63BFA2E985B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="A mano un registro"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D720455E-AA00-4439-A08F-A95584DC1AA6}"
+          SQLTask:SqlStatementSource="insert into [VISESABI].[dbo].[J_PERSONAL_NODOS] (&#xA;  [DESC_NODO]&#xA;      ,[ID_NODO],&#xA;&#x9;  [ID_EJERCICIO])&#xA;&#xA;values('LARA',989,14)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\ASISTENTES"
       DTS:CreationName="Microsoft.Pipeline"
@@ -1530,11 +1547,22 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodoPadre,dbo.ZM_PERSONAS_SGP_F_ASISTENTES.*, dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidEjercicio, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.pidAsistente, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidFormacion, 
+                         dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidPersona, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidGrupo, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.previsto, 
+                         dbo.ZM_PERSONAS_SGP_F_ASISTENTES.envioConvocatoria, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.asistencia, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.envioSatisfaccion, 
+                         dbo.ZM_PERSONAS_SGP_F_ASISTENTES.envioEficacia, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.validacion, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidNivel, 
+                         dbo.ZM_PERSONAS_SGP_F_ASISTENTES.Nohaceformacion, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.coste, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.recomendarFormacion, 
+                         dbo.ZM_PERSONAS_SGP_F_ASISTENTES.NohaceformacionConfirm, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.F_EJECUCION, dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo, 
+                         dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.fechaAlta, dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.fechaBaja, dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo, 
+                         dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidNodoOrigen, dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaInicio, dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin, 
+                         dbo.ZM_PERSONAS_SGP_F_FORMACION.fechaPrevista
 FROM            dbo.ZM_PERSONAS_SGP_F_ASISTENTES INNER JOIN
-                         dbo.ZM_PERSONAS_NODOSPERSONA ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidPersona = dbo.ZM_PERSONAS_NODOSPERSONA.sidPersona INNER JOIN
-                         dbo.ZM_PERSONAS_HISTORICOSNODOS ON dbo.ZM_PERSONAS_NODOSPERSONA.sidNodoOrigen = dbo.ZM_PERSONAS_HISTORICOSNODOS.SidNodo
-WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%')</property>
+                         dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidPersona = dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidPersona INNER JOIN
+                         dbo.ZM_PERSONAS_HISTORICOSNODOS ON dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidNodoOrigen = dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo INNER JOIN
+                         dbo.ZM_PERSONAS_SGP_F_FORMACION ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidFormacion = dbo.ZM_PERSONAS_SGP_F_FORMACION.pidFormacion
+WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%')
+
+and((fechaPrevista&gt;fechaInicio and fechaPrevista&lt;fechaFin)or( fechaPrevista&gt;fechaInicio and fechaFin is null))</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -1741,14 +1769,68 @@ WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%')</property>
                       name="codigo"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoPadre]"
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
+                      name="fechaAlta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
+                      name="fechaBaja"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodo]"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodo]"
+                      name="sidNodo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoPadre]"
-                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoPadre]"
-                      name="sidNodoPadre"
+                      externalMetadataColumnId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
                       precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaInicio]"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaInicio]"
+                      name="fechaInicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaFin]"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaFin]"
+                      name="fechaFin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaPrevista]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaPrevista]"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaPrevista]"
+                      name="fechaPrevista"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1834,10 +1916,34 @@ WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%')</property>
                       length="250"
                       name="codigo" />
                     <externalMetadataColumn
-                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoPadre]"
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      name="fechaAlta" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      name="fechaBaja" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodo]"
+                      dataType="i4"
+                      name="sidNodo" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
                       dataType="numeric"
-                      name="sidNodoPadre"
+                      name="sidNodoOrigen"
                       precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      name="fechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      name="fechaFin" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaPrevista]"
+                      dataType="dbTimeStamp"
+                      name="fechaPrevista" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1944,11 +2050,41 @@ WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%')</property>
                       lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[codigo]"
                       name="codigo" />
                     <outputColumn
-                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoPadre]"
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
+                      name="fechaAlta" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
+                      name="fechaBaja" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodo]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodo]"
+                      name="sidNodo" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
                       dataType="numeric"
-                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoPadre]"
-                      name="sidNodoPadre"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
                       precision="10" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaInicio]"
+                      name="fechaInicio" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaFin]"
+                      name="fechaFin" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaPrevista]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaPrevista]"
+                      name="fechaPrevista" />
                     <outputColumn
                       refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -3140,11 +3276,6 @@ FROM            dbo.ZM_PERSONAS_SGP_F_EVALSATISFORM LEFT OUTER JOIN
                       cachedName="denominacion"
                       lineageId="Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[denominacion]" />
                     <inputColumn
-                      refId="Package\FORMACION\Columna derivada.Inputs[Entrada de columna derivada].Columns[conIdioma]"
-                      cachedDataType="bool"
-                      cachedName="conIdioma"
-                      lineageId="Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[conIdioma]" />
-                    <inputColumn
                       refId="Package\FORMACION\Columna derivada.Inputs[Entrada de columna derivada].Columns[subvencionado]"
                       cachedDataType="i4"
                       cachedName="subvencionado"
@@ -3159,6 +3290,54 @@ FROM            dbo.ZM_PERSONAS_SGP_F_EVALSATISFORM LEFT OUTER JOIN
                       cachedDataType="bool"
                       cachedName="FormacionOnline"
                       lineageId="Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[FormacionOnline]" />
+                    <inputColumn
+                      refId="Package\FORMACION\Columna derivada.Inputs[Entrada de columna derivada].Columns[fechaPrevista]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaPrevista"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fechaPrevista]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fechaPrevista]} &lt; (DT_DBDATE)"1901-01-01" ? NULL(DT_DBDATE) : #{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fechaPrevista]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">fechaPrevista &lt; (DT_DBDATE)"1901-01-01" ? NULL(DT_DBDATE) : fechaPrevista</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FORMACION\Columna derivada.Inputs[Entrada de columna derivada].Columns[entSubvencionadora]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="entSubvencionadora"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[entSubvencionadora]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[FINDSTRING](#{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[entSubvencionadora]},"trip",1) &gt; 0 ? "Fundación Tripartita" : #{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[entSubvencionadora]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(entSubvencionadora,"trip",1) &gt; 0 ? "Fundación Tripartita" : entSubvencionadora</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3176,7 +3355,7 @@ FROM            dbo.ZM_PERSONAS_SGP_F_EVALSATISFORM LEFT OUTER JOIN
                       dataType="wstr"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
-                      length="100"
+                      length="10"
                       lineageId="Package\FORMACION\Columna derivada.Outputs[Salida de columna derivada].Columns[IDIOMA]"
                       name="IDIOMA"
                       truncationRowDisposition="FailComponent">
@@ -3185,13 +3364,13 @@ FROM            dbo.ZM_PERSONAS_SGP_F_EVALSATISFORM LEFT OUTER JOIN
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">#{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[conIdioma]} ==  TRUE  &amp;&amp; [FINDSTRING](#{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[denominacion]},"INGL",1) &gt; 0 ? "INGLES" : #{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[conIdioma]} ==  TRUE  &amp;&amp; [FINDSTRING](#{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[denominacion]},"EUSKE",1) &gt; 0 ? "EUSKERA" : NULL(DT_WSTR,100)</property>
+                          name="Expression">[FINDSTRING](#{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[denominacion]},"INGL",1) &gt; 0 ? "INGLES" : [FINDSTRING](#{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[denominacion]},"EUSKE",1) &gt; 0 ? "EUSKERA" : "SIN IDIOMA"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">conIdioma ==  TRUE  &amp;&amp; FINDSTRING(denominacion,"INGL",1) &gt; 0 ? "INGLES" : conIdioma ==  TRUE  &amp;&amp; FINDSTRING(denominacion,"EUSKE",1) &gt; 0 ? "EUSKERA" : NULL(DT_WSTR,100)</property>
+                          name="FriendlyExpression">FINDSTRING(denominacion,"INGL",1) &gt; 0 ? "INGLES" : FINDSTRING(denominacion,"EUSKE",1) &gt; 0 ? "EUSKERA" : "SIN IDIOMA"</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -3207,13 +3386,13 @@ FROM            dbo.ZM_PERSONAS_SGP_F_EVALSATISFORM LEFT OUTER JOIN
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">#{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[conIdioma]} ==  TRUE  ? 1 : 0</property>
+                          name="Expression">[FINDSTRING](#{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[denominacion]},"INGL",1) &gt; 0 || [FINDSTRING](#{Package\FORMACION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[denominacion]},"EUSKE",1) &gt; 0 ? 1 : 0</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">conIdioma ==  TRUE  ? 1 : 0</property>
+                          name="FriendlyExpression">FINDSTRING(denominacion,"INGL",1) &gt; 0 || FINDSTRING(denominacion,"EUSKE",1) &gt; 0 ? 1 : 0</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -6177,7 +6356,7 @@ FROM            dbo.ZM_PERSONAS_SGP_F_EVALSATISFORM LEFT OUTER JOIN
                     <inputColumn
                       refId="Package\FORMACION\H_PERSONAL_FORMACION.Inputs[Entrada de destino de OLE DB].Columns[IDIOMA]"
                       cachedDataType="wstr"
-                      cachedLength="100"
+                      cachedLength="10"
                       cachedName="IDIOMA"
                       externalMetadataColumnId="Package\FORMACION\H_PERSONAL_FORMACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDIOMA]"
                       lineageId="Package\FORMACION\Columna derivada.Outputs[Salida de columna derivada].Columns[IDIOMA]" />
@@ -9959,6 +10138,774 @@ FROM            dbo.ZM_PERSONAS_SGP_F_EVALSATISFORM LEFT OUTER JOIN
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\M_PERSONAL_HISTORICOS_NODOS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{659F070A-A88E-4A30-9534-91B34BBED356}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="M_PERSONAL_HISTORICOS_NODOS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[M_PERSONAL_HISTORICOS_NODOS_PERSONA]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[sidPersona]"
+                      cachedDataType="numeric"
+                      cachedName="sidPersona"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidPersona]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidPersona]" />
+                    <inputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[sidNodoOrigen]"
+                      cachedDataType="numeric"
+                      cachedName="sidNodoOrigen"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]" />
+                    <inputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="F_EJECUCION"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]" />
+                    <inputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[fechaAlta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaAlta"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaAlta]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]" />
+                    <inputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[fechaBaja]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaBaja"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaBaja]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]" />
+                    <inputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[sidMotivo]"
+                      cachedDataType="numeric"
+                      cachedName="sidMotivo"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidMotivo]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidMotivo]" />
+                    <inputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[pidHistoricoPersona]"
+                      cachedDataType="numeric"
+                      cachedName="pidHistoricoPersona"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidHistoricoPersona]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoPersona]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidPersona]"
+                      dataType="numeric"
+                      name="sidPersona"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      dataType="numeric"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      name="F_EJECUCION" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidHistoricoPersona]"
+                      dataType="numeric"
+                      name="pidHistoricoPersona"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidMotivo]"
+                      dataType="numeric"
+                      name="sidMotivo"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      name="fechaAlta" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      name="fechaBaja" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="M_PERSONAL_HISTORICOS_NODOS_PERSONA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[M_PERSONAL_HISTORICOS_NODOS_PERSONA]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].Columns[sidPersona]"
+                      cachedDataType="numeric"
+                      cachedName="sidPersona"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidPersona]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]" />
+                    <inputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].Columns[sidNodoOrigen]"
+                      cachedDataType="numeric"
+                      cachedName="sidNodoOrigen"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]" />
+                    <inputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="F_EJECUCION"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]" />
+                    <inputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].Columns[pidNodoPersona]"
+                      cachedDataType="numeric"
+                      cachedName="pidNodoPersona"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidHistoricoPersona]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidNodoPersona]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidPersona]"
+                      dataType="numeric"
+                      name="sidPersona"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      dataType="numeric"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      name="F_EJECUCION" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidHistoricoPersona]"
+                      dataType="numeric"
+                      name="pidHistoricoPersona"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidMotivo]"
+                      dataType="numeric"
+                      name="sidMotivo"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      name="fechaAlta" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      name="fechaBaja" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[ZM_PERSONAS_NODOSPERSONA]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidNodoPersona]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[pidNodoPersona]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidNodoPersona]"
+                      name="pidNodoPersona"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidPersona]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]"
+                      name="sidPersona"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[F_EJECUCION]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]"
+                      name="F_EJECUCION"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[pidNodoPersona]"
+                      dataType="numeric"
+                      name="pidNodoPersona"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidPersona]"
+                      dataType="numeric"
+                      name="sidPersona"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      dataType="numeric"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      name="F_EJECUCION" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[pidNodoPersona]"
+                      dataType="numeric"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[pidNodoPersona]"
+                      name="pidNodoPersona"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidPersona]"
+                      dataType="numeric"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidPersona]"
+                      name="sidPersona"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      dataType="numeric"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[F_EJECUCION]"
+                      name="F_EJECUCION" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[ZM_PERSONAL_HISTORICOS_PERSONAS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidPersona]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[sidPersona]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidPersona]"
+                      name="sidPersona"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[F_EJECUCION]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]"
+                      name="F_EJECUCION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoPersona]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[pidHistoricoPersona]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoPersona]"
+                      name="pidHistoricoPersona"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidMotivo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[sidMotivo]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidMotivo]"
+                      name="sidMotivo"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
+                      name="fechaAlta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
+                      name="fechaBaja"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[sidPersona]"
+                      dataType="numeric"
+                      name="sidPersona"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      dataType="numeric"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      name="F_EJECUCION" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[pidHistoricoPersona]"
+                      dataType="numeric"
+                      name="pidHistoricoPersona"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[sidMotivo]"
+                      dataType="numeric"
+                      name="sidMotivo"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      name="fechaAlta" />
+                    <externalMetadataColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      name="fechaBaja" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[pidHistoricoPersona]"
+                      dataType="numeric"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[pidHistoricoPersona]"
+                      name="pidHistoricoPersona"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[sidPersona]"
+                      dataType="numeric"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[sidPersona]"
+                      name="sidPersona"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      dataType="numeric"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[sidMotivo]"
+                      dataType="numeric"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[sidMotivo]"
+                      name="sidMotivo"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
+                      name="fechaAlta" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
+                      name="fechaBaja" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[F_EJECUCION]"
+                      name="F_EJECUCION" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\M_PERSONAL_HISTORICOS_NODOS.Paths[Salida de origen de OLE DB]"
+              endId="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\M_PERSONAL_HISTORICOS_NODOS.Paths[Salida de origen de OLE DB1]"
+              endId="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\NODOS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
@@ -10043,7 +10990,7 @@ where [refTable].[pidNodo] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
-                  name="ParameterMap">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoPadre]};</property>
+                  name="ParameterMap">#{Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidNodoPadre]};</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -10071,7 +11018,7 @@ where [refTable].[pidNodo] = ?</property>
                       cachedDataType="numeric"
                       cachedName="sidNodoPadre"
                       cachedPrecision="10"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoPadre]">
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidNodoPadre]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -10298,7 +11245,7 @@ where [refTable].[pidNodo] = ?</property>
                 <input
                   refId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
@@ -10309,31 +11256,31 @@ where [refTable].[pidNodo] = ?</property>
                       cachedLength="250"
                       cachedName="codigo"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[codigo]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[codigo]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[nivel]"
                       cachedDataType="i4"
                       cachedName="nivel"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NIVEL]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[nivel]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[nivel]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[orden]"
                       cachedDataType="i4"
                       cachedName="orden"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ORDEN]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[orden]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[orden]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[organigrama]"
                       cachedDataType="i4"
                       cachedName="organigrama"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ORGANIGRAMA]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[organigrama]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[organigrama]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
                       cachedDataType="dbTimeStamp"
                       cachedName="F_EJECUCION"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[F_EJECUCION]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[categoria]"
                       cachedCodepage="1252"
@@ -10356,40 +11303,40 @@ where [refTable].[pidNodo] = ?</property>
                       cachedLength="500"
                       cachedName="descripcion"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_NODO]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descripcion]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[descripcion]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[sidNodo]"
                       cachedDataType="i4"
                       cachedName="sidNodo"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_NODO]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodo]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidNodo]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[sidNodoPadre]"
                       cachedDataType="numeric"
                       cachedName="sidNodoPadre"
                       cachedPrecision="10"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_NODO_PADRE]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoPadre]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidNodoPadre]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[sidTipoNodo]"
                       cachedDataType="i4"
                       cachedName="sidTipoNodo"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_TIPO_NODO]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidTipoNodo]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidTipoNodo]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[sexo]"
                       cachedDataType="numeric"
                       cachedName="sexo"
                       cachedPrecision="18"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_SEXO]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sexo]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sexo]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[pidEjercicio]"
                       cachedDataType="numeric"
                       cachedName="pidEjercicio"
                       cachedPrecision="18"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_EJERCICIO]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidEjercicio]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[pidEjercicio]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -10551,7 +11498,7 @@ where [refTable].[pidNodo] = ?</property>
                 <input
                   refId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
@@ -10562,31 +11509,31 @@ where [refTable].[pidNodo] = ?</property>
                       cachedLength="250"
                       cachedName="codigo"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[codigo]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[codigo]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[nivel]"
                       cachedDataType="i4"
                       cachedName="nivel"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[NIVEL]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[nivel]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[nivel]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[orden]"
                       cachedDataType="i4"
                       cachedName="orden"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[ORDEN]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[orden]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[orden]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[organigrama]"
                       cachedDataType="i4"
                       cachedName="organigrama"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[ORGANIGRAMA]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[organigrama]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[organigrama]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
                       cachedDataType="dbTimeStamp"
                       cachedName="F_EJECUCION"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[F_EJECUCION]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[descripcion]"
                       cachedCodepage="1252"
@@ -10594,33 +11541,33 @@ where [refTable].[pidNodo] = ?</property>
                       cachedLength="500"
                       cachedName="descripcion"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_NODO]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descripcion]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[descripcion]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[sidNodo]"
                       cachedDataType="i4"
                       cachedName="sidNodo"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_NODO]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodo]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidNodo]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[sidNodoPadre]"
                       cachedDataType="numeric"
                       cachedName="sidNodoPadre"
                       cachedPrecision="10"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_NODO_PADRE]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoPadre]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidNodoPadre]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[sidTipoNodo]"
                       cachedDataType="i4"
                       cachedName="sidTipoNodo"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_TIPO_NODO]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidTipoNodo]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidTipoNodo]" />
                     <inputColumn
                       refId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[pidEjercicio]"
                       cachedDataType="numeric"
                       cachedName="pidEjercicio"
                       cachedPrecision="18"
                       externalMetadataColumnId="Package\NODOS\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_EJERCICIO]"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidEjercicio]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[pidEjercicio]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -10731,7 +11678,7 @@ where [refTable].[pidNodo] = ?</property>
                       refId="Package\NODOS\División condicional.Inputs[Entrada de división condicional].Columns[sidTipoNodo]"
                       cachedDataType="i4"
                       cachedName="sidTipoNodo"
-                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidTipoNodo]" />
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidTipoNodo]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -10751,7 +11698,7 @@ where [refTable].[pidNodo] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
-                      name="Expression">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidTipoNodo]} == 3</property>
+                      name="Expression">#{Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidTipoNodo]} == 3</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -10804,6 +11751,585 @@ where [refTable].[pidNodo] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\NODOS\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="descripcion"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descripcion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[codigo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="codigo"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[nivel]"
+                      cachedDataType="i4"
+                      cachedName="nivel"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[nivel]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[orden]"
+                      cachedDataType="i4"
+                      cachedName="orden"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[orden]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[sidNodoPadre]"
+                      cachedDataType="numeric"
+                      cachedName="sidNodoPadre"
+                      cachedPrecision="10"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoPadre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[codigoOrden]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="codigoOrden"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[codigoOrden]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[fechaInicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaInicio"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaInicio]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[organigrama]"
+                      cachedDataType="i4"
+                      cachedName="organigrama"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[organigrama]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[sidTipoNodo]"
+                      cachedDataType="i4"
+                      cachedName="sidTipoNodo"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidTipoNodo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[sexo]"
+                      cachedDataType="numeric"
+                      cachedName="sexo"
+                      cachedPrecision="18"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sexo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[F_EJECUCION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="F_EJECUCION"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[sidNodo]"
+                      cachedDataType="i4"
+                      cachedName="sidNodo"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[fechaFin]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaFin"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaFin]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">-1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[pidEjercicio]"
+                      cachedDataType="numeric"
+                      cachedName="pidEjercicio"
+                      cachedPrecision="18"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidEjercicio]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[fechaBaja]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaBaja"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[fechaAlta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaAlta"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[F_I_E]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="F_I_E"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_I_E]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación].Columns[F_F_E]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="F_F_E"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_F_E]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[descripcion]"
+                      name="descripcion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[codigo]"
+                      name="codigo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[nivel]"
+                      dataType="i4"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[nivel]"
+                      name="nivel">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[nivel]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[orden]"
+                      dataType="i4"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[orden]"
+                      name="orden">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[orden]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidNodoPadre]"
+                      dataType="numeric"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidNodoPadre]"
+                      name="sidNodoPadre"
+                      precision="10">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoPadre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[codigoOrden]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[codigoOrden]"
+                      name="codigoOrden">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[codigoOrden]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[fechaInicio]"
+                      name="fechaInicio">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaInicio]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[organigrama]"
+                      dataType="i4"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[organigrama]"
+                      name="organigrama">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[organigrama]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidTipoNodo]"
+                      dataType="i4"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidTipoNodo]"
+                      name="sidTipoNodo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidTipoNodo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sexo]"
+                      dataType="numeric"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sexo]"
+                      name="sexo"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sexo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[F_EJECUCION]"
+                      name="F_EJECUCION">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidNodo]"
+                      dataType="i4"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[sidNodo]"
+                      name="sidNodo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[fechaFin]"
+                      name="fechaFin"
+                      sortKeyPosition="-1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaFin]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[pidEjercicio]"
+                      dataType="numeric"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[pidEjercicio]"
+                      name="pidEjercicio"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidEjercicio]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[fechaBaja]"
+                      name="fechaBaja">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[fechaAlta]"
+                      name="fechaAlta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[F_I_E]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[F_I_E]"
+                      name="F_I_E">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_I_E]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[F_F_E]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NODOS\Ordenar.Outputs[Salida de ordenación].Columns[F_F_E]"
+                      name="F_F_E">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_F_E]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\NODOS\Origen de OLE DB"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
@@ -10828,23 +12354,33 @@ where [refTable].[pidNodo] = ?</property>
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        dbo.ZM_PERSONAS_SGP_PROFESIONES.descripcion AS categoria, dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo, dbo.ZM_PERSONAS_HISTORICOSNODOS.descripcion, 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (
+
+  SELECT     case when sidTipoNodo=3 then   rank() over(partition by pidpersona,pidEjercicio  order by pidEjercicio desc,(case when dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin is null then '31/12/3000' else dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin end) desc ) else 1 end as r,dbo.ZM_PERSONAS_SGP_F_EJERCICIOS.pidEjercicio,dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin, dbo.ZM_PERSONAS_SGP_PROFESIONES.descripcion AS categoria, dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo, dbo.ZM_PERSONAS_HISTORICOSNODOS.descripcion, 
                          dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo, dbo.ZM_PERSONAS_HISTORICOSNODOS.nivel, dbo.ZM_PERSONAS_HISTORICOSNODOS.orden, dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodoPadre, 
-                         dbo.ZM_PERSONAS_HISTORICOSNODOS.codigoOrden, dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaInicio, dbo.ZM_PERSONAS_HISTORICOSNODOS.F_EJECUCION, 
-                         dbo.ZM_PERSONAS_HISTORICOSNODOS.organigrama, dbo.ZM_PERSONAS_HISTORICOSNODOS.sidTipoNodo, dbo.ZM_PERSONAS_SGP_F_PERSONAS.sexo, 
-                         dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin, dbo.ZM_PERSONAS_SGP_F_EJERCICIOS.pidEjercicio
+                         dbo.ZM_PERSONAS_HISTORICOSNODOS.codigoOrden, dbo.ZM_PERSONAS_HISTORICOSNODOS.F_EJECUCION, dbo.ZM_PERSONAS_HISTORICOSNODOS.organigrama, 
+                         dbo.ZM_PERSONAS_HISTORICOSNODOS.sidTipoNodo, dbo.ZM_PERSONAS_SGP_F_PERSONAS.sexo,  dbo.ZM_PERSONAS_SGP_F_PERSONAS.fechaBaja, 
+                         dbo.ZM_PERSONAS_SGP_F_PERSONAS.pidPersona,dbo.ZM_PERSONAS_SGP_F_PERSONAS.fechaAlta, dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaInicio, 
+                         dbo.ZM_PERSONAS_SGP_F_EJERCICIOS.fechaInicio AS F_I_E, dbo.ZM_PERSONAS_SGP_F_EJERCICIOS.fechaFin AS F_F_E
 FROM            dbo.ZM_PERSONAS_SGP_PUESTOSPROFESIONES RIGHT OUTER JOIN
                          dbo.ZM_PERSONAS_NODOSPUESTOS ON dbo.ZM_PERSONAS_SGP_PUESTOSPROFESIONES.sidPuesto = dbo.ZM_PERSONAS_NODOSPUESTOS.sidPuesto RIGHT OUTER JOIN
                          dbo.ZM_PERSONAS_SGP_F_EJERCICIOS INNER JOIN
                          dbo.ZM_PERSONAS_HISTORICOSNODOS ON dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaInicio &lt; dbo.ZM_PERSONAS_SGP_F_EJERCICIOS.fechaFin AND 
-                         (dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin &gt; dbo.ZM_PERSONAS_SGP_F_EJERCICIOS.fechaFin OR
+                         (dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin &gt; dbo.ZM_PERSONAS_SGP_F_EJERCICIOS.fechaInicio  OR
                          dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin IS NULL) LEFT OUTER JOIN
                          dbo.ZM_PERSONAS_SGP_F_PERSONAS RIGHT OUTER JOIN
-                         dbo.ZM_PERSONAS_NODOSPERSONA ON dbo.ZM_PERSONAS_SGP_F_PERSONAS.pidPersona = dbo.ZM_PERSONAS_NODOSPERSONA.sidPersona ON 
-                         dbo.ZM_PERSONAS_NODOSPERSONA.sidNodoOrigen = dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo ON 
+                         dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA ON dbo.ZM_PERSONAS_SGP_F_PERSONAS.pidPersona = dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidPersona ON 
+                         dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidNodoOrigen = dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo ON 
                          dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo = dbo.ZM_PERSONAS_NODOSPUESTOS.sidNodoOrigen LEFT OUTER JOIN
                          dbo.ZM_PERSONAS_SGP_PROFESIONES ON dbo.ZM_PERSONAS_SGP_PUESTOSPROFESIONES.sidProfesion = dbo.ZM_PERSONAS_SGP_PROFESIONES.pidProfesion
-WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PERSONAS_SGP_F_EJERCICIOS.borrado = 0)</property>
+WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PERSONAS_SGP_F_EJERCICIOS.borrado = 0) 
+--and dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo= 1058
+--
+and (((dbo.ZM_PERSONAS_SGP_F_EJERCICIOS.fechaInicio &lt;dbo.ZM_PERSONAS_SGP_F_PERSONAS.fechaBaja)) 
+or (dbo.ZM_PERSONAS_SGP_F_PERSONAS.fechaBaja is  null))and (((sexo is not null)and sidTipoNodo=3)or (sidTipoNodo!=3))
+--and   dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo in (1024,537)
+
+)aux where r=1</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -11015,6 +12551,61 @@ WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PE
                       name="pidEjercicio"
                       precision="18"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
+                      name="fechaBaja"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
+                      name="fechaAlta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_I_E]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[F_I_E]"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_I_E]"
+                      name="F_I_E"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_F_E]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[F_F_E]"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_F_E]"
+                      name="F_F_E"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidPersona]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[pidPersona]"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidPersona]"
+                      name="pidPersona"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[r]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[r]"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[r]"
+                      name="r"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -11089,6 +12680,31 @@ WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PE
                       dataType="numeric"
                       name="pidEjercicio"
                       precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      name="fechaBaja" />
+                    <externalMetadataColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      name="fechaAlta" />
+                    <externalMetadataColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[F_I_E]"
+                      dataType="dbTimeStamp"
+                      name="F_I_E" />
+                    <externalMetadataColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[F_F_E]"
+                      dataType="dbTimeStamp"
+                      name="F_F_E" />
+                    <externalMetadataColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[pidPersona]"
+                      dataType="numeric"
+                      name="pidPersona"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[r]"
+                      dataType="i8"
+                      name="r" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -11096,6 +12712,11 @@ WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PE
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[r]"
+                      dataType="i8"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[r]"
+                      name="r" />
                     <outputColumn
                       refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[descripcion]"
                       codePage="1252"
@@ -11176,11 +12797,37 @@ WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PE
                       lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaFin]"
                       name="fechaFin" />
                     <outputColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[pidPersona]"
+                      dataType="numeric"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[pidPersona]"
+                      name="pidPersona"
+                      precision="18" />
+                    <outputColumn
                       refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[pidEjercicio]"
                       dataType="numeric"
                       lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[pidEjercicio]"
                       name="pidEjercicio"
                       precision="18" />
+                    <outputColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
+                      name="fechaBaja" />
+                    <outputColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
+                      name="fechaAlta" />
+                    <outputColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[F_I_E]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[F_I_E]"
+                      name="F_I_E" />
+                    <outputColumn
+                      refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[F_F_E]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[F_F_E]"
+                      name="F_F_E" />
                     <outputColumn
                       refId="Package\NODOS\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
@@ -11210,8 +12857,13 @@ WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PE
               name="Salida de entradas coincidentes de búsqueda"
               startId="Package\NODOS\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
-              refId="Package\NODOS.Paths[Salida de origen de OLE DB]"
+              refId="Package\NODOS.Paths[Salida de ordenación]"
               endId="Package\NODOS\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de ordenación"
+              startId="Package\NODOS\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\NODOS.Paths[Salida de origen de OLE DB]"
+              endId="Package\NODOS\Ordenar.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
               startId="Package\NODOS\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
             <path
@@ -11647,7 +13299,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D720455E-AA00-4439-A08F-A95584DC1AA6}"
-          SQLTask:SqlStatementSource="delete  FROM [VISESABI].[dbo].[H_PERSONAL_ASISTENTE]&#xA;delete  FROM [VISESABI].[dbo].H_PERSONAL_ENCUESTAS&#xA;delete  FROM [VISESABI].[dbo].H_PERSONAL_FORMACION&#xA;delete  FROM [VISESABI].[dbo].H_PERSONAL_PRESUPUESTOS&#xA;delete  FROM [VISESABI].[dbo].J_PERSONAL_NODOS&#xA;delete  FROM [VISESABI].[dbo].M_PERSONAL_CONVOCATORIAS_ESTADOS&#xA;delete  FROM [VISESABI].[dbo].M_PERSONAL_EJERCICIOS&#xA;delete  FROM [VISESABI].[dbo].M_PERSONAL_PRIORIDAD&#xA;delete  FROM [VISESABI].[dbo].M_PERSONAL_PROCESOS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="delete  FROM [VISESABI].[dbo].[H_PERSONAL_ASISTENTE]&#xA;delete  FROM [VISESABI].[dbo].H_PERSONAL_ENCUESTAS&#xA;delete  FROM [VISESABI].[dbo].H_PERSONAL_FORMACION&#xA;delete  FROM [VISESABI].[dbo].H_PERSONAL_PRESUPUESTOS&#xA;delete  FROM [VISESABI].[dbo].J_PERSONAL_NODOS&#xA;delete  FROM [VISESABI].[dbo].M_PERSONAL_CONVOCATORIAS_ESTADOS&#xA;delete  FROM [VISESABI].[dbo].M_PERSONAL_EJERCICIOS&#xA;delete  FROM [VISESABI].[dbo].M_PERSONAL_PRIORIDAD&#xA;delete  FROM [VISESABI].[dbo].M_PERSONAL_PROCESOS&#xA;delete FROM [VISESABI].[dbo].[M_PERSONAL_HISTORICOS_NODOS_PERSONA]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -11655,11 +13307,11 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{FA7BA405-D5A9-4099-8E80-39F58A88968B}"
+      DTS:DTSID="{1E062498-B2E4-4FD1-AE87-4E57AA61DA39}"
       DTS:From="Package\NODOS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\FORMACION" />
+      DTS:To="Package\A mano un registro" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -11695,10 +13347,26 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{CE37DE08-9E8E-45F0-8248-959E00104498}"
+      DTS:DTSID="{24620241-0F8F-49D4-A3A4-6E7CC442FD0F}"
       DTS:From="Package\Tarea Ejecutar SQL"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
+      DTS:To="Package\M_PERSONAL_HISTORICOS_NODOS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{1A129D42-9B47-479D-B643-A95179BFA479}"
+      DTS:From="Package\A mano un registro"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\FORMACION" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{5F0706E5-4A92-4958-9C7A-F29259A724C5}"
+      DTS:From="Package\M_PERSONAL_HISTORICOS_NODOS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
       DTS:To="Package\NODOS" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -11712,7 +13380,11 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="169,42"
+          Id="Package\A mano un registro"
+          TopLeft="78,149" />
         <NodeLayout
           Size="139,42"
           Id="Package\ASISTENTES"
@@ -11726,13 +13398,17 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
           Id="Package\FORMACION"
           TopLeft="408,176" />
         <NodeLayout
+          Size="252,42"
+          Id="Package\M_PERSONAL_HISTORICOS_NODOS"
+          TopLeft="302,38" />
+        <NodeLayout
           Size="131,42"
           Id="Package\MAESTRAS"
           TopLeft="508,325" />
         <NodeLayout
           Size="114,42"
           Id="Package\NODOS"
-          TopLeft="211,96" />
+          TopLeft="497,75" />
         <NodeLayout
           Size="155,42"
           Id="Package\PRESUPUESTOS"
@@ -11743,30 +13419,30 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
           TopLeft="2,58" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="268,138">
+          TopLeft="554,117">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="209,38"
+              EndConnector="-391.5,32"
               Start="0,0"
-              End="209,30.5">
+              End="-391.5,24.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15" />
+                    End="0,12" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="4,19" />
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="-4,16" />
                   <mssgle:LineSegment
-                    End="205,19" />
+                    End="-387.5,16" />
                   <mssgle:CubicBezierSegment
-                    Point1="205,19"
-                    Point2="209,19"
-                    Point3="209,23" />
+                    Point1="-387.5,16"
+                    Point2="-391.5,16"
+                    Point3="-391.5,20" />
                   <mssgle:LineSegment
-                    End="209,30.5" />
+                    End="-391.5,24.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11905,26 +13581,88 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="39,38"
+              EndConnector="130,-20"
               Start="0,0"
-              End="31.5,38">
+              End="122.5,-20">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="15.5,0" />
+                    End="61,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="15.5,0"
-                    Point2="19.5,0"
-                    Point3="19.5,4" />
+                    Point1="61,0"
+                    Point2="65,0"
+                    Point3="65,-4" />
                   <mssgle:LineSegment
-                    End="19.5,34" />
+                    End="65,-16" />
                   <mssgle:CubicBezierSegment
-                    Point1="19.5,34"
-                    Point2="19.5,38"
-                    Point3="23.5,38" />
+                    Point1="65,-16"
+                    Point2="65,-20"
+                    Point3="69,-20" />
                   <mssgle:LineSegment
-                    End="31.5,38" />
+                    End="122.5,-20" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="247,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="161,27"
+              Start="0,0"
+              End="153.5,27">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="76.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="76.5,0"
+                    Point2="80.5,0"
+                    Point3="80.5,4" />
+                  <mssgle:LineSegment
+                    End="80.5,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80.5,23"
+                    Point2="80.5,27"
+                    Point3="84.5,27" />
+                  <mssgle:LineSegment
+                    End="153.5,27" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="554,52.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,22.5"
+              Start="0,0"
+              End="0,15">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="4,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,0"
+                    Point2="0,0"
+                    Point3="0,4" />
+                  <mssgle:LineSegment
+                    End="0,15" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11973,110 +13711,6 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
           Size="208,42"
           Id="Package\ASISTENTES\H_PERSONAL_ASISTENTES"
           TopLeft="583,450" />
-        <EdgeLayout
-          Id="Package\ASISTENTES.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="134.5,357.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="216.666666666667,52"
-              Start="0,0"
-              End="216.666666666667,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.0188679245283" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.0188679245283"
-                    Point2="0,31.0188679245283"
-                    Point3="4,31.0188679245283" />
-                  <mssgle:LineSegment
-                    End="212.666666666667,31.0188679245283" />
-                  <mssgle:CubicBezierSegment
-                    Point1="212.666666666667,31.0188679245283"
-                    Point2="216.666666666667,31.0188679245283"
-                    Point3="216.666666666667,35.0188679245283" />
-                  <mssgle:LineSegment
-                    End="216.666666666667,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="8.51430989583349,36.0188679245283,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ASISTENTES.Paths[Salida de conversión de datos]"
-          TopLeft="119.666666666667,102">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="313.333333333333,138"
-              Start="0,0"
-              End="313.333333333333,130.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.9501698754247" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,51.9501698754247"
-                    Point2="0,55.9501698754247"
-                    Point3="4,55.9501698754247" />
-                  <mssgle:LineSegment
-                    End="309.333333333333,55.9501698754247" />
-                  <mssgle:CubicBezierSegment
-                    Point1="309.333333333333,55.9501698754247"
-                    Point2="313.333333333333,55.9501698754247"
-                    Point3="313.333333333333,59.9501698754247" />
-                  <mssgle:LineSegment
-                    End="313.333333333333,130.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ASISTENTES.Paths[Salida de columna derivada1]"
-          TopLeft="439.833333333333,409.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="110.166666666667,-37.5"
-              Start="0,0"
-              End="110.166666666667,-30">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-14.590575781785" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-14.590575781785"
-                    Point2="0,-18.590575781785"
-                    Point3="4,-18.590575781785" />
-                  <mssgle:LineSegment
-                    End="106.166666666667,-18.590575781785" />
-                  <mssgle:CubicBezierSegment
-                    Point1="106.166666666667,-18.590575781785"
-                    Point2="110.166666666667,-18.590575781785"
-                    Point3="110.166666666667,-22.590575781785" />
-                  <mssgle:LineSegment
-                    End="110.166666666667,-30" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\ASISTENTES.Paths[Salida de columna derivada]"
           TopLeft="433,282">
@@ -12215,6 +13849,110 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             <mssgm:EdgeLabel
               BoundingBox="-289.652356770834,-10.5528087086588,199.638046875,12.1953125"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="134.5,357.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="216.666666666667,52"
+              Start="0,0"
+              End="216.666666666667,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.0188679245283" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.0188679245283"
+                    Point2="0,31.0188679245283"
+                    Point3="4,31.0188679245283" />
+                  <mssgle:LineSegment
+                    End="212.666666666667,31.0188679245283" />
+                  <mssgle:CubicBezierSegment
+                    Point1="212.666666666667,31.0188679245283"
+                    Point2="216.666666666667,31.0188679245283"
+                    Point3="216.666666666667,35.0188679245283" />
+                  <mssgle:LineSegment
+                    End="216.666666666667,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.51430989583349,36.0188679245283,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES.Paths[Salida de conversión de datos]"
+          TopLeft="119.666666666667,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="313.333333333333,138"
+              Start="0,0"
+              End="313.333333333333,130.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.9501698754247" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.9501698754247"
+                    Point2="0,55.9501698754247"
+                    Point3="4,55.9501698754247" />
+                  <mssgle:LineSegment
+                    End="309.333333333333,55.9501698754247" />
+                  <mssgle:CubicBezierSegment
+                    Point1="309.333333333333,55.9501698754247"
+                    Point2="313.333333333333,55.9501698754247"
+                    Point3="313.333333333333,59.9501698754247" />
+                  <mssgle:LineSegment
+                    End="313.333333333333,130.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES.Paths[Salida de columna derivada1]"
+          TopLeft="439.833333333333,409.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110.166666666667,-37.5"
+              Start="0,0"
+              End="110.166666666667,-30">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-14.590575781785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-14.590575781785"
+                    Point2="0,-18.590575781785"
+                    Point3="4,-18.590575781785" />
+                  <mssgle:LineSegment
+                    End="106.166666666667,-18.590575781785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="106.166666666667,-18.590575781785"
+                    Point2="110.166666666667,-18.590575781785"
+                    Point3="110.166666666667,-22.590575781785" />
+                  <mssgle:LineSegment
+                    End="110.166666666667,-30" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12537,11 +14275,11 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
     design-time-name="Package\FORMACION">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="128,42"
-          Id="Package\FORMACION\Formación"
-          TopLeft="127,31" />
+          Size="126,42"
+          Id="Package\FORMACION\Ordenar 1"
+          TopLeft="376,127" />
         <NodeLayout
           Size="117,42"
           Id="Package\FORMACION\Ordenar"
@@ -12550,10 +14288,6 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
           Size="208,42"
           Id="Package\FORMACION\H_PERSONAL_FORMACION"
           TopLeft="419,431" />
-        <NodeLayout
-          Size="126,42"
-          Id="Package\FORMACION\Ordenar 1"
-          TopLeft="376,127" />
         <NodeLayout
           Size="164,42"
           Id="Package\FORMACION\Columna derivada"
@@ -12566,114 +14300,10 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
           Size="126,42"
           Id="Package\FORMACION\Asistentes"
           TopLeft="390,29" />
-        <EdgeLayout
-          Id="Package\FORMACION.Paths[Salida de origen de OLE DB1]"
-          TopLeft="191,73">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="22.5,53"
-              Start="0,0"
-              End="22.5,45.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.5"
-                    Point2="0,26.5"
-                    Point3="4,26.5" />
-                  <mssgle:LineSegment
-                    End="18.5,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,26.5"
-                    Point2="22.5,26.5"
-                    Point3="22.5,30.5" />
-                  <mssgle:LineSegment
-                    End="22.5,45.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FORMACION.Paths[Salida de origen de OLE DB]"
-          TopLeft="453,71">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-14,56"
-              Start="0,0"
-              End="-14,48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24"
-                    Point2="0,28"
-                    Point3="-4,28" />
-                  <mssgle:LineSegment
-                    End="-10,28" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10,28"
-                    Point2="-14,28"
-                    Point3="-14,32" />
-                  <mssgle:LineSegment
-                    End="-14,48.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FORMACION.Paths[Salida de ordenación1]"
-          TopLeft="439,169">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-75.6666666666667,99"
-              Start="0,0"
-              End="-75.6666666666667,91.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.9039665970772" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,54.9039665970772"
-                    Point2="0,58.9039665970772"
-                    Point3="-4,58.9039665970772" />
-                  <mssgle:LineSegment
-                    End="-71.6666666666667,58.9039665970772" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-71.6666666666667,58.9039665970772"
-                    Point2="-75.6666666666667,58.9039665970772"
-                    Point3="-75.6666666666667,62.9039665970772" />
-                  <mssgle:LineSegment
-                    End="-75.6666666666667,91.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="128,42"
+          Id="Package\FORMACION\Formación"
+          TopLeft="127,31" />
         <EdgeLayout
           Id="Package\FORMACION.Paths[Salida de ordenación]"
           TopLeft="213.5,168">
@@ -12705,9 +14335,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12741,9 +14369,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12777,27 +14403,114 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FORMACION.Paths[Salida de origen de OLE DB1]"
+          TopLeft="191,73">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.5,53"
+              Start="0,0"
+              End="22.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
+                  <mssgle:LineSegment
+                    End="18.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,26.5"
+                    Point2="22.5,26.5"
+                    Point3="22.5,30.5" />
+                  <mssgle:LineSegment
+                    End="22.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FORMACION.Paths[Salida de origen de OLE DB]"
+          TopLeft="453,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14,56"
+              Start="0,0"
+              End="-14,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="-4,28" />
+                  <mssgle:LineSegment
+                    End="-10,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10,28"
+                    Point2="-14,28"
+                    Point3="-14,32" />
+                  <mssgle:LineSegment
+                    End="-14,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FORMACION.Paths[Salida de ordenación1]"
+          TopLeft="439,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-75.6666666666667,99"
+              Start="0,0"
+              End="-75.6666666666667,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.9039665970772" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.9039665970772"
+                    Point2="0,58.9039665970772"
+                    Point3="-4,58.9039665970772" />
+                  <mssgle:LineSegment
+                    End="-71.6666666666667,58.9039665970772" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-71.6666666666667,58.9039665970772"
+                    Point2="-75.6666666666667,58.9039665970772"
+                    Point3="-75.6666666666667,62.9039665970772" />
+                  <mssgle:LineSegment
+                    End="-75.6666666666667,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\FORMACION\Formación">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\FORMACION\H_PERSONAL_FORMACION">
     <Properties>
@@ -12816,6 +14529,163 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FORMACION\Formación">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\M_PERSONAL_HISTORICOS_NODOS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="304,42"
+          Id="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA"
+          TopLeft="20,239" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB"
+          TopLeft="129,103" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB"
+          TopLeft="506,269" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1"
+          TopLeft="360,100" />
+        <EdgeLayout
+          Id="Package\M_PERSONAL_HISTORICOS_NODOS.Paths[Salida de origen de OLE DB1]"
+          TopLeft="446.5,142">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143.5,127"
+              Start="0,0"
+              End="143.5,119.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59.5"
+                    Point2="0,63.5"
+                    Point3="4,63.5" />
+                  <mssgle:LineSegment
+                    End="139.5,63.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139.5,63.5"
+                    Point2="143.5,63.5"
+                    Point3="143.5,67.5" />
+                  <mssgle:LineSegment
+                    End="143.5,119.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\M_PERSONAL_HISTORICOS_NODOS.Paths[Salida de origen de OLE DB]"
+          TopLeft="211,145">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-39,94"
+              Start="0,0"
+              End="-39,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43"
+                    Point2="0,47"
+                    Point3="-4,47" />
+                  <mssgle:LineSegment
+                    End="-35,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-35,47"
+                    Point2="-39,47"
+                    Point3="-39,51" />
+                  <mssgle:LineSegment
+                    End="-39,86.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\M_PERSONAL_HISTORICOS_NODOS\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\M_PERSONAL_HISTORICOS_NODOS\Origen de OLE DB 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -13022,17 +14892,21 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164,42"
-          Id="Package\NODOS\Origen de OLE DB"
-          TopLeft="50,77" />
+          Size="117,42"
+          Id="Package\NODOS\Ordenar"
+          TopLeft="68,66" />
         <NodeLayout
           Size="177,42"
           Id="Package\NODOS\Destino de OLE DB 1"
-          TopLeft="162,306" />
+          TopLeft="162,305" />
         <NodeLayout
           Size="164,42"
           Id="Package\NODOS\Columna derivada"
           TopLeft="520,210" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\NODOS\Origen de OLE DB"
+          TopLeft="34,7" />
         <NodeLayout
           Size="168,42"
           Id="Package\NODOS\Destino de OLE DB"
@@ -13045,76 +14919,6 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
           Size="171,42"
           Id="Package\NODOS\División condicional"
           TopLeft="94,199" />
-        <EdgeLayout
-          Id="Package\NODOS.Paths[Salida predeterminada de división condicional]"
-          TopLeft="179.5,241">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="71,65"
-              Start="0,0"
-              End="71,57.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.5"
-                    Point2="0,32.5"
-                    Point3="4,32.5" />
-                  <mssgle:LineSegment
-                    End="67,32.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="67,32.5"
-                    Point2="71,32.5"
-                    Point3="71,36.5" />
-                  <mssgle:LineSegment
-                    End="71,57.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-65.42279296875,37.5,201.8455859375,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NODOS.Paths[Salida de origen de OLE DB]"
-          TopLeft="132,119">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="47.5,80"
-              Start="0,0"
-              End="47.5,72.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,36"
-                    Point2="0,40"
-                    Point3="4,40" />
-                  <mssgle:LineSegment
-                    End="43.5,40" />
-                  <mssgle:CubicBezierSegment
-                    Point1="43.5,40"
-                    Point2="47.5,40"
-                    Point3="47.5,44" />
-                  <mssgle:LineSegment
-                    End="47.5,72.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\NODOS.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="468,239">
@@ -13221,17 +15025,107 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NODOS.Paths[Salida predeterminada de división condicional]"
+          TopLeft="179.5,241">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71,64"
+              Start="0,0"
+              End="71,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="4,32" />
+                  <mssgle:LineSegment
+                    End="67,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67,32"
+                    Point2="71,32"
+                    Point3="71,36" />
+                  <mssgle:LineSegment
+                    End="71,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-65.42279296875,37,201.8455859375,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NODOS.Paths[Salida de origen de OLE DB]"
+          TopLeft="116,49">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-48,38"
+              Start="0,0"
+              End="-40.5,38">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34"
+                    Point2="0,38"
+                    Point3="-4,38" />
+                  <mssgle:LineSegment
+                    End="-40.5,38" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NODOS.Paths[Salida de ordenación]"
+          TopLeft="126.5,108">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53,91"
+              Start="0,0"
+              End="53,83.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.5"
+                    Point2="0,45.5"
+                    Point3="4,45.5" />
+                  <mssgle:LineSegment
+                    End="49,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49,45.5"
+                    Point2="53,45.5"
+                    Point3="53,49.5" />
+                  <mssgle:LineSegment
+                    End="53,83.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\NODOS\Origen de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\NODOS\Destino de OLE DB 1">
     <Properties>
@@ -13242,6 +15136,14 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\NODOS\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

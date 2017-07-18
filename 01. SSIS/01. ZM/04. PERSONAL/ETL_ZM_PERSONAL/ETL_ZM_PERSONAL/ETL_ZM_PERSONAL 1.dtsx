@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_ZM_PERSONAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="95"
-  DTS:VersionGUID="{50497871-6EDD-43B8-A041-7DD00FF0B851}">
+  DTS:VersionBuild="97"
+  DTS:VersionGUID="{2E6D5D61-2770-4957-B9B7-71C4B5D762B1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -13038,95 +13038,6 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
               </outputs>
             </component>
             <component
-              refId="Package\ULCD Tarea Flujo de datos 5 1\División condicional"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
-              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
-              name="División condicional"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Inputs[Entrada de división condicional]"
-                  description="Entrada en la transformación División condicional"
-                  name="Entrada de división condicional">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Inputs[Entrada de división condicional].Columns[borrado]"
-                      cachedDataType="i4"
-                      cachedName="borrado"
-                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\nodos.Outputs[Salida de origen de OLE DB].Columns[borrado]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Outputs[borrado]"
-                  description="Salida 1 de la transformación División condicional"
-                  errorOrTruncationOperation="Cálculo"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="borrado"
-                  synchronousInputId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Inputs[Entrada de división condicional]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
-                      name="Expression">#{Package\ULCD Tarea Flujo de datos 5 1\nodos.Outputs[Salida de origen de OLE DB].Columns[borrado]} == 1</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
-                      expressionType="Notify"
-                      name="FriendlyExpression">borrado == 1</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Outputs[Salida predeterminada de división condicional]"
-                  description="Salida predeterminada de la transformación División condicional"
-                  exclusionGroup="1"
-                  name="Salida predeterminada de división condicional"
-                  synchronousInputId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Inputs[Entrada de división condicional]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Outputs[Salida de error de división condicional]"
-                  description="Salida de error de la transformación División condicional"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Salida de error de división condicional"
-                  synchronousInputId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Inputs[Entrada de división condicional]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
@@ -14927,14 +14838,14 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
               startId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 2.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de columna derivada2]"
-              endId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Inputs[Entrada de división condicional]"
-              name="Salida de columna derivada"
-              startId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 2 1.Outputs[Salida de columna derivada]" />
-            <path
-              refId="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de columna derivada3]"
               endId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS.Inputs[Entrada de destino de OLE DB]"
               name="Salida de columna derivada"
               startId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de columna derivada3]"
+              endId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOS.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 2 1.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de origen de OLE DB]"
               endId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1.Inputs[Entrada de columna derivada]"
@@ -14955,11 +14866,6 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
               endId="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
               startId="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos.Outputs[Salida de origen de OLE DB]" />
-            <path
-              refId="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida predeterminada de división condicional]"
-              endId="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOS.Inputs[Entrada de destino de OLE DB]"
-              name="Salida predeterminada de división condicional"
-              startId="Package\ULCD Tarea Flujo de datos 5 1\División condicional.Outputs[Salida predeterminada de división condicional]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -16895,83 +16801,55 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     design-time-name="Package\ULCD Tarea Flujo de datos 5 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="237,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPERSONA"
-          TopLeft="869,311.5" />
-        <NodeLayout
-          Size="144,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\nodosPuestos"
-          TopLeft="51.5,107.5" />
-        <NodeLayout
-          Size="107,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\nodos"
-          TopLeft="345,5.5" />
-        <NodeLayout
-          Size="164,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 2 1"
-          TopLeft="316.5,107.5" />
-        <NodeLayout
-          Size="192,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOS"
-          TopLeft="302.5,311.5" />
-        <NodeLayout
-          Size="164,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 2"
-          TopLeft="41.5,209.5" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="253,42"
           Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS"
           TopLeft="555,311.5" />
         <NodeLayout
-          Size="153,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos"
-          TopLeft="605,107.5" />
-        <NodeLayout
-          Size="182,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1"
-          TopLeft="590.5,209.5" />
-        <NodeLayout
           Size="145,42"
           Id="Package\ULCD Tarea Flujo de datos 5 1\nodospersona"
           TopLeft="915,107.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 2 1"
+          TopLeft="316.5,107.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 2"
+          TopLeft="41.5,209.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\nodosPuestos"
+          TopLeft="68.5,89.5" />
+        <NodeLayout
+          Size="107,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\nodos"
+          TopLeft="345,5.5" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOS"
+          TopLeft="302.5,311.5" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPERSONA"
+          TopLeft="869,311.5" />
         <NodeLayout
           Size="236,42"
           Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPUESTOS"
           TopLeft="5.5,311.5" />
         <NodeLayout
+          Size="182,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1 1"
+          TopLeft="590.5,209.5" />
+        <NodeLayout
           Size="164,42"
           Id="Package\ULCD Tarea Flujo de datos 5 1\Columna derivada 1"
           TopLeft="905.5,209.5" />
         <NodeLayout
-          Size="171,42"
-          Id="Package\ULCD Tarea Flujo de datos 5 1\División condicional"
-          TopLeft="313,209.5" />
-        <EdgeLayout
-          Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida predeterminada de división condicional]"
-          TopLeft="398.5,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-100.92279296875,20.15234375,201.8455859375,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="153,42"
+          Id="Package\ULCD Tarea Flujo de datos 5 1\historicosNodos"
+          TopLeft="605,107.5" />
         <EdgeLayout
           Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de origen de OLE DB3]"
           TopLeft="681.5,149.5">
@@ -17018,18 +16896,30 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de origen de OLE DB1]"
-          TopLeft="123.5,149.5">
+          TopLeft="140.5,131.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-17,78"
               Start="0,0"
-              End="0,52.5">
+              End="-17,70.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35"
+                    Point2="0,39"
+                    Point3="-4,39" />
+                  <mssgle:LineSegment
+                    End="-13,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13,39"
+                    Point2="-17,39"
+                    Point3="-17,43" />
+                  <mssgle:LineSegment
+                    End="-17,70.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17062,18 +16952,18 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de columna derivada3]"
-          TopLeft="681.5,251.5">
+          TopLeft="398.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,162"
               Start="0,0"
-              End="0,52.5">
+              End="0,154.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,154.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17084,7 +16974,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ULCD Tarea Flujo de datos 5 1.Paths[Salida de columna derivada2]"
-          TopLeft="398.5,149.5">
+          TopLeft="681.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -17152,7 +17042,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPERSONA">
+    design-time-name="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -17178,7 +17068,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS">
+    design-time-name="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPERSONA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

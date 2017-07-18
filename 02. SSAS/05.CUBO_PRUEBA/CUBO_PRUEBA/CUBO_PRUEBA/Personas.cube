@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="62" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-5000" scrolltop="15228" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="14790" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="62" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2708" scrolltop="-2882" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="14790" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -505,11 +505,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>-5000</Value>
+      <Value>-2708</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>15228</Value>
+      <Value>-2882</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -744,7 +744,7 @@
         </Measure>
         <Measure dwd:design-time-name="1833b2fd-5bd6-4838-931e-34d5983a02a0">
           <ID>H PERSONAL ASISTENTE Count</ID>
-          <Name>Nº Asistencias</Name>
+          <Name>Nº Formaciones Apuntadas - Num veces Asistencias</Name>
           <AggregateFunction>Count</AggregateFunction>
           <Source dwd:design-time-name="b2a1a1cd-5309-448f-af60-9dca734f44b4">
             <DataType>Integer</DataType>
@@ -759,6 +759,7 @@
           <Name>Horas Laborales</Name>
           <Source dwd:design-time-name="afd5d4cd-d3fb-42b4-bdd4-cce46a502021">
             <DataType>Double</DataType>
+            <NullProcessing>ZeroOrBlank</NullProcessing>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="954dd508-9862-4f22-905a-65f5cfaa5859">
               <TableID>dbo_H_PERSONAL_ASISTENTE</TableID>
               <ColumnID>HORAS_LAB_PREV_ASISTENTE</ColumnID>
@@ -996,7 +997,7 @@
       <Measures>
         <Measure dwd:design-time-name="31749fcc-16fe-4822-984c-01915da4cbe2">
           <ID>HORAS LAB PREV</ID>
-          <Name>Horas Laborales Previstas Formación</Name>
+          <Name>Horas Laborales Formación</Name>
           <Source dwd:design-time-name="19efd886-ccdc-4c4c-b7b4-93d9812e2e45">
             <DataType>Double</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="4718ae77-69a5-4f24-86d5-b7685e5e1018">
@@ -1007,7 +1008,7 @@
         </Measure>
         <Measure dwd:design-time-name="8a2bb55b-560d-430c-9dec-5948f1c29857">
           <ID>HORAS LAB REAL</ID>
-          <Name>Horas Laborales Reales Formación</Name>
+          <Name>Horas Totales Formación</Name>
           <Source dwd:design-time-name="ed7a0c8a-ddf0-446f-b0ab-39a65590a54d">
             <DataType>Double</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="eaa73998-2576-42f3-86ac-f44643086328">
@@ -1170,6 +1171,7 @@
               <ColumnID>PRESUPUESTO</ColumnID>
             </Source>
           </Source>
+          <FormatString>Currency</FormatString>
         </Measure>
         <Measure dwd:design-time-name="2ccef19f-3766-40ea-b2f5-d36e0c529e25">
           <ID>H PERSONAL PRESUPUESTOS Count</ID>
@@ -1294,6 +1296,54 @@
       </Dimensions>
       <Partitions />
     </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="813d9001-df0c-4842-bd40-b4c69673f485">
+      <ID>M PERSONAL EJERCICIOS</ID>
+      <Name>Indicadores Generales</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="57c5e31a-7304-4e64-8a81-002272493fa7">
+          <ID>PLANTILLA MEDIA</ID>
+          <Name>PLANTILLA MEDIA</Name>
+          <Source dwd:design-time-name="83dcc1b8-0aec-491f-81e7-0a5d14773fed">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="aea16a3a-a003-47f5-a704-fd6746728944">
+              <TableID>dbo_M_PERSONAL_EJERCICIOS</TableID>
+              <ColumnID>PLANTILLA_MEDIA</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="f4797014-6936-4960-be46-94d0a98a0432">
+          <CubeDimensionID>M PERSONAL EJERCICIOS</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="22f530d0-fcf6-4217-a73e-d21a8fa0b63f">
+              <AttributeID>ID EJERCICIO</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9154d3b6-6485-4305-9a8a-0ad4625d5256">
+                  <DataType>Double</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="cf129ee8-5e67-437f-be84-2848cf1d65c5">
+                    <TableID>dbo_M_PERSONAL_EJERCICIOS</TableID>
+                    <ColumnID>ID_EJERCICIO</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="ManyToManyMeasureGroupDimension" dwd:design-time-name="2a3d648d-9b0b-4b5e-8b76-7d959e2eb190">
+          <CubeDimensionID>J PERSONAL NODOS</CubeDimensionID>
+          <MeasureGroupID>J PERSONAL NODOS</MeasureGroupID>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
   </MeasureGroups>
   <Source dwd:design-time-name="803a4a6d-ff15-44fc-97d9-475e0bfe1aa8">
     <DataSourceViewID>Personas</DataSourceViewID>
@@ -1311,16 +1361,40 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;  
+CALCULATE;    
+CREATE MEMBER CURRENTCUBE.[Measures].[% Ejecucion]
+ AS [Measures].[Nº Asistencias a Formaciones]/sum([Características Asistencia].[Previsto].&amp;[1] ,[Measures].[Nº Formaciones Apuntadas - Num veces Asistencias]), 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Asistentes';    
+CREATE MEMBER CURRENTCUBE.[Measures].[Media Horas Totales Por Persona]
+ AS [Measures].[Horas Totales]/[Measures].[Nº Personas VISESA], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Personas';    
+CREATE MEMBER CURRENTCUBE.[Measures].[Media Horas Laborales Por Persona]
+ AS [Measures].[Horas Laborales]/[Measures].[Nº Personas VISESA], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Personas';    
+CREATE MEMBER CURRENTCUBE.[Measures].[Horas Laborales/ Horas Totales]
+ AS [Measures].[Horas Laborales]/[Measures].[Horas Totales], 
+FORMAT_STRING = "Percent", 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Personas';    
+CREATE MEMBER CURRENTCUBE.[Measures].[Nº Asistencias a Formaciones]
+ AS sum(CROSSJOIN([Características Asistencia].[Envio Convocatoria].&amp;[1],[Características Asistencia].[No Hace Formacion].&amp;[0]
+),[Measures].[Nº Formaciones Apuntadas - Num veces Asistencias]), 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Asistentes';      
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Personas VISESA]
  AS SUM([Estructura VISESA].[Tipo Nodo].&amp;[3],[Measures].[ID NODO]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Personas'  ;  
-CREATE MEMBER CURRENTCUBE.[Measures].[Media Evaluación Satisfacción]
- AS [Measures].[VALOR SATISFACION]/[Measures].[Nº Encuestas Satisfacción], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Encuestas'  ; 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Personas';     
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Encuestas Satisfacción]
  AS SUM([Encuestas].[Tipo Encuesta].&amp;[1],[Measures].[Nº Encuestas]), 
-VISIBLE = 0  ; </Text>
+VISIBLE = 0;      
+CREATE MEMBER CURRENTCUBE.[Measures].[Media Evaluación Satisfacción]
+ AS [Measures].[VALOR SATISFACION]/[Measures].[Nº Encuestas Satisfacción], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Encuestas';  
+CREATE MEMBER CURRENTCUBE.[Measures].[Gasto/Persona o Asistente??]
+ AS [Measures].[Coste Repartido]/[Measures].[Nº Asistencias a Formaciones], 
+VISIBLE = 1;  
+CREATE MEMBER CURRENTCUBE.[Measures].[% Personas Estudiando Idiomas]
+ AS Sum([Formaciones].[Con Idioma].&amp;[1],[Measures].[Nº Personas Asistentes])/
+[Measures].[Nº Personas VISESA], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Personas'; </Text>
         </Command>
       </Commands>
     </MdxScript>
