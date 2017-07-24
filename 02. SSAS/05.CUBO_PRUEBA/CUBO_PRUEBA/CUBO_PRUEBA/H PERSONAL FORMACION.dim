@@ -617,10 +617,11 @@
     </Attribute>
     <Attribute dwd:design-time-name="5de12f22-d1fe-4861-b8c5-ca70ef42b519">
       <ID>ID NODO FORMADOR INTERNO</ID>
-      <Name>ID NODO FORMADOR INTERNO</Name>
+      <Name>Formador Interno</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="4866c5d9-5431-4c89-88e8-03fab10ae753">
           <DataType>Double</DataType>
+          <NullProcessing>ZeroOrBlank</NullProcessing>
           <Source xsi:type="ColumnBinding" dwd:design-time-name="be0943c6-f5b9-495d-9539-d1f838fde0d7">
             <TableID>dbo_H_PERSONAL_FORMACION</TableID>
             <ColumnID>ID_NODO_FORMADOR_INTERNO</ColumnID>
@@ -630,6 +631,7 @@
       <NameColumn dwd:design-time-name="5dbba66c-7f31-41c2-b903-955c953da69f">
         <DataType>WChar</DataType>
         <DataSize>255</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
         <Source xsi:type="ColumnBinding" dwd:design-time-name="f04415b7-7d0f-486c-97e4-065ad729b27a">
           <TableID>NODO_ZM_FORMADOR_INTERNO</TableID>
           <ColumnID>descripcion</ColumnID>
