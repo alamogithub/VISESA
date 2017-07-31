@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_ZM_COMERCIAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{0AB840AC-1764-4AB0-B179-2D5C035BB54D}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{7E953C55-4FCF-49E9-A5C9-D942E5BDF6C7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -123,7 +123,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Corte">
       <DTS:VariableValue
-        DTS:DataType="7">5/31/2017</DTS:VariableValue>
+        DTS:DataType="7">7/31/2017</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -134,7 +134,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Sistema">
       <DTS:VariableValue
-        DTS:DataType="7">6/7/2017 10:04:14 AM</DTS:VariableValue>
+        DTS:DataType="7">7/26/2017 11:55:42 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -145,7 +145,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Mes_Corte">
       <DTS:VariableValue
-        DTS:DataType="3">5</DTS:VariableValue>
+        DTS:DataType="3">7</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -156,7 +156,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Mes_Corte_Texto">
       <DTS:VariableValue
-        DTS:DataType="8">5\</DTS:VariableValue>
+        DTS:DataType="8">7\</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -9467,13 +9467,13 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="213,42"
-          Id="Package\ZM_COMERCIAL_ELEMENTO\VISESA$Elemento Comercial"
-          TopLeft="218,34" />
-        <NodeLayout
           Size="214,42"
           Id="Package\ZM_COMERCIAL_ELEMENTO\ZM_COMERCIAL_ELEMENTO"
           TopLeft="185,283" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\ZM_COMERCIAL_ELEMENTO\VISESA$Elemento Comercial"
+          TopLeft="218,34" />
         <NodeLayout
           Size="166,42"
           Id="Package\ZM_COMERCIAL_ELEMENTO\poner fecha actual"
@@ -9579,41 +9579,19 @@
     design-time-name="Package\ZM_COMERCIAL_PRESUPUESTOS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="168,42"
           Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB"
           TopLeft="8.00000000000003,209.5" />
         <NodeLayout
-          Size="183,42"
-          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA"
-          TopLeft="5.50000000000001,5.5" />
-        <NodeLayout
           Size="166,42"
           Id="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual"
           TopLeft="9.00000000000003,107.5" />
-        <EdgeLayout
-          Id="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de columna derivada]"
-          TopLeft="92,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="183,42"
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA"
+          TopLeft="5.50000000000001,5.5" />
         <EdgeLayout
           Id="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de origen de OLE DB]"
           TopLeft="94.5,47.5">
@@ -9633,7 +9611,33 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de columna derivada]"
+          TopLeft="92,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9669,11 +9673,7 @@
     design-time-name="Package\ZM_COMERCIAL_RELACION">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="211,42"
-          Id="Package\ZM_COMERCIAL_RELACION\ZM_COMERCIAL_RELACION"
-          TopLeft="190,326" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="208,42"
           Id="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial"
@@ -9682,6 +9682,10 @@
           Size="166,42"
           Id="Package\ZM_COMERCIAL_RELACION\poner fecha actual"
           TopLeft="164,195" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\ZM_COMERCIAL_RELACION\ZM_COMERCIAL_RELACION"
+          TopLeft="190,326" />
         <EdgeLayout
           Id="Package\ZM_COMERCIAL_RELACION.Paths[Salida de origen de OLE DB]"
           TopLeft="298,132">
@@ -9713,7 +9717,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9747,14 +9753,16 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\ZM_COMERCIAL_RELACION\ZM_COMERCIAL_RELACION">
+    design-time-name="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9767,7 +9775,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial">
+    design-time-name="Package\ZM_COMERCIAL_RELACION\ZM_COMERCIAL_RELACION">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9783,7 +9791,7 @@
     design-time-name="Package\ZM_COMERCIAL_RES_IMP_AROC">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="239,42"
           Id="Package\ZM_COMERCIAL_RES_IMP_AROC\VISESA$Resumen Importes AROC"
@@ -9827,7 +9835,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9861,7 +9871,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

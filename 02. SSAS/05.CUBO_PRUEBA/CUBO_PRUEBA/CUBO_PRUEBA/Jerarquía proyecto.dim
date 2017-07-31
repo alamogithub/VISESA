@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="24" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="3800" scrolltop="1256" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="6376" y="13441" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="24" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="10633" scrolltop="3095" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="5900" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -41,9 +41,9 @@
             </layoutobject>
             <shape groupshapeid="0" groupnode="0" />
           </ddscontrol>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="J_P06_ELEMENTO" left="10882" top="11099" logicalid="14" controlid="3" masterid="0" hint1="0" hint2="0" width="3704" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="J_P06_ELEMENTO" left="10882" top="11099" logicalid="14" controlid="3" masterid="0" hint1="0" hint2="0" width="3704" height="5935" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
-              <ddsxmlobjectstreaminitwrapper binary="000c0000780e0000a50a0000" />
+              <ddsxmlobjectstreaminitwrapper binary="000c0000780e00002f170000" />
             </control>
             <layoutobject>
               <ddsxmlobj>
@@ -196,11 +196,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>3800</Value>
+      <Value>10633</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>1256</Value>
+      <Value>3095</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -217,11 +217,13 @@
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
       <Value>
-        <DiagramLayout ZoomPercent="100" ViewPortX="344" ViewPortY="0" xmlns="">
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
           <Shapes NodeWidth="188">
-            <Shape Id="ID ELEMENTO" Expanded="false">
+            <Shape Id="ID ELEMENTO" Expanded="true">
               <Attributes>
                 <Attribute Id="ID ELEMENTO" />
+                <Attribute Id="ID ELEMENTO PRINCIPAL" />
+                <Attribute Id="Nº Expediente" />
               </Attributes>
               <Position x="20" y="20" />
             </Shape>
@@ -304,6 +306,14 @@
         <AttributeRelationship dwd:design-time-name="bc5d8135-ee4f-4456-b849-90af5a671919">
           <AttributeID>ID CALIFICACION</AttributeID>
           <Name>Calificación</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="121b1f23-a7f3-46d1-8c37-28ec599277a4">
+          <AttributeID>Nº Expediente</AttributeID>
+          <Name>Nº Expediente</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ff4406c7-05f2-4c12-a353-b2d6ce41f868">
+          <AttributeID>ID ELEMENTO PRINCIPAL</AttributeID>
+          <Name>Elemento principal</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
@@ -530,6 +540,39 @@
         </Source>
       </NameColumn>
       <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="885bf7d3-0f51-4f41-bd7c-255392c57940">
+      <ID>Nº Expediente</ID>
+      <Name>Nº Expediente</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="95dfe887-0b5b-4183-aec3-d4d406b15da4">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b7e85632-4390-4e23-94fb-147fe0c99556">
+            <TableID>dbo_J_P05_CALIFICACION</TableID>
+            <ColumnID>N_x00BA__x0020_expediente</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ad648652-f6a4-4baf-97da-9d061016adde">
+      <ID>ID ELEMENTO PRINCIPAL</ID>
+      <Name>Elemento principal</Name>
+      <Usage>Parent</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6e6abf35-2eaa-4e0c-85b5-3780157d2415">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="403542f7-dd74-4f36-aab1-505516e5980b">
+            <TableID>dbo_J_P06_ELEMENTO</TableID>
+            <ColumnID>ID_ELEMENTO_PRINCIPAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>

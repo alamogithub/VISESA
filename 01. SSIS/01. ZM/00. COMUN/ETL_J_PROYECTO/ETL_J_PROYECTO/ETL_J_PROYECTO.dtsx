@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_J_PROYECTO"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{994DAC28-1AC6-4F9A-A3B8-7BD5D84C0CFC}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{344D6C3E-E32B-4342-AADF-62085B56566A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -255,7 +255,7 @@ where [refTable].[ID_PROYECTO] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
-                  name="ParameterMap">#{Package\J_01,J_02 y J_03\1124:invalid};</property>
+                  name="ParameterMap">#{Package\J_01,J_02 y J_03\5224:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -414,7 +414,7 @@ where [refTable].[ID_UNIDAD_EJECUCION] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
-                  name="ParameterMap">#{Package\J_01,J_02 y J_03\1124:invalid};</property>
+                  name="ParameterMap">#{Package\J_01,J_02 y J_03\5224:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -573,7 +573,7 @@ where [refTable].[ID_FASE] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
-                  name="ParameterMap">#{Package\J_01,J_02 y J_03\1124:invalid};</property>
+                  name="ParameterMap">#{Package\J_01,J_02 y J_03\5224:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -10383,7 +10383,7 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_CALIFICACION" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_PROMOCION" dataType="DT_WSTR" length="12" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESC_CALIFICACION" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_CALIFICACION" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_PROMOCION" dataType="DT_WSTR" length="12" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESC_CALIFICACION" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_MODIFICACION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nº expediente" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -10453,6 +10453,21 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
                           name="CopyFromReferenceColumn">DESC_CALIFICACION</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\J_05_CALIFICACION\Existe J_P05?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_expediente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copiar columna"
+                      length="20"
+                      lineageId="Package\J_05_CALIFICACION\Existe J_P05?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_expediente]"
+                      name="DEST_expediente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">Nº expediente</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -10589,6 +10604,13 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                       cachedName="DESCRIPCION"
                       externalMetadataColumnId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_CALIFICACION]"
                       lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].Columns[Nº expediente]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Nº expediente"
+                      externalMetadataColumnId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nº expediente]"
+                      lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[Nº expediente]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -10611,6 +10633,11 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                       dataType="wstr"
                       length="100"
                       name="DESC_CALIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\J_05_CALIFICACION\J_P05_CALIFICACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nº expediente]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nº expediente" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -10664,6 +10691,18 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                       cachedLength="50"
                       cachedName="DESCRIPCION"
                       lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\J_05_CALIFICACION\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional].Columns[Nº expediente]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Nº expediente"
+                      lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[Nº expediente]" />
+                    <inputColumn
+                      refId="Package\J_05_CALIFICACION\Mirar si ha cambiado la desc.Inputs[Entrada de división condicional].Columns[DEST_expediente]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="DEST_expediente"
+                      lineageId="Package\J_05_CALIFICACION\Existe J_P05?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_expediente]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -10683,13 +10722,13 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
-                      name="Expression">#{Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]} != #{Package\J_05_CALIFICACION\Existe J_P05?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]}</property>
+                      name="Expression">#{Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]} != #{Package\J_05_CALIFICACION\Existe J_P05?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_DESCRIPCION]} || #{Package\J_05_CALIFICACION\Existe J_P05?.Outputs[Salida de entradas coincidentes de búsqueda].Columns[DEST_expediente]} != #{Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[Nº expediente]}</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
                       expressionType="Notify"
-                      name="FriendlyExpression">DESCRIPCION != DEST_DESCRIPCION</property>
+                      name="FriendlyExpression">DESCRIPCION != DEST_DESCRIPCION || DEST_expediente != [Nº expediente]</property>
                     <property
                       dataType="System.Int32"
                       description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
@@ -10820,6 +10859,30 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                           name="FriendlyExpression">REPLACENULL((TRIM(DESCRIPCION) == "" ? NULL(DT_WSTR,50) : DESCRIPCION),"No disponible")</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\J_05_CALIFICACION\Quitar nulos y poner la fecha actual.Inputs[Entrada de columna derivada].Columns[Nº expediente]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Nº expediente"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[Nº expediente]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](([TRIM](#{Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[Nº expediente]}) == "" ? NULL(DT_WSTR,50) : #{Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[Nº expediente]}),"No disponible")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL((TRIM([Nº expediente]) == "" ? NULL(DT_WSTR,50) : [Nº expediente]),"No disponible")</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -10903,7 +10966,8 @@ where [refTable].[ID_CALIFICACION] = ?</property>
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.J_P05_CALIFICACION
  SET 
 DESC_CALIFICACION=? 
-,F_MODIFICACION=?
+,F_MODIFICACION=?,
+[Nº expediente]=?
 WHERE ID_CALIFICACION = ?</property>
                 <property
                   dataType="System.Int32"
@@ -10927,13 +10991,6 @@ WHERE ID_CALIFICACION = ?</property>
                   name="Entrada de comando de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\J_05_CALIFICACION\update J_P05.Inputs[Entrada de comando de OLE DB].Columns[ID_CALIFICACION]"
-                      cachedDataType="wstr"
-                      cachedLength="20"
-                      cachedName="ID_CALIFICACION"
-                      externalMetadataColumnId="Package\J_05_CALIFICACION\update J_P05.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
-                      lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[ID_CALIFICACION]" />
-                    <inputColumn
                       refId="Package\J_05_CALIFICACION\update J_P05.Inputs[Entrada de comando de OLE DB].Columns[DESCRIPCION]"
                       cachedDataType="wstr"
                       cachedLength="50"
@@ -10946,6 +11003,20 @@ WHERE ID_CALIFICACION = ?</property>
                       cachedName="F_MODIFICACION"
                       externalMetadataColumnId="Package\J_05_CALIFICACION\update J_P05.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
                       lineageId="Package\J_05_CALIFICACION\Quitar nulos y poner la fecha actual.Outputs[Salida de columna derivada].Columns[F_MODIFICACION]" />
+                    <inputColumn
+                      refId="Package\J_05_CALIFICACION\update J_P05.Inputs[Entrada de comando de OLE DB].Columns[ID_CALIFICACION]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="ID_CALIFICACION"
+                      externalMetadataColumnId="Package\J_05_CALIFICACION\update J_P05.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[ID_CALIFICACION]" />
+                    <inputColumn
+                      refId="Package\J_05_CALIFICACION\update J_P05.Inputs[Entrada de comando de OLE DB].Columns[Nº expediente]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Nº expediente"
+                      externalMetadataColumnId="Package\J_05_CALIFICACION\update J_P05.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[Nº expediente]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -10977,6 +11048,18 @@ WHERE ID_CALIFICACION = ?</property>
                       dataType="wstr"
                       length="20"
                       name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\J_05_CALIFICACION\update J_P05.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="20"
+                      name="Param_3">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -11109,6 +11192,16 @@ WHERE ID_CALIFICACION = ?</property>
                       length="50"
                       lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]"
                       name="DESCRIPCION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[Nº expediente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].ExternalColumns[Nº expediente]"
+                      length="20"
+                      lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de origen de OLE DB].Columns[Nº expediente]"
+                      name="Nº expediente"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -11448,6 +11541,12 @@ WHERE ID_CALIFICACION = ?</property>
                       length="50"
                       lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de error de origen de OLE DB].Columns[Codigo corto]"
                       name="Codigo corto" />
+                    <outputColumn
+                      refId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de error de origen de OLE DB].Columns[Nº expediente]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\J_05_CALIFICACION\VISESA$Calificacion.Outputs[Salida de error de origen de OLE DB].Columns[Nº expediente]"
+                      name="Nº expediente" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -11994,6 +12093,13 @@ where [refTable].[ID_ELEMENTO] = ?</property>
                       cachedName="DESCRIPCION"
                       externalMetadataColumnId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_ELEMENTO]"
                       lineageId="Package\J_06_ELEMENTO\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].Columns[No_ producto principal]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="No_ producto principal"
+                      externalMetadataColumnId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_ELEMENTO_PRINCIPAL]"
+                      lineageId="Package\J_06_ELEMENTO\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[No_ producto principal]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -12016,6 +12122,11 @@ where [refTable].[ID_ELEMENTO] = ?</property>
                       dataType="wstr"
                       length="50"
                       name="DESC_ELEMENTO" />
+                    <externalMetadataColumn
+                      refId="Package\J_06_ELEMENTO\J_P06_ELEMENTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_ELEMENTO_PRINCIPAL]"
+                      dataType="wstr"
+                      length="20"
+                      name="ID_ELEMENTO_PRINCIPAL" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -12230,6 +12341,16 @@ where [refTable].[ID_ELEMENTO] = ?</property>
                       length="20"
                       lineageId="Package\J_06_ELEMENTO\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ID_CALIFICACION]"
                       name="ID_CALIFICACION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\J_06_ELEMENTO\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[No_ producto principal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\J_06_ELEMENTO\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ producto principal]"
+                      length="20"
+                      lineageId="Package\J_06_ELEMENTO\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[No_ producto principal]"
+                      name="No_ producto principal"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -12819,6 +12940,12 @@ where [refTable].[ID_ELEMENTO] = ?</property>
                       length="20"
                       lineageId="Package\J_06_ELEMENTO\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[No_ calificacion]"
                       name="No_ calificacion" />
+                    <outputColumn
+                      refId="Package\J_06_ELEMENTO\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[No_ producto principal]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\J_06_ELEMENTO\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[No_ producto principal]"
+                      name="No_ producto principal" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -13425,7 +13552,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13459,7 +13588,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13481,7 +13612,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13695,7 +13828,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14102,7 +14237,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14136,7 +14273,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14170,7 +14309,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14192,7 +14333,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14226,7 +14369,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14440,7 +14585,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14474,7 +14621,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14508,7 +14657,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14536,7 +14687,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14558,7 +14711,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14586,7 +14741,9 @@ WHERE ID_ELEMENTO = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14791,7 +14948,7 @@ WHERE ID_ELEMENTO = ?</property>
         <NodeLayout
           Size="213,42"
           Id="Package\J_05_CALIFICACION\Mirar si ha cambiado la desc"
-          TopLeft="288.5,413.5" />
+          TopLeft="417.5,415.5" />
         <NodeLayout
           Size="257,42"
           Id="Package\J_05_CALIFICACION\Calificacion sin promocion en la BBDD"
@@ -14900,33 +15057,33 @@ WHERE ID_ELEMENTO = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-22.4999999999999,60"
+              EndConnector="106.5,62"
               Start="0,0"
-              End="-22.4999999999999,52.5">
+              End="106.5,54.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.3983402489627" />
+                    End="0,21.2116182572614" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.3983402489627"
-                    Point2="0,24.3983402489627"
-                    Point3="-4,24.3983402489627" />
+                    Point1="0,21.2116182572614"
+                    Point2="0,25.2116182572614"
+                    Point3="4,25.2116182572614" />
                   <mssgle:LineSegment
-                    End="-18.4999999999999,24.3983402489627" />
+                    End="102.5,25.2116182572614" />
                   <mssgle:CubicBezierSegment
-                    Point1="-18.4999999999999,24.3983402489627"
-                    Point2="-22.4999999999999,24.3983402489627"
-                    Point3="-22.4999999999999,28.3983402489627" />
+                    Point1="102.5,25.2116182572614"
+                    Point2="106.5,25.2116182572614"
+                    Point3="106.5,29.2116182572614" />
                   <mssgle:LineSegment
-                    End="-22.4999999999999,52.5" />
+                    End="106.5,54.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-111.0690234375,29.3983402489627,199.638046875,12.1953125"
+              BoundingBox="-46.5690234375,30.2116182572614,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -14990,25 +15147,37 @@ WHERE ID_ELEMENTO = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\J_05_CALIFICACION.Paths[Cambia]"
-          TopLeft="395,455.5">
+          TopLeft="524,457.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-129,58"
               Start="0,0"
-              End="0,52.5">
+              End="-129,50.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="-4,29" />
+                  <mssgle:LineSegment
+                    End="-125,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-125,29"
+                    Point2="-129,29"
+                    Point3="-129,33" />
+                  <mssgle:LineSegment
+                    End="-129,50.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-16.89087890625,21.37548828125,33.7817578125,9.7490234375"
+              BoundingBox="-81.39087890625,34,33.7817578125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
