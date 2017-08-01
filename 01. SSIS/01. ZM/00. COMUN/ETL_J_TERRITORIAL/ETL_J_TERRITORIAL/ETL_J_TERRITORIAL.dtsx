@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_J_TERRITORIAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{3E2D4F54-6446-42E4-B99E-8758C8091868}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{A3950C94-7381-4279-BFB1-A62DB8931B62}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -80,6 +80,96 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Municipio\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Municipio\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Municipio\División condicional.Inputs[Entrada de división condicional].Columns[ID_PROVINCIA]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID_PROVINCIA"
+                      lineageId="Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Municipio\División condicional.Outputs[Case 1]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\Municipio\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]} == "01" || #{Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]} == "20" || #{Package\Municipio\VISESA$Municipios.Outputs[Salida de origen de OLE DB].Columns[ID_PROVINCIA]} == "48"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ID_PROVINCIA == "01" || ID_PROVINCIA == "20" || ID_PROVINCIA == "48"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Municipio\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Municipio\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Municipio\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Municipio\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Municipio\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Municipio\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Municipio\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Municipio\Existe municipio?"
               componentClassID="Microsoft.Lookup"
@@ -937,8 +1027,13 @@ WHERE ID_MUNICIPIO = ?</property>
               name="Cambia"
               startId="Package\Municipio\Mirar si ha cambiado la desc.Outputs[Cambia]" />
             <path
-              refId="Package\Municipio.Paths[Salida de columna derivada]"
+              refId="Package\Municipio.Paths[Case 1]"
               endId="Package\Municipio\Existe municipio?.Inputs[Entrada de búsqueda]"
+              name="Case 1"
+              startId="Package\Municipio\División condicional.Outputs[Case 1]" />
+            <path
+              refId="Package\Municipio.Paths[Salida de columna derivada]"
+              endId="Package\Municipio\División condicional.Inputs[Entrada de división condicional]"
               name="Salida de columna derivada"
               startId="Package\Municipio\Quitar nulos y poner fecha actual y poner ID_MUNICIPIO.Outputs[Salida de columna derivada]" />
             <path
@@ -976,6 +1071,96 @@ WHERE ID_MUNICIPIO = ?</property>
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Pais\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Pais\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Pais\División condicional.Inputs[Entrada de división condicional].Columns[ID_PAIS]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ID_PAIS"
+                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Pais\División condicional.Outputs[Case 1]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\Pais\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]} == "ES"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ID_PAIS == "ES"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Pais\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Pais\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Pais\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Pais\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pais\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Pais\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Pais\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Pais\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Pais\Existe Pais en BBDD?"
               componentClassID="Microsoft.Lookup"
@@ -1797,8 +1982,13 @@ WHERE ID_PAIS = ?</property>
               name="Cambia"
               startId="Package\Pais\Mirar si ha cambiado la desc.Outputs[Cambia]" />
             <path
-              refId="Package\Pais.Paths[Salida de columna derivada]"
+              refId="Package\Pais.Paths[Case 1]"
               endId="Package\Pais\Existe Pais en BBDD?.Inputs[Entrada de búsqueda]"
+              name="Case 1"
+              startId="Package\Pais\División condicional.Outputs[Case 1]" />
+            <path
+              refId="Package\Pais.Paths[Salida de columna derivada]"
+              endId="Package\Pais\División condicional.Inputs[Entrada de división condicional]"
               name="Salida de columna derivada"
               startId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada]" />
             <path
@@ -1966,6 +2156,96 @@ WHERE ID_PROVINCIA = ?</property>
                       refId="Package\Provincia\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Provincia\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Provincia\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Provincia\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Provincia\División condicional.Inputs[Entrada de división condicional].Columns[Dimension Provincia]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Dimension Provincia"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[Dimension Provincia]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Provincia\División condicional.Outputs[Case 1]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\Provincia\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[Dimension Provincia]} != ""</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">[Dimension Provincia] != ""</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Provincia\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Provincia\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Provincia\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Provincia\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Provincia\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Provincia\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Provincia\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Provincia\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2615,6 +2895,16 @@ where [refTable].[ID_PROVINCIA] = ?</property>
                       lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]"
                       name="ID_PAIS"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[Dimension Provincia]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].ExternalColumns[Dimension Provincia]"
+                      length="20"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de origen de OLE DB].Columns[Dimension Provincia]"
+                      name="Dimension Provincia"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2680,6 +2970,12 @@ where [refTable].[ID_PROVINCIA] = ?</property>
                       length="20"
                       lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[Post Code Prefix]"
                       name="Post Code Prefix" />
+                    <outputColumn
+                      refId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[Dimension Provincia]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Provincia\VISESA$Area.Outputs[Salida de error de origen de OLE DB].Columns[Dimension Provincia]"
+                      name="Dimension Provincia" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2693,8 +2989,13 @@ where [refTable].[ID_PROVINCIA] = ?</property>
               name="Cambia"
               startId="Package\Provincia\Mirar si ha cambiado la desc.Outputs[Cambia]" />
             <path
-              refId="Package\Provincia.Paths[Salida de columna derivada]"
+              refId="Package\Provincia.Paths[Case 1]"
               endId="Package\Provincia\Existe provicia?.Inputs[Entrada de búsqueda]"
+              name="Case 1"
+              startId="Package\Provincia\División condicional.Outputs[Case 1]" />
+            <path
+              refId="Package\Provincia.Paths[Salida de columna derivada]"
+              endId="Package\Provincia\División condicional.Inputs[Entrada de división condicional]"
               name="Salida de columna derivada"
               startId="Package\Provincia\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada]" />
             <path
@@ -2913,7 +3214,7 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-228.472356770833,29.3564356435644,213.778046875,12.1953125"
+              BoundingBox="-228.472356770834,29.3564356435644,213.778046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2949,42 +3250,8 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-45.7356901041667,24.8910891089109,199.638046875,12.1953125"
+              BoundingBox="-45.7356901041665,24.8910891089109,199.638046875,12.1953125"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Municipio.Paths[Salida de columna derivada]"
-          TopLeft="340,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17.5,60"
-              Start="0,0"
-              End="17.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="13.5,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.5,30"
-                    Point2="17.5,30"
-                    Point3="17.5,34" />
-                  <mssgle:LineSegment
-                    End="17.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3020,6 +3287,74 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-92.39087890625,37,33.7817578125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Municipio\División condicional"
+          TopLeft="155,180" />
+        <EdgeLayout
+          Id="Package\Municipio.Paths[Salida de columna derivada]"
+          TopLeft="340,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-99.5,30.5"
+              Start="0,0"
+              End="-99.5,23">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.25"
+                    Point2="0,15.25"
+                    Point3="-4,15.25" />
+                  <mssgle:LineSegment
+                    End="-95.5,15.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-95.5,15.25"
+                    Point2="-99.5,15.25"
+                    Point3="-99.5,19.25" />
+                  <mssgle:LineSegment
+                    End="-99.5,23" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Municipio.Paths[Case 1]"
+          TopLeft="326,187">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31.5,22.5"
+              Start="0,0"
+              End="31.5,15">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.5,0"
+                    Point2="31.5,0"
+                    Point3="31.5,4" />
+                  <mssgle:LineSegment
+                    End="31.5,15" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="16.2819140625,-15.5537109375,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3168,9 +3503,9 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-55.4999999999999,162"
+              EndConnector="-55.5,162"
               Start="0,0"
-              End="-55.4999999999999,154.5">
+              End="-55.5,154.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3181,13 +3516,13 @@ where [refTable].[ID_PROVINCIA] = ?</property>
                     Point2="0,65.6611295681063"
                     Point3="-4,65.6611295681063" />
                   <mssgle:LineSegment
-                    End="-51.4999999999999,65.6611295681063" />
+                    End="-51.5,65.6611295681063" />
                   <mssgle:CubicBezierSegment
-                    Point1="-51.4999999999999,65.6611295681063"
-                    Point2="-55.4999999999999,65.6611295681063"
-                    Point3="-55.4999999999999,69.6611295681063" />
+                    Point1="-51.5,65.6611295681063"
+                    Point2="-55.5,65.6611295681063"
+                    Point3="-55.5,69.6611295681063" />
                   <mssgle:LineSegment
-                    End="-55.4999999999999,154.5" />
+                    End="-55.5,154.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3196,40 +3531,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
             <mssgm:EdgeLabel
               BoundingBox="-127.5690234375,70.6611295681063,199.638046875,12.1953125"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Pais.Paths[Salida de columna derivada]"
-          TopLeft="319.5,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="27,60"
-              Start="0,0"
-              End="27,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="23,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23,30"
-                    Point2="27,30"
-                    Point3="27,34" />
-                  <mssgle:LineSegment
-                    End="27,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3265,6 +3566,68 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-27.39087890625,35,33.7817578125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Pais\División condicional"
+          TopLeft="67,151" />
+        <EdgeLayout
+          Id="Package\Pais.Paths[Salida de columna derivada]"
+          TopLeft="202,128.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.5,22.5"
+              Start="0,0"
+              End="-49.5,15">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-45.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.5,0"
+                    Point2="-49.5,0"
+                    Point3="-49.5,4" />
+                  <mssgle:LineSegment
+                    End="-49.5,15" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Pais.Paths[Case 1]"
+          TopLeft="238,172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.5,37.5"
+              Start="0,0"
+              End="108.5,30">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="104.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="104.5,0"
+                    Point2="108.5,0"
+                    Point3="108.5,4" />
+                  <mssgle:LineSegment
+                    End="108.5,30" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="93.2819140625,-15.5537109375,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3326,9 +3689,9 @@ where [refTable].[ID_PROVINCIA] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="141,42"
-          Id="Package\Provincia\VISESA$Area"
-          TopLeft="207,51" />
+          Size="235,42"
+          Id="Package\Provincia\Quitar nulos y poner fecha actual"
+          TopLeft="207,153" />
         <NodeLayout
           Size="167,42"
           Id="Package\Provincia\J_T02_PROVINCIA"
@@ -3338,9 +3701,17 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           Id="Package\Provincia\Existe provicia?"
           TopLeft="251,239" />
         <NodeLayout
-          Size="235,42"
-          Id="Package\Provincia\Quitar nulos y poner fecha actual"
-          TopLeft="207,153" />
+          Size="213,42"
+          Id="Package\Provincia\Mirar si ha cambiado la desc"
+          TopLeft="436,235" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Provincia\Comando de OLE DB"
+          TopLeft="540,359" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Provincia\VISESA$Area"
+          TopLeft="207,51" />
         <EdgeLayout
           Id="Package\Provincia.Paths[Salida de origen de OLE DB]"
           TopLeft="277.5,93">
@@ -3412,32 +3783,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Provincia.Paths[Salida de columna derivada]"
-          TopLeft="325.5,195">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44"
-              Start="0,0"
-              End="0,36.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="213,42"
-          Id="Package\Provincia\Mirar si ha cambiado la desc"
-          TopLeft="436,235" />
-        <EdgeLayout
           Id="Package\Provincia.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="402,258">
           <EdgeLayout.Curve>
@@ -3461,10 +3806,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Provincia\Comando de OLE DB"
-          TopLeft="540,359" />
         <EdgeLayout
           Id="Package\Provincia.Paths[Cambia]"
           TopLeft="542.5,277">
@@ -3498,6 +3839,68 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="26.10912109375,46,33.7817578125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Provincia\División condicional"
+          TopLeft="101,204" />
+        <EdgeLayout
+          Id="Package\Provincia.Paths[Salida de columna derivada]"
+          TopLeft="207,174">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.5,30"
+              Start="0,0"
+              End="-20.5,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-16.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.5,0"
+                    Point2="-20.5,0"
+                    Point3="-20.5,4" />
+                  <mssgle:LineSegment
+                    End="-20.5,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Provincia.Paths[Case 1]"
+          TopLeft="272,216.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.5,22.5"
+              Start="0,0"
+              End="54.5,15">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="50.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.5,0"
+                    Point2="54.5,0"
+                    Point3="54.5,4" />
+                  <mssgle:LineSegment
+                    End="54.5,15" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="39.2819140625,-15.5537109375,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

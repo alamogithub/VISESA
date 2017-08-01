@@ -1,0 +1,65 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="6f40b4ad-63e0-48ff-97e2-55bc72c761a3" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>com V3</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>ZM COMERCIAL ELEMENTO</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="700061c6-6670-4335-a666-a3c7977ac0c1">
+          <ID>ZM COMERCIAL ELEMENTO</ID>
+          <Name>ZM COMERCIAL ELEMENTO</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="92d8e728-4c26-4ec5-9307-82117263e032">
+            <DataSourceViewID>com V3</DataSourceViewID>
+            <TableID>dbo_ZM_COMERCIAL_ELEMENTO</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Rel Elem</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="815658e1-255e-4b37-a006-42c678c3b1be">
+          <ID>Rel Elem</ID>
+          <Name>Rel Elem</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="23e7b854-f38a-45ea-aae1-bb6c20bbb430">
+            <DataSourceViewID>com V3</DataSourceViewID>
+            <TableID>rel_elem</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Rel Elem 1</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3a7ffcd5-fcfd-4981-ab19-08d4b9bde39c">
+          <ID>Rel Elem</ID>
+          <Name>Rel Elem</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="1109c453-2910-45d2-957e-14bfd99d3e66">
+            <DataSourceViewID>com V3</DataSourceViewID>
+            <TableID>rel_elem</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>
