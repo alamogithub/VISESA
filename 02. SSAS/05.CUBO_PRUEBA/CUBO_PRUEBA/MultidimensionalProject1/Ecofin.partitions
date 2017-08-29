@@ -1,0 +1,352 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="46a84d67-5c15-480b-9242-1d19d3d22b65" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Ecofin</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>H ECOFIN AF</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="113bae43-1f52-40d6-92cc-438851893720">
+          <ID>H ECOFIN AF</ID>
+          <Name>H ECOFIN AF</Name>
+          <CreatedTimestamp>2017-06-15T09:55:49.973333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:25:23.196667Z</LastSchemaUpdate>
+          <LastProcessed>2017-07-07T10:38:49.393333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="077abb0b-517c-4123-a89b-9c7672229350">
+            <DataSourceViewID>Ecofin</DataSourceViewID>
+            <TableID>dbo_H_ECOFIN_AF</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="27196901-8f6d-45f2-969d-916bb4f0785b">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="6b3429d6-a803-4ae3-8018-b255aeebb802" />
+          </ProactiveCaching>
+          <EstimatedSize>69598</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H ECOFIN MOVIMIENTOS</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="f481acab-6314-4091-86b7-2f76449b6f6a">
+          <ID>H ECOFIN MOVIMIENTOS</ID>
+          <Name>H ECOFIN MOVIMIENTOS</Name>
+          <CreatedTimestamp>2017-06-15T09:55:49.986667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:25:23.23Z</LastSchemaUpdate>
+          <LastProcessed>2017-07-07T10:38:50.926667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="7b17297a-3202-4675-b783-1f1d41d2a16a">
+            <DataSourceViewID>Ecofin</DataSourceViewID>
+            <TableID>dbo_H_ECOFIN_MOVIMIENTOS</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="1dc8b824-69ac-408a-9161-505324da3aee">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="179e2f02-16e2-40f0-8689-43773f13385a" />
+          </ProactiveCaching>
+          <EstimatedSize>13350191</EstimatedSize>
+          <EstimatedRows>441327</EstimatedRows>
+          <AggregationDesignID>AggregationMovimientos</AggregationDesignID>
+        </Partition>
+      </Partitions>
+      <AggregationDesigns>
+        <AggregationDesign>
+          <ID>AggregationMovimientos</ID>
+          <Name>AggregationMovimientos</Name>
+          <CreatedTimestamp>2017-07-05T09:02:29.096667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:25:23.23Z</LastSchemaUpdate>
+          <EstimatedRows>441327</EstimatedRows>
+          <Dimensions>
+            <Dimension>
+              <CubeDimensionID>MOVIMIENTOS</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>ID ENTRADA</AttributeID>
+                  <EstimatedCount>441327</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ID TIPO PROCEDENCIA MOV</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ID AF</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ID TIPO GASTO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC TIPO DOCUMENTO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC TIPO IVA</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC TIPO ELEMENTO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC TIPO CONTRAPARTIDA</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC RESIDENCIA</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>F REGISTRO</AttributeID>
+                  <EstimatedCount>18265</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Year Name</AttributeID>
+                  <EstimatedCount>51</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month</AttributeID>
+                  <EstimatedCount>602</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month Of Year Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>COD DOCUMENTO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC CODUMENTO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ID CUENTA CONTRAPARTIDA</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>F EMISION DOCUMENTO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>COD DOCUMENTO EXTERNO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC CUENTA</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ID CUENTA</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC ORIGEN ENTRADA</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC GR CONT NEGOCIO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC GR CONT PRODUCTO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC NO SERIES</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC GR IVA NEGOCIO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC GR IVA PRODUCTO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>COD PROC ENTRADA</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>GRUPO ASIGNACION ACT</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>UNIDAD ASIGNACION ACT</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ID ELEMENTO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ID PROMOCION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>COBRO SUBVENCION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>CONTRATO PROGRAMA</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC ELEMENTO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC CALIFICACION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ID CALIFICACION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PROMOCION CORTO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC PROMOCION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ID FASE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC FASE</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ID UNIDAD EJECUCION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC UNIDAD EJECUCION</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ID PROYECTO</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>DESC PROYECTO</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+          </Dimensions>
+          <Aggregations>
+            <Aggregation>
+              <ID>Aggregation 0</ID>
+              <Name>Aggregation 0</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>MOVIMIENTOS</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1</ID>
+              <Name>Aggregation 1</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>MOVIMIENTOS</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Month</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 2</ID>
+              <Name>Aggregation 2</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>MOVIMIENTOS</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>F REGISTRO</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 3</ID>
+              <Name>Aggregation 3</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>MOVIMIENTOS</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Year Name</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+          </Aggregations>
+        </AggregationDesign>
+      </AggregationDesigns>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H ECOFIN SALDOS</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="37f08f1e-e10f-4373-9c2d-6ce5c0f154b4">
+          <ID>H ECOFIN SALDOS</ID>
+          <Name>H ECOFIN SALDOS</Name>
+          <CreatedTimestamp>2017-06-15T09:55:49.996667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:25:23.246667Z</LastSchemaUpdate>
+          <LastProcessed>2017-07-07T10:38:49.393333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="0b9e3229-2c5d-4a97-bd65-e1e143b39430">
+            <DataSourceViewID>Ecofin</DataSourceViewID>
+            <TableID>dbo_H_ECOFIN_SALDOS</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="bfef6864-ed76-4009-b3ca-47a017f16c3c">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="757d00ca-4824-416f-b861-5c6f00336496" />
+          </ProactiveCaching>
+          <EstimatedSize>47436</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>V ECOFIN COMERCIAL</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="49d2d0db-0d0f-4d18-ba6c-fb62ed43e1ad">
+          <ID>V ECOFIN COMERCIAL</ID>
+          <Name>V ECOFIN COMERCIAL</Name>
+          <CreatedTimestamp>2017-06-15T09:55:50.016667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:25:23.26Z</LastSchemaUpdate>
+          <LastProcessed>2017-07-07T10:38:49.376667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="0557dbe2-68a5-4bb7-8717-2106790354c6">
+            <DataSourceViewID>Ecofin</DataSourceViewID>
+            <TableID>dbo_V_ECOFIN_COMERCIAL</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="e0d6c72d-f571-4af2-90de-c3d0f43baf57">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="929d8119-db11-41e9-98ad-fa3208b51dd3" />
+          </ProactiveCaching>
+          <EstimatedSize>844</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H INDICADORES</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="a0489336-4c9d-4a62-b8d8-4c8dfbac4ce6">
+          <ID>H INDICADORES</ID>
+          <Name>H INDICADORES</Name>
+          <CreatedTimestamp>2017-06-15T09:55:50.006667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:25:23.276667Z</LastSchemaUpdate>
+          <LastProcessed>2017-07-07T10:38:49.376667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="634e2492-593e-486c-b525-eb19b4782b37">
+            <DataSourceViewID>Ecofin</DataSourceViewID>
+            <TableID>dbo_H_INDICADORES</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="12a00ea9-1e88-401f-a0bc-7893283fa814">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="34c57c5b-838c-4e35-958b-be852b818876" />
+          </ProactiveCaching>
+          <EstimatedSize>9168</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

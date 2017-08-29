@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_ZM_PERSONAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="99"
-  DTS:VersionGUID="{3D9645FF-D559-488A-BA05-35F87F0F34E7}">
+  DTS:VersionBuild="101"
+  DTS:VersionGUID="{3306133C-5106-4B33-8684-0F373BB1F2BE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -103,7 +103,12 @@
   <DTS:Variables />
   <DTS:LoggingOptions
     DTS:FilterKind="0"
-    DTS:LoggingMode="2" />
+    DTS:LoggingMode="1">
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{5B2AB5CB-CFE8-43CC-916A-3F84C2E59F9F}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\SGP DELETE 1"
@@ -114,7 +119,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SGP DELETE 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -12719,14 +12724,14 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="ULCD DELETE 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{20B7FAE9-3CC2-43D9-A3CC-5A5696F6851A}"
-          SQLTask:SqlStatementSource="&#xA;DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_NODOS]&#xA;DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_NODOSPERSONA]&#xA;DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_NODOSPUESTOS]&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAL_HISTORICOS_PERSONAS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_NODOS]&#xA;DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_NODOSPERSONA]&#xA;DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_NODOSPUESTOS]&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAL_HISTORICOS_PERSONAS&#xA;delete FROM [VISESABI].[dbo].[ZM_PERSONAS_HISTORICOSNODOS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -16853,7 +16858,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     design-time-name="Package\ULCD Tarea Flujo de datos 5 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="253,42"
           Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS"
@@ -16921,9 +16926,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16945,9 +16948,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16981,9 +16982,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17005,9 +17004,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17029,9 +17026,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17053,9 +17048,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17077,9 +17070,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17101,9 +17092,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

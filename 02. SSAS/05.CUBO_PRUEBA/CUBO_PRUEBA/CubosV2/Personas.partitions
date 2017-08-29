@@ -1,0 +1,173 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="b1af50e1-8f55-43ac-8fe2-9da217409562" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Personas</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>H PERSONAL ASISTENTE</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="28b0252e-9d78-4e7a-a526-4168c8d359ef">
+          <ID>H PERSONAL ASISTENTE</ID>
+          <Name>H PERSONAL ASISTENTE</Name>
+          <CreatedTimestamp>2017-07-05T08:34:54.906667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:58:13.136667Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-29T08:23:32.136667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="a7eb5be5-9c81-4922-ba4a-02fc8e0b06f7">
+            <DataSourceViewID>Personas</DataSourceViewID>
+            <TableID>dbo_H_PERSONAL_ASISTENTE</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="73ec1ad5-3333-489b-9677-c8e59866291d">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="422dec04-c759-4d97-9356-81282e59f730" />
+          </ProactiveCaching>
+          <EstimatedSize>181312</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H PERSONAL ENCUESTAS</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="87820ba3-c354-45a4-b58b-7aebfcea12a0">
+          <ID>H PERSONAL ENCUESTAS</ID>
+          <Name>H PERSONAL ENCUESTAS</Name>
+          <CreatedTimestamp>2017-07-05T08:34:54.923333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:58:13.153333Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-29T08:23:32.293333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="61cae369-c112-4881-8668-d5933c9de129">
+            <DataSourceViewID>Personas</DataSourceViewID>
+            <TableID>dbo_H_PERSONAL_ENCUESTAS</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="0d62c61c-90d1-42f0-9143-ea31cd7192b0">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="4b66bd39-4217-4225-9abd-75ea60705fe3" />
+          </ProactiveCaching>
+          <EstimatedSize>494473</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H PERSONAL FORMACION</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="340bca45-b139-4bda-8ccf-f9546e7abd16">
+          <ID>H PERSONAL FORMACION</ID>
+          <Name>H PERSONAL FORMACION</Name>
+          <CreatedTimestamp>2017-07-05T08:34:54.936667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:58:13.166667Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-29T08:23:31.966667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="7a4977a2-ea77-4520-9d48-34bc2762a1c4">
+            <DataSourceViewID>Personas</DataSourceViewID>
+            <TableID>dbo_H_PERSONAL_FORMACION</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="b1572b3c-a741-41c8-b2ad-da35c0bbd739">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="eed424d4-3bb7-444a-b5d0-fba7e21301b4" />
+          </ProactiveCaching>
+          <EstimatedSize>23109</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H PERSONAL PRESUPUESTOS</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="b33ec338-ae8f-4fd6-84de-35867c3d0818">
+          <ID>H PERSONAL PRESUPUESTOS</ID>
+          <Name>H PERSONAL PRESUPUESTOS</Name>
+          <CreatedTimestamp>2017-07-05T08:34:55.046667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:58:13.183333Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-29T08:23:31.956667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6d493b8a-5163-4001-82ed-72081b4175c6">
+            <DataSourceViewID>Personas</DataSourceViewID>
+            <TableID>dbo_H_PERSONAL_PRESUPUESTOS</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="bfdc992f-b50d-4dce-97fe-20e0bd42672b">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="75896abd-872b-4417-a81e-356b0c7d1dc3" />
+          </ProactiveCaching>
+          <EstimatedSize>497</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>J PERSONAL NODOS</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c476e81c-3c0e-47bb-b155-69619abef6c4">
+          <ID>J PERSONAL NODOS</ID>
+          <Name>J PERSONAL NODOS</Name>
+          <CreatedTimestamp>2017-07-06T07:13:18.343333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:58:13.2Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-29T08:23:31.956667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="9724c36b-727d-4412-b0a4-9087738b70c8">
+            <DataSourceViewID>Personas</DataSourceViewID>
+            <TableID>dbo_J_PERSONAL_NODOS</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="f09fc91e-6fbb-4f31-99cc-4228d736ca70">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="5b954663-29f6-4ce3-b9bd-70358dd5a21d" />
+          </ProactiveCaching>
+          <EstimatedSize>3578</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>M PERSONAL EJERCICIOS</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="112b90a9-db8d-4213-9b29-26a42c896456">
+          <ID>M PERSONAL EJERCICIOS</ID>
+          <Name>M PERSONAL EJERCICIOS</Name>
+          <CreatedTimestamp>2017-07-18T08:31:09.116667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:58:13.213333Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-29T08:23:31.953333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="c680c7d0-4fc1-4074-b027-ed88148d5fd1">
+            <DataSourceViewID>Personas</DataSourceViewID>
+            <TableID>dbo_M_PERSONAL_EJERCICIOS</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="573a1c03-0275-4ab1-9c3d-2b7e8a9a6ffc">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ad9d3b78-fb4c-4fd1-8870-f0f1846d7518" />
+          </ProactiveCaching>
+          <EstimatedSize>254</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

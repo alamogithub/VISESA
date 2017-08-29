@@ -31,7 +31,7 @@
             <Name>_ALL_TABLES_</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="110" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="7336" scrolltop="58270" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="15081" y="14102" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="111" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="21555" scrolltop="20820" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="15081" y="14102" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
                     <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                   </font>
@@ -847,12 +847,32 @@
                     <point x="8979" y="23812" />
                   </connector>
                 </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="14304" top="1380" logicalid="110" controlid="56" masterid="0" hint1="0" hint2="0" width="886" height="30505" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="2" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[V_COMERCIAL_ACTIVIDAD-M_ESTADO]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="13" destid="1" sourceattachpoint="1" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="14703" y="1879" />
+                    <point x="14703" y="16732" />
+                    <point x="14890" y="16732" />
+                    <point x="14890" y="31585" />
+                  </connector>
+                </ddscontrol>
               </dds>
 </DiagramLayout>
             <ShowRelationshipNames>False</ShowRelationshipNames>
             <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
-            <DiagramViewPortLeft>7336</DiagramViewPortLeft>
-            <DiagramViewPortTop>58270</DiagramViewPortTop>
+            <DiagramViewPortLeft>21555</DiagramViewPortLeft>
+            <DiagramViewPortTop>20820</DiagramViewPortTop>
             <DiagramBoundingLeft>0</DiagramBoundingLeft>
             <DiagramBoundingTop>0</DiagramBoundingTop>
             <DiagramZoom>75</DiagramZoom>
@@ -1076,7 +1096,7 @@
                   <xs:element name="Renta_x0020_anual" msprop:design-time-name="58efa41c-e7d3-4f76-9d1a-f29080228d52" msprop:DbColumnName="Renta anual" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Contraprestacion_x0020_con_x0020_IVA" msprop:design-time-name="95a55a1e-e254-4878-b548-fdc477f5b0bb" msprop:DbColumnName="Contraprestacion con IVA" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Contraprestacion" msprop:design-time-name="8cec77d0-f8ee-49bd-8339-a8dd5d671a6a" msprop:DbColumnName="Contraprestacion" type="xs:decimal" minOccurs="0" />
-                  <xs:element name="Direccion_Completa" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="Calle+ ', '+[Portal (segun Ayto_)]+', '+[Planta (segun Ayto_)]+' '+[Mano_Letra (segun Ayto_)]" msprop:IsLogical="True" msprop:design-time-name="8241b028-de9b-45d3-bfa6-336992c665a9" msprop:DbColumnName="Direccion_Completa" minOccurs="0">
+                  <xs:element name="Direccion_Completa" msdata:ReadOnly="true" msprop:design-time-name="8241b028-de9b-45d3-bfa6-336992c665a9" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Direccion_Completa" msprop:ComputedColumnExpression="Calle+ ', '+[Portal (segun Ayto_)]+', '+[Planta (segun Ayto_)]+' '+[Mano_Letra (segun Ayto_)]" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="95" />
@@ -1462,7 +1482,7 @@
             <xs:element name="dbo_M_ESTADO" msprop:design-time-name="d515f536-ec8a-479e-a7d7-c53468681f38" msprop:FriendlyName="M_ESTADO" msprop:DbSchemaName="dbo" msprop:DbTableName="M_ESTADO" msprop:TableType="Table">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="ID_ESTADO" msprop:design-time-name="8494ef45-729e-4352-801e-a6139c2323eb" msprop:DbColumnName="ID_ESTADO" msprop:FriendlyName="ID_ESTADO" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_ESTADO" msprop:design-time-name="8494ef45-729e-4352-801e-a6139c2323eb" msprop:DbColumnName="ID_ESTADO" msprop:FriendlyName="ID_ESTADO" type="xs:int" />
                   <xs:element name="DESC_ESTADO" msprop:design-time-name="bd99b826-a3e5-469b-8da2-2f9ef7e5a711" msprop:DbColumnName="DESC_ESTADO" msprop:FriendlyName="DESC_ESTADO" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
@@ -1768,6 +1788,10 @@
           <xs:selector xpath=".//dbo_M_BOOLEAN" />
           <xs:field xpath="ID_BOOLEAN" />
         </xs:unique>
+        <xs:unique name="dbo_M_ESTADO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_M_ESTADO" />
+          <xs:field xpath="ID_ESTADO" />
+        </xs:unique>
         <xs:unique name="dbo_M_ESTADO_ESPECIAL_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
           <xs:selector xpath=".//dbo_M_ESTADO_ESPECIAL" />
           <xs:field xpath="ID_ESTADO_ESPECIAL" />
@@ -1851,6 +1875,7 @@
           <msdata:Relationship name="J_T03_MUNICIPIO-J_T02_PROVINCIA" msdata:parent="dbo_J_T02_PROVINCIA" msdata:child="dbo_J_T03_MUNICIPIO" msdata:parentkey="ID_PROVINCIA" msdata:childkey="ID_PROVINCIA" />
           <msdata:Relationship name="V_COMERCIAL_ACTIVIDAD-J_T03_MUNICIPIO" msdata:parent="dbo_J_T03_MUNICIPIO" msdata:child="dbo_H_COMERCIAL_ACTIVIDAD" msdata:parentkey="ID_MUNICIPIO" msdata:childkey="ID_MUNICIPIO" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="J_P06_ELEMENTO-J_P06_ELEMENTO" msdata:parent="dbo_J_P06_ELEMENTO" msdata:child="dbo_J_P06_ELEMENTO" msdata:parentkey="ID_ELEMENTO" msdata:childkey="ID_ELEMENTO_PRINCIPAL" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="V_COMERCIAL_ACTIVIDAD-M_ESTADO" msdata:parent="dbo_M_ESTADO" msdata:child="dbo_H_COMERCIAL_ACTIVIDAD" msdata:parentkey="ID_ESTADO" msdata:childkey="ID_ESTADO" msprop:IsLogical="True" msprop:Description="" />
         </xs:appinfo>
       </xs:annotation>
     </xs:schema>

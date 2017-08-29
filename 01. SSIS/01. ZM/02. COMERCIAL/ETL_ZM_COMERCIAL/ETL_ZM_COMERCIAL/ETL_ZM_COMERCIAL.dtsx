@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_ZM_COMERCIAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{7E953C55-4FCF-49E9-A5C9-D942E5BDF6C7}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{ED5642FD-BF40-414B-9A1C-D92CF1E9E562}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -84,8 +84,8 @@
       DTS:ConfigString="SRVSQLBI\VISESABI.VISESABI"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="Escribe entradas del registro sobre eventos en una base de datos de SQL Server"
-      DTS:DTSID="{F6E956C2-A92A-41AC-8291-F312C89FED14}"
-      DTS:ObjectName="Proveedor de registro SSIS para SQL Server">
+      DTS:DTSID="{8B92C8E4-C989-4E2C-8552-63B4E78761BB}"
+      DTS:ObjectName="Proveedor de registro SSIS para SQL Server3">
       <DTS:ObjectData>
         <InnerObject />
       </DTS:ObjectData>
@@ -123,7 +123,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Corte">
       <DTS:VariableValue
-        DTS:DataType="7">7/31/2017</DTS:VariableValue>
+        DTS:DataType="7">8/31/2017</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -134,7 +134,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Sistema">
       <DTS:VariableValue
-        DTS:DataType="7">7/26/2017 11:55:42 AM</DTS:VariableValue>
+        DTS:DataType="7">8/29/2017 9:58:35 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -145,7 +145,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Mes_Corte">
       <DTS:VariableValue
-        DTS:DataType="3">7</DTS:VariableValue>
+        DTS:DataType="3">8</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -156,7 +156,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Mes_Corte_Texto">
       <DTS:VariableValue
-        DTS:DataType="8">7\</DTS:VariableValue>
+        DTS:DataType="8">8\</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -179,7 +179,12 @@
   </DTS:Variables>
   <DTS:LoggingOptions
     DTS:FilterKind="0"
-    DTS:LoggingMode="2" />
+    DTS:LoggingMode="1">
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{8B92C8E4-C989-4E2C-8552-63B4E78761BB}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Deletes"

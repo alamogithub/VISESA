@@ -1,0 +1,495 @@
+﻿<Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <ProductVersion>13.0.1701.8</ProductVersion>
+  <SchemaVersion>9.0.2.10</SchemaVersion>
+  <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkZGw1MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAiIHhtbG5zOmRkbDUwMF81MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAvNTAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
+  <Database>
+    <Name>MultidimensionalProject1.database</Name>
+    <FullPath>MultidimensionalProject1.database</FullPath>
+  </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>Comercial.cube</Name>
+      <FullPath>Comercial.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Comercial.partitions</Name>
+          <FullPath>Comercial.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>COMERCIALV2.cube</Name>
+      <FullPath>COMERCIALV2.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>COMERCIALV2.partitions</Name>
+          <FullPath>COMERCIALV2.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Ecofin.cube</Name>
+      <FullPath>Ecofin.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Ecofin.partitions</Name>
+          <FullPath>Ecofin.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Personas.cube</Name>
+      <FullPath>Personas.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Personas.partitions</Name>
+          <FullPath>Personas.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>Act Comercial.dim</Name>
+      <FullPath>Act Comercial.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Actividad Comercial.dim</Name>
+      <FullPath>Actividad Comercial.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Activo fijo.dim</Name>
+      <FullPath>Activo fijo.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Adjudicacion Directa.dim</Name>
+      <FullPath>Adjudicacion Directa.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Alquiler.dim</Name>
+      <FullPath>Alquiler.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>AROC.dim</Name>
+      <FullPath>AROC.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Año del sorteo.dim</Name>
+      <FullPath>Año del sorteo.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>BOOL ACCESO IND.dim</Name>
+      <FullPath>BOOL ACCESO IND.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>BOOL ADJ PROMO.dim</Name>
+      <FullPath>BOOL ADJ PROMO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>BOOL ALQUILER.dim</Name>
+      <FullPath>BOOL ALQUILER.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>BOOL AROC.dim</Name>
+      <FullPath>BOOL AROC.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>BOOL CV PAG APL.dim</Name>
+      <FullPath>BOOL CV PAG APL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>BOOL CV.dim</Name>
+      <FullPath>BOOL CV.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>BOOL ELEM LIBRE.dim</Name>
+      <FullPath>BOOL ELEM LIBRE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>BOOL STOCK PROMO.dim</Name>
+      <FullPath>BOOL STOCK PROMO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>BOOL VIV ADAP.dim</Name>
+      <FullPath>BOOL VIV ADAP.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>BOOL VIV BAJA DEN.dim</Name>
+      <FullPath>BOOL VIV BAJA DEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Características Asistencia.dim</Name>
+      <FullPath>Características Asistencia.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Cliente.dim</Name>
+      <FullPath>Cliente.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Compra Venta.dim</Name>
+      <FullPath>Compra Venta.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Código postal.dim</Name>
+      <FullPath>Código postal.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Ecofin-Comercial.dim</Name>
+      <FullPath>Ecofin-Comercial.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Ejercicios.dim</Name>
+      <FullPath>Ejercicios.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Elemento libre.dim</Name>
+      <FullPath>Elemento libre.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>En STOCK.dim</Name>
+      <FullPath>En STOCK.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Encuestas.dim</Name>
+      <FullPath>Encuestas.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Estado de la promoción.dim</Name>
+      <FullPath>Estado de la promoción.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Estado especial.dim</Name>
+      <FullPath>Estado especial.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Estado Promocion.dim</Name>
+      <FullPath>Estado Promocion.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Estado.dim</Name>
+      <FullPath>Estado.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fecha Corte Ecofin.dim</Name>
+      <FullPath>Fecha Corte Ecofin.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fecha corte.dim</Name>
+      <FullPath>Fecha corte.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fecha de contrato AROC.dim</Name>
+      <FullPath>Fecha de contrato AROC.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fecha de contrato CV.dim</Name>
+      <FullPath>Fecha de contrato CV.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fecha de escritura.dim</Name>
+      <FullPath>Fecha de escritura.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fecha entrega.dim</Name>
+      <FullPath>Fecha entrega.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fecha registro.dim</Name>
+      <FullPath>Fecha registro.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fecha sorteo.dim</Name>
+      <FullPath>Fecha sorteo.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>H COMERCIAL ACTIVIDAD11.dim</Name>
+      <FullPath>H COMERCIAL ACTIVIDAD11.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>H COMERCIAL ACTIVIDAD2.dim</Name>
+      <FullPath>H COMERCIAL ACTIVIDAD2.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>H PERSONAL FORMACION.dim</Name>
+      <FullPath>H PERSONAL FORMACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ID_MES.dim</Name>
+      <FullPath>ID_MES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Indicadores.dim</Name>
+      <FullPath>Indicadores.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>J P06 ELEMENTO.dim</Name>
+      <FullPath>J P06 ELEMENTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>J PERSONAL NODOS.dim</Name>
+      <FullPath>J PERSONAL NODOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>J T03 MUNICIPIO.dim</Name>
+      <FullPath>J T03 MUNICIPIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>J TIEMPO.dim</Name>
+      <FullPath>J TIEMPO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Jerarquía proyecto.dim</Name>
+      <FullPath>Jerarquía proyecto.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Jerarquía territorial.dim</Name>
+      <FullPath>Jerarquía territorial.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M ESTADO ESPECIAL.dim</Name>
+      <FullPath>M ESTADO ESPECIAL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M MODALIDAD COMPRA.dim</Name>
+      <FullPath>M MODALIDAD COMPRA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M MODIF CALIF.dim</Name>
+      <FullPath>M MODIF CALIF.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M OK TECNICO.dim</Name>
+      <FullPath>M OK TECNICO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M REGIMEN ACCESO Y USO.dim</Name>
+      <FullPath>M REGIMEN ACCESO Y USO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M REGIMEN TENENCIA.dim</Name>
+      <FullPath>M REGIMEN TENENCIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M TIPO ADJUDICACION.dim</Name>
+      <FullPath>M TIPO ADJUDICACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M TIPO ANTICIPO.dim</Name>
+      <FullPath>M TIPO ANTICIPO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M TIPO CONTRAPRESTACION.dim</Name>
+      <FullPath>M TIPO CONTRAPRESTACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M TIPO ELEMENTO.dim</Name>
+      <FullPath>M TIPO ELEMENTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M TIPO IVA.dim</Name>
+      <FullPath>M TIPO IVA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M TIPO PRECIO.dim</Name>
+      <FullPath>M TIPO PRECIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M TIPO RENTA.dim</Name>
+      <FullPath>M TIPO RENTA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M TIPO VENTA.dim</Name>
+      <FullPath>M TIPO VENTA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M TIPO VIVIENDA.dim</Name>
+      <FullPath>M TIPO VIVIENDA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Modalidad de compra.dim</Name>
+      <FullPath>Modalidad de compra.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Modificación de la calificación.dim</Name>
+      <FullPath>Modificación de la calificación.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Movimientos.dim</Name>
+      <FullPath>Movimientos.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>OK Técnico.dim</Name>
+      <FullPath>OK Técnico.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Plan de Cuentas.dim</Name>
+      <FullPath>Plan de Cuentas.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Promoción en STOCK.dim</Name>
+      <FullPath>Promoción en STOCK.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Propiedades Elemento.dim</Name>
+      <FullPath>Propiedades Elemento.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Régimen de acceso y uso.dim</Name>
+      <FullPath>Régimen de acceso y uso.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Régimen de tenencia.dim</Name>
+      <FullPath>Régimen de tenencia.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>STOCK.dim</Name>
+      <FullPath>STOCK.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo de adjudicación.dim</Name>
+      <FullPath>Tipo de adjudicación.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo de anticipo.dim</Name>
+      <FullPath>Tipo de anticipo.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo de contraprestación.dim</Name>
+      <FullPath>Tipo de contraprestación.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo de elemento.dim</Name>
+      <FullPath>Tipo de elemento.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo de precio.dim</Name>
+      <FullPath>Tipo de precio.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo de renta.dim</Name>
+      <FullPath>Tipo de renta.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo de venta.dim</Name>
+      <FullPath>Tipo de venta.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tipo de vivienda.dim</Name>
+      <FullPath>Tipo de vivienda.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vivienda adaptada.dim</Name>
+      <FullPath>Vivienda adaptada.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>COMERCIAL.ds</Name>
+      <FullPath>COMERCIAL.ds</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Ecofin.ds</Name>
+      <FullPath>Ecofin.ds</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>VISESABI 1.ds</Name>
+      <FullPath>VISESABI 1.ds</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>VISESABI.ds</Name>
+      <FullPath>VISESABI.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>COMERCIALV2.dsv</Name>
+      <FullPath>COMERCIALV2.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Ecofin.dsv</Name>
+      <FullPath>Ecofin.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Personas.dsv</Name>
+      <FullPath>Personas.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>VISESABI 1.dsv</Name>
+      <FullPath>VISESABI 1.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>VISESABI.dsv</Name>
+      <FullPath>VISESABI.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
+  <Roles>
+    <ProjectItem>
+      <Name>Usuario_Comercial.role</Name>
+      <FullPath>Usuario_Comercial.role</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Usuario_EcoFin.role</Name>
+      <FullPath>Usuario_EcoFin.role</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Usuario_Personas.role</Name>
+      <FullPath>Usuario_Personas.role</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Usuario_Todo.role</Name>
+      <FullPath>Usuario_Todo.role</FullPath>
+    </ProjectItem>
+  </Roles>
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>COMERCIAL</Id>
+            <Name>COMERCIAL</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>Ecofin</Id>
+            <Name>Ecofin</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>VISESABI 1</Id>
+            <Name>VISESABI 1</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>VISESABI</Id>
+            <Name>VISESABI</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>COMERCIAL</Id>
+            <Name>COMERCIAL</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>Ecofin</Id>
+            <Name>Ecofin</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>VISESABI 1</Id>
+            <Name>VISESABI 1</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>VISESABI</Id>
+            <Name>VISESABI</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+        <DeploymentServerEdition>Enterprise</DeploymentServerEdition>
+      </Options>
+    </Configuration>
+  </Configurations>
+</Project>

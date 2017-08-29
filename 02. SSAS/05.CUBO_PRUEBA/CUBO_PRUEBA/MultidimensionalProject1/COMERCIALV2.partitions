@@ -1,0 +1,61 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="bad04454-005d-45a6-80ab-d3ec7ba90bbb" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>COMERCIALV2</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>H COMERCIAL ACTIVIDAD2</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="1c06e244-59c1-4cbf-a200-e778884b79dd">
+          <ID>H COMERCIAL ACTIVIDAD2</ID>
+          <Name>H COMERCIAL ACTIVIDAD2</Name>
+          <CreatedTimestamp>2017-07-28T12:49:47.453333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:25:23.543333Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-29T10:25:33.573333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="894ebe64-22cc-4beb-ac48-a8c6037b8047">
+            <DataSourceViewID>cO</DataSourceViewID>
+            <TableID>dbo_H_COMERCIAL_ACTIVIDAD2</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="26434698-6b82-4351-aa73-ed06550191d6">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="cc31937a-7bd2-473e-b2a9-fb68e08bca74" />
+          </ProactiveCaching>
+          <EstimatedSize>7399889</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H COMERCIAL ACTIVIDAD2 1</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="7edd39d5-c410-439c-8755-c0ba7693b787">
+          <ID>H COMERCIAL ACTIVIDAD2</ID>
+          <Name>H COMERCIAL ACTIVIDAD2</Name>
+          <CreatedTimestamp>2017-08-02T08:48:31.746667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:25:23.573333Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-29T10:25:32.76Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3e3ce10f-3cc6-43be-ba94-6a59674bf369">
+            <DataSourceViewID>cO</DataSourceViewID>
+            <TableID>dbo_H_COMERCIAL_ACTIVIDAD2</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="9c1e4a4c-7401-416a-b3d4-00ab8c2001c0">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="31cf816a-a745-4421-abc6-c85f03d5411a" />
+          </ProactiveCaching>
+          <EstimatedSize>2718862</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>
