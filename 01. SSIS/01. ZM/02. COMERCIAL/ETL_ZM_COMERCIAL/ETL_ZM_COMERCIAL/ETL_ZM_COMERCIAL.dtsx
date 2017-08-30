@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_ZM_COMERCIAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{ED5642FD-BF40-414B-9A1C-D92CF1E9E562}">
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{C6AF62B2-AD1A-497D-A9F5-76550F3384C3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -134,7 +134,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Sistema">
       <DTS:VariableValue
-        DTS:DataType="7">8/29/2017 9:58:35 AM</DTS:VariableValue>
+        DTS:DataType="7">8/30/2017 9:30:36 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -4147,7 +4147,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">Presupuestos$</property>
+                  name="OpenRowset">'Previsiones Escrituras$'</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -4242,11 +4242,10 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA.Outputs[Salida de origen de OLE DB].Columns[PREVISION_JULIO]"
-                      dataType="wstr"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA.Outputs[Salida de origen de OLE DB].ExternalColumns[PREVISION_JULIO]"
-                      length="255"
                       lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA.Outputs[Salida de origen de OLE DB].Columns[PREVISION_JULIO]"
                       name="PREVISION_JULIO"
                       truncationRowDisposition="FailComponent" />
@@ -4298,8 +4297,7 @@
                       name="PREVISION_ENERO" />
                     <externalMetadataColumn
                       refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA.Outputs[Salida de origen de OLE DB].ExternalColumns[PREVISION_JULIO]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="PREVISION_JULIO" />
                     <externalMetadataColumn
                       refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA.Outputs[Salida de origen de OLE DB].ExternalColumns[PREVISION_ANUAL_ACT]"
@@ -4348,8 +4346,7 @@
                       name="PREVISION_ENERO" />
                     <outputColumn
                       refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA.Outputs[Salida de error de origen de OLE DB].Columns[PREVISION_JULIO]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA.Outputs[Salida de error de origen de OLE DB].Columns[PREVISION_JULIO]"
                       name="PREVISION_JULIO" />
                     <outputColumn
@@ -4374,6 +4371,238 @@
                       refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Comercial_PLANTILLA 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">'Previsiones Contratos$'</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Data Connection]"
+                  connectionManagerRefId="Package.ConnectionManagers[Data Connection]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[COD_PROMOCION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[COD_PROMOCION]"
+                      length="255"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[COD_PROMOCION]"
+                      name="COD_PROMOCION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[COD_CALIFICACION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[COD_CALIFICACION]"
+                      length="255"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[COD_CALIFICACION]"
+                      name="COD_CALIFICACION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[CLIENTE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[CLIENTE(Ayuntamiento,alokabide,cliente)]"
+                      length="255"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[CLIENTE]"
+                      name="CLIENTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[PRESUPUESTO_CONT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[PRESUPUESTO]"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[PRESUPUESTO_CONT]"
+                      name="PRESUPUESTO_CONT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[PREVISION_ENERO_CONT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[PREVISION_ENERO]"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[PREVISION_ENERO_CONT]"
+                      name="PREVISION_ENERO_CONT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[PREVISION_JULIO_CONT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[PREVISION_JULIO]"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[PREVISION_JULIO_CONT]"
+                      name="PREVISION_JULIO_CONT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[PREVISION_ANUAL_ACT_CONT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[PREVISION_ANUAL_ACT]"
+                      length="255"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].Columns[PREVISION_ANUAL_ACT_CONT]"
+                      name="PREVISION_ANUAL_ACT_CONT"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[COD_PROMOCION]"
+                      dataType="wstr"
+                      length="255"
+                      name="COD_PROMOCION" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[COD_CALIFICACION]"
+                      dataType="wstr"
+                      length="255"
+                      name="COD_CALIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[CLIENTE(Ayuntamiento,alokabide,cliente)]"
+                      dataType="wstr"
+                      length="255"
+                      name="CLIENTE(Ayuntamiento,alokabide,cliente)" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[PRESUPUESTO]"
+                      dataType="wstr"
+                      length="255"
+                      name="PRESUPUESTO" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[PREVISION_ENERO]"
+                      dataType="wstr"
+                      length="255"
+                      name="PREVISION_ENERO" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[PREVISION_JULIO]"
+                      dataType="wstr"
+                      length="255"
+                      name="PREVISION_JULIO" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB].ExternalColumns[PREVISION_ANUAL_ACT]"
+                      dataType="wstr"
+                      length="255"
+                      name="PREVISION_ANUAL_ACT" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[COD_PROMOCION]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[COD_PROMOCION]"
+                      name="COD_PROMOCION" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[COD_CALIFICACION]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[COD_CALIFICACION]"
+                      name="COD_CALIFICACION" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[CLIENTE(Ayuntamiento,alokabide,cliente)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[CLIENTE(Ayuntamiento,alokabide,cliente)]"
+                      name="CLIENTE(Ayuntamiento,alokabide,cliente)" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[PRESUPUESTO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[PRESUPUESTO]"
+                      name="PRESUPUESTO" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[PREVISION_ENERO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[PREVISION_ENERO]"
+                      name="PREVISION_ENERO" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[PREVISION_JULIO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[PREVISION_JULIO]"
+                      name="PREVISION_JULIO" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[PREVISION_ANUAL_ACT]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[PREVISION_ANUAL_ACT]"
+                      name="PREVISION_ANUAL_ACT" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -4488,8 +4717,7 @@
                       lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA.Outputs[Salida de origen de OLE DB].Columns[PREVISION_ENERO]" />
                     <inputColumn
                       refId="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[PREVISION_JULIO]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedDataType="r8"
                       cachedName="PREVISION_JULIO"
                       externalMetadataColumnId="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PREVISION_JULIO]"
                       lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA.Outputs[Salida de origen de OLE DB].Columns[PREVISION_JULIO]" />
@@ -4656,6 +4884,79 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="poner fecha actual 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1.Outputs[Salida de columna derivada].Columns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1.Outputs[Salida de columna derivada].Columns[F_EJECUCION]"
+                      name="F_EJECUCION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -4668,6 +4969,11 @@
               endId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
               startId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de origen de OLE DB1]"
+              endId="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1.Outputs[Salida de origen de OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -9584,7 +9890,7 @@
     design-time-name="Package\ZM_COMERCIAL_PRESUPUESTOS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="168,42"
           Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB"
@@ -9616,9 +9922,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9640,9 +9944,37 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1"
+          TopLeft="252,107.5" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1"
+          TopLeft="248.5,5.5" />
+        <EdgeLayout
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de origen de OLE DB1]"
+          TopLeft="337.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9899,6 +10231,19 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ZM_COMERCIAL_RES_IMP_AROC\ZM_COMERCIAL_RES_IMP_AROC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

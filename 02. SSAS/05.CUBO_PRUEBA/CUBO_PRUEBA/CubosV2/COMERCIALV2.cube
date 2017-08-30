@@ -1370,6 +1370,7 @@
         </Attribute>
         <Attribute dwd:design-time-name="0574e073-60e9-4fb1-a78e-aeb9a7afce10">
           <AttributeID>ID MES</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
         </Attribute>
         <Attribute dwd:design-time-name="75afe8aa-a549-43a0-8bbc-e38374ee45ed">
           <AttributeID>ADJ DIR</AttributeID>
@@ -1498,6 +1499,9 @@
         </Attribute>
         <Attribute dwd:design-time-name="85dfcd81-6a6c-4c6a-aea4-da450bae9f6e">
           <AttributeID>PROMOCION CORTO</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bbdde66c-04c3-4c96-b61c-55b039988757">
+          <AttributeID>SIN OCUPAR</AttributeID>
         </Attribute>
       </Attributes>
       <Hierarchies>
@@ -2096,6 +2100,7 @@
           <DataType>Date</DataType>
           <Source dwd:design-time-name="8c09bbf2-34d4-4f4b-a244-8cced9361392">
             <DataType>Date</DataType>
+            <NullProcessing>Preserve</NullProcessing>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="690286fd-f4c2-413f-a76a-e70dd5deb795">
               <TableID>dbo_H_COMERCIAL_ACTIVIDAD2</TableID>
               <ColumnID>FECHA_1_ESCRITURA</ColumnID>
@@ -5294,55 +5299,57 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If deleted or modified, the data within the cube will be affected.
 This command should only be edited if you intend on manually specifying how the cube will be aggregated.
 */
-CALCULATE;   
+CALCULATE;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Viviendas]
  AS Sum([Measures].[Nº Elementos],[Act Comercial].[Tipo Elemento].&amp;[0]), 
-VISIBLE = 1;   
+VISIBLE = 1;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Escrituras (Viviendas)]
  AS sum([Measures].[ESCRITURAS TOTAL],[Act Comercial].[Tipo Elemento].&amp;[0]), 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Escrituras Año (Viviendas)]
  AS sum([Measures].[Escrituras Año],[Act Comercial].[Tipo Elemento].&amp;[0]), 
-VISIBLE = 1;   
+VISIBLE = 1;    
 
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos (Viviendas)]
  AS sum([Measures].[CONTRATOS CV TOTAL],[Act Comercial].[Tipo Elemento].&amp;[0]), 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos Año (Viviendas)]
  AS sum([Measures].[Contratos CV Año],[Act Comercial].[Tipo Elemento].&amp;[0]), 
-VISIBLE = 1;   
+VISIBLE = 1;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC (Viviendas)]
  AS sum([Measures].[CONTRATOS AROC TOTAL],[Act Comercial].[Tipo Elemento].&amp;[0]), 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Contratos AROC Año (Viviendas)]
  AS sum([Measures].[Contratos AROC Año],[Act Comercial].[Tipo Elemento].&amp;[0]), 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Escrituras CV AROC Año (Viviendas)]
  AS sum([Measures].[Escrituras CV AROC Año],[Act Comercial].[Tipo Elemento].&amp;[0]), 
-VISIBLE = 1;   
+VISIBLE = 1;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Prev Contrato AROC]
  AS Sum([Measures].[Nº Contratos AROC (Viviendas)],[Act Comercial].[Estado].&amp;[ACEPTADA]), 
-VISIBLE = 1;   
+VISIBLE = 1;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Precio Medio]
  AS [Measures].[Precio Venta]/[Measures].[Nº Viviendas], 
-VISIBLE = 1;   
+VISIBLE = 1;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Viviendas Sin Ocupar Todas]
  AS [Measures].[Nº Viviendas]-[Measures].[Nº Contratos (Viviendas)]-[Nº Contratos AROC (Viviendas)], 
-VISIBLE = 1;   
+FORMAT_STRING = "Standard", 
+VISIBLE = 1  ;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Viviendas Sin Ocupar en STOCK]
  AS sum([Act Comercial].[Promoción en STOCK].&amp;[1],[Measures].[Nº Viviendas Sin Ocupar Todas]), 
-VISIBLE = 1;   
+FORMAT_STRING = "0", 
+VISIBLE = 1  ;    
 CREATE MEMBER CURRENTCUBE.[Measures].[% Contratos]
  AS ([Measures].[Nº Contratos (Viviendas)]/[Measures].[Nº Viviendas]), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1  ;   
+VISIBLE = 1;    
 CREATE MEMBER CURRENTCUBE.[Measures].[% Escrituras]
  AS ([Measures].[Nº Escrituras (Viviendas)]/[Measures].[Nº Viviendas]), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1  ;   
+VISIBLE = 1;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Aceptadas (Pte Contrato)]
  AS Sum([Measures].[Nº Viviendas],[Act Comercial].[Estado].&amp;[ACEPTADA]), 
-VISIBLE = 1;   
+VISIBLE = 1;    
 CREATE MEMBER CURRENTCUBE.[Measures].[Nº Notificaciones en Curso]
  AS SUM(EXISTING {[Act Comercial].[Estado].&amp;[ACEPTADA],[Act Comercial].[Estado].&amp;[ADJUDICADA],[Act Comercial].[Estado].&amp;[NOTIFICADA]}
       ,[Measures].[Nº Viviendas]), 
