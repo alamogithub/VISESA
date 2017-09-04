@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_COMERCIAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="282"
-  DTS:VersionGUID="{DBB7E0E4-6020-454A-8330-C414149D6748}">
+  DTS:VersionBuild="290"
+  DTS:VersionGUID="{A00AC6F3-9B42-472C-815D-AD4133C4C444}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2544,7 +2544,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Sistema">
       <DTS:VariableValue
-        DTS:DataType="7">8/30/2017 11:53:02 AM</DTS:VariableValue>
+        DTS:DataType="7">8/30/2017 2:26:53 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -3006,1000 +3006,6 @@ where [refTable].[COD_CALIFICACION] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\ETL_Comercial\Columna derivada"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
-              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
-              name="Columna derivada"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada]"
-                  description="Entrada en la transformación Columna derivada"
-                  name="Entrada de columna derivada">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha aprob_ modif_ Precio]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha aprob_ modif_ Precio"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aprob_ modif_ Precio]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aprob_ modif_ Precio]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aprob_ modif_ Precio]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aprob_ modif_ Precio]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha aprob_ modif_ Precio] &gt; @[User::Fecha_corte] || [Fecha aprob_ modif_ Precio] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha aprob_ modif_ Precio]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha adjudicacion]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha adjudicacion"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha adjudicacion]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha adjudicacion]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha adjudicacion]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha adjudicacion]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha adjudicacion] &gt; @[User::Fecha_corte] || [Fecha adjudicacion] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha adjudicacion]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha recepcion Etxebide]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha recepcion Etxebide"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion Etxebide]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion Etxebide]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion Etxebide]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion Etxebide]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha recepcion Etxebide] &gt; @[User::Fecha_corte] || [Fecha recepcion Etxebide] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha recepcion Etxebide]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha notificacion]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha notificacion"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha notificacion]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha notificacion]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha notificacion]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha notificacion]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha notificacion] &gt; @[User::Fecha_corte] || [Fecha notificacion] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha notificacion]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha recibo notificacion]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha recibo notificacion"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recibo notificacion]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recibo notificacion]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recibo notificacion]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recibo notificacion]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha recibo notificacion] &gt; @[User::Fecha_corte] || [Fecha recibo notificacion] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha recibo notificacion]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha aceptacion]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha aceptacion"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aceptacion]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aceptacion]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aceptacion]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aceptacion]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha aceptacion] &gt; @[User::Fecha_corte] || [Fecha aceptacion] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha aceptacion]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha reserva]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha reserva"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha reserva]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha reserva]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha reserva]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha reserva]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha reserva] &gt; @[User::Fecha_corte] || [Fecha reserva] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha reserva]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha renuncia]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha renuncia"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha renuncia]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha renuncia]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha renuncia]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha renuncia]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha renuncia] &gt; @[User::Fecha_corte] || [Fecha renuncia] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha renuncia]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha rescision]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha rescision"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha rescision]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha rescision]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha rescision]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha rescision]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha rescision] &gt; @[User::Fecha_corte] || [Fecha rescision] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha rescision]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha comunicado Etxebide]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha comunicado Etxebide"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha comunicado Etxebide]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha comunicado Etxebide]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha comunicado Etxebide]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha comunicado Etxebide]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha comunicado Etxebide] &gt; @[User::Fecha_corte] || [Fecha comunicado Etxebide] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha comunicado Etxebide]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha financiacion EC]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha financiacion EC"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha financiacion EC]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha financiacion EC]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha financiacion EC]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha financiacion EC]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha financiacion EC] &gt; @[User::Fecha_corte] || [Fecha financiacion EC] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha financiacion EC]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha solicitud anular reserva]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha solicitud anular reserva"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud anular reserva]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud anular reserva]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud anular reserva]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud anular reserva]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha solicitud anular reserva] &gt; @[User::Fecha_corte] || [Fecha solicitud anular reserva] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha solicitud anular reserva]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha solicitud adj_ Directa]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha solicitud adj_ Directa"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud adj_ Directa]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud adj_ Directa]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud adj_ Directa]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud adj_ Directa]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha solicitud adj_ Directa] &gt; @[User::Fecha_corte] || [Fecha solicitud adj_ Directa] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha solicitud adj_ Directa]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha baja incumplimiento req_]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha baja incumplimiento req_"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha baja incumplimiento req_]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha baja incumplimiento req_]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha baja incumplimiento req_]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha baja incumplimiento req_]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha baja incumplimiento req_] &gt; @[User::Fecha_corte] || [Fecha baja incumplimiento req_] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha baja incumplimiento req_]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha solicitud cambio viviend]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha solicitud cambio viviend"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud cambio viviend]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud cambio viviend]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud cambio viviend]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud cambio viviend]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha solicitud cambio viviend] &gt; @[User::Fecha_corte] || [Fecha solicitud cambio viviend] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha solicitud cambio viviend]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha prevista contrato]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha prevista contrato"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha prevista contrato]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha prevista contrato]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha prevista contrato]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha prevista contrato]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha prevista contrato] &gt; @[User::Fecha_corte] || [Fecha prevista contrato] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha prevista contrato]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha firma contrato CV]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha firma contrato CV"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato CV]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato CV]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato CV]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato CV]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha firma contrato CV] &gt; @[User::Fecha_corte] || [Fecha firma contrato CV] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha firma contrato CV]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha ingreso anticipo 1]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha ingreso anticipo 1"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 1]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 1]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 1]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 1]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha ingreso anticipo 1] &gt; @[User::Fecha_corte] || [Fecha ingreso anticipo 1] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha ingreso anticipo 1]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha ingreso anticipo 2]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha ingreso anticipo 2"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 2]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 2]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 2]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 2]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha ingreso anticipo 2] &gt; @[User::Fecha_corte] || [Fecha ingreso anticipo 2] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha ingreso anticipo 2]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha ingreso anticipo 3]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha ingreso anticipo 3"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 3]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 3]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 3]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 3]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha ingreso anticipo 3] &gt; @[User::Fecha_corte] || [Fecha ingreso anticipo 3] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha ingreso anticipo 3]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha solicitado resolucion]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha solicitado resolucion"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado resolucion]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado resolucion]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado resolucion]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado resolucion]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha solicitado resolucion] &gt; @[User::Fecha_corte] || [Fecha solicitado resolucion] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha solicitado resolucion]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha recepcion resolucion]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha recepcion resolucion"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion resolucion]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion resolucion]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion resolucion]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion resolucion]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha recepcion resolucion] &gt; @[User::Fecha_corte] || [Fecha recepcion resolucion] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha recepcion resolucion]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha solicitado visado]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha solicitado visado"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado visado]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado visado]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado visado]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado visado]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha solicitado visado] &gt; @[User::Fecha_corte] || [Fecha solicitado visado] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha solicitado visado]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha recepción visado]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha recepción visado"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepción visado]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepción visado]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepción visado]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepción visado]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha recepción visado] &gt; @[User::Fecha_corte] || [Fecha recepción visado] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha recepción visado]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha visado contrato CV]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha visado contrato CV"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha visado contrato CV]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha visado contrato CV]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha visado contrato CV]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha visado contrato CV]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha visado contrato CV] &gt; @[User::Fecha_corte] || [Fecha visado contrato CV] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha visado contrato CV]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha anexo 1 contrato]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha anexo 1 contrato"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 1 contrato]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 1 contrato]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 1 contrato]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 1 contrato]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha anexo 1 contrato] &gt; @[User::Fecha_corte] || [Fecha anexo 1 contrato] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha anexo 1 contrato]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha anexo 2 contrato]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha anexo 2 contrato"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 2 contrato]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 2 contrato]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 2 contrato]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 2 contrato]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha anexo 2 contrato] &gt; @[User::Fecha_corte] || [Fecha anexo 2 contrato] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha anexo 2 contrato]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha anexo 3 contrato]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha anexo 3 contrato"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 3 contrato]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 3 contrato]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 3 contrato]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 3 contrato]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha anexo 3 contrato] &gt; @[User::Fecha_corte] || [Fecha anexo 3 contrato] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha anexo 3 contrato]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha anexo 4 contrato]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha anexo 4 contrato"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 4 contrato]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 4 contrato]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 4 contrato]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 4 contrato]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha anexo 4 contrato] &gt; @[User::Fecha_corte] || [Fecha anexo 4 contrato] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha anexo 4 contrato]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[F_ Prevista firma escritura]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="F_ Prevista firma escritura"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[F_ Prevista firma escritura]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[F_ Prevista firma escritura]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[F_ Prevista firma escritura]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[F_ Prevista firma escritura]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[F_ Prevista firma escritura] &gt; @[User::Fecha_corte] || [F_ Prevista firma escritura] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [F_ Prevista firma escritura]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha VB Cliente]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha VB Cliente"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha VB Cliente]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha VB Cliente]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha VB Cliente]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha VB Cliente]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha VB Cliente] &gt; @[User::Fecha_corte] || [Fecha VB Cliente] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha VB Cliente]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha firma escritura]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha firma escritura"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma escritura]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma escritura]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma escritura]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma escritura]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha firma escritura] &gt; @[User::Fecha_corte] || [Fecha firma escritura] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha firma escritura]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha minuta]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha minuta"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha minuta]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha minuta]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha minuta]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha minuta]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha minuta] &gt; @[User::Fecha_corte] || [Fecha minuta] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha minuta]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha eleva publico rescision]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha eleva publico rescision"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha eleva publico rescision]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha eleva publico rescision]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha eleva publico rescision]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha eleva publico rescision]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha eleva publico rescision] &gt; @[User::Fecha_corte] || [Fecha eleva publico rescision] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha eleva publico rescision]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha cambio CV-AROC]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha cambio CV-AROC"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio CV-AROC]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio CV-AROC]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio CV-AROC]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio CV-AROC]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha cambio CV-AROC] &gt; @[User::Fecha_corte] || [Fecha cambio CV-AROC] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha cambio CV-AROC]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha cambio AROC-CV]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha cambio AROC-CV"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio AROC-CV]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio AROC-CV]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio AROC-CV]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio AROC-CV]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha cambio AROC-CV] &gt; @[User::Fecha_corte] || [Fecha cambio AROC-CV] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha cambio AROC-CV]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha recepcion solicitud]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha recepcion solicitud"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion solicitud]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion solicitud]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion solicitud]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion solicitud]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha recepcion solicitud] &gt; @[User::Fecha_corte] || [Fecha recepcion solicitud] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha recepcion solicitud]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha facturacion API]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha facturacion API"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha facturacion API]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha facturacion API]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha facturacion API]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha facturacion API]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha facturacion API] &gt; @[User::Fecha_corte] || [Fecha facturacion API] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha facturacion API]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[Fecha firma contrato AROC]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha firma contrato AROC"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato AROC]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato AROC]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato AROC]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato AROC]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">[Fecha firma contrato AROC] &gt; @[User::Fecha_corte] || [Fecha firma contrato AROC] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha firma contrato AROC]</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[fecha_1_escr]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="fecha_1_escr"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_escr]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_escr]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_escr]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_escr]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">fecha_1_escr &gt; @[User::Fecha_corte] || fecha_1_escr &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : fecha_1_escr</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada].Columns[fecha_1_contr]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="fecha_1_contr"
-                      errorOrTruncationOperation="Cálculo"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_contr]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión de columna derivada"
-                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_contr]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_contr]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_contr]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expresión descriptiva de columna derivada"
-                          expressionType="Notify"
-                          name="FriendlyExpression">fecha_1_contr &gt; @[User::Fecha_corte] || fecha_1_contr &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : fecha_1_contr</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\ETL_Comercial\Columna derivada.Outputs[Salida de columna derivada]"
-                  description="Salida predeterminada de la transformación Columna derivada"
-                  exclusionGroup="1"
-                  name="Salida de columna derivada"
-                  synchronousInputId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\ETL_Comercial\Columna derivada.Outputs[Salida de error de columna derivada]"
-                  description="Salida de error de la transformación Columna derivada"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Salida de error de columna derivada"
-                  synchronousInputId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\ETL_Comercial\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\ETL_Comercial\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\ETL_Comercial\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\ETL_Comercial\Columna derivada 1"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
@@ -4152,6 +3158,35 @@ where [refTable].[COD_CALIFICACION] = ?</property>
                       cachedDataType="i4"
                       cachedName="num_viv_calif"
                       lineageId="Package\ETL_Comercial\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[num_viv_calif]" />
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[ID_PRODUCTO_PRINCIPAL]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="ID_PRODUCTO_PRINCIPAL"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[ID_PRODUCTO_PRINCIPAL]" />
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Columna derivada 1.Inputs[Entrada de columna derivada].Columns[SIN_OCUPAR]"
+                      cachedDataType="i4"
+                      cachedName="SIN_OCUPAR"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[SIN_OCUPAR]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[ISNULL](#{Package\ETL_Comercial\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[ID_PRODUCTO_PRINCIPAL]}) &amp;&amp; #{Package\ETL_Comercial\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[ID_TIPO_ELEMENTO]} != 0 ? 0 : #{Package\ETL_Comercial\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[SIN_OCUPAR]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(ID_PRODUCTO_PRINCIPAL) &amp;&amp; ID_TIPO_ELEMENTO != 0 ? 0 : SIN_OCUPAR</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -16441,6 +15476,1000 @@ where [refTable].[COD_CALIFICACION] = ?</property>
                       refId="Package\ETL_Comercial\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\ETL_Comercial\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL_Comercial\Fechas"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Fechas"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha aprob_ modif_ Precio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha aprob_ modif_ Precio"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aprob_ modif_ Precio]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aprob_ modif_ Precio]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aprob_ modif_ Precio]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aprob_ modif_ Precio]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha aprob_ modif_ Precio] &gt; @[User::Fecha_corte] || [Fecha aprob_ modif_ Precio] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha aprob_ modif_ Precio]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha adjudicacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha adjudicacion"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha adjudicacion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha adjudicacion]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha adjudicacion]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha adjudicacion]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha adjudicacion] &gt; @[User::Fecha_corte] || [Fecha adjudicacion] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha adjudicacion]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha recepcion Etxebide]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha recepcion Etxebide"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion Etxebide]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion Etxebide]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion Etxebide]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion Etxebide]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha recepcion Etxebide] &gt; @[User::Fecha_corte] || [Fecha recepcion Etxebide] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha recepcion Etxebide]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha notificacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha notificacion"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha notificacion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha notificacion]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha notificacion]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha notificacion]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha notificacion] &gt; @[User::Fecha_corte] || [Fecha notificacion] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha notificacion]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha recibo notificacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha recibo notificacion"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recibo notificacion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recibo notificacion]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recibo notificacion]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recibo notificacion]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha recibo notificacion] &gt; @[User::Fecha_corte] || [Fecha recibo notificacion] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha recibo notificacion]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha aceptacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha aceptacion"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aceptacion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aceptacion]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aceptacion]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha aceptacion]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha aceptacion] &gt; @[User::Fecha_corte] || [Fecha aceptacion] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha aceptacion]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha reserva]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha reserva"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha reserva]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha reserva]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha reserva]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha reserva]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha reserva] &gt; @[User::Fecha_corte] || [Fecha reserva] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha reserva]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha renuncia]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha renuncia"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha renuncia]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha renuncia]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha renuncia]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha renuncia]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha renuncia] &gt; @[User::Fecha_corte] || [Fecha renuncia] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha renuncia]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha rescision]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha rescision"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha rescision]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha rescision]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha rescision]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha rescision]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha rescision] &gt; @[User::Fecha_corte] || [Fecha rescision] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha rescision]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha comunicado Etxebide]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha comunicado Etxebide"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha comunicado Etxebide]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha comunicado Etxebide]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha comunicado Etxebide]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha comunicado Etxebide]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha comunicado Etxebide] &gt; @[User::Fecha_corte] || [Fecha comunicado Etxebide] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha comunicado Etxebide]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha financiacion EC]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha financiacion EC"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha financiacion EC]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha financiacion EC]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha financiacion EC]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha financiacion EC]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha financiacion EC] &gt; @[User::Fecha_corte] || [Fecha financiacion EC] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha financiacion EC]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha solicitud anular reserva]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha solicitud anular reserva"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud anular reserva]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud anular reserva]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud anular reserva]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud anular reserva]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha solicitud anular reserva] &gt; @[User::Fecha_corte] || [Fecha solicitud anular reserva] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha solicitud anular reserva]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha solicitud adj_ Directa]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha solicitud adj_ Directa"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud adj_ Directa]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud adj_ Directa]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud adj_ Directa]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud adj_ Directa]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha solicitud adj_ Directa] &gt; @[User::Fecha_corte] || [Fecha solicitud adj_ Directa] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha solicitud adj_ Directa]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha baja incumplimiento req_]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha baja incumplimiento req_"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha baja incumplimiento req_]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha baja incumplimiento req_]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha baja incumplimiento req_]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha baja incumplimiento req_]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha baja incumplimiento req_] &gt; @[User::Fecha_corte] || [Fecha baja incumplimiento req_] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha baja incumplimiento req_]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha solicitud cambio viviend]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha solicitud cambio viviend"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud cambio viviend]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud cambio viviend]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud cambio viviend]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitud cambio viviend]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha solicitud cambio viviend] &gt; @[User::Fecha_corte] || [Fecha solicitud cambio viviend] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha solicitud cambio viviend]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha prevista contrato]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha prevista contrato"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha prevista contrato]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha prevista contrato]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha prevista contrato]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha prevista contrato]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha prevista contrato] &gt; @[User::Fecha_corte] || [Fecha prevista contrato] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha prevista contrato]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha firma contrato CV]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha firma contrato CV"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato CV]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato CV]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato CV]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato CV]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha firma contrato CV] &gt; @[User::Fecha_corte] || [Fecha firma contrato CV] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha firma contrato CV]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha ingreso anticipo 1]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha ingreso anticipo 1"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 1]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 1]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 1]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 1]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha ingreso anticipo 1] &gt; @[User::Fecha_corte] || [Fecha ingreso anticipo 1] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha ingreso anticipo 1]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha ingreso anticipo 2]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha ingreso anticipo 2"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 2]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 2]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 2]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 2]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha ingreso anticipo 2] &gt; @[User::Fecha_corte] || [Fecha ingreso anticipo 2] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha ingreso anticipo 2]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha ingreso anticipo 3]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha ingreso anticipo 3"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 3]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 3]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 3]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha ingreso anticipo 3]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha ingreso anticipo 3] &gt; @[User::Fecha_corte] || [Fecha ingreso anticipo 3] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha ingreso anticipo 3]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha solicitado resolucion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha solicitado resolucion"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado resolucion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado resolucion]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado resolucion]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado resolucion]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha solicitado resolucion] &gt; @[User::Fecha_corte] || [Fecha solicitado resolucion] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha solicitado resolucion]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha recepcion resolucion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha recepcion resolucion"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion resolucion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion resolucion]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion resolucion]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion resolucion]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha recepcion resolucion] &gt; @[User::Fecha_corte] || [Fecha recepcion resolucion] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha recepcion resolucion]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha solicitado visado]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha solicitado visado"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado visado]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado visado]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado visado]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha solicitado visado]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha solicitado visado] &gt; @[User::Fecha_corte] || [Fecha solicitado visado] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha solicitado visado]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha recepción visado]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha recepción visado"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepción visado]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepción visado]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepción visado]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepción visado]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha recepción visado] &gt; @[User::Fecha_corte] || [Fecha recepción visado] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha recepción visado]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha visado contrato CV]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha visado contrato CV"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha visado contrato CV]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha visado contrato CV]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha visado contrato CV]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha visado contrato CV]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha visado contrato CV] &gt; @[User::Fecha_corte] || [Fecha visado contrato CV] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha visado contrato CV]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha anexo 1 contrato]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha anexo 1 contrato"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 1 contrato]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 1 contrato]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 1 contrato]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 1 contrato]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha anexo 1 contrato] &gt; @[User::Fecha_corte] || [Fecha anexo 1 contrato] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha anexo 1 contrato]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha anexo 2 contrato]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha anexo 2 contrato"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 2 contrato]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 2 contrato]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 2 contrato]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 2 contrato]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha anexo 2 contrato] &gt; @[User::Fecha_corte] || [Fecha anexo 2 contrato] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha anexo 2 contrato]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha anexo 3 contrato]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha anexo 3 contrato"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 3 contrato]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 3 contrato]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 3 contrato]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 3 contrato]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha anexo 3 contrato] &gt; @[User::Fecha_corte] || [Fecha anexo 3 contrato] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha anexo 3 contrato]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha anexo 4 contrato]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha anexo 4 contrato"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 4 contrato]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 4 contrato]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 4 contrato]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha anexo 4 contrato]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha anexo 4 contrato] &gt; @[User::Fecha_corte] || [Fecha anexo 4 contrato] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha anexo 4 contrato]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[F_ Prevista firma escritura]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="F_ Prevista firma escritura"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[F_ Prevista firma escritura]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[F_ Prevista firma escritura]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[F_ Prevista firma escritura]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[F_ Prevista firma escritura]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[F_ Prevista firma escritura] &gt; @[User::Fecha_corte] || [F_ Prevista firma escritura] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [F_ Prevista firma escritura]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha VB Cliente]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha VB Cliente"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha VB Cliente]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha VB Cliente]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha VB Cliente]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha VB Cliente]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha VB Cliente] &gt; @[User::Fecha_corte] || [Fecha VB Cliente] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha VB Cliente]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha firma escritura]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha firma escritura"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma escritura]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma escritura]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma escritura]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma escritura]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha firma escritura] &gt; @[User::Fecha_corte] || [Fecha firma escritura] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha firma escritura]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha minuta]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha minuta"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha minuta]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha minuta]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha minuta]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha minuta]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha minuta] &gt; @[User::Fecha_corte] || [Fecha minuta] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha minuta]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha eleva publico rescision]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha eleva publico rescision"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha eleva publico rescision]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha eleva publico rescision]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha eleva publico rescision]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha eleva publico rescision]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha eleva publico rescision] &gt; @[User::Fecha_corte] || [Fecha eleva publico rescision] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha eleva publico rescision]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha cambio CV-AROC]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha cambio CV-AROC"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio CV-AROC]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio CV-AROC]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio CV-AROC]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio CV-AROC]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha cambio CV-AROC] &gt; @[User::Fecha_corte] || [Fecha cambio CV-AROC] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha cambio CV-AROC]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha cambio AROC-CV]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha cambio AROC-CV"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio AROC-CV]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio AROC-CV]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio AROC-CV]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha cambio AROC-CV]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha cambio AROC-CV] &gt; @[User::Fecha_corte] || [Fecha cambio AROC-CV] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha cambio AROC-CV]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha recepcion solicitud]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha recepcion solicitud"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion solicitud]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion solicitud]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion solicitud]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha recepcion solicitud]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha recepcion solicitud] &gt; @[User::Fecha_corte] || [Fecha recepcion solicitud] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha recepcion solicitud]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha facturacion API]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha facturacion API"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha facturacion API]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha facturacion API]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha facturacion API]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha facturacion API]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha facturacion API] &gt; @[User::Fecha_corte] || [Fecha facturacion API] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha facturacion API]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[Fecha firma contrato AROC]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha firma contrato AROC"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato AROC]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato AROC]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato AROC]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha firma contrato AROC]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Fecha firma contrato AROC] &gt; @[User::Fecha_corte] || [Fecha firma contrato AROC] &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : [Fecha firma contrato AROC]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[fecha_1_escr]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_1_escr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_escr]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_escr]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_escr]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_escr]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">fecha_1_escr &gt; @[User::Fecha_corte] || fecha_1_escr &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : fecha_1_escr</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada].Columns[fecha_1_contr]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_1_contr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_contr]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_contr]} &gt; @[User::Fecha_corte] || #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_contr]} &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : #{Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha_1_contr]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">fecha_1_contr &gt; @[User::Fecha_corte] || fecha_1_contr &lt; (DT_DBTIMESTAMP)"1800-01-01" ? NULL(DT_DBTIMESTAMP) : fecha_1_contr</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL_Comercial\Fechas.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL_Comercial\Fechas.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL_Comercial\Fechas.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL_Comercial\Fechas.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL_Comercial\Fechas.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL_Comercial\Fechas.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -42081,7 +42110,7 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
               refId="Package\ETL_Comercial.Paths[Salida de columna derivada1]"
               endId="Package\ETL_Comercial\Stock y nulls.Inputs[Entrada de columna derivada]"
               name="Salida de columna derivada"
-              startId="Package\ETL_Comercial\Columna derivada.Outputs[Salida de columna derivada]" />
+              startId="Package\ETL_Comercial\Fechas.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\ETL_Comercial.Paths[Salida de columna derivada2]"
               endId="Package\ETL_Comercial\División condicional.Inputs[Entrada de división condicional]"
@@ -42114,7 +42143,7 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
               startId="Package\ETL_Comercial\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\ETL_Comercial.Paths[Salida de combinación de mezcla1]"
-              endId="Package\ETL_Comercial\Columna derivada.Inputs[Entrada de columna derivada]"
+              endId="Package\ETL_Comercial\Fechas.Inputs[Entrada de columna derivada]"
               name="Salida de combinación de mezcla"
               startId="Package\ETL_Comercial\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
             <path
@@ -42124,14 +42153,14 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
               startId="Package\ETL_Comercial\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda1]"
-              endId="Package\ETL_Comercial\Se pone el ID_MES y FECHA_MODIFICACION 1 1.Inputs[Entrada de columna derivada]"
-              name="Salida de entradas coincidentes de búsqueda"
-              startId="Package\ETL_Comercial\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda]" />
-            <path
-              refId="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda]"
               endId="Package\ETL_Comercial\Búsqueda 1.Inputs[Entrada de búsqueda]"
               name="Salida de entradas coincidentes de búsqueda"
               startId="Package\ETL_Comercial\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\ETL_Comercial\Se pone el ID_MES y FECHA_MODIFICACION 1 1.Inputs[Entrada de columna derivada]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\ETL_Comercial\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
               refId="Package\ETL_Comercial.Paths[Salida de entradas no coincidentes de búsqueda]"
               endId="Package\ETL_Comercial\Destino de archivo plano 1.Inputs[Entrada de destino de archivo plano]"
@@ -42169,24 +42198,24 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
               startId="Package\ETL_Comercial\Ordenar.Outputs[Salida de ordenación]" />
             <path
               refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB3]"
+              endId="Package\ETL_Comercial\Columna derivada 2.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\ETL_Comercial\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB]"
               endId="Package\ETL_Comercial\Ordenar 3.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
               startId="Package\ETL_Comercial\ZM_COMERCIAL_RELACION 1.Outputs[Salida de origen de OLE DB]" />
             <path
-              refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB]"
+              refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB1]"
               endId="Package\ETL_Comercial\Columna derivada 3.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
               startId="Package\ETL_Comercial\ZM_COMERCIAL_ELEMENTO y V_Relacion.Outputs[Salida de origen de OLE DB]" />
             <path
-              refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB1]"
+              refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB2]"
               endId="Package\ETL_Comercial\Ordenar.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
               startId="Package\ETL_Comercial\ZM_COMERCIAL_RELACION.Outputs[Salida de origen de OLE DB]" />
-            <path
-              refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB2]"
-              endId="Package\ETL_Comercial\Columna derivada 2.Inputs[Entrada de columna derivada]"
-              name="Salida de origen de OLE DB"
-              startId="Package\ETL_Comercial\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\ETL_Comercial.Paths[Salida predeterminada de división condicional]"
               endId="Package\ETL_Comercial\H_COMERCIAL_ACTIVIDAD2.Inputs[Entrada de destino de OLE DB]"
@@ -42604,8 +42633,8 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
           Id="Package\ETL_Comercial\Stock y nulls"
           TopLeft="638.5,1028.5" />
         <NodeLayout
-          Size="164,42"
-          Id="Package\ETL_Comercial\Columna derivada"
+          Size="111,42"
+          Id="Package\ETL_Comercial\Fechas"
           TopLeft="643,926.5" />
         <NodeLayout
           Size="199,42"
@@ -42721,28 +42750,6 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB3]"
-          TopLeft="725,662.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB2]"
           TopLeft="87.4999999999998,1359">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -42776,7 +42783,7 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB1]"
+          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB2]"
           TopLeft="641,458">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -42798,8 +42805,30 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB]"
+          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB1]"
           TopLeft="328,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB]"
+          TopLeft="725,662.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -43061,30 +43090,6 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda1]"
-          TopLeft="328,355.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-99.8190234375,20.15234375,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="347.5,253.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -43116,6 +43121,30 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-109.5690234375,29.4549763033175,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="328,355.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-99.8190234375,20.15234375,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -43159,14 +43188,26 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-26.5,60"
               Start="0,0"
-              End="0,52.5">
+              End="-26.5,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-22.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,30"
+                    Point2="-26.5,30"
+                    Point3="-26.5,34" />
+                  <mssgle:LineSegment
+                    End="-26.5,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -43381,13 +43422,13 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida de columna derivada1]"
-          TopLeft="725,968.5">
+          TopLeft="698.5,968.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-17.5,60"
+              EndConnector="9,60"
               Start="0,0"
-              End="-17.5,52.5">
+              End="9,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -43396,15 +43437,15 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
                   <mssgle:CubicBezierSegment
                     Point1="0,26"
                     Point2="0,30"
-                    Point3="-4,30" />
+                    Point3="4,30" />
                   <mssgle:LineSegment
-                    End="-13.5,30" />
+                    End="5,30" />
                   <mssgle:CubicBezierSegment
-                    Point1="-13.5,30"
-                    Point2="-17.5,30"
-                    Point3="-17.5,34" />
+                    Point1="5,30"
+                    Point2="9,30"
+                    Point3="9,34" />
                   <mssgle:LineSegment
-                    End="-17.5,52.5" />
+                    End="9,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
