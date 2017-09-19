@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="72"
-  DTS:VersionGUID="{21EE2335-9933-44CD-AFDA-CA360657AE18}">
+  DTS:VersionBuild="83"
+  DTS:VersionGUID="{CB2E629E-6BFB-416D-9C7A-C1FC6BBBEF06}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -183,13 +183,13 @@
                       description="Especifica la instrucción SQL que genera la tabla de búsqueda."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[M_EDIFICIO]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[M_CORONACION_EDIFICIO]</property>
                     <property
                       dataType="System.String"
                       description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[M_EDIFICIO]) [refTable]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[M_CORONACION_EDIFICIO]) [refTable]
 where [refTable].[DESC_EDIFICIO] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -418,7 +418,7 @@ where [refTable].[DESC_EDIFICIO] = ?</property>
                           refId="Package\Foreach Loop Container\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ID_EDIFICIO]"
                           cachedDataType="i4"
                           cachedName="ID_EDIFICIO"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor10]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_EDIFICIO]"
                           lineageId="Package\Foreach Loop Container\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_EDIFICIO]" />
                       </inputColumns>
                       <externalMetadataColumns
@@ -473,6 +473,10 @@ where [refTable].[DESC_EDIFICIO] = ?</property>
                           dataType="wstr"
                           length="255"
                           name="Valor10" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_EDIFICIO]"
+                          dataType="i4"
+                          name="ID_EDIFICIO" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -732,14 +736,14 @@ WHERE F1 IS NOT NULL</property>
                           cachedLength="255"
                           cachedName="F1"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor1]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F1]" />
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de origen de Excel].Columns[F1]" />
                         <inputColumn
                           refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F2]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="F2"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor2]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F2]" />
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de origen de Excel].Columns[F2]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -793,6 +797,10 @@ WHERE F1 IS NOT NULL</property>
                           dataType="wstr"
                           length="255"
                           name="Valor10" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_EDIFICIO]"
+                          dataType="i4"
+                          name="ID_EDIFICIO" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -822,11 +830,11 @@ WHERE F1 IS NOT NULL</property>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1"
+                  refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10"
                   componentClassID="Microsoft.ExcelSource"
                   contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
                   description="Origen de Excel"
-                  name="Origen de Excel 1"
+                  name="Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10"
                   usesDispositions="true"
                   version="1">
                   <properties>
@@ -846,7 +854,7 @@ WHERE F1 IS NOT NULL</property>
                       dataType="System.String"
                       description="Comando SQL para ejecutar."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM [FICHA$g:h]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM [FICHA$g47:h]
 WHERE F1 IS NOT NULL</property>
                     <property
                       dataType="System.String"
@@ -864,7 +872,7 @@ WHERE F1 IS NOT NULL</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Connections[OleDbConnection]"
+                      refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Connections[OleDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
                       connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
                       description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -872,71 +880,71 @@ WHERE F1 IS NOT NULL</property>
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de origen de Excel]"
+                      refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de origen de Excel]"
                       name="Salida de origen de Excel">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F1]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de origen de Excel].Columns[F1]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F1]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de origen de Excel].ExternalColumns[F1]"
                           length="255"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F1]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de origen de Excel].Columns[F1]"
                           name="F1"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F2]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de origen de Excel].Columns[F2]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F2]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de origen de Excel].ExternalColumns[F2]"
                           length="255"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F2]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de origen de Excel].Columns[F2]"
                           name="F2"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F1]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de origen de Excel].ExternalColumns[F1]"
                           dataType="wstr"
                           length="255"
                           name="F1" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F2]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de origen de Excel].ExternalColumns[F2]"
                           dataType="wstr"
                           length="255"
                           name="F2" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de error de origen de Excel]"
+                      refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de error de origen de Excel]"
                       isErrorOut="true"
                       name="Salida de error de origen de Excel">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F1]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de error de origen de Excel].Columns[F1]"
                           dataType="wstr"
                           length="255"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F1]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de error de origen de Excel].Columns[F1]"
                           name="F1" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F2]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de error de origen de Excel].Columns[F2]"
                           dataType="wstr"
                           length="255"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F2]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de error de origen de Excel].Columns[F2]"
                           name="F2" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -950,7 +958,7 @@ WHERE F1 IS NOT NULL</property>
                   refId="Package\Foreach Loop Container\Tarea Flujo de datos 1.Paths[Salida de origen de Excel]"
                   endId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
                   name="Salida de origen de Excel"
-                  startId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1.Outputs[Salida de origen de Excel]" />
+                  startId="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10.Outputs[Salida de origen de Excel]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -1109,8 +1117,134 @@ WHERE F1 IS NOT NULL</property>
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="ID_EDIFICIO"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor10]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_EDIFICIO]"
                           lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ID_EDIFICIO]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor10]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor10"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor10]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor10]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor11]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor11"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor11]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor11]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor12]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor12"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor12]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor12]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor14]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor14"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor14]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor14]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor13]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor13"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor13]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor13]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor15]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor15"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor15]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor15]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor16]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor16"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor16]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor16]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor18]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor18"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor18]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor18]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor17]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor17"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor17]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor17]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor19]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor19"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor19]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor19]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor21]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor21"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor21]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor21]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor20]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor20"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor20]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor20]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor22]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor22"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor22]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor22]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor23]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor23"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor23]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor23]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor24]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor24"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor24]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor24]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor25]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor25"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor25]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor25]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor26]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor26"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor26]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor26]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Valor27]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Valor27"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor27]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor27]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1164,6 +1298,95 @@ WHERE F1 IS NOT NULL</property>
                           dataType="wstr"
                           length="255"
                           name="Valor10" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_EDIFICIO]"
+                          dataType="i4"
+                          name="ID_EDIFICIO" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor11]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor11" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor12]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor12" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor13]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor13" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor14]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor14" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor15]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor15" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor16]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor16" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor17]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor17" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor18]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor18" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor19]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor19" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor20]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor20" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor21]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor21" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor22]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor22" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor23]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor23" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor24]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor24" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor25]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor25" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor26]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor26" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor27]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor27" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1228,7 +1451,25 @@ WHERE F1 IS NOT NULL</property>
      ,[Valor8]
      ,[Valor9]
      ,[Valor10]
-,(select max(valor10)  from [VISESABI].[dbo].[ZM_TEMP_CORONACION] )as ID_EDIFICIO
+     ,[Valor11]
+     ,[Valor12]
+     ,[Valor13]
+     ,[Valor14]
+     ,[Valor15]
+   ,[Valor16]
+     ,[Valor17]
+     ,[Valor18]
+     ,[Valor19]
+     ,[Valor20]
+     ,[Valor21]
+     ,[Valor22]
+     ,[Valor23]
+     ,[Valor24]
+     ,[Valor25]
+ ,[Valor26]
+     ,[Valor27]
+
+,(select max(ID_EDIFICIO)  from [VISESABI].[dbo].[ZM_TEMP_CORONACION] )as ID_EDIFICIO
  FROM [VISESABI].[dbo].[ZM_TEMP_CORONACION]</property>
                     <property
                       dataType="System.String"
@@ -1375,6 +1616,176 @@ WHERE F1 IS NOT NULL</property>
                           lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ID_EDIFICIO]"
                           name="ID_EDIFICIO"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor11]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor11]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor11]"
+                          name="Valor11"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor12]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor12]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor12]"
+                          name="Valor12"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor13]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor13]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor13]"
+                          name="Valor13"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor14]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor14]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor14]"
+                          name="Valor14"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor15]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor15]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor15]"
+                          name="Valor15"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor16]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor16]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor16]"
+                          name="Valor16"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor17]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor17]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor17]"
+                          name="Valor17"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor18]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor18]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor18]"
+                          name="Valor18"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor19]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor19]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor19]"
+                          name="Valor19"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor20]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor20]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor20]"
+                          name="Valor20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor21]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor21]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor21]"
+                          name="Valor21"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor22]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor22]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor22]"
+                          name="Valor22"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor23]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor23]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor23]"
+                          name="Valor23"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor24]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor24]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor24]"
+                          name="Valor24"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor25]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor25]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor25]"
+                          name="Valor25"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor26]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor26]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor26]"
+                          name="Valor26"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor27]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor27]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Valor27]"
+                          name="Valor27"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1430,9 +1841,93 @@ WHERE F1 IS NOT NULL</property>
                           name="Valor10" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ID_EDIFICIO]"
+                          dataType="i4"
+                          name="ID_EDIFICIO" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor11]"
                           dataType="wstr"
                           length="255"
-                          name="ID_EDIFICIO" />
+                          name="Valor11" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor12]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor12" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor13]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor13" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor14]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor14" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor15]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor15" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor16]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor16" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor17]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor17" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor18]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor18" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor19]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor19" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor20]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor20" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor21]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor21" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor22]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor22" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor23]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor23" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor24]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor24" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor25]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor25" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor26]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor26" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Valor27]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor27" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -1501,9 +1996,110 @@ WHERE F1 IS NOT NULL</property>
                           lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor10]"
                           name="Valor10" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ID_EDIFICIO]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor11]"
                           dataType="wstr"
                           length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor11]"
+                          name="Valor11" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor12]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor12]"
+                          name="Valor12" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor13]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor13]"
+                          name="Valor13" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor14]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor14]"
+                          name="Valor14" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor15]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor15]"
+                          name="Valor15" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor16]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor16]"
+                          name="Valor16" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor17]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor17]"
+                          name="Valor17" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor18]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor18]"
+                          name="Valor18" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor19]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor19]"
+                          name="Valor19" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor20]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor20]"
+                          name="Valor20" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor21]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor21]"
+                          name="Valor21" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor22]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor22]"
+                          name="Valor22" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor23]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor23]"
+                          name="Valor23" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor24]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor24]"
+                          name="Valor24" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor25]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor25]"
+                          name="Valor25" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor26]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor26]"
+                          name="Valor26" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor27]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Valor27]"
+                          name="Valor27" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ID_EDIFICIO]"
+                          dataType="i4"
                           lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ID_EDIFICIO]"
                           name="ID_EDIFICIO" />
                         <outputColumn
@@ -1660,6 +2256,40 @@ WHERE F1 IS NOT NULL</property>
                           cachedName="F6"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor6]"
                           lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F6]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F7]"
+                          cachedDataType="cy"
+                          cachedName="F7"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor7]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F7]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F8]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="F8"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor8]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F8]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F9]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="F9"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor9]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F9]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F10]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="F10"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor10]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F10]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F11]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="F11"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor11]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F11]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1713,6 +2343,35 @@ WHERE F1 IS NOT NULL</property>
                           dataType="wstr"
                           length="255"
                           name="Valor10" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_EDIFICIO]"
+                          dataType="i4"
+                          name="ID_EDIFICIO" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor11]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor11" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor12]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor12" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor13]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor13" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor14]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor14" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor15]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor15" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1766,7 +2425,7 @@ WHERE F1 IS NOT NULL</property>
                       dataType="System.String"
                       description="Comando SQL para ejecutar."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM [Presupuesto tipo$a:g]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM [Presupuesto tipo$a:k]
 WHERE F1 IS NOT NULL</property>
                     <property
                       dataType="System.String"
@@ -1862,6 +2521,46 @@ WHERE F1 IS NOT NULL</property>
                           lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F7]"
                           name="F7"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F8]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F8]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F8]"
+                          name="F8"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F9]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F9]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F9]"
+                          name="F9"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F10]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F10]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F10]"
+                          name="F10"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F11]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F11]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F11]"
+                          name="F11"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1896,6 +2595,26 @@ WHERE F1 IS NOT NULL</property>
                           refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F7]"
                           dataType="cy"
                           name="F7" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F8]"
+                          dataType="wstr"
+                          length="255"
+                          name="F8" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F9]"
+                          dataType="wstr"
+                          length="255"
+                          name="F9" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F10]"
+                          dataType="wstr"
+                          length="255"
+                          name="F10" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F11]"
+                          dataType="wstr"
+                          length="255"
+                          name="F11" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -1941,6 +2660,30 @@ WHERE F1 IS NOT NULL</property>
                           dataType="cy"
                           lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F7]"
                           name="F7" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F8]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F8]"
+                          name="F8" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F9]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F9]"
+                          name="F9" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F10]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F10]"
+                          name="F10" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F11]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F11]"
+                          name="F11" />
                         <outputColumn
                           refId="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
                           dataType="i4"
@@ -2056,63 +2799,171 @@ WHERE F1 IS NOT NULL</property>
                       name="Entrada de destino de OLE DB">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F1]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[b]"
                           cachedDataType="wstr"
                           cachedLength="255"
-                          cachedName="F1"
+                          cachedName="b"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor1]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F1]" />
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[b]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F2]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[c]"
                           cachedDataType="wstr"
                           cachedLength="255"
-                          cachedName="F2"
+                          cachedName="c"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor2]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F2]" />
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[c]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F3]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[d]"
                           cachedDataType="wstr"
                           cachedLength="255"
-                          cachedName="F3"
+                          cachedName="d"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor3]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F3]" />
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[d]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F4]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[e]"
                           cachedDataType="r8"
-                          cachedName="F4"
+                          cachedName="e"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor4]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F4]" />
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[e]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F5]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[f]"
                           cachedDataType="cy"
-                          cachedName="F5"
+                          cachedName="f"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor5]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F5]" />
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[f]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F6]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[g]"
                           cachedDataType="wstr"
                           cachedLength="255"
-                          cachedName="F6"
+                          cachedName="g"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor6]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F6]" />
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[g]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F7]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[h]"
                           cachedDataType="r8"
-                          cachedName="F7"
+                          cachedName="h"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor7]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F7]" />
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[h]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F8]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[i]"
                           cachedDataType="r8"
-                          cachedName="F8"
+                          cachedName="i"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor8]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F8]" />
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[i]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[F9]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[j]"
                           cachedDataType="r8"
-                          cachedName="F9"
+                          cachedName="j"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor9]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F9]" />
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[j]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[k]"
+                          cachedDataType="r8"
+                          cachedName="k"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor10]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[k]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[l]"
+                          cachedDataType="cy"
+                          cachedName="l"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor11]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[l]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[m]"
+                          cachedDataType="cy"
+                          cachedName="m"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor12]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[m]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[n]"
+                          cachedDataType="cy"
+                          cachedName="n"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor13]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[n]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[o]"
+                          cachedDataType="cy"
+                          cachedName="o"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor14]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[o]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[p]"
+                          cachedDataType="cy"
+                          cachedName="p"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor15]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[p]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[q]"
+                          cachedDataType="cy"
+                          cachedName="q"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor16]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[q]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[s]"
+                          cachedDataType="cy"
+                          cachedName="s"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor18]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[s]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[r]"
+                          cachedDataType="cy"
+                          cachedName="r"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor17]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[r]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[t]"
+                          cachedDataType="cy"
+                          cachedName="t"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor19]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[t]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[u]"
+                          cachedDataType="cy"
+                          cachedName="u"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor20]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[u]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[v]"
+                          cachedDataType="cy"
+                          cachedName="v"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor21]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[v]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[w]"
+                          cachedDataType="cy"
+                          cachedName="w"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor22]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[w]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[x]"
+                          cachedDataType="cy"
+                          cachedName="x"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor23]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[x]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[y]"
+                          cachedDataType="cy"
+                          cachedName="y"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor24]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[y]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[z]"
+                          cachedDataType="cy"
+                          cachedName="z"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor25]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[z]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[aa]"
+                          cachedDataType="cy"
+                          cachedName="aa"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor26]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[aa]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ab]"
+                          cachedDataType="cy"
+                          cachedName="ab"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor27]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[ab]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -2166,6 +3017,95 @@ WHERE F1 IS NOT NULL</property>
                           dataType="wstr"
                           length="255"
                           name="Valor10" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_EDIFICIO]"
+                          dataType="i4"
+                          name="ID_EDIFICIO" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor11]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor11" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor12]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor12" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor13]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor13" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor14]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor14" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor15]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor15" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor16]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor16" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor17]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor17" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor18]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor18" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor19]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor19" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor20]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor20" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor21]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor21" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor22]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor22" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor23]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor23" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor24]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor24" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor25]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor25" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor26]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor26" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Valor27]"
+                          dataType="wstr"
+                          length="255"
+                          name="Valor27" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2219,7 +3159,7 @@ WHERE F1 IS NOT NULL</property>
                       dataType="System.String"
                       description="Comando SQL para ejecutar."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM [Desglose por propietario$a:j]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM [Desglose por propietario$b:ab]
 WHERE F1 IS NOT NULL</property>
                     <property
                       dataType="System.String"
@@ -2249,89 +3189,251 @@ WHERE F1 IS NOT NULL</property>
                       name="Salida de origen de Excel">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F1]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[b]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F1]"
                           length="255"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F1]"
-                          name="F1"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[b]"
+                          name="b"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F2]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[c]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F2]"
                           length="255"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F2]"
-                          name="F2"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[c]"
+                          name="c"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F3]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[d]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F3]"
                           length="255"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F3]"
-                          name="F3"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[d]"
+                          name="d"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F4]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[e]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F4]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F4]"
-                          name="F4"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[e]"
+                          name="e"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F5]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[f]"
                           dataType="cy"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F5]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F5]"
-                          name="F5"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[f]"
+                          name="f"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F6]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[g]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F6]"
                           length="255"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F6]"
-                          name="F6"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[g]"
+                          name="g"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F7]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[h]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F7]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F7]"
-                          name="F7"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[h]"
+                          name="h"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F8]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[i]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F8]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F8]"
-                          name="F8"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[i]"
+                          name="i"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F9]"
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[j]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F9]"
-                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[F9]"
-                          name="F9"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[j]"
+                          name="j"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[k]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F10]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[k]"
+                          name="k"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[l]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F11]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[l]"
+                          name="l"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[m]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F12]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[m]"
+                          name="m"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[n]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F13]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[n]"
+                          name="n"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[o]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F14]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[o]"
+                          name="o"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[p]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F15]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[p]"
+                          name="p"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[q]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F16]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[q]"
+                          name="q"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[r]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F17]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[r]"
+                          name="r"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[s]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F18]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[s]"
+                          name="s"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[t]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F19]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[t]"
+                          name="t"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[u]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F20]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[u]"
+                          name="u"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[v]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F21]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[v]"
+                          name="v"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[w]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F22]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[w]"
+                          name="w"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[x]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F23]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[x]"
+                          name="x"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[y]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F24]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[y]"
+                          name="y"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[z]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F25]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[z]"
+                          name="z"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[aa]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F26]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[aa]"
+                          name="aa"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[ab]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F27]"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[ab]"
+                          name="ab"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -2375,6 +3477,78 @@ WHERE F1 IS NOT NULL</property>
                           refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F9]"
                           dataType="r8"
                           name="F9" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F10]"
+                          dataType="r8"
+                          name="F10" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F11]"
+                          dataType="cy"
+                          name="F11" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F12]"
+                          dataType="cy"
+                          name="F12" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F13]"
+                          dataType="cy"
+                          name="F13" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F14]"
+                          dataType="cy"
+                          name="F14" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F15]"
+                          dataType="cy"
+                          name="F15" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F16]"
+                          dataType="cy"
+                          name="F16" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F17]"
+                          dataType="cy"
+                          name="F17" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F18]"
+                          dataType="cy"
+                          name="F18" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F19]"
+                          dataType="cy"
+                          name="F19" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F20]"
+                          dataType="cy"
+                          name="F20" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F21]"
+                          dataType="cy"
+                          name="F21" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F22]"
+                          dataType="cy"
+                          name="F22" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F23]"
+                          dataType="cy"
+                          name="F23" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F24]"
+                          dataType="cy"
+                          name="F24" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F25]"
+                          dataType="cy"
+                          name="F25" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F26]"
+                          dataType="cy"
+                          name="F26" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[F27]"
+                          dataType="cy"
+                          name="F27" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -2430,6 +3604,96 @@ WHERE F1 IS NOT NULL</property>
                           dataType="r8"
                           lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F9]"
                           name="F9" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F10]"
+                          dataType="r8"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F10]"
+                          name="F10" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F11]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F11]"
+                          name="F11" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F12]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F12]"
+                          name="F12" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F13]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F13]"
+                          name="F13" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F14]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F14]"
+                          name="F14" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F15]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F15]"
+                          name="F15" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F16]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F16]"
+                          name="F16" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F17]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F17]"
+                          name="F17" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F18]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F18]"
+                          name="F18" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F19]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F19]"
+                          name="F19" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F20]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F20]"
+                          name="F20" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F21]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F21]"
+                          name="F21" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F22]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F22]"
+                          name="F22" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F23]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F23]"
+                          name="F23" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F24]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F24]"
+                          name="F24" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F25]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F25]"
+                          name="F25" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F26]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F26]"
+                          name="F26" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F27]"
+                          dataType="cy"
+                          lineageId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[F27]"
+                          name="F27" />
                         <outputColumn
                           refId="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
                           dataType="i4"
@@ -2557,6 +3821,10 @@ WHERE F1 IS NOT NULL</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="170,42"
+          Id="Package\Foreach Loop Container\Tarea Ejecutar SQL"
+          TopLeft="1.5,22" />
+        <NodeLayout
           Size="176,42"
           Id="Package\Foreach Loop Container\Tarea Flujo de datos"
           TopLeft="276,24" />
@@ -2564,6 +3832,40 @@ WHERE F1 IS NOT NULL</property>
           Size="185,42"
           Id="Package\Foreach Loop Container\Tarea Flujo de datos 1"
           TopLeft="6,98" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Foreach Loop Container\Tarea Flujo de datos 2"
+          TopLeft="274,153" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Foreach Loop Container\Tarea Flujo de datos 3"
+          TopLeft="277,96" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Foreach Loop Container\Tarea Flujo de datos 4"
+          TopLeft="2,151" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="191,115.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86,0"
+              Start="0,0"
+              End="78.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="78.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
           TopLeft="364,66">
@@ -2598,14 +3900,6 @@ WHERE F1 IS NOT NULL</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="185,42"
-          Id="Package\Foreach Loop Container\Tarea Flujo de datos 2"
-          TopLeft="274,153" />
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Foreach Loop Container\Tarea Ejecutar SQL"
-          TopLeft="1.5,22" />
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
           TopLeft="171.5,44">
@@ -2628,36 +3922,6 @@ WHERE F1 IS NOT NULL</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="185,42"
-          Id="Package\Foreach Loop Container\Tarea Flujo de datos 3"
-          TopLeft="277,96" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
-          TopLeft="191,115.166666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="86,0"
-              Start="0,0"
-              End="78.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="78.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="185,42"
-          Id="Package\Foreach Loop Container\Tarea Flujo de datos 4"
-          TopLeft="2,151" />
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
           TopLeft="277,122.666666666667">
@@ -2717,10 +3981,10 @@ WHERE F1 IS NOT NULL</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="483,297"
-          Size="483,340"
+          PanelSize="506,297"
+          Size="506,340"
           Id="Package\Foreach Loop Container"
-          TopLeft="131,207" />
+          TopLeft="126,204" />
         <NodeLayout
           Size="170,42"
           Id="Package\Tarea Ejecutar SQL"
@@ -2731,26 +3995,26 @@ WHERE F1 IS NOT NULL</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="43.5,48"
+              EndConnector="50,45"
               Start="0,0"
-              End="43.5,40.5">
+              End="50,37.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20" />
+                    End="0,18.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="4,24" />
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
                   <mssgle:LineSegment
-                    End="39.5,24" />
+                    End="46,22.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="39.5,24"
-                    Point2="43.5,24"
-                    Point3="43.5,28" />
+                    Point1="46,22.5"
+                    Point2="50,22.5"
+                    Point3="50,26.5" />
                   <mssgle:LineSegment
-                    End="43.5,40.5" />
+                    End="50,37.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2810,7 +4074,9 @@ WHERE F1 IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2884,7 +4150,7 @@ WHERE F1 IS NOT NULL</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[M_EDIFICIO]</Value>
+          type="q3:string">[dbo].[M_CORONACION_EDIFICIO]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -2900,10 +4166,10 @@ WHERE F1 IS NOT NULL</property>
     design-time-name="Package\Foreach Loop Container\Tarea Flujo de datos 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="162,42"
-          Id="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1"
+          Size="316,42"
+          Id="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10"
           TopLeft="60,60" />
         <NodeLayout
           Size="168,42"
@@ -2911,24 +4177,38 @@ WHERE F1 IS NOT NULL</property>
           TopLeft="60,162" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Tarea Flujo de datos 1.Paths[Salida de origen de Excel]"
-          TopLeft="142.5,102">
+          TopLeft="218,102">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-74,60"
               Start="0,0"
-              End="0,52.5">
+              End="-74,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-70,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-70,30"
+                    Point2="-74,30"
+                    Point3="-74,34" />
+                  <mssgle:LineSegment
+                    End="-74,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2948,7 +4228,7 @@ WHERE F1 IS NOT NULL</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Foreach Loop Container\Tarea Flujo de datos 1\Origen de Excel 1">
+    design-time-name="Package\Foreach Loop Container\Tarea Flujo de datos 1\Hay que cambiarlo!!!!! SOLO ESTA para Aldabe 10">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2961,13 +4241,13 @@ WHERE F1 IS NOT NULL</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="168,42"
-          Id="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB"
-          TopLeft="175,285" />
-        <NodeLayout
           Size="164,42"
           Id="Package\Foreach Loop Container\Tarea Flujo de datos 2\Origen de OLE DB"
           TopLeft="139,75" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Foreach Loop Container\Tarea Flujo de datos 2\Destino de OLE DB"
+          TopLeft="175,285" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Tarea Flujo de datos 2.Paths[Salida de origen de OLE DB]"
           TopLeft="221,117">
@@ -3030,7 +4310,7 @@ WHERE F1 IS NOT NULL</property>
     design-time-name="Package\Foreach Loop Container\Tarea Flujo de datos 3">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="162,42"
           Id="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1"
@@ -3070,20 +4350,14 @@ WHERE F1 IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Foreach Loop Container\Tarea Flujo de datos 3\Destino de OLE DB">
     <Properties>
@@ -3094,6 +4368,14 @@ WHERE F1 IS NOT NULL</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Tarea Flujo de datos 3\Origen de Excel 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3148,14 +4430,6 @@ WHERE F1 IS NOT NULL</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Foreach Loop Container\Tarea Flujo de datos 4\Destino de OLE DB">
     <Properties>
       <Property>
@@ -3165,6 +4439,14 @@ WHERE F1 IS NOT NULL</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Tarea Flujo de datos 4\Origen de Excel 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

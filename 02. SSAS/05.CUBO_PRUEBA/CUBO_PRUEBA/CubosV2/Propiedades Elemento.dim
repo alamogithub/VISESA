@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="6e4bf241-8d06-4b46-8c8a-0f14e9e46e34" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Propiedades Elemento</ID>
   <Name>Propiedades Elemento</Name>
   <CreatedTimestamp>2017-08-01T07:05:19.223333Z</CreatedTimestamp>
@@ -68,10 +68,10 @@
   </Annotations>
   <LastProcessed>2017-08-01T07:06:29.533333Z</LastProcessed>
   <State>Processed</State>
-  <Source xsi:type="DataSourceViewBinding">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d98c3858-9bc3-4924-9900-d44a39c2c97a">
     <DataSourceViewID>VISESABI 1</DataSourceViewID>
   </Source>
-  <ErrorConfiguration>
+  <ErrorConfiguration dwd:design-time-name="77bd1b84-4a8b-4a60-9729-c450d14f6490">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
@@ -80,94 +80,95 @@
   <Collation>Modern_Spanish_CI_AS</Collation>
   <UnknownMemberName>Unknown</UnknownMemberName>
   <Attributes>
-    <Attribute>
+    <Attribute dwd:design-time-name="77d754b8-aa33-43f3-be22-961b8c867fa4">
       <ID>ID ELEMENTO</ID>
       <Name>ID ELEMENTO</Name>
       <Usage>Key</Usage>
+      <EstimatedCount>53388</EstimatedCount>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="dc5a30e0-d864-42b1-ad9f-63ede16a28d7">
           <DataType>WChar</DataType>
           <DataSize>20</DataSize>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d2f4efe0-6b24-471a-a3bd-a64328f9c5c3">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>ID_ELEMENTO</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="c31952c5-96d6-4778-a5e0-b84ffa7cf131">
         <DataType>WChar</DataType>
         <DataSize>20</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d6ad4b3a-a8fa-4148-87b1-0db1c4efc072">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>ID_ELEMENTO</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="59e1eac6-7e1e-473d-8b65-a38cb24544db">
           <AttributeID>Calle</AttributeID>
           <Name>Calle</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="20926338-f005-4112-ba1f-ee14d065f721">
           <AttributeID>Portal segun Ayto_</AttributeID>
           <Name>Portal segun Ayto_</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e7c21eff-9eed-454e-8c70-ef4f30f49d43">
           <AttributeID>Planta segun Ayto_</AttributeID>
           <Name>Planta segun Ayto_</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ebb3bf8d-c5d7-4500-99cc-64923ea28e1c">
           <AttributeID>Bloque</AttributeID>
           <Name>Bloque</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7b9b9c02-d69b-4cd7-8696-ae9cc31da29b">
           <AttributeID>Mano Letra segun Ayto_</AttributeID>
           <Name>Mano Letra segun Ayto_</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="55ac06ed-dcd7-4ea1-9afc-0b6c737ebdc6">
           <AttributeID>Escalera segun Ayto_</AttributeID>
           <Name>Escalera segun Ayto_</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="96a4aa9f-5b72-461b-88b8-de2777d00598">
           <AttributeID>Superficie Util</AttributeID>
           <Name>Superficie Util</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a89da0d0-90c4-4430-b8ae-a4a954d58f5c">
           <AttributeID>Precio Max_ m2 Calif</AttributeID>
           <Name>Precio Max_ m2 Calif</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c4d49738-851a-45aa-9a97-730bf66322e2">
           <AttributeID>Precio Max_ Calif</AttributeID>
           <Name>Precio Max_ Calif</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="453f080e-b784-42ea-a184-5094ad20599a">
           <AttributeID>No_ Dormitorios</AttributeID>
           <Name>No_ Dormitorios</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d38b7c65-9337-4c6c-908a-5fef4a4c9440">
           <AttributeID>Euros Metro 2</AttributeID>
           <Name>Euros Metro 2</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4da5863b-b317-4c49-a247-a000fa027155">
           <AttributeID>No_ D O N</AttributeID>
           <Name>No_ D O N</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c16290df-afe7-40ea-a60a-0e8f4a83ab4e">
           <AttributeID>Parcela</AttributeID>
           <Name>Parcela</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="650a290c-f731-4cba-8554-bc072e2e0c5a">
           <AttributeID>No_ Interno</AttributeID>
           <Name>No_ Interno</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6e63bc7c-45df-4806-8eb8-3b408ad3cc9a">
           <AttributeID>No_ Segun Calificacion</AttributeID>
           <Name>No_ Segun Calificacion</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7a034e7a-77f6-4bff-a469-3e85f16ed7f8">
           <AttributeID>No_ Rotulacion</AttributeID>
           <Name>No_ Rotulacion</Name>
         </AttributeRelationship>
-        <AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0ed302b9-5285-478f-a7e5-d0a49251ad18">
           <AttributeID>Direccion Completa</AttributeID>
           <Name>Direccion Completa</Name>
         </AttributeRelationship>
@@ -176,23 +177,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="48a84add-437b-49fd-b976-a1f27cc521b0">
       <ID>Calle</ID>
       <Name>Calle</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="1f3b9f51-2e23-490c-bcfb-d838554fc1b6">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b8ff7b24-3794-4530-995c-c7cf144275af">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>Calle</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="500c365e-2df9-4058-bd1e-256613db4382">
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e1257c1b-033e-46c4-82d0-fcf3ab3a6a76">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>Calle</ColumnID>
         </Source>
@@ -201,23 +202,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="4c77a6a9-6ab1-4df2-a751-2014f1ef87f5">
       <ID>Portal segun Ayto_</ID>
       <Name>Portal segun Ayto_</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="317b6e8c-55d7-48f3-b029-7a2971b0c514">
           <DataType>WChar</DataType>
           <DataSize>10</DataSize>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5f02de75-9cf9-4591-a5cb-600ec2b69afa">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>Portal_x0020__x0028_segun_x0020_Ayto__x0029_</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="9bfe16f4-ea65-423e-ac9f-ae7daffdd2b3">
         <DataType>WChar</DataType>
         <DataSize>10</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="97382fd1-980f-42cc-95a4-38f756f49e2d">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>Portal_x0020__x0028_segun_x0020_Ayto__x0029_</ColumnID>
         </Source>
@@ -226,23 +227,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="9763d3bc-4e11-4053-81ee-602876dabe71">
       <ID>Planta segun Ayto_</ID>
       <Name>Planta segun Ayto_</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="6a7b34b3-23f9-43bd-8851-f1cc8e9d5639">
           <DataType>WChar</DataType>
           <DataSize>20</DataSize>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6d7c6cf5-8e50-44d7-8e7c-d8889e9762c5">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>Planta_x0020__x0028_segun_x0020_Ayto__x0029_</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="e84711e0-511c-4c6e-bcb8-d4e1943e6045">
         <DataType>WChar</DataType>
         <DataSize>20</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e74113be-d60c-4220-b7ca-bfc360dd1272">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>Planta_x0020__x0028_segun_x0020_Ayto__x0029_</ColumnID>
         </Source>
@@ -251,23 +252,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="bf41f8a8-44fe-4536-9690-8c8ad8a7b0f3">
       <ID>Bloque</ID>
       <Name>Bloque</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="f9e54573-162f-413e-8024-f854c91ecba2">
           <DataType>WChar</DataType>
           <DataSize>7</DataSize>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b2570522-d543-4887-b496-b96b856ab15c">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>Bloque</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="c4a8e7ec-4bcf-4794-a832-583f3dc0f093">
         <DataType>WChar</DataType>
         <DataSize>7</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="abd80b19-34a8-43e7-822a-ceed46b9162e">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>Bloque</ColumnID>
         </Source>
@@ -276,23 +277,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="09dd1c5b-7fe4-4b48-a8ad-e9297f9a980a">
       <ID>Mano Letra segun Ayto_</ID>
       <Name>Mano Letra segun Ayto_</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="66941f28-5aa8-4424-9615-204aa1560141">
           <DataType>WChar</DataType>
           <DataSize>10</DataSize>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="258f3c0d-cf1b-4cf2-af91-579eade85c42">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>Mano_Letra_x0020__x0028_segun_x0020_Ayto__x0029_</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="227a0a0c-6e74-4251-9918-c58e591eb214">
         <DataType>WChar</DataType>
         <DataSize>10</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="af09943e-9bb7-4b9c-ba2b-5a0bb1142298">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>Mano_Letra_x0020__x0028_segun_x0020_Ayto__x0029_</ColumnID>
         </Source>
@@ -301,23 +302,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="6502ebdf-4ba4-4a29-8bd1-b1f04b8cb2dd">
       <ID>Escalera segun Ayto_</ID>
       <Name>Escalera segun Ayto_</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="d757bb29-ab28-4ea9-8f30-870db7f86d66">
           <DataType>WChar</DataType>
           <DataSize>6</DataSize>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4f6fa41e-042c-4f0d-84f3-207d9acce1e8">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>Escalera_x0020__x0028_segun_x0020_Ayto__x0029_</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="4ca2fe2e-612e-41b3-9b54-1c4cc4e52d21">
         <DataType>WChar</DataType>
         <DataSize>6</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="81c472f1-7fbb-4a7d-a4f2-31758d01900d">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>Escalera_x0020__x0028_segun_x0020_Ayto__x0029_</ColumnID>
         </Source>
@@ -326,21 +327,21 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="9a46d07c-639e-43e9-85ba-45f8169682b1">
       <ID>Superficie Util</ID>
       <Name>Superficie Util</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="170bf09e-7ce8-45e4-a3d4-e5f67035894e">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b0a1f96b-0b63-4f5b-ba53-da66f6009f44">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>Superficie_x0020_util</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="04144ad4-8627-4098-9ed4-9aace7f3f043">
         <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b8273721-1f62-4ffa-97d3-34edd294a325">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>Superficie_x0020_util</ColumnID>
         </Source>
@@ -349,21 +350,21 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="120f2375-61c5-4571-807e-d264a7413fd6">
       <ID>Precio Max_ m2 Calif</ID>
       <Name>Precio Max_ m2 Calif</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="f75711e2-9aa6-4b83-9bac-e31e640f71ae">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="361e21af-2676-425c-bac0-23a8ec2a420b">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>Precio_x0020_max__x0020_m2_x0020_calif_</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="e812efa9-7db1-41c9-8ee6-26e4744de6d4">
         <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6817dfa9-f1e2-4d32-8128-958999e79fec">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>Precio_x0020_max__x0020_m2_x0020_calif_</ColumnID>
         </Source>
@@ -372,21 +373,21 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="0ceeab29-15e4-4ea2-9630-0d55f20543c6">
       <ID>Precio Max_ Calif</ID>
       <Name>Precio Max_ Calif</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="387dab78-b249-4b18-9eb5-ac786ddfa259">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d3634cfb-5bfe-4988-99bc-1966dd62ae76">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>Precio_x0020_max__x0020_calif_</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="fdf46a07-0ff9-4fa4-a89d-3e7e8d9b5d82">
         <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="66c34feb-f86d-44e1-b009-cd6acc5e7748">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>Precio_x0020_max__x0020_calif_</ColumnID>
         </Source>
@@ -395,21 +396,21 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="06a7a3ca-4464-4ac2-8453-7c99b67ec45f">
       <ID>No_ Dormitorios</ID>
       <Name>No_ Dormitorios</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="1bb33e41-186b-448e-a5ab-5e121ef5fe57">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c024e8f2-cde2-4b14-a036-a9547d6b4fe4">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>No__x0020_dormitorios</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="8ea7a292-3602-45f1-911a-6a0d7d4d20c5">
         <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="67c06926-7e6c-46b3-a31e-19f568730e0e">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>No__x0020_dormitorios</ColumnID>
         </Source>
@@ -418,21 +419,21 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="be30b6c6-cb5e-425a-89ec-b94d3e264f66">
       <ID>Euros Metro 2</ID>
       <Name>Euros Metro 2</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="5f653ec1-38d3-427f-b41a-2f56df1f14b7">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ceb9be62-ad68-4700-a228-caac63c85b26">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>Euros_x0020_metro_x0020_2</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="b1d3b79b-5389-4a42-8cbd-83249597faf5">
         <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c64cd9b7-d833-4280-9c4d-119e6f41e7ef">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>Euros_x0020_metro_x0020_2</ColumnID>
         </Source>
@@ -441,23 +442,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="945a3aab-3103-4bd6-8d1f-386f6d72a99c">
       <ID>No_ D O N</ID>
       <Name>No_ D O N</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="fbc2e61d-5691-44e2-824d-5fd3ffb8bb5c">
           <DataType>WChar</DataType>
           <DataSize>20</DataSize>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5d86b70a-c688-4aa8-ad12-27ca32917cc3">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>No__x0020_D_O_N_</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="05638196-abd8-4d6e-bd09-f39c24c852d5">
         <DataType>WChar</DataType>
         <DataSize>20</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="54f627af-277f-4953-8600-bf8de9ab418a">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>No__x0020_D_O_N_</ColumnID>
         </Source>
@@ -466,23 +467,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="9c7239c7-e250-4841-a7f7-ea964630beb6">
       <ID>Parcela</ID>
       <Name>Parcela</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="af53e893-bcb7-4ade-b7b4-8701fbaea24a">
           <DataType>WChar</DataType>
           <DataSize>10</DataSize>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5d519415-37e4-4705-acbe-547c5ca6f8f0">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>Parcela</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="6232941c-5ec3-44f4-a548-c6da316c88c6">
         <DataType>WChar</DataType>
         <DataSize>10</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="36fdb749-8478-45ef-b22e-8c1447f1ee39">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>Parcela</ColumnID>
         </Source>
@@ -491,21 +492,21 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="a4c0b1e5-8070-46ee-afd0-0bcf185bc9d4">
       <ID>No_ Interno</ID>
       <Name>No_ Interno</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="7f23bd51-20dd-4018-a52b-6081b5d715f2">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c6e534a6-f893-4fc6-b43f-7e3a259c4c61">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>No__x0020_interno</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="e388b17d-02d3-4a33-a396-3724825bf5a0">
         <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d64e80b1-280e-47fa-903f-f552fdaa5e44">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>No__x0020_interno</ColumnID>
         </Source>
@@ -514,21 +515,21 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="d5e67bf6-2cc7-4992-94fe-891bd3cca8f7">
       <ID>No_ Segun Calificacion</ID>
       <Name>No_ Segun Calificacion</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="beab69d5-42b4-40cf-a661-2a9b3674e0d6">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d7887327-c7c9-46a3-8d85-2b94fc99f08b">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>No__x0020_segun_x0020_calificacion</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="648f95d9-5a0f-4b19-a98a-ab2594e42539">
         <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5018e507-3fdb-4336-8f49-902386c84b9a">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>No__x0020_segun_x0020_calificacion</ColumnID>
         </Source>
@@ -537,23 +538,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="0e428dd6-d195-4ad6-957a-92f208a8fb97">
       <ID>No_ Rotulacion</ID>
       <Name>No_ Rotulacion</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="0a6a05a0-54a9-4625-9b99-cb92dcba96dc">
           <DataType>WChar</DataType>
           <DataSize>20</DataSize>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8b7c16d7-3659-479a-bb7f-61543ea0e116">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>No__x0020_rotulacion</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="77748e12-2ee0-439e-814f-7ef356b83dbe">
         <DataType>WChar</DataType>
         <DataSize>20</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="919a9f48-6f33-4a7a-b1c1-4d0fe8931fbc">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>No__x0020_rotulacion</ColumnID>
         </Source>
@@ -562,23 +563,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute>
+    <Attribute dwd:design-time-name="697f6f96-a1e5-4afe-90ab-e291e0bbf58e">
       <ID>Direccion Completa</ID>
       <Name>Direccion Completa</Name>
       <KeyColumns>
-        <KeyColumn>
+        <KeyColumn dwd:design-time-name="84884881-4970-482d-92e6-3cc3322f9f46">
           <DataType>WChar</DataType>
           <DataSize>95</DataSize>
-          <Source xsi:type="ColumnBinding">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e66f8f5e-2758-495f-b751-cd73080993f7">
             <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
             <ColumnID>Direccion_Completa</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn>
+      <NameColumn dwd:design-time-name="c14f72bd-143f-4e97-9b86-cb95bf75564a">
         <DataType>WChar</DataType>
         <DataSize>95</DataSize>
-        <Source xsi:type="ColumnBinding">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c2fef819-0238-4a7c-b407-e421aee60580">
           <TableID>dbo_H_COMERCIAL_ACTIVIDAD</TableID>
           <ColumnID>Direccion_Completa</ColumnID>
         </Source>
@@ -588,12 +589,12 @@
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
   </Attributes>
-  <ProactiveCaching>
+  <ProactiveCaching dwd:design-time-name="cfa32d87-cabe-4d9a-b247-fa3bf34e88a5">
     <SilenceInterval>-PT1S</SilenceInterval>
     <Latency>-PT1S</Latency>
     <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
     <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
-    <Source xsi:type="ProactiveCachingInheritedBinding" />
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="08d42ef0-2aea-4f0b-b110-6f1480fe7623" />
   </ProactiveCaching>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>
