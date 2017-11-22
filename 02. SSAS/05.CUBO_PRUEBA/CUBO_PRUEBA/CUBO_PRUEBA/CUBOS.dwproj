@@ -47,6 +47,16 @@
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
+    <ProjectItem>
+      <Name>VISESABI PRUEBAS.cube</Name>
+      <FullPath>VISESABI PRUEBAS.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>VISESABI PRUEBAS.partitions</Name>
+          <FullPath>VISESABI PRUEBAS.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
   </Cubes>
   <Dimensions>
     <ProjectItem>
@@ -381,6 +391,22 @@
       <Name>J TIEMPO 1.dim</Name>
       <FullPath>J TIEMPO 1.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>J P06 ELEMENTO AAAAAA.dim</Name>
+      <FullPath>J P06 ELEMENTO AAAAAA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Centro Unif.dim</Name>
+      <FullPath>Centro Unif.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Campus.dim</Name>
+      <FullPath>Campus.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Centro.dim</Name>
+      <FullPath>Centro.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>
@@ -398,6 +424,10 @@
     <ProjectItem>
       <Name>COMERCIAL.ds</Name>
       <FullPath>COMERCIAL.ds</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>VISESABI PRUEBAS.ds</Name>
+      <FullPath>VISESABI PRUEBAS.ds</FullPath>
     </ProjectItem>
   </DataSources>
   <DataSourceViews>
@@ -420,6 +450,10 @@
     <ProjectItem>
       <Name>COMERCIALV2.dsv</Name>
       <FullPath>COMERCIALV2.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>VISESABI PRUEBAS.dsv</Name>
+      <FullPath>VISESABI PRUEBAS.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
   <Roles>
@@ -465,6 +499,11 @@
             <Name>COMERCIAL</Name>
             <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
           </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>VISESABI PRUEBAS</Id>
+            <Name>VISESABI PRUEBAS</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABIPRUEBAS;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
+          </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
           <ConfigurationSetting>
@@ -485,6 +524,11 @@
           <ConfigurationSetting>
             <Id>COMERCIAL</Id>
             <Name>COMERCIAL</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>VISESABI PRUEBAS</Id>
+            <Name>VISESABI PRUEBAS</Name>
             <Value xsi:type="xsd:int">0</Value>
           </ConfigurationSetting>
         </ConnectionSecurityMappings>
