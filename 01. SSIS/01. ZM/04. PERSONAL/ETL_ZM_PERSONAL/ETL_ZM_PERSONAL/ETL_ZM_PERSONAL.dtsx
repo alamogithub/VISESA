@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_ZM_PERSONAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="101"
-  DTS:VersionGUID="{3306133C-5106-4B33-8684-0F373BB1F2BE}">
+  DTS:VersionBuild="107"
+  DTS:VersionGUID="{0D969033-C089-406E-8353-EFB9B709E5EC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -83,7 +83,7 @@
       DTS:ConfigString="logP.txt"
       DTS:CreationName="Microsoft.LogProviderTextFile"
       DTS:Description="Escribe entradas del registro sobre eventos en un archivo CSV"
-      DTS:DTSID="{EEAA232D-9999-45CF-9B2A-945CBD8BD6E0}"
+      DTS:DTSID="{8E80B141-79D3-4324-9B0C-D9C6BF426AFF}"
       DTS:ObjectName="Proveedor de registro SSIS para archivos de texto">
       <DTS:ObjectData>
         <InnerObject />
@@ -93,8 +93,8 @@
       DTS:ConfigString="SRVSQLBI\VISESABI.VISESABI"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="Escribe entradas del registro sobre eventos en una base de datos de SQL Server"
-      DTS:DTSID="{5B2AB5CB-CFE8-43CC-916A-3F84C2E59F9F}"
-      DTS:ObjectName="Proveedor de registro SSIS para SQL Server">
+      DTS:DTSID="{39BF8870-97C4-4646-81BE-D3D9757A28CC}"
+      DTS:ObjectName="Proveedor de registro SSIS para SQL Server1">
       <DTS:ObjectData>
         <InnerObject />
       </DTS:ObjectData>
@@ -106,7 +106,9 @@
     DTS:LoggingMode="1">
     <DTS:SelectedLogProviders>
       <DTS:SelectedLogProvider
-        DTS:InstanceID="{5B2AB5CB-CFE8-43CC-916A-3F84C2E59F9F}" />
+        DTS:InstanceID="{8E80B141-79D3-4324-9B0C-D9C6BF426AFF}" />
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{39BF8870-97C4-4646-81BE-D3D9757A28CC}" />
     </DTS:SelectedLogProviders>
   </DTS:LoggingOptions>
   <DTS:Executables>
@@ -357,6 +359,79 @@
                       refId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 1.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada 1 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Outputs[Salida de columna derivada].Columns[F_EJECUCION]"
+                      dataType="date"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Outputs[Salida de columna derivada].Columns[F_EJECUCION]"
+                      name="F_EJECUCION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[System::StartTime]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2904,6 +2979,340 @@
               </outputs>
             </component>
             <component
+              refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="sgp_f_grupos"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[sgp_f_grupos]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.visesa_sgp]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.visesa_sgp]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[pidGrupo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[pidGrupo]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[pidGrupo]"
+                      name="pidGrupo"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[sidFormacion]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[sidFormacion]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[sidFormacion]"
+                      name="sidFormacion"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre]"
+                      length="500"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaInicio]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[fechaInicio]"
+                      name="fechaInicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaFin]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[fechaFin]"
+                      name="fechaFin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[horaInicio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[horaInicio]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[horaInicio]"
+                      name="horaInicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[horaFin]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[horaFin]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[horaFin]"
+                      name="horaFin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[lugar]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[lugar]"
+                      length="500"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[lugar]"
+                      name="lugar"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[horarioDetallado]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[horarioDetallado]"
+                      length="1000"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[horarioDetallado]"
+                      name="horarioDetallado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[FechaEnvioConvocatoria]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaEnvioConvocatoria]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[FechaEnvioConvocatoria]"
+                      name="FechaEnvioConvocatoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[observaciones]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[observaciones]"
+                      length="2000"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[observaciones]"
+                      name="observaciones"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[horas]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[horas]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[horas]"
+                      name="horas"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[pidGrupo]"
+                      dataType="numeric"
+                      name="pidGrupo"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[sidFormacion]"
+                      dataType="numeric"
+                      name="sidFormacion"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      name="fechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      name="fechaFin" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[horaInicio]"
+                      dataType="dbTimeStamp"
+                      name="horaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[horaFin]"
+                      dataType="dbTimeStamp"
+                      name="horaFin" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[lugar]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="lugar" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[horarioDetallado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="horarioDetallado" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaEnvioConvocatoria]"
+                      dataType="dbTimeStamp"
+                      name="FechaEnvioConvocatoria" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[observaciones]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2000"
+                      name="observaciones" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].ExternalColumns[horas]"
+                      dataType="r8"
+                      name="horas" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[pidGrupo]"
+                      dataType="numeric"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[pidGrupo]"
+                      name="pidGrupo"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[sidFormacion]"
+                      dataType="numeric"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[sidFormacion]"
+                      name="sidFormacion"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[fechaInicio]"
+                      name="fechaInicio" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[fechaFin]"
+                      name="fechaFin" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[horaInicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[horaInicio]"
+                      name="horaInicio" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[horaFin]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[horaFin]"
+                      name="horaFin" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[lugar]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[lugar]"
+                      name="lugar" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[horarioDetallado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[horarioDetallado]"
+                      name="horarioDetallado" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[FechaEnvioConvocatoria]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[FechaEnvioConvocatoria]"
+                      name="FechaEnvioConvocatoria" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[observaciones]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2000"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[observaciones]"
+                      name="observaciones" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[horas]"
+                      dataType="r8"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[horas]"
+                      name="horas" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALEFICACIA"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
@@ -4422,6 +4831,259 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ZM_PERSONAS_SGP_F_GRUPOS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[ZM_PERSONAS_SGP_F_GRUPOS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[pidGrupo]"
+                      cachedDataType="numeric"
+                      cachedName="pidGrupo"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidGrupo]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[pidGrupo]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[sidFormacion]"
+                      cachedDataType="numeric"
+                      cachedName="sidFormacion"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidFormacion]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[sidFormacion]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombre]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[fechaInicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaInicio"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaInicio]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[fechaInicio]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[fechaFin]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fechaFin"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaFin]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[fechaFin]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[horaInicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="horaInicio"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[horaInicio]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[horaInicio]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[horaFin]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="horaFin"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[horaFin]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[horaFin]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[lugar]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="lugar"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[lugar]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[lugar]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[horarioDetallado]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="horarioDetallado"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[horarioDetallado]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[horarioDetallado]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[FechaEnvioConvocatoria]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaEnvioConvocatoria"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaEnvioConvocatoria]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[FechaEnvioConvocatoria]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[observaciones]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2000"
+                      cachedName="observaciones"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[observaciones]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[observaciones]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[horas]"
+                      cachedDataType="r8"
+                      cachedName="horas"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[horas]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB].Columns[horas]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
+                      cachedDataType="date"
+                      cachedName="F_EJECUCION"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Outputs[Salida de columna derivada].Columns[F_EJECUCION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidGrupo]"
+                      dataType="numeric"
+                      name="pidGrupo"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidFormacion]"
+                      dataType="numeric"
+                      name="sidFormacion"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      name="fechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      name="fechaFin" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[horaInicio]"
+                      dataType="dbTimeStamp"
+                      name="horaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[horaFin]"
+                      dataType="dbTimeStamp"
+                      name="horaFin" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[lugar]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="lugar" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[horarioDetallado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="horarioDetallado" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaEnvioConvocatoria]"
+                      dataType="dbTimeStamp"
+                      name="FechaEnvioConvocatoria" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[observaciones]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2000"
+                      name="observaciones" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[horas]"
+                      dataType="r8"
+                      name="horas" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      name="F_EJECUCION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -4450,6 +5112,11 @@
               name="Salida de columna derivada"
               startId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 3.Outputs[Salida de columna derivada]" />
             <path
+              refId="Package\SGP Tarea Flujo de datos 1 1.Paths[Salida de columna derivada5]"
+              endId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Outputs[Salida de columna derivada]" />
+            <path
               refId="Package\SGP Tarea Flujo de datos 1 1.Paths[Salida de origen de OLE DB]"
               endId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 2.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
@@ -4474,6 +5141,11 @@
               endId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 3.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
               startId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_evalEficacia.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\SGP Tarea Flujo de datos 1 1.Paths[Salida de origen de OLE DB5]"
+              endId="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\SGP Tarea Flujo de datos 1 1.Paths[Salida predeterminada de división condicional]"
               endId="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_FORMACION.Inputs[Entrada de destino de OLE DB]"
@@ -10675,6 +11347,79 @@
               </outputs>
             </component>
             <component
+              refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada 1 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Outputs[Salida de columna derivada].Columns[F_EJECUCION]"
+                      dataType="date"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Outputs[Salida de columna derivada].Columns[F_EJECUCION]"
+                      name="F_EJECUCION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">@[System::StartTime]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\SGP Tarea Flujo de datos 6\Columna derivada 2"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
@@ -10868,11 +11613,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB"
+              refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
               description="Origen de OLE DB"
-              name="Origen de OLE DB"
+              name="HISTORICOS_PERSONAS"
               usesDispositions="true"
               version="7">
               <properties>
@@ -10917,7 +11662,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Connections[OleDbConnection]"
+                  refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.visesa_ulcd]"
                   connectionManagerRefId="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.visesa_ulcd]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -10925,149 +11670,396 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB]"
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoPersona]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoPersona]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[pidHistoricoPersona]"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoPersona]"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].ExternalColumns[pidHistoricoPersona]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoPersona]"
                       name="pidHistoricoPersona"
                       precision="10"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[sidPersona]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidPersona]"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].ExternalColumns[sidPersona]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[sidPersona]"
                       name="sidPersona"
                       precision="10"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
                       name="sidNodoOrigen"
                       precision="10"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidMotivo]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[sidMotivo]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidMotivo]"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidMotivo]"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].ExternalColumns[sidMotivo]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[sidMotivo]"
                       name="sidMotivo"
                       precision="18"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
                       name="fechaAlta"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
                       name="fechaBaja"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[pidHistoricoPersona]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].ExternalColumns[pidHistoricoPersona]"
                       dataType="numeric"
                       name="pidHistoricoPersona"
                       precision="10" />
                     <externalMetadataColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidPersona]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].ExternalColumns[sidPersona]"
                       dataType="numeric"
                       name="sidPersona"
                       precision="10" />
                     <externalMetadataColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
                       dataType="numeric"
                       name="sidNodoOrigen"
                       precision="10" />
                     <externalMetadataColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidMotivo]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].ExternalColumns[sidMotivo]"
                       dataType="numeric"
                       name="sidMotivo"
                       precision="18" />
                     <externalMetadataColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
                       dataType="dbTimeStamp"
                       name="fechaAlta" />
                     <externalMetadataColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
                       dataType="dbTimeStamp"
                       name="fechaBaja" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB]"
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[pidHistoricoPersona]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[pidHistoricoPersona]"
                       dataType="numeric"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[pidHistoricoPersona]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[pidHistoricoPersona]"
                       name="pidHistoricoPersona"
                       precision="10" />
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidPersona]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[sidPersona]"
                       dataType="numeric"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidPersona]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[sidPersona]"
                       name="sidPersona"
                       precision="10" />
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
                       dataType="numeric"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
                       name="sidNodoOrigen"
                       precision="10" />
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidMotivo]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[sidMotivo]"
                       dataType="numeric"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidMotivo]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[sidMotivo]"
                       name="sidMotivo"
                       precision="18" />
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
                       name="fechaAlta" />
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
                       name="fechaBaja" />
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[sgp_f_Convocatorias_Fechas]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.visesa_sgp]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.visesa_sgp]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[pidFechasConvocatorias]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[pidFechasConvocatorias]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[pidFechasConvocatorias]"
+                      name="pidFechasConvocatorias"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidFormacion]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[sidFormacion]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidFormacion]"
+                      name="sidFormacion"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidGrupo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[sidGrupo]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidGrupo]"
+                      name="sidGrupo"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[FechaInicioConvo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaInicioConvo]"
+                      length="50"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[FechaInicioConvo]"
+                      name="FechaInicioConvo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[FechaFinConvo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaFinConvo]"
+                      length="50"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[FechaFinConvo]"
+                      name="FechaFinConvo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[FormatoFechaInicio]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[FormatoFechaInicio]"
+                      length="50"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[FormatoFechaInicio]"
+                      name="FormatoFechaInicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[FormatoFechaFin]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[FormatoFechaFin]"
+                      length="50"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[FormatoFechaFin]"
+                      name="FormatoFechaFin"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[pidFechasConvocatorias]"
+                      dataType="numeric"
+                      name="pidFechasConvocatorias"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[sidFormacion]"
+                      dataType="numeric"
+                      name="sidFormacion"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[sidGrupo]"
+                      dataType="numeric"
+                      name="sidGrupo"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaInicioConvo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FechaInicioConvo" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaFinConvo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FechaFinConvo" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[FormatoFechaInicio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FormatoFechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[FormatoFechaFin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FormatoFechaFin" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[pidFechasConvocatorias]"
+                      dataType="numeric"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[pidFechasConvocatorias]"
+                      name="pidFechasConvocatorias"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[sidFormacion]"
+                      dataType="numeric"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[sidFormacion]"
+                      name="sidFormacion"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[sidGrupo]"
+                      dataType="numeric"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[sidGrupo]"
+                      name="sidGrupo"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[FechaInicioConvo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[FechaInicioConvo]"
+                      name="FechaInicioConvo" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[FechaFinConvo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[FechaFinConvo]"
+                      name="FechaFinConvo" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[FormatoFechaInicio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[FormatoFechaInicio]"
+                      name="FormatoFechaInicio" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[FormatoFechaFin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[FormatoFechaFin]"
+                      name="FormatoFechaFin" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -11979,40 +12971,40 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
                       cachedName="pidHistoricoPersona"
                       cachedPrecision="10"
                       externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidHistoricoPersona]"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoPersona]" />
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[pidHistoricoPersona]" />
                     <inputColumn
                       refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[sidPersona]"
                       cachedDataType="numeric"
                       cachedName="sidPersona"
                       cachedPrecision="10"
                       externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidPersona]"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]" />
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[sidPersona]" />
                     <inputColumn
                       refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[sidNodoOrigen]"
                       cachedDataType="numeric"
                       cachedName="sidNodoOrigen"
                       cachedPrecision="10"
                       externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidNodoOrigen]"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]" />
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]" />
                     <inputColumn
                       refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[sidMotivo]"
                       cachedDataType="numeric"
                       cachedName="sidMotivo"
                       cachedPrecision="18"
                       externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidMotivo]"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidMotivo]" />
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[sidMotivo]" />
                     <inputColumn
                       refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[fechaAlta]"
                       cachedDataType="dbTimeStamp"
                       cachedName="fechaAlta"
                       externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaAlta]"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]" />
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]" />
                     <inputColumn
                       refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[fechaBaja]"
                       cachedDataType="dbTimeStamp"
                       cachedName="fechaBaja"
                       externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaBaja]"
-                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]" />
+                      lineageId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]" />
                     <inputColumn
                       refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
                       cachedDataType="date"
@@ -12075,6 +13067,211 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
                       refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ZM_PERSONAS_CONVOCATORIAS_FECHAS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[ZM_PERSONAS_CONVOCATORIAS_FECHAS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].Columns[pidFechasConvocatorias]"
+                      cachedDataType="numeric"
+                      cachedName="pidFechasConvocatorias"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidFechasConvocatorias]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[pidFechasConvocatorias]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].Columns[sidFormacion]"
+                      cachedDataType="numeric"
+                      cachedName="sidFormacion"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidFormacion]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidFormacion]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].Columns[sidGrupo]"
+                      cachedDataType="numeric"
+                      cachedName="sidGrupo"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidGrupo]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[sidGrupo]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].Columns[FechaInicioConvo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FechaInicioConvo"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaInicioConvo]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[FechaInicioConvo]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].Columns[FechaFinConvo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FechaFinConvo"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaFinConvo]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[FechaFinConvo]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].Columns[FormatoFechaInicio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FormatoFechaInicio"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[FormatoFechaInicio]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[FormatoFechaInicio]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].Columns[FormatoFechaFin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FormatoFechaFin"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[FormatoFechaFin]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[FormatoFechaFin]" />
+                    <inputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
+                      cachedDataType="date"
+                      cachedName="F_EJECUCION"
+                      externalMetadataColumnId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Outputs[Salida de columna derivada].Columns[F_EJECUCION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[pidFechasConvocatorias]"
+                      dataType="numeric"
+                      name="pidFechasConvocatorias"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidFormacion]"
+                      dataType="numeric"
+                      name="sidFormacion"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[sidGrupo]"
+                      dataType="numeric"
+                      name="sidGrupo"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaInicioConvo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FechaInicioConvo" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaFinConvo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FechaFinConvo" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[FormatoFechaInicio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FormatoFechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[FormatoFechaFin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FormatoFechaFin" />
+                    <externalMetadataColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      name="F_EJECUCION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -12692,6 +13889,11 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
               name="Salida de columna derivada"
               startId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Outputs[Salida de columna derivada]" />
             <path
+              refId="Package\SGP Tarea Flujo de datos 6.Paths[Salida de columna derivada3]"
+              endId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Outputs[Salida de columna derivada]" />
+            <path
               refId="Package\SGP Tarea Flujo de datos 6.Paths[Salida de origen de OLE DB]"
               endId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
@@ -12705,7 +13907,12 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
               refId="Package\SGP Tarea Flujo de datos 6.Paths[Salida de origen de OLE DB2]"
               endId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 1.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
-              startId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\SGP Tarea Flujo de datos 6.Paths[Salida de origen de OLE DB3]"
+              endId="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\SGP Tarea Flujo de datos 6.Paths[Salida predeterminada de división condicional]"
               endId="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_SGP_F_EJERCICIOS.Inputs[Entrada de destino de OLE DB]"
@@ -15145,7 +16352,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     design-time-name="Package\SGP Tarea Flujo de datos 1 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="181,42"
           Id="Package\SGP Tarea Flujo de datos 1 1\sgp_f_evalEficazForm"
@@ -15502,6 +16709,80 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="143,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos"
+          TopLeft="995,41" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2"
+          TopLeft="907.5,71.5" />
+        <EdgeLayout
+          Id="Package\SGP Tarea Flujo de datos 1 1.Paths[Salida de origen de OLE DB5]"
+          TopLeft="995,49">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="3.5,22.5"
+              Start="0,0"
+              End="3.5,15">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-0.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-0.5,0"
+                    Point2="3.5,0"
+                    Point3="3.5,4" />
+                  <mssgle:LineSegment
+                    End="3.5,15" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="233,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS"
+          TopLeft="914,187" />
+        <EdgeLayout
+          Id="Package\SGP Tarea Flujo de datos 1 1.Paths[Salida de columna derivada5]"
+          TopLeft="998.5,113.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32,73.5"
+              Start="0,0"
+              End="32,66">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.75"
+                    Point2="0,36.75"
+                    Point3="4,36.75" />
+                  <mssgle:LineSegment
+                    End="28,36.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28,36.75"
+                    Point2="32,36.75"
+                    Point3="32,40.75" />
+                  <mssgle:LineSegment
+                    End="32,66" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16596,8 +17877,8 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
           Id="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAL_HISTORICOS_PERSONAS"
           TopLeft="5.5,311.5" />
         <NodeLayout
-          Size="164,42"
-          Id="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB"
+          Size="198,42"
+          Id="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS"
           TopLeft="60.5,107.5" />
         <NodeLayout
           Size="164,42"
@@ -16642,9 +17923,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16666,9 +17945,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16690,9 +17967,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16721,26 +17996,36 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida de origen de OLE DB2]"
-          TopLeft="142.5,149.5">
+          TopLeft="159.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-17,60"
               Start="0,0"
-              End="0,52.5">
+              End="-17,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-13,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13,30"
+                    Point2="-17,30"
+                    Point3="-17,34" />
+                  <mssgle:LineSegment
+                    End="-17,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16762,9 +18047,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16786,9 +18069,87 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1"
+          TopLeft="221,29" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SGP Tarea Flujo de datos 6\Columna derivada 1 2"
+          TopLeft="211.5,119.5" />
+        <EdgeLayout
+          Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida de origen de OLE DB3]"
+          TopLeft="307.5,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14,48.5"
+              Start="0,0"
+              End="-14,41">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.25"
+                    Point2="0,24.25"
+                    Point3="-4,24.25" />
+                  <mssgle:LineSegment
+                    End="-10,24.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10,24.25"
+                    Point2="-14,24.25"
+                    Point3="-14,28.25" />
+                  <mssgle:LineSegment
+                    End="-14,41" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="284,42"
+          Id="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS"
+          TopLeft="187,261" />
+        <EdgeLayout
+          Id="Package\SGP Tarea Flujo de datos 6.Paths[Salida de columna derivada3]"
+          TopLeft="293.5,161.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.5,99.5"
+              Start="0,0"
+              End="35.5,92">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.75"
+                    Point2="0,49.75"
+                    Point3="4,49.75" />
+                  <mssgle:LineSegment
+                    End="31.5,49.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.5,49.75"
+                    Point2="35.5,49.75"
+                    Point3="35.5,53.75" />
+                  <mssgle:LineSegment
+                    End="35.5,92" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -16821,7 +18182,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB">
+    design-time-name="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -16858,7 +18219,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     design-time-name="Package\ULCD Tarea Flujo de datos 5 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="253,42"
           Id="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_HISTORICOSNODOS"
@@ -16926,7 +18287,9 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16948,7 +18311,9 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16982,7 +18347,9 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17004,7 +18371,9 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17026,7 +18395,9 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17048,7 +18419,9 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17070,7 +18443,9 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17092,7 +18467,9 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17152,6 +18529,58 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPUESTOS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

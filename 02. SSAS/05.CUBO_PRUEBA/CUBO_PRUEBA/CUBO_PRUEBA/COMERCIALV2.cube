@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="42" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="2747" scrolltop="25657" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="12621" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="42" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="5056" scrolltop="-573" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="14182" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -339,11 +339,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>2747</Value>
+      <Value>5056</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>25657</Value>
+      <Value>-573</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -752,6 +752,68 @@
                   <Source xsi:type="ColumnBinding" dwd:design-time-name="26603c8a-c6fa-446d-81ad-ffc67711da8d">
                     <TableID>dbo_H_COMERCIAL_ACTIVIDAD2</TableID>
                     <ColumnID>ID_MUNICIPIO</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="a11c7a0e-a8b3-4de3-abce-6444f69e3876">
+      <ID>J P02 UNIDAD EJECUCION</ID>
+      <Name>J P02 UNIDAD EJECUCION</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="86b5a6e4-9891-4533-bc38-e92093535b3f">
+          <ID>ID UNIDAD EJECUCION Distinct Count</ID>
+          <Name>ID UNIDAD EJECUCION Distinct Count</Name>
+          <AggregateFunction>DistinctCount</AggregateFunction>
+          <DataType>Integer</DataType>
+          <Source dwd:design-time-name="fe427e02-1d72-4033-bd06-3ee05b8978ee">
+            <DataType>WChar</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="46610bca-6df5-4778-8b6d-fd837e7b8670">
+              <TableID>dbo_J_P02_UNIDAD_EJECUCION</TableID>
+              <ColumnID>ID_UNIDAD_EJECUCION</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="ba787ad0-6917-4069-95fc-b3a8f0bd6083">
+          <CubeDimensionID>Jerarquía proyecto</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="5dd9dadd-f492-4480-a6c8-58429c1dacda">
+              <AttributeID>ID PROMOCION</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="52b413bb-cd86-4cb3-9e68-879049dc5cda">
+                  <DataType>WChar</DataType>
+                  <DataSize>12</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2ebdbc4a-8a34-461e-b49a-c3e3d8d16dc0">
+                    <TableID>dbo_J_P02_UNIDAD_EJECUCION</TableID>
+                    <ColumnID>ID_UNIDAD_EJECUCION</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute dwd:design-time-name="faa7fb4f-beaa-4d11-b76d-c34832e1e621">
+              <AttributeID>ID PROYECTO</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0f02c3ee-794b-4544-b8ae-27ec02d6fb9d">
+                  <DataType>WChar</DataType>
+                  <DataSize>3</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ec9f9dd8-55bc-4eb6-8e7c-913c04ec3062">
+                    <TableID>dbo_J_P02_UNIDAD_EJECUCION</TableID>
+                    <ColumnID>ID_PROYECTO</ColumnID>
                   </Source>
                 </KeyColumn>
               </KeyColumns>
