@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SRVSQLBI"
   DTS:CreatorName="OSATU\proyectobi"
-  DTS:DTSID="{7F071FBF-5328-4E8B-A789-16F83D891BB0}"
+  DTS:DTSID="{68821E89-C687-4F12-94A5-A123EF008CC5}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.4001.0"
   DTS:LocaleID="3082"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="PAKETE"
   DTS:PackageType="5"
   DTS:VersionBuild="17"
-  DTS:VersionGUID="{48A5CBD4-4784-4B98-8C17-48102B899AF8}">
+  DTS:VersionGUID="{D3E6BE23-636C-4725-AB77-80D29580E52C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.Contrataciones]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{C5C47DB1-736A-4CB4-8134-FE60BABF38F8}"
+      DTS:DTSID="{94968FBF-863E-42AD-BEA0-32ECFE429768}"
       DTS:ObjectName="SRVSQL1\SHAREPOINT.Contrataciones">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{6CE7729E-EFD5-4167-8148-834D255DE8EC}"
+      DTS:DTSID="{129EE749-3ECA-4166-B7F0-B63B07243CE7}"
       DTS:ObjectName="SRVSQLBI\VISESABIPRUEBAS.VISESABI">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -43,7 +43,7 @@
       DTS:refId="Package\Hechos"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{796DDADF-0AD9-4A74-AF5D-7C7ABF23692E}"
+      DTS:DTSID="{37215EAC-B399-4C0A-8AD1-C6E2FEAD98F8}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Hechos"
@@ -13764,10 +13764,167 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\LINEAS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{25361550-B3FA-441A-BBA9-F1FF91F065DB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LINEAS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\LINEAS\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LINEAS\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LINEAS\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\LINEAS\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LINEAS\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\LINEAS\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LINEAS\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LINEAS\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LINEAS\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LINEAS\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LINEAS\Lineas"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Lineas"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LINEAS\Lineas.Connections[OleDbConnection]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LINEAS\Lineas.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </output>
+                <output
+                  refId="Package\LINEAS\Lineas.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LINEAS\Lineas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LINEAS\Lineas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LINEAS\Lineas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LINEAS\Lineas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\LINEAS.Paths[Salida de origen de OLE DB]"
+              endId="Package\LINEAS\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\LINEAS\Lineas.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Maestras"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{8FA9A3DE-3035-405C-8538-9BDADBE8F7A2}"
+      DTS:DTSID="{F7374BFC-580F-450F-B1D9-33DEAEA2C9C5}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Maestras"
@@ -18397,7 +18554,7 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
       DTS:refId="Package\Tarea Ejecutar SQL"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{C061E9F6-AC86-4A4D-9FAE-AC55CCCC6A4A}"
+      DTS:DTSID="{391AD025-010B-4C07-A376-E55E794C52C0}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Tarea Ejecutar SQL"
@@ -18406,7 +18563,7 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6CE7729E-EFD5-4167-8148-834D255DE8EC}"
+          SQLTask:Connection="{129EE749-3ECA-4166-B7F0-B63B07243CE7}"
           SQLTask:SqlStatementSource="delete  FROM M_CONTRATACIONES_VENDOR&#xA;delete  FROM M_CONTRATACIONES_AREAS&#xA;delete  FROM M_CONTRATACIONES_TIPOS_DOCUMENTO&#xA;delete  FROM M_CONTRATACIONES_TIPOS_CONTRATO&#xA;delete  FROM M_CONTRATACIONES_TIPOS_FICHERO&#xA;delete FROM M_CONTRATACIONES_TIPOS_FORMULARIO&#xA;delete  FROM M_CONTRATACIONES_TIPOS_FORMAS_ADJUDICACION&#xA;DELETE FROM H_CONTRATACIONES" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -18415,7 +18572,7 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{B88593B9-0DF4-469C-9A5F-833B9104AD64}"
+      DTS:DTSID="{7154E84E-F0B9-4DD4-B18C-99C95619C872}"
       DTS:From="Package\Tarea Ejecutar SQL"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -18423,7 +18580,7 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{D85A0DA7-1057-4E14-9232-B909E50078EC}"
+      DTS:DTSID="{04759E7D-4709-468F-8DFC-7D24C5FB21A5}"
       DTS:From="Package\Maestras"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -18441,6 +18598,14 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Hechos"
+          TopLeft="505.600008583069,52.0000007292804" />
+        <NodeLayout
+          Size="113.6,41.6"
+          Id="Package\LINEAS"
+          TopLeft="707,27" />
         <NodeLayout
           Size="120.8,41.6"
           Id="Package\Maestras"
@@ -18471,10 +18636,6 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\Hechos"
-          TopLeft="505.600008583069,52.0000007292804" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="425.8,49.8">
@@ -18512,6 +18673,281 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Hechos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Hechos\SOLICITUDES"
+          TopLeft="191.2,40" />
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\Hechos\CONTRATACIONES NAVISION"
+          TopLeft="456,34.4" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\Hechos\Combinación de mezcla"
+          TopLeft="304,132" />
+        <NodeLayout
+          Size="116.8,41.6"
+          Id="Package\Hechos\Ordenar"
+          TopLeft="164.8,180.8" />
+        <EdgeLayout
+          Id="Package\Hechos.Paths[Salida de origen de OLE DB]"
+          TopLeft="263.2,81.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-40,99.2"
+              Start="0,0"
+              End="-40,91.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.6"
+                    Point2="0,49.6"
+                    Point3="-4,49.6" />
+                  <mssgle:LineSegment
+                    End="-36,49.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-36,49.6"
+                    Point2="-40,49.6"
+                    Point3="-40,53.6" />
+                  <mssgle:LineSegment
+                    End="-40,91.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\Hechos\Ordenar 1"
+          TopLeft="659.2,117.6" />
+        <EdgeLayout
+          Id="Package\Hechos.Paths[Salida de origen de OLE DB1]"
+          TopLeft="566,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156,41.6"
+              Start="0,0"
+              End="156,34.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.8"
+                    Point2="0,20.8"
+                    Point3="4,20.8" />
+                  <mssgle:LineSegment
+                    End="152,20.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152,20.8"
+                    Point2="156,20.8"
+                    Point3="156,24.8" />
+                  <mssgle:LineSegment
+                    End="156,34.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Hechos.Paths[Salida de ordenación]"
+          TopLeft="659.2,138.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-166.4,14.4"
+              Start="0,0"
+              End="-158.9,14.4">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-79.2,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-79.2,0"
+                    Point2="-83.2,0"
+                    Point3="-83.2,4" />
+                  <mssgle:LineSegment
+                    End="-83.2,10.4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-83.2,10.4"
+                    Point2="-83.2,14.4"
+                    Point3="-87.2,14.4" />
+                  <mssgle:LineSegment
+                    End="-158.9,14.4" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Hechos.Paths[Salida de ordenación1]"
+          TopLeft="241.333333333333,180.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62.6666666666667,-28"
+              Start="0,0"
+              End="55.1666666666667,-28">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-24"
+                    Point2="0,-28"
+                    Point3="4,-28" />
+                  <mssgle:LineSegment
+                    End="55.1666666666667,-28" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\Hechos\Destino de OLE DB"
+          TopLeft="321.6,250.4" />
+        <EdgeLayout
+          Id="Package\Hechos.Paths[Salida de combinación de mezcla]"
+          TopLeft="402,173.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76.8"
+              Start="0,0"
+              End="0,69.3">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.3" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Hechos\CONTRATACIONES NAVISION">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Hechos\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Hechos\SOLICITUDES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\LINEAS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\LINEAS\Columna derivada"
+          TopLeft="62,135" />
+        <NodeLayout
+          Size="109,42"
+          Id="Package\LINEAS\Lineas"
+          TopLeft="62,32" />
+        <EdgeLayout
+          Id="Package\LINEAS.Paths[Salida de origen de OLE DB]"
+          TopLeft="116.5,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.5,61"
+              Start="0,0"
+              End="27.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="23.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.5,30.5"
+                    Point2="27.5,30.5"
+                    Point3="27.5,34.5" />
+                  <mssgle:LineSegment
+                    End="27.5,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\Maestras">
     <LayoutInfo>
@@ -18815,6 +19251,32 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Maestras\Vendor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\TiposFormasAdjudicacion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Maestras\M_CONTRATACIONES_TIPOS_FORMULARIO">
     <Properties>
       <Property>
@@ -18841,7 +19303,7 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Maestras\M_CONTRATACIONES_VENDOR">
+    design-time-name="Package\Maestras\TiposDocumento">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -18867,6 +19329,19 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Maestras\M_CONTRATACIONES_VENDOR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Maestras\TiposContrato">
     <Properties>
       <Property>
@@ -18880,46 +19355,7 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Maestras\TiposFormasAdjudicacion">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\TiposFormulario">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\TiposDocumento">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\M_CONTRATACIONES_TIPOS_CONTRATO">
+    design-time-name="Package\Maestras\TiposFichero">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -18945,7 +19381,7 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Maestras\Vendor">
+    design-time-name="Package\Maestras\TiposFormulario">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -18984,230 +19420,7 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Maestras\TiposFichero">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Hechos">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="144,41.6"
-          Id="Package\Hechos\SOLICITUDES"
-          TopLeft="191.2,40" />
-        <NodeLayout
-          Size="220,41.6"
-          Id="Package\Hechos\CONTRATACIONES NAVISION"
-          TopLeft="456,34.4" />
-        <NodeLayout
-          Size="188.8,41.6"
-          Id="Package\Hechos\Combinación de mezcla"
-          TopLeft="304,132" />
-        <NodeLayout
-          Size="116.8,41.6"
-          Id="Package\Hechos\Ordenar"
-          TopLeft="164.8,180.8" />
-        <EdgeLayout
-          Id="Package\Hechos.Paths[Salida de origen de OLE DB]"
-          TopLeft="263.2,81.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-40,99.2"
-              Start="0,0"
-              End="-40,91.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,45.6"
-                    Point2="0,49.6"
-                    Point3="-4,49.6" />
-                  <mssgle:LineSegment
-                    End="-36,49.6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-36,49.6"
-                    Point2="-40,49.6"
-                    Point3="-40,53.6" />
-                  <mssgle:LineSegment
-                    End="-40,91.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="125.6,41.6"
-          Id="Package\Hechos\Ordenar 1"
-          TopLeft="659.2,117.6" />
-        <EdgeLayout
-          Id="Package\Hechos.Paths[Salida de origen de OLE DB1]"
-          TopLeft="566,76">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="156,41.6"
-              Start="0,0"
-              End="156,34.1">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.8"
-                    Point2="0,20.8"
-                    Point3="4,20.8" />
-                  <mssgle:LineSegment
-                    End="152,20.8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="152,20.8"
-                    Point2="156,20.8"
-                    Point3="156,24.8" />
-                  <mssgle:LineSegment
-                    End="156,34.1" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Hechos.Paths[Salida de ordenación]"
-          TopLeft="659.2,138.4">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-166.4,14.4"
-              Start="0,0"
-              End="-158.9,14.4">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-79.2,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-79.2,0"
-                    Point2="-83.2,0"
-                    Point3="-83.2,4" />
-                  <mssgle:LineSegment
-                    End="-83.2,10.4" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-83.2,10.4"
-                    Point2="-83.2,14.4"
-                    Point3="-87.2,14.4" />
-                  <mssgle:LineSegment
-                    End="-158.9,14.4" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Hechos.Paths[Salida de ordenación1]"
-          TopLeft="241.333333333333,180.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="62.6666666666667,-28"
-              Start="0,0"
-              End="55.1666666666667,-28">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-24"
-                    Point2="0,-28"
-                    Point3="4,-28" />
-                  <mssgle:LineSegment
-                    End="55.1666666666667,-28" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="168,41.6"
-          Id="Package\Hechos\Destino de OLE DB"
-          TopLeft="321.6,250.4" />
-        <EdgeLayout
-          Id="Package\Hechos.Paths[Salida de combinación de mezcla]"
-          TopLeft="402,173.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,76.8"
-              Start="0,0"
-              End="0,69.3">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,69.3" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Hechos\SOLICITUDES">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Hechos\CONTRATACIONES NAVISION">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Hechos\Destino de OLE DB">
+    design-time-name="Package\Maestras\M_CONTRATACIONES_TIPOS_CONTRATO">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

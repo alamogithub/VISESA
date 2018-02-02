@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{F7FAA967-EA7B-4893-B6AB-3655D112B5B6}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{FB0B59D0-39ED-4D35-AE16-841B833FBB76}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2644,6 +2644,47 @@
                       lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[Nivel]"
                       name="Nivel"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[SAP empresas]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[SAP empresas]"
+                      length="20"
+                      lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[SAP empresas]"
+                      name="SAP empresas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[Porc_ Inc_ Auditoria]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[Porc_ Inc_ Auditoria]"
+                      lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[Porc_ Inc_ Auditoria]"
+                      name="Porc_ Inc_ Auditoria"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[Porc_ Incidencias]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[Porc_ Incidencias]"
+                      lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[Porc_ Incidencias]"
+                      name="Porc_ Incidencias"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[Fecha auditoria]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha auditoria]"
+                      lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[Fecha auditoria]"
+                      name="Fecha auditoria"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3223,6 +3264,27 @@
                       refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[Nivel]"
                       dataType="i4"
                       name="Nivel" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[SAP empresas]"
+                      dataType="wstr"
+                      length="20"
+                      name="SAP empresas" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[Porc_ Inc_ Auditoria]"
+                      dataType="numeric"
+                      name="Porc_ Inc_ Auditoria"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[Porc_ Incidencias]"
+                      dataType="numeric"
+                      name="Porc_ Incidencias"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha auditoria]"
+                      dataType="dbTimeStamp"
+                      name="Fecha auditoria" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3930,6 +3992,31 @@
                       dataType="i4"
                       lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[Nivel]"
                       name="Nivel" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[SAP empresas]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[SAP empresas]"
+                      name="SAP empresas" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[Porc_ Inc_ Auditoria]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[Porc_ Inc_ Auditoria]"
+                      name="Porc_ Inc_ Auditoria"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[Porc_ Incidencias]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[Porc_ Incidencias]"
+                      name="Porc_ Incidencias"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[Fecha auditoria]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[Fecha auditoria]"
+                      name="Fecha auditoria" />
                     <outputColumn
                       refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -9733,6 +9820,34 @@
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Modifica nombre propuesta]"
                       name="Modifica nombre propuesta"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[GLN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].ExternalColumns[GLN]"
+                      length="13"
+                      lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[GLN]"
+                      name="GLN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Self Employed]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].ExternalColumns[Self Employed]"
+                      lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Self Employed]"
+                      name="Self Employed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Id_ Tipo identificacion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].ExternalColumns[Id_ Tipo identificacion]"
+                      lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Id_ Tipo identificacion]"
+                      name="Id_ Tipo identificacion"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -10175,6 +10290,19 @@
                       refId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].ExternalColumns[Modifica nombre propuesta]"
                       dataType="ui1"
                       name="Modifica nombre propuesta" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].ExternalColumns[GLN]"
+                      dataType="wstr"
+                      length="13"
+                      name="GLN" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].ExternalColumns[Self Employed]"
+                      dataType="ui1"
+                      name="Self Employed" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].ExternalColumns[Id_ Tipo identificacion]"
+                      dataType="i4"
+                      name="Id_ Tipo identificacion" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -10712,6 +10840,22 @@
                       dataType="ui1"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de error de origen de OLE DB].Columns[Modifica nombre propuesta]"
                       name="Modifica nombre propuesta" />
+                    <outputColumn
+                      refId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de error de origen de OLE DB].Columns[GLN]"
+                      dataType="wstr"
+                      length="13"
+                      lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de error de origen de OLE DB].Columns[GLN]"
+                      name="GLN" />
+                    <outputColumn
+                      refId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de error de origen de OLE DB].Columns[Self Employed]"
+                      dataType="ui1"
+                      lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de error de origen de OLE DB].Columns[Self Employed]"
+                      name="Self Employed" />
+                    <outputColumn
+                      refId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de error de origen de OLE DB].Columns[Id_ Tipo identificacion]"
+                      dataType="i4"
+                      lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de error de origen de OLE DB].Columns[Id_ Tipo identificacion]"
+                      name="Id_ Tipo identificacion" />
                     <outputColumn
                       refId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -11970,31 +12114,31 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="114,42"
+          Size="113.6,41.6"
           Id="Package\Deletes"
           TopLeft="124,22" />
         <NodeLayout
-          Size="189,42"
+          Size="188.8,41.6"
           Id="Package\ZM_CONTRATACIONES"
           TopLeft="97,205" />
         <NodeLayout
-          Size="243,42"
+          Size="243.2,41.6"
           Id="Package\ZM_CONTRATACIONES_NAVISION"
           TopLeft="377,473" />
         <NodeLayout
-          Size="218,42"
+          Size="217.6,41.6"
           Id="Package\ZM_LINEAS_CONTRATACION"
           TopLeft="98,296" />
         <NodeLayout
-          Size="285,42"
+          Size="284.8,41.6"
           Id="Package\ZM_MOVIMIENTOS_PPTO_CONTRATACION"
           TopLeft="90,385" />
         <NodeLayout
-          Size="165,42"
+          Size="164.8,41.6"
           Id="Package\ZM_SOLICITUDES"
           TopLeft="136,111" />
         <NodeLayout
-          Size="140,42"
+          Size="140,41.6"
           Id="Package\ZM_VENDOR"
           TopLeft="202,472" />
         <EdgeLayout
@@ -12198,15 +12342,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="189,42"
+          Size="188.8,41.6"
           Id="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES"
           TopLeft="99,257" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\ZM_CONTRATACIONES\poner fecha actual"
           TopLeft="95,152" />
         <NodeLayout
-          Size="149,42"
+          Size="148.8,41.6"
           Id="Package\ZM_CONTRATACIONES\Contrataciones"
           TopLeft="92,45" />
         <EdgeLayout
@@ -12312,11 +12456,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="189,42"
+          Size="243.2,41.6"
+          Id="Package\ZM_CONTRATACIONES_NAVISION\ZM_CONTRATACIONES_NAVISION"
+          TopLeft="63,245" />
+        <NodeLayout
+          Size="188.8,41.6"
           Id="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones"
           TopLeft="62,29" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\ZM_CONTRATACIONES_NAVISION\poner fecha actual"
           TopLeft="70,122" />
         <EdgeLayout
@@ -12341,10 +12489,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="243,42"
-          Id="Package\ZM_CONTRATACIONES_NAVISION\ZM_CONTRATACIONES_NAVISION"
-          TopLeft="63,245" />
         <EdgeLayout
           Id="Package\ZM_CONTRATACIONES_NAVISION.Paths[Salida de columna derivada]"
           TopLeft="153,164">
@@ -12414,15 +12558,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="212,42"
+          Size="212,41.6"
           Id="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion"
           TopLeft="118,49" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\ZM_LINEAS_CONTRATACION\poner fecha actual"
           TopLeft="181,181" />
         <NodeLayout
-          Size="218,42"
+          Size="217.6,41.6"
           Id="Package\ZM_LINEAS_CONTRATACION\ZM_LINEAS_CONTRATACION"
           TopLeft="154,318" />
         <EdgeLayout
@@ -12516,15 +12660,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="264,42"
+          Size="264,41.6"
           Id="Package\ZM_MOVIMIENTOS_PPTO_CONTRATACION\VISESA$Movimientos ppto contratacion"
           TopLeft="80,60" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\ZM_MOVIMIENTOS_PPTO_CONTRATACION\poner fecha actual"
           TopLeft="82,165" />
         <NodeLayout
-          Size="285,42"
+          Size="284.8,41.6"
           Id="Package\ZM_MOVIMIENTOS_PPTO_CONTRATACION\ZM_MOVIMIENTOS_PPTO_CONTRATACION"
           TopLeft="80,276" />
         <EdgeLayout
@@ -12630,15 +12774,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="165,42"
+          Size="164.8,41.6"
           Id="Package\ZM_SOLICITUDES\ZM_SOLICITUDES"
           TopLeft="85,223" />
         <NodeLayout
-          Size="129,42"
+          Size="128.8,41.6"
           Id="Package\ZM_SOLICITUDES\Solicitudes"
           TopLeft="84,45" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\ZM_SOLICITUDES\poner fecha actual"
           TopLeft="86,137" />
         <EdgeLayout
@@ -12732,15 +12876,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="140,42"
+          Size="140,41.6"
           Id="Package\ZM_VENDOR\ZM_VENDOR"
           TopLeft="119,261" />
         <NodeLayout
-          Size="153,42"
+          Size="152.8,41.6"
           Id="Package\ZM_VENDOR\VISESA$Vendor"
           TopLeft="134,64" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\ZM_VENDOR\poner fecha actual"
           TopLeft="128,166" />
         <EdgeLayout
