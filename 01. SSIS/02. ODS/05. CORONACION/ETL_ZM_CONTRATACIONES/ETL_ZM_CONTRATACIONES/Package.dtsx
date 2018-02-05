@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{FB0B59D0-39ED-4D35-AE16-841B833FBB76}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{B83DD8CB-8E1F-4D3A-8F20-A12664C5963B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -83,7 +83,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E283C364-4FCB-4563-9DC0-B221AD484D4E}"
-          SQLTask:SqlStatementSource="&#xA;  delete from ZM_CONTRATACIONES_SOLICITUDES &#xA;delete from ZM_CONTRATACIONES_CONTRATACIONES &#xA;delete from ZM_CONTRATACIONES_LINEAS_CONTRATACION &#xA;delete  from ZM_CONTRATACIONES_MOVIMIENTOS_PPTO_CONTRATACION &#xA;delete from ZM_CONTRATACIONES_VENDOR&#xA;delete from ZM_CONTRATACIONES_CONTRATACIONES_NAVISION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;  delete from ZM_CONTRATACIONES_SOLICITUDES &#xA;delete from ZM_CONTRATACIONES_CONTRATACIONES &#xA;delete from ZM_CONTRATACIONES_LINEAS_CONTRATACION &#xA;delete  from ZM_CONTRATACIONES_MOVIMIENTOS_PPTO_CONTRATACION &#xA;delete from ZM_CONTRATACIONES_PROVEEDOR&#xA;delete from ZM_CONTRATACIONES_CONTRATACIONES_NAVISION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -10889,7 +10889,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[ZM_CONTRATACIONES_VENDOR]</property>
+                  name="OpenRowset">[dbo].[ZM_CONTRATACIONES_PROVEEDOR]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -12114,31 +12114,31 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="113.6,41.6"
+          Size="114,42"
           Id="Package\Deletes"
           TopLeft="124,22" />
         <NodeLayout
-          Size="188.8,41.6"
+          Size="189,42"
           Id="Package\ZM_CONTRATACIONES"
           TopLeft="97,205" />
         <NodeLayout
-          Size="243.2,41.6"
+          Size="243,42"
           Id="Package\ZM_CONTRATACIONES_NAVISION"
           TopLeft="377,473" />
         <NodeLayout
-          Size="217.6,41.6"
+          Size="218,42"
           Id="Package\ZM_LINEAS_CONTRATACION"
           TopLeft="98,296" />
         <NodeLayout
-          Size="284.8,41.6"
+          Size="285,42"
           Id="Package\ZM_MOVIMIENTOS_PPTO_CONTRATACION"
           TopLeft="90,385" />
         <NodeLayout
-          Size="164.8,41.6"
+          Size="165,42"
           Id="Package\ZM_SOLICITUDES"
           TopLeft="136,111" />
         <NodeLayout
-          Size="140,41.6"
+          Size="140,42"
           Id="Package\ZM_VENDOR"
           TopLeft="202,472" />
         <EdgeLayout
@@ -12342,15 +12342,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="188.8,41.6"
+          Size="189,42"
           Id="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES"
           TopLeft="99,257" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="166,42"
           Id="Package\ZM_CONTRATACIONES\poner fecha actual"
           TopLeft="95,152" />
         <NodeLayout
-          Size="148.8,41.6"
+          Size="149,42"
           Id="Package\ZM_CONTRATACIONES\Contrataciones"
           TopLeft="92,45" />
         <EdgeLayout
@@ -12527,7 +12527,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\ZM_CONTRATACIONES_NAVISION\ZM_CONTRATACIONES_NAVISION">
+    design-time-name="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -12540,7 +12540,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones">
+    design-time-name="Package\ZM_CONTRATACIONES_NAVISION\ZM_CONTRATACIONES_NAVISION">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -12876,17 +12876,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="140,41.6"
-          Id="Package\ZM_VENDOR\ZM_VENDOR"
-          TopLeft="119,261" />
-        <NodeLayout
-          Size="152.8,41.6"
+          Size="153,42"
           Id="Package\ZM_VENDOR\VISESA$Vendor"
           TopLeft="134,64" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="166,42"
           Id="Package\ZM_VENDOR\poner fecha actual"
           TopLeft="128,166" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\ZM_VENDOR\ZM_VENDOR"
+          TopLeft="119,261" />
         <EdgeLayout
           Id="Package\ZM_VENDOR.Paths[Salida de origen de OLE DB]"
           TopLeft="210.75,106">
@@ -12947,7 +12947,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\ZM_VENDOR\ZM_VENDOR">
+    design-time-name="Package\ZM_VENDOR\VISESA$Vendor">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -12960,7 +12960,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ZM_VENDOR\VISESA$Vendor">
+    design-time-name="Package\ZM_VENDOR\ZM_VENDOR">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
