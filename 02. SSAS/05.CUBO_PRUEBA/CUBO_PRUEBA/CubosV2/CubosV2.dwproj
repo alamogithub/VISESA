@@ -47,6 +47,16 @@
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
+    <ProjectItem>
+      <Name>CONTRATACION.cube</Name>
+      <FullPath>CONTRATACION.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>CONTRATACION.partitions</Name>
+          <FullPath>CONTRATACION.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
   </Cubes>
   <Dimensions>
     <ProjectItem>
@@ -385,6 +395,14 @@
       <Name>Características Asistencia Prueba.dim</Name>
       <FullPath>Características Asistencia Prueba.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>M CONTRATACIONES PROVEEDOR.dim</Name>
+      <FullPath>M CONTRATACIONES PROVEEDOR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M CONTRATACION SOL CON.dim</Name>
+      <FullPath>M CONTRATACION SOL CON.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>
@@ -402,6 +420,10 @@
     <ProjectItem>
       <Name>VISESABI.ds</Name>
       <FullPath>VISESABI.ds</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>VISESABIPRUEBAS.ds</Name>
+      <FullPath>VISESABIPRUEBAS.ds</FullPath>
     </ProjectItem>
   </DataSources>
   <DataSourceViews>
@@ -428,6 +450,10 @@
     <ProjectItem>
       <Name>CORONACION.dsv</Name>
       <FullPath>CORONACION.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CONTRATACION.dsv</Name>
+      <FullPath>CONTRATACION.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
   <Roles>
@@ -473,6 +499,11 @@
             <Name>VISESABI</Name>
             <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
           </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>VISESABIPRUEBAS</Id>
+            <Name>VISESABIPRUEBAS</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABIPRUEBAS;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
+          </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
           <ConfigurationSetting>
@@ -493,6 +524,11 @@
           <ConfigurationSetting>
             <Id>VISESABI</Id>
             <Name>VISESABI</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>VISESABIPRUEBAS</Id>
+            <Name>VISESABIPRUEBAS</Name>
             <Value xsi:type="xsd:int">0</Value>
           </ConfigurationSetting>
         </ConnectionSecurityMappings>

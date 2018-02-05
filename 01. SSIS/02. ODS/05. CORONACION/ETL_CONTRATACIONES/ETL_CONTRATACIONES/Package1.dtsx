@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{C2A061CF-13F8-41CA-A5D7-16F6F8C074D1}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{89D850F9-2BDD-417A-B3A1-0ADE88543F7F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -19919,17 +19919,21 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="112.8,41.6"
+          Size="113,42"
           Id="Package\Hechos"
           TopLeft="592.314296302017,94.9058840345759" />
         <NodeLayout
-          Size="120.8,41.6"
+          Size="121,42"
           Id="Package\Maestras"
           TopLeft="391.714287718948,71.9058833052955" />
         <NodeLayout
-          Size="169.6,41.6"
+          Size="170,42"
           Id="Package\Tarea Ejecutar SQL"
           TopLeft="117.714287718948,67.9058833052955" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="379.657148082889,245.317650499311" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="287.714287718948,90.9058833052955">
@@ -19986,10 +19990,6 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\Tarea Flujo de datos"
-          TopLeft="379.657148082889,245.317650499311" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="648.714296302017,136.505884034576">
@@ -20033,27 +20033,27 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="116.8,41.6"
+          Size="117,42"
           Id="Package\Hechos\Ordenar"
           TopLeft="164.8,180.8" />
         <NodeLayout
-          Size="220,41.6"
+          Size="220,42"
           Id="Package\Hechos\CONTRATACIONES NAVISION"
           TopLeft="456,34.4" />
         <NodeLayout
-          Size="168,41.6"
+          Size="168,42"
           Id="Package\Hechos\Destino de OLE DB"
           TopLeft="321.6,250.4" />
         <NodeLayout
-          Size="125.6,41.6"
+          Size="126,42"
           Id="Package\Hechos\Ordenar 1"
           TopLeft="659.2,117.6" />
         <NodeLayout
-          Size="188.8,41.6"
+          Size="189,42"
           Id="Package\Hechos\Combinación de mezcla"
           TopLeft="303.2,132" />
         <NodeLayout
-          Size="144,41.6"
+          Size="144,42"
           Id="Package\Hechos\SOLICITUDES"
           TopLeft="191.2,40" />
         <EdgeLayout
@@ -20747,11 +20747,11 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="144,41.6"
+          Size="144,42"
           Id="Package\Tarea Flujo de datos\SOLICITUDES"
           TopLeft="309.6,145.6" />
         <NodeLayout
-          Size="168,41.6"
+          Size="168,42"
           Id="Package\Tarea Flujo de datos\Destino de OLE DB"
           TopLeft="388,333.6" />
         <EdgeLayout
@@ -20801,6 +20801,14 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\SOLICITUDES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

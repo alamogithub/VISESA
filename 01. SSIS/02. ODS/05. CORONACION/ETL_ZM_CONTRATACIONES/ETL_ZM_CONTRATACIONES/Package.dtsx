@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{D80505DA-A201-4D71-81E2-1AE3C88E4745}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{B83DD8CB-8E1F-4D3A-8F20-A12664C5963B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -83,7 +83,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E283C364-4FCB-4563-9DC0-B221AD484D4E}"
-          SQLTask:SqlStatementSource="&#xA;  delete from ZM_CONTRATACIONES_SOLICITUDES &#xA;delete from ZM_CONTRATACIONES_CONTRATACIONES &#xA;delete from ZM_CONTRATACIONES_LINEAS_CONTRATACION &#xA;delete  from ZM_CONTRATACIONES_MOVIMIENTOS_PPTO_CONTRATACION &#xA;delete from ZM_CONTRATACIONES_VENDOR&#xA;delete from ZM_CONTRATACIONES_CONTRATACIONES_NAVISION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;  delete from ZM_CONTRATACIONES_SOLICITUDES &#xA;delete from ZM_CONTRATACIONES_CONTRATACIONES &#xA;delete from ZM_CONTRATACIONES_LINEAS_CONTRATACION &#xA;delete  from ZM_CONTRATACIONES_MOVIMIENTOS_PPTO_CONTRATACION &#xA;delete from ZM_CONTRATACIONES_PROVEEDOR&#xA;delete from ZM_CONTRATACIONES_CONTRATACIONES_NAVISION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -10874,11 +10874,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\ZM_VENDOR\ZM_PROVEEDOR"
+              refId="Package\ZM_VENDOR\ZM_VENDOR"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="ZM_PROVEEDOR"
+              name="ZM_VENDOR"
               usesDispositions="true"
               version="4">
               <properties>
@@ -10931,7 +10931,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Connections[OleDbConnection]"
+                  refId="Package\ZM_VENDOR\ZM_VENDOR.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
                   connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -10939,1071 +10939,1071 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[No_]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="No_"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[No_]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Name]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Name]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Name"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Name]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Name]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Name]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Search Name]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Search Name]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Search Name"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Search Name]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Search Name]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Search Name]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Name 2]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Name 2]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Name 2"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Name 2]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Name 2]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Name 2]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Address]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Address]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Address"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Address]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Address]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Address]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Address 2]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Address 2]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Address 2"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Address 2]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Address 2]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Address 2]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[City]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[City]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="City"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[City]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[City]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[City]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Contact]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Contact]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Contact"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Contact]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Contact]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Contact]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Phone No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Phone No_]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="Phone No_"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Phone No_]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Phone No_]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Phone No_]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Telex No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Telex No_]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Telex No_"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telex No_]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telex No_]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Telex No_]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Our Account No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Our Account No_]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Our Account No_"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Our Account No_]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Our Account No_]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Our Account No_]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Territory Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Territory Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Territory Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Territory Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Territory Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Territory Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 1 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 1 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 1 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 1 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 1 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 1 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 2 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 2 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 2 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 2 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 2 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 2 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Budgeted Amount]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Budgeted Amount]"
                       cachedDataType="numeric"
                       cachedName="Budgeted Amount"
                       cachedPrecision="38"
                       cachedScale="20"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Budgeted Amount]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Budgeted Amount]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Budgeted Amount]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Vendor Posting Group]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Vendor Posting Group]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Vendor Posting Group"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Vendor Posting Group]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Vendor Posting Group]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Vendor Posting Group]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Currency Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Currency Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Currency Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Currency Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Currency Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Currency Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Language Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Language Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Language Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Language Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Language Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Language Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Statistics Group]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Statistics Group]"
                       cachedDataType="i4"
                       cachedName="Statistics Group"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Statistics Group]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Statistics Group]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Statistics Group]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Payment Terms Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Payment Terms Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Payment Terms Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Payment Terms Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Payment Terms Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Payment Terms Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Fin_ Charge Terms Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Fin_ Charge Terms Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Fin_ Charge Terms Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fin_ Charge Terms Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fin_ Charge Terms Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Fin_ Charge Terms Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Purchaser Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Purchaser Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Purchaser Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Purchaser Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Purchaser Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Purchaser Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Shipment Method Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Shipment Method Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Shipment Method Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Shipment Method Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Shipment Method Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Shipment Method Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Shipping Agent Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Shipping Agent Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Shipping Agent Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Shipping Agent Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Shipping Agent Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Shipping Agent Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Invoice Disc_ Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Invoice Disc_ Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Invoice Disc_ Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Invoice Disc_ Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Invoice Disc_ Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Invoice Disc_ Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Country_Region Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Country_Region Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Country_Region Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Country_Region Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Country_Region Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Country_Region Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Blocked]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Blocked]"
                       cachedDataType="i4"
                       cachedName="Blocked"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Blocked]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Blocked]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Blocked]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Pay-to Vendor No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Pay-to Vendor No_]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Pay-to Vendor No_"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Pay-to Vendor No_]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Pay-to Vendor No_]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Pay-to Vendor No_]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Priority]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Priority]"
                       cachedDataType="i4"
                       cachedName="Priority"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Priority]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Priority]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Priority]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Payment Method Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Payment Method Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Payment Method Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Payment Method Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Payment Method Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Payment Method Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Last Date Modified]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Last Date Modified]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Last Date Modified"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Last Date Modified]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Last Date Modified]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Last Date Modified]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Application Method]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Application Method]"
                       cachedDataType="i4"
                       cachedName="Application Method"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Application Method]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Application Method]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Application Method]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Prices Including VAT]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Prices Including VAT]"
                       cachedDataType="ui1"
                       cachedName="Prices Including VAT"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Prices Including VAT]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Prices Including VAT]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Prices Including VAT]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Fax No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Fax No_]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="Fax No_"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fax No_]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fax No_]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Fax No_]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Telex Answer Back]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Telex Answer Back]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Telex Answer Back"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telex Answer Back]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telex Answer Back]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Telex Answer Back]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[VAT Registration No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[VAT Registration No_]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="VAT Registration No_"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[VAT Registration No_]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[VAT Registration No_]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[VAT Registration No_]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Gen_ Bus_ Posting Group]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Gen_ Bus_ Posting Group]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Gen_ Bus_ Posting Group"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Gen_ Bus_ Posting Group]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Gen_ Bus_ Posting Group]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Gen_ Bus_ Posting Group]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Picture]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Picture]"
                       cachedDataType="image"
                       cachedName="Picture"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Picture]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Picture]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Picture]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Post Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Post Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Post Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Post Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Post Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Post Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[County]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[County]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="County"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[County]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[County]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[County]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[E-Mail]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[E-Mail]"
                       cachedDataType="wstr"
                       cachedLength="80"
                       cachedName="E-Mail"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[E-Mail]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[E-Mail]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[E-Mail]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Home Page]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Home Page]"
                       cachedDataType="wstr"
                       cachedLength="80"
                       cachedName="Home Page"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Home Page]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Home Page]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Home Page]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[No_ Series]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[No_ Series]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="No_ Series"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Series]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Series]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[No_ Series]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Tax Area Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Tax Area Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Tax Area Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tax Area Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tax Area Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Tax Area Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Tax Liable]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Tax Liable]"
                       cachedDataType="ui1"
                       cachedName="Tax Liable"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tax Liable]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tax Liable]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Tax Liable]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[VAT Bus_ Posting Group]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[VAT Bus_ Posting Group]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="VAT Bus_ Posting Group"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[VAT Bus_ Posting Group]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[VAT Bus_ Posting Group]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[VAT Bus_ Posting Group]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Block Payment Tolerance]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Block Payment Tolerance]"
                       cachedDataType="ui1"
                       cachedName="Block Payment Tolerance"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Block Payment Tolerance]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Block Payment Tolerance]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Block Payment Tolerance]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[IC Partner Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[IC Partner Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="IC Partner Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[IC Partner Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[IC Partner Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[IC Partner Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Prepayment _]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Prepayment _]"
                       cachedDataType="numeric"
                       cachedName="Prepayment _"
                       cachedPrecision="38"
                       cachedScale="20"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Prepayment _]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Prepayment _]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Prepayment _]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Partner Type]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Partner Type]"
                       cachedDataType="i4"
                       cachedName="Partner Type"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Partner Type]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Partner Type]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Partner Type]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Creditor No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Creditor No_]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Creditor No_"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Creditor No_]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Creditor No_]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Creditor No_]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Preferred Bank Account]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Preferred Bank Account]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Preferred Bank Account"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Preferred Bank Account]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Preferred Bank Account]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Preferred Bank Account]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Cash Flow Payment Terms Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Cash Flow Payment Terms Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Cash Flow Payment Terms Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cash Flow Payment Terms Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cash Flow Payment Terms Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Cash Flow Payment Terms Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Primary Contact No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Primary Contact No_]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Primary Contact No_"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Primary Contact No_]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Primary Contact No_]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Primary Contact No_]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Responsibility Center]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Responsibility Center]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Responsibility Center"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Responsibility Center]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Responsibility Center]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Responsibility Center]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Location Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Location Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Location Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Location Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Location Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Location Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Lead Time Calculation]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Lead Time Calculation]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="32"
                       cachedName="Lead Time Calculation"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lead Time Calculation]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lead Time Calculation]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Lead Time Calculation]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Base Calendar Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Base Calendar Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Base Calendar Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Base Calendar Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Base Calendar Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Base Calendar Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Payment Days Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Payment Days Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Payment Days Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Payment Days Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Payment Days Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Payment Days Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Non-Paymt_ Periods Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Non-Paymt_ Periods Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Non-Paymt_ Periods Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Non-Paymt_ Periods Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Non-Paymt_ Periods Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Non-Paymt_ Periods Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Tipo identificacion]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Tipo identificacion]"
                       cachedDataType="i4"
                       cachedName="Tipo identificacion"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo identificacion]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo identificacion]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Tipo identificacion]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Municipio]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Municipio]"
                       cachedDataType="wstr"
                       cachedLength="35"
                       cachedName="Municipio"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Municipio]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Municipio]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Municipio]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Identificacion incorrecta]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Identificacion incorrecta]"
                       cachedDataType="ui1"
                       cachedName="Identificacion incorrecta"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Identificacion incorrecta]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Identificacion incorrecta]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Identificacion incorrecta]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Codigo retención IRPF]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Codigo retención IRPF]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Codigo retención IRPF"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo retención IRPF]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo retención IRPF]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Codigo retención IRPF]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Codigo retención garantía]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Codigo retención garantía]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Codigo retención garantía"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo retención garantía]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo retención garantía]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Codigo retención garantía]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Tipo proveedor contratación]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Tipo proveedor contratación]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Tipo proveedor contratación"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo proveedor contratación]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo proveedor contratación]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Tipo proveedor contratación]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 3 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 3 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 3 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 3 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 3 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 3 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 4 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 4 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 4 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 4 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 4 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 4 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 5 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 5 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 5 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 5 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 5 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 5 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 6 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 6 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 6 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 6 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 6 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 6 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 7 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 7 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 7 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 7 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 7 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 7 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 8 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 8 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 8 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 8 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 8 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 8 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 9 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 9 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 9 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 9 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 9 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 9 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 10 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 10 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 10 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 10 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 10 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 10 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 11 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 11 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 11 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 11 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 11 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 11 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 12 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 12 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 12 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 12 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 12 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 12 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 13 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 13 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 13 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 13 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 13 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 13 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 14 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 14 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 14 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 14 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 14 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 14 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 15 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Global Dimension 15 Code]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Global Dimension 15 Code"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 15 Code]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 15 Code]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Global Dimension 15 Code]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Actividad profesional]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Actividad profesional]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Actividad profesional"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Actividad profesional]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Actividad profesional]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Actividad profesional]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Revisado]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Revisado]"
                       cachedDataType="ui1"
                       cachedName="Revisado"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Revisado]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Revisado]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Revisado]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Fecha revision]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Fecha revision]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Fecha revision"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha revision]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha revision]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Fecha revision]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Cesion]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Cesion]"
                       cachedDataType="ui1"
                       cachedName="Cesion"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cesion]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cesion]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Cesion]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Publico o asociado]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Publico o asociado]"
                       cachedDataType="ui1"
                       cachedName="Publico o asociado"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Publico o asociado]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Publico o asociado]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Publico o asociado]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Proviene de la Intranet]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Proviene de la Intranet]"
                       cachedDataType="ui1"
                       cachedName="Proviene de la Intranet"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Proviene de la Intranet]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Proviene de la Intranet]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Proviene de la Intranet]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Nombre para solicitud]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Nombre para solicitud]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="Nombre para solicitud"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre para solicitud]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre para solicitud]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Nombre para solicitud]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Direccion para solicitud]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Direccion para solicitud]"
                       cachedDataType="wstr"
                       cachedLength="120"
                       cachedName="Direccion para solicitud"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Direccion para solicitud]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Direccion para solicitud]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Direccion para solicitud]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Telefono para solicitud]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Telefono para solicitud]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="Telefono para solicitud"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telefono para solicitud]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telefono para solicitud]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Telefono para solicitud]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Proveedor Intranet]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Proveedor Intranet]"
                       cachedDataType="ui1"
                       cachedName="Proveedor Intranet"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Proveedor Intranet]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Proveedor Intranet]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Proveedor Intranet]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[Modifica nombre propuesta]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[Modifica nombre propuesta]"
                       cachedDataType="ui1"
                       cachedName="Modifica nombre propuesta"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Modifica nombre propuesta]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Modifica nombre propuesta]"
                       lineageId="Package\ZM_VENDOR\VISESA$Vendor.Outputs[Salida de origen de OLE DB].Columns[Modifica nombre propuesta]" />
                     <inputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
                       cachedDataType="dbTimeStamp"
                       cachedName="F_EJECUCION"
-                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      externalMetadataColumnId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
                       lineageId="Package\ZM_VENDOR\poner fecha actual.Outputs[Salida de columna derivada].Columns[F_EJECUCION]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_]"
                       dataType="wstr"
                       length="20"
                       name="No_" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Name]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Name]"
                       dataType="wstr"
                       length="50"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Search Name]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Search Name]"
                       dataType="wstr"
                       length="50"
                       name="Search Name" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Name 2]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Name 2]"
                       dataType="wstr"
                       length="50"
                       name="Name 2" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Address]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Address]"
                       dataType="wstr"
                       length="50"
                       name="Address" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Address 2]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Address 2]"
                       dataType="wstr"
                       length="50"
                       name="Address 2" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[City]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[City]"
                       dataType="wstr"
                       length="30"
                       name="City" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Contact]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Contact]"
                       dataType="wstr"
                       length="50"
                       name="Contact" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Phone No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Phone No_]"
                       dataType="wstr"
                       length="30"
                       name="Phone No_" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telex No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telex No_]"
                       dataType="wstr"
                       length="20"
                       name="Telex No_" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Our Account No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Our Account No_]"
                       dataType="wstr"
                       length="20"
                       name="Our Account No_" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Territory Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Territory Code]"
                       dataType="wstr"
                       length="10"
                       name="Territory Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 1 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 1 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 1 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 2 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 2 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 2 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Budgeted Amount]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Budgeted Amount]"
                       dataType="numeric"
                       name="Budgeted Amount"
                       precision="38"
                       scale="20" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Vendor Posting Group]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Vendor Posting Group]"
                       dataType="wstr"
                       length="10"
                       name="Vendor Posting Group" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Currency Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Currency Code]"
                       dataType="wstr"
                       length="10"
                       name="Currency Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Language Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Language Code]"
                       dataType="wstr"
                       length="10"
                       name="Language Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Statistics Group]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Statistics Group]"
                       dataType="i4"
                       name="Statistics Group" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Payment Terms Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Payment Terms Code]"
                       dataType="wstr"
                       length="10"
                       name="Payment Terms Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fin_ Charge Terms Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fin_ Charge Terms Code]"
                       dataType="wstr"
                       length="10"
                       name="Fin_ Charge Terms Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Purchaser Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Purchaser Code]"
                       dataType="wstr"
                       length="10"
                       name="Purchaser Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Shipment Method Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Shipment Method Code]"
                       dataType="wstr"
                       length="10"
                       name="Shipment Method Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Shipping Agent Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Shipping Agent Code]"
                       dataType="wstr"
                       length="10"
                       name="Shipping Agent Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Invoice Disc_ Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Invoice Disc_ Code]"
                       dataType="wstr"
                       length="20"
                       name="Invoice Disc_ Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Country_Region Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Country_Region Code]"
                       dataType="wstr"
                       length="10"
                       name="Country_Region Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Blocked]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Blocked]"
                       dataType="i4"
                       name="Blocked" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Pay-to Vendor No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Pay-to Vendor No_]"
                       dataType="wstr"
                       length="20"
                       name="Pay-to Vendor No_" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Priority]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Priority]"
                       dataType="i4"
                       name="Priority" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Payment Method Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Payment Method Code]"
                       dataType="wstr"
                       length="10"
                       name="Payment Method Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Last Date Modified]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Last Date Modified]"
                       dataType="dbTimeStamp"
                       name="Last Date Modified" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Application Method]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Application Method]"
                       dataType="i4"
                       name="Application Method" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Prices Including VAT]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Prices Including VAT]"
                       dataType="ui1"
                       name="Prices Including VAT" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fax No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fax No_]"
                       dataType="wstr"
                       length="30"
                       name="Fax No_" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telex Answer Back]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telex Answer Back]"
                       dataType="wstr"
                       length="20"
                       name="Telex Answer Back" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[VAT Registration No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[VAT Registration No_]"
                       dataType="wstr"
                       length="20"
                       name="VAT Registration No_" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Gen_ Bus_ Posting Group]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Gen_ Bus_ Posting Group]"
                       dataType="wstr"
                       length="10"
                       name="Gen_ Bus_ Posting Group" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Picture]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Picture]"
                       dataType="image"
                       name="Picture" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Post Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Post Code]"
                       dataType="wstr"
                       length="20"
                       name="Post Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[County]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[County]"
                       dataType="wstr"
                       length="30"
                       name="County" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[E-Mail]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[E-Mail]"
                       dataType="wstr"
                       length="80"
                       name="E-Mail" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Home Page]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Home Page]"
                       dataType="wstr"
                       length="80"
                       name="Home Page" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Series]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Series]"
                       dataType="wstr"
                       length="10"
                       name="No_ Series" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tax Area Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tax Area Code]"
                       dataType="wstr"
                       length="20"
                       name="Tax Area Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tax Liable]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tax Liable]"
                       dataType="ui1"
                       name="Tax Liable" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[VAT Bus_ Posting Group]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[VAT Bus_ Posting Group]"
                       dataType="wstr"
                       length="10"
                       name="VAT Bus_ Posting Group" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Block Payment Tolerance]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Block Payment Tolerance]"
                       dataType="ui1"
                       name="Block Payment Tolerance" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[IC Partner Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[IC Partner Code]"
                       dataType="wstr"
                       length="20"
                       name="IC Partner Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Prepayment _]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Prepayment _]"
                       dataType="numeric"
                       name="Prepayment _"
                       precision="38"
                       scale="20" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Partner Type]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Partner Type]"
                       dataType="i4"
                       name="Partner Type" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Creditor No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Creditor No_]"
                       dataType="wstr"
                       length="20"
                       name="Creditor No_" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Preferred Bank Account]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Preferred Bank Account]"
                       dataType="wstr"
                       length="10"
                       name="Preferred Bank Account" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cash Flow Payment Terms Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cash Flow Payment Terms Code]"
                       dataType="wstr"
                       length="10"
                       name="Cash Flow Payment Terms Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Primary Contact No_]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Primary Contact No_]"
                       dataType="wstr"
                       length="20"
                       name="Primary Contact No_" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Responsibility Center]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Responsibility Center]"
                       dataType="wstr"
                       length="10"
                       name="Responsibility Center" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Location Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Location Code]"
                       dataType="wstr"
                       length="10"
                       name="Location Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lead Time Calculation]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lead Time Calculation]"
                       codePage="1252"
                       dataType="str"
                       length="32"
                       name="Lead Time Calculation" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Base Calendar Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Base Calendar Code]"
                       dataType="wstr"
                       length="10"
                       name="Base Calendar Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Payment Days Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Payment Days Code]"
                       dataType="wstr"
                       length="20"
                       name="Payment Days Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Non-Paymt_ Periods Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Non-Paymt_ Periods Code]"
                       dataType="wstr"
                       length="20"
                       name="Non-Paymt_ Periods Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo identificacion]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo identificacion]"
                       dataType="i4"
                       name="Tipo identificacion" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Municipio]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Municipio]"
                       dataType="wstr"
                       length="35"
                       name="Municipio" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Identificacion incorrecta]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Identificacion incorrecta]"
                       dataType="ui1"
                       name="Identificacion incorrecta" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo retención IRPF]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo retención IRPF]"
                       dataType="wstr"
                       length="20"
                       name="Codigo retención IRPF" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo retención garantía]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo retención garantía]"
                       dataType="wstr"
                       length="20"
                       name="Codigo retención garantía" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo proveedor contratación]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo proveedor contratación]"
                       dataType="wstr"
                       length="20"
                       name="Tipo proveedor contratación" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 3 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 3 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 3 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 4 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 4 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 4 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 5 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 5 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 5 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 6 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 6 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 6 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 7 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 7 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 7 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 8 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 8 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 8 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 9 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 9 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 9 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 10 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 10 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 10 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 11 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 11 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 11 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 12 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 12 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 12 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 13 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 13 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 13 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 14 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 14 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 14 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 15 Code]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Global Dimension 15 Code]"
                       dataType="wstr"
                       length="20"
                       name="Global Dimension 15 Code" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Actividad profesional]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Actividad profesional]"
                       dataType="wstr"
                       length="20"
                       name="Actividad profesional" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Revisado]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Revisado]"
                       dataType="ui1"
                       name="Revisado" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha revision]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha revision]"
                       dataType="dbTimeStamp"
                       name="Fecha revision" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cesion]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cesion]"
                       dataType="ui1"
                       name="Cesion" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Publico o asociado]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Publico o asociado]"
                       dataType="ui1"
                       name="Publico o asociado" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Proviene de la Intranet]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Proviene de la Intranet]"
                       dataType="ui1"
                       name="Proviene de la Intranet" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre para solicitud]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre para solicitud]"
                       dataType="wstr"
                       length="100"
                       name="Nombre para solicitud" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Direccion para solicitud]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Direccion para solicitud]"
                       dataType="wstr"
                       length="120"
                       name="Direccion para solicitud" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telefono para solicitud]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telefono para solicitud]"
                       dataType="wstr"
                       length="30"
                       name="Telefono para solicitud" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Proveedor Intranet]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Proveedor Intranet]"
                       dataType="ui1"
                       name="Proveedor Intranet" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Modifica nombre propuesta]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[Modifica nombre propuesta]"
                       dataType="ui1"
                       name="Modifica nombre propuesta" />
                     <externalMetadataColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
                       dataType="dbTimeStamp"
                       name="F_EJECUCION" />
                   </externalMetadataColumns>
@@ -12011,22 +12011,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\ZM_VENDOR\ZM_VENDOR.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\ZM_VENDOR\ZM_PROVEEDOR.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\ZM_VENDOR\ZM_VENDOR.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\ZM_VENDOR\ZM_PROVEEDOR.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\ZM_VENDOR\ZM_VENDOR.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\ZM_VENDOR\ZM_PROVEEDOR.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\ZM_VENDOR\ZM_VENDOR.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -12038,7 +12038,7 @@
           <paths>
             <path
               refId="Package\ZM_VENDOR.Paths[Salida de columna derivada]"
-              endId="Package\ZM_VENDOR\ZM_PROVEEDOR.Inputs[Entrada de destino de OLE DB]"
+              endId="Package\ZM_VENDOR\ZM_VENDOR.Inputs[Entrada de destino de OLE DB]"
               name="Salida de columna derivada"
               startId="Package\ZM_VENDOR\poner fecha actual.Outputs[Salida de columna derivada]" />
             <path
@@ -12114,31 +12114,31 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="113.6,41.6"
+          Size="114,42"
           Id="Package\Deletes"
           TopLeft="124,22" />
         <NodeLayout
-          Size="188.8,41.6"
+          Size="189,42"
           Id="Package\ZM_CONTRATACIONES"
           TopLeft="97,205" />
         <NodeLayout
-          Size="242.4,41.6"
+          Size="243,42"
           Id="Package\ZM_CONTRATACIONES_NAVISION"
           TopLeft="377,473" />
         <NodeLayout
-          Size="217.6,41.6"
+          Size="218,42"
           Id="Package\ZM_LINEAS_CONTRATACION"
           TopLeft="98,296" />
         <NodeLayout
-          Size="284.8,41.6"
+          Size="285,42"
           Id="Package\ZM_MOVIMIENTOS_PPTO_CONTRATACION"
           TopLeft="90,385" />
         <NodeLayout
-          Size="164.8,41.6"
+          Size="165,42"
           Id="Package\ZM_SOLICITUDES"
           TopLeft="136,111" />
         <NodeLayout
-          Size="139.2,41.6"
+          Size="140,42"
           Id="Package\ZM_VENDOR"
           TopLeft="202,472" />
         <EdgeLayout
@@ -12245,30 +12245,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="206.8,337.6">
+          TopLeft="207,338">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="25.6,47.4"
+              EndConnector="25.5,47"
               Start="0,0"
-              End="25.6,39.9">
+              End="25.5,39.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7" />
+                    End="0,19.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.7"
-                    Point2="0,23.7"
-                    Point3="4,23.7" />
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
                   <mssgle:LineSegment
-                    End="21.6,23.7" />
+                    End="21.5,23.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="21.6,23.7"
-                    Point2="25.6,23.7"
-                    Point3="25.6,27.7" />
+                    Point1="21.5,23.5"
+                    Point2="25.5,23.5"
+                    Point3="25.5,27.5" />
                   <mssgle:LineSegment
-                    End="25.6,39.9" />
+                    End="25.5,39.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12279,30 +12279,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="232.4,426.6">
+          TopLeft="232.5,427">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="39.2,45.4"
+              EndConnector="39.5,45"
               Start="0,0"
-              End="39.2,37.9">
+              End="39.5,37.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.7" />
+                    End="0,18.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.7"
-                    Point2="0,22.7"
-                    Point3="4,22.7" />
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
                   <mssgle:LineSegment
-                    End="35.2,22.7" />
+                    End="35.5,22.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="35.2,22.7"
-                    Point2="39.2,22.7"
-                    Point3="39.2,26.7" />
+                    Point1="35.5,22.5"
+                    Point2="39.5,22.5"
+                    Point3="39.5,26.5" />
                   <mssgle:LineSegment
-                    End="39.2,37.9" />
+                    End="39.5,37.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12313,18 +12313,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="341.2,493.3">
+          TopLeft="342,493.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="35.8,0"
+              EndConnector="35,0"
               Start="0,0"
-              End="28.3,0">
+              End="27.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="28.3,0" />
+                    End="27.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12342,15 +12342,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="188.8,41.6"
+          Size="189,42"
           Id="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES"
           TopLeft="99,257" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="166,42"
           Id="Package\ZM_CONTRATACIONES\poner fecha actual"
           TopLeft="95,152" />
         <NodeLayout
-          Size="148.8,41.6"
+          Size="149,42"
           Id="Package\ZM_CONTRATACIONES\Contrataciones"
           TopLeft="92,45" />
         <EdgeLayout
@@ -12456,6 +12456,10 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="243.2,41.6"
+          Id="Package\ZM_CONTRATACIONES_NAVISION\ZM_CONTRATACIONES_NAVISION"
+          TopLeft="63,245" />
+        <NodeLayout
           Size="188.8,41.6"
           Id="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones"
           TopLeft="62,29" />
@@ -12463,10 +12467,6 @@
           Size="166.4,41.6"
           Id="Package\ZM_CONTRATACIONES_NAVISION\poner fecha actual"
           TopLeft="70,122" />
-        <NodeLayout
-          Size="243.2,41.6"
-          Id="Package\ZM_CONTRATACIONES_NAVISION\ZM_CONTRATACIONES_NAVISION"
-          TopLeft="63,245" />
         <EdgeLayout
           Id="Package\ZM_CONTRATACIONES_NAVISION.Paths[Salida de origen de OLE DB]"
           TopLeft="154.75,71">
@@ -12876,16 +12876,16 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152.8,41.6"
+          Size="153,42"
           Id="Package\ZM_VENDOR\VISESA$Vendor"
           TopLeft="134,64" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="166,42"
           Id="Package\ZM_VENDOR\poner fecha actual"
           TopLeft="128,166" />
         <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\ZM_VENDOR\ZM_PROVEEDOR"
+          Size="140,42"
+          Id="Package\ZM_VENDOR\ZM_VENDOR"
           TopLeft="119,261" />
         <EdgeLayout
           Id="Package\ZM_VENDOR.Paths[Salida de origen de OLE DB]"
@@ -12911,30 +12911,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ZM_VENDOR.Paths[Salida de columna derivada]"
-          TopLeft="211.2,207.6">
+          TopLeft="211,208">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13,53.4"
+              EndConnector="-22,53"
               Start="0,0"
-              End="-13,45.9">
+              End="-22,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.7" />
+                    End="0,22.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.7"
-                    Point2="0,26.7"
-                    Point3="-4,26.7" />
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="-4,26.5" />
                   <mssgle:LineSegment
-                    End="-9,26.7" />
+                    End="-18,26.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-9,26.7"
-                    Point2="-13,26.7"
-                    Point3="-13,30.7" />
+                    Point1="-18,26.5"
+                    Point2="-22,26.5"
+                    Point3="-22,30.5" />
                   <mssgle:LineSegment
-                    End="-13,45.9" />
+                    End="-22,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12960,7 +12960,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ZM_VENDOR\ZM_PROVEEDOR">
+    design-time-name="Package\ZM_VENDOR\ZM_VENDOR">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
