@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{DD9E7DD3-04F6-4DB0-AF5C-D1821DF46178}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{02527D8F-AF39-4947-9CDC-978324A84908}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\proyectobi\Desktop\ENCUESTA DE SATISFACCIÓN DE LAS PERSONAS DE VISESA 2014.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\proyectobi2\Desktop\ENCUESTA DE SATISFACCIÓN DE LAS PERSONAS DE VISESA 2014.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -70,92 +70,6 @@
         <pipeline
           version="1">
           <components>
-            <component
-              refId="Package\Tarea Flujo de datos\Componente de script"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Incluye y ejecuta código de scripts personalizados. Por ejemplo, se usa para aplicar una regla de negocios que limita el intervalo de valores válidos de una columna de ingresos o para sumar los valores de dos columnas y calcular el promedio de la suma.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;10"
-              description="Incluye y ejecuta código de scripts personalizados. Por ejemplo, se usa para aplicar una regla de negocios que limita el intervalo de valores válidos de una columna de ingresos o para sumar los valores de dos columnas y calcular el promedio de la suma."
-              name="Componente de script"
-              version="10">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Almacena el código fuente del componente"
-                  isArray="true"
-                  name="SourceCode"
-                  state="cdata">
-                  <arrayElements
-                    arrayElementCount="0" />
-                </property>
-                <property
-                  dataType="System.String"
-                  description="Almacena la representación binaria del componente"
-                  isArray="true"
-                  name="BinaryCode"
-                  state="cdata">
-                  <arrayElements
-                    arrayElementCount="0" />
-                </property>
-                <property
-                  dataType="System.String"
-                  description="Especifica el nombre del proyecto de Microsoft Visual Studio Tools para Aplicaciones. Los nombres de proyecto deben ser únicos en el paquete."
-                  name="VSTAProjectName"
-                  typeConverter="NOTBROWSABLE">SC_2ab5850450254fef9cd3d5904b488d63</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica el lenguaje de programación que utiliza el script."
-                  name="ScriptLanguage"
-                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica una lista separada por comas de variables de solo lectura."
-                  name="ReadOnlyVariables"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
-                <property
-                  dataType="System.String"
-                  description="Especifica una lista separada por comas de variables de lectura/escritura."
-                  name="ReadWriteVariables"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
-                <property
-                  dataType="System.String"
-                  description="Lista de puntos de interrupción presentes en el script."
-                  isArray="true"
-                  name="BreakpointCollection"
-                  typeConverter="NOTBROWSABLE">
-                  <arrayElements
-                    arrayElementCount="0" />
-                </property>
-                <property
-                  dataType="System.String"
-                  description="Suma de comprobación para comparar los metadatos del componente con los códigos compilados."
-                  name="MetadataChecksum"
-                  typeConverter="NOTBROWSABLE"></property>
-                <property
-                  dataType="System.String"
-                  description="Suma de comprobación para comparar los metadatos del componente con los códigos compilados."
-                  name="MetadataShaChecksum"
-                  typeConverter="NOTBROWSABLE"></property>
-                <property
-                  dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Tarea Flujo de datos\Componente de script.Inputs[Entrada 0]"
-                  hasSideEffects="true"
-                  name="Entrada 0">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Tarea Flujo de datos\Componente de script.Outputs[Salida 0]"
-                  name="Salida 0"
-                  synchronousInputId="Package\Tarea Flujo de datos\Componente de script.Inputs[Entrada 0]">
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\Tarea Flujo de datos\Destino de OLE DB"
               componentClassID="Microsoft.OLEDBDestination"
@@ -6262,13 +6176,8 @@
           </components>
           <paths>
             <path
-              refId="Package\Tarea Flujo de datos.Paths[Salida 0]"
-              endId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
-              name="Salida 0"
-              startId="Package\Tarea Flujo de datos\Componente de script.Outputs[Salida 0]" />
-            <path
               refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
-              endId="Package\Tarea Flujo de datos\Componente de script.Inputs[Entrada 0]"
+              endId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
               name="Salida de origen de Excel"
               startId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel]" />
           </paths>
@@ -6299,11 +6208,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Tarea Ejecutar SQL"
           TopLeft="107,173" />
         <NodeLayout
-          Size="176,42"
+          Size="176,41.6"
           Id="Package\Tarea Flujo de datos"
           TopLeft="423,199" />
         <EdgeLayout
@@ -6347,67 +6256,41 @@
     design-time-name="Package\Tarea Flujo de datos">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="153,42"
-          Id="Package\Tarea Flujo de datos\Origen de Excel"
-          TopLeft="99,21" />
-        <NodeLayout
-          Size="168,42"
+          Size="168,41.6"
           Id="Package\Tarea Flujo de datos\Destino de OLE DB"
           TopLeft="105,209" />
         <NodeLayout
-          Size="182,42"
-          Id="Package\Tarea Flujo de datos\Componente de script"
-          TopLeft="98,113" />
+          Size="152.8,41.6"
+          Id="Package\Tarea Flujo de datos\Origen de Excel"
+          TopLeft="99,21" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
-          TopLeft="175.5,63">
+          TopLeft="175.4,62.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="13.5,50"
+              EndConnector="13.6,146.4"
               Start="0,0"
-              End="13.5,42.5">
+              End="13.6,138.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21" />
+                    End="0,69.2" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="4,25" />
+                    Point1="0,69.2"
+                    Point2="0,73.2"
+                    Point3="4,73.2" />
                   <mssgle:LineSegment
-                    End="9.5,25" />
+                    End="9.59999999999999,73.2" />
                   <mssgle:CubicBezierSegment
-                    Point1="9.5,25"
-                    Point2="13.5,25"
-                    Point3="13.5,29" />
+                    Point1="9.59999999999999,73.2"
+                    Point2="13.6,73.2"
+                    Point3="13.6,77.2" />
                   <mssgle:LineSegment
-                    End="13.5,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida 0]"
-          TopLeft="189,155">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54"
-              Start="0,0"
-              End="0,46.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.5" />
+                    End="13.6,138.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6420,7 +6303,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Origen de Excel">
+    design-time-name="Package\Tarea Flujo de datos\Destino de OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6433,7 +6316,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Destino de OLE DB">
+    design-time-name="Package\Tarea Flujo de datos\Origen de Excel">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
