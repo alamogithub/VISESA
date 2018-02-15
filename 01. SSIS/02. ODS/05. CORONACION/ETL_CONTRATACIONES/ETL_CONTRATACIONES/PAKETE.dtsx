@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="PAKETE"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{D3E6BE23-636C-4725-AB77-80D29580E52C}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{0B3A1831-2930-4064-BB5F-D8659E1CB281}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -15158,7 +15158,7 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[M_CONTRATACIONES_VENDOR]</property>
+                  name="OpenRowset">[dbo].[M_CONTRATACIONES_PROVEEDOR]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -16577,7 +16577,7 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[dbo].[ZM_CONTRATACIONES_VENDOR]</property>
+                  name="OpenRowset">[dbo].[ZM_CONTRATACIONES_PROVEEDOR]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -18599,19 +18599,19 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="112.8,41.6"
+          Size="113,42"
           Id="Package\Hechos"
           TopLeft="505.600008583069,52.0000007292804" />
         <NodeLayout
-          Size="113.6,41.6"
+          Size="114,42"
           Id="Package\LINEAS"
           TopLeft="707,27" />
         <NodeLayout
-          Size="120.8,41.6"
+          Size="121,42"
           Id="Package\Maestras"
           TopLeft="305,29" />
         <NodeLayout
-          Size="169.6,41.6"
+          Size="170,42"
           Id="Package\Tarea Ejecutar SQL"
           TopLeft="31,25" />
         <EdgeLayout
@@ -18954,61 +18954,129 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="288.8,41.6"
-          Id="Package\Maestras\M_CONTRATACIONES_TIPOS_FORMULARIO"
-          TopLeft="634,261" />
-        <NodeLayout
-          Size="344,41.6"
-          Id="Package\Maestras\M_CONTRATACIONES_TIPOS_FORMAS_ADJUDICACION"
-          TopLeft="13,409" />
-        <NodeLayout
-          Size="230.4,41.6"
-          Id="Package\Maestras\M_CONTRATACIONES_VENDOR"
-          TopLeft="17,125" />
-        <NodeLayout
-          Size="287.2,41.6"
-          Id="Package\Maestras\M_CONTRATACIONES_TIPOS_DOCUMENTO"
-          TopLeft="525,125" />
-        <NodeLayout
-          Size="144.8,41.6"
-          Id="Package\Maestras\TiposContrato"
-          TopLeft="33,188" />
-        <NodeLayout
-          Size="198.4,41.6"
-          Id="Package\Maestras\TiposFormasAdjudicacion"
-          TopLeft="15,338" />
-        <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\Maestras\TiposFormulario"
-          TopLeft="652,190" />
-        <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\Maestras\TiposDocumento"
-          TopLeft="518,27" />
-        <NodeLayout
-          Size="278.4,41.6"
-          Id="Package\Maestras\M_CONTRATACIONES_TIPOS_CONTRATO"
-          TopLeft="25,260" />
-        <NodeLayout
-          Size="267.2,41.6"
-          Id="Package\Maestras\M_CONTRATACIONES_TIPOS_FICHERO"
-          TopLeft="327,261" />
-        <NodeLayout
-          Size="112,41.6"
+          Size="112,42"
           Id="Package\Maestras\Vendor"
           TopLeft="33,29" />
         <NodeLayout
-          Size="220,41.6"
+          Size="198,42"
+          Id="Package\Maestras\TiposFormasAdjudicacion"
+          TopLeft="15,338" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\Maestras\M_CONTRATACIONES_TIPOS_FORMULARIO"
+          TopLeft="634,261" />
+        <NodeLayout
+          Size="344,42"
+          Id="Package\Maestras\M_CONTRATACIONES_TIPOS_FORMAS_ADJUDICACION"
+          TopLeft="13,409" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Maestras\TiposDocumento"
+          TopLeft="518,27" />
+        <NodeLayout
+          Size="287,42"
+          Id="Package\Maestras\M_CONTRATACIONES_TIPOS_DOCUMENTO"
+          TopLeft="525,125" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Maestras\M_CONTRATACIONES_VENDOR"
+          TopLeft="17,125" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Maestras\TiposContrato"
+          TopLeft="33,188" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Maestras\TiposFichero"
+          TopLeft="344,187" />
+        <NodeLayout
+          Size="267,42"
+          Id="Package\Maestras\M_CONTRATACIONES_TIPOS_FICHERO"
+          TopLeft="327,261" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Maestras\TiposFormulario"
+          TopLeft="652,190" />
+        <NodeLayout
+          Size="220,42"
           Id="Package\Maestras\M_CONTRATACIONES_AREAS"
           TopLeft="280,124" />
         <NodeLayout
-          Size="104.8,41.6"
+          Size="105,42"
           Id="Package\Maestras\Areas"
           TopLeft="293,28" />
         <NodeLayout
-          Size="137.6,41.6"
-          Id="Package\Maestras\TiposFichero"
-          TopLeft="344,187" />
+          Size="278,42"
+          Id="Package\Maestras\M_CONTRATACIONES_TIPOS_CONTRATO"
+          TopLeft="25,260" />
+        <EdgeLayout
+          Id="Package\Maestras.Paths[Salida de origen de OLE DB5]"
+          TopLeft="729,232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49.5,29"
+              Start="0,0"
+              End="49.5,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5"
+                    Point2="0,14.5"
+                    Point3="4,14.5" />
+                  <mssgle:LineSegment
+                    End="45.5,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45.5,14.5"
+                    Point2="49.5,14.5"
+                    Point3="49.5,18.5" />
+                  <mssgle:LineSegment
+                    End="49.5,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Maestras.Paths[Salida de origen de OLE DB4]"
+          TopLeft="413,229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47.5,32"
+              Start="0,0"
+              End="47.5,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="4,16" />
+                  <mssgle:LineSegment
+                    End="43.5,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.5,16"
+                    Point2="47.5,16"
+                    Point3="47.5,20" />
+                  <mssgle:LineSegment
+                    End="47.5,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Maestras.Paths[Salida de origen de OLE DB3]"
           TopLeft="105.5,230">
@@ -19171,74 +19239,6 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
                     Point3="71,18.5" />
                   <mssgle:LineSegment
                     End="71,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Maestras.Paths[Salida de origen de OLE DB5]"
-          TopLeft="729,232">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="49.5,29"
-              Start="0,0"
-              End="49.5,21.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.5"
-                    Point2="0,14.5"
-                    Point3="4,14.5" />
-                  <mssgle:LineSegment
-                    End="45.5,14.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="45.5,14.5"
-                    Point2="49.5,14.5"
-                    Point3="49.5,18.5" />
-                  <mssgle:LineSegment
-                    End="49.5,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Maestras.Paths[Salida de origen de OLE DB4]"
-          TopLeft="413,229">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="47.5,32"
-              Start="0,0"
-              End="47.5,24.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12"
-                    Point2="0,16"
-                    Point3="4,16" />
-                  <mssgle:LineSegment
-                    End="43.5,16" />
-                  <mssgle:CubicBezierSegment
-                    Point1="43.5,16"
-                    Point2="47.5,16"
-                    Point3="47.5,20" />
-                  <mssgle:LineSegment
-                    End="47.5,24.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

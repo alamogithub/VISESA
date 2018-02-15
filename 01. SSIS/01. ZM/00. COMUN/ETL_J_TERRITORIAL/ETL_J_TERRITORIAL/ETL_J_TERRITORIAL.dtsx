@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_J_TERRITORIAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{EBC833ED-7106-49FD-B236-72D2D828F11D}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{F91DC882-7E47-4FB2-A077-DBD4FDADFF8C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -33,7 +33,7 @@
       DTS:ObjectName="SRVSQL1\NAV2013">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=SRVSQL1\NAV2013;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=SRVSQL1\NAV2016;Initial Catalog=VISESA_2016;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -1943,6 +1943,16 @@ WHERE ID_PAIS = ?</property>
                       refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[Pais SEPA]"
                       dataType="ui1"
                       name="Pais SEPA" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[VAT Scheme]"
+                      dataType="wstr"
+                      length="10"
+                      name="VAT Scheme" />
+                    <externalMetadataColumn
+                      refId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_ pais SII]"
+                      dataType="wstr"
+                      length="10"
+                      name="Cod_ pais SII" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3421,29 +3431,33 @@ where [refTable].[ID_PROVINCIA] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="179,42"
+          Id="Package\Pais\Existe Pais en BBDD?"
+          TopLeft="257,209.5" />
+        <NodeLayout
           Size="213,42"
           Id="Package\Pais\Mirar si ha cambiado la desc"
           TopLeft="213,413.5" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Pais\VISESA$Country_Region"
+          TopLeft="222.5,5.5" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Pais\Update Pais"
+          TopLeft="231,515.5" />
         <NodeLayout
           Size="235,42"
           Id="Package\Pais\Quitar nulos y poner fecha actual"
           TopLeft="202,107.5" />
         <NodeLayout
           Size="135,42"
-          Id="Package\Pais\Update Pais"
-          TopLeft="231,515.5" />
-        <NodeLayout
-          Size="194,42"
-          Id="Package\Pais\VISESA$Country_Region"
-          TopLeft="222.5,5.5" />
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Pais\Existe Pais en BBDD?"
-          TopLeft="257,209.5" />
-        <NodeLayout
-          Size="135,42"
           Id="Package\Pais\J_T01_PAIS"
           TopLeft="5.50000000000003,311.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Pais\División condicional"
+          TopLeft="67,151" />
         <EdgeLayout
           Id="Package\Pais.Paths[Salida de origen de OLE DB]"
           TopLeft="319.5,47.5">
@@ -3539,46 +3553,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Pais.Paths[Cambia]"
-          TopLeft="319.5,455.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-21,60"
-              Start="0,0"
-              End="-21,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-17,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-17,30"
-                    Point2="-21,30"
-                    Point3="-21,34" />
-                  <mssgle:LineSegment
-                    End="-21,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.39087890625,35,33.7817578125,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Pais\División condicional"
-          TopLeft="67,151" />
-        <EdgeLayout
           Id="Package\Pais.Paths[Salida de columna derivada]"
           TopLeft="202,128.5">
           <EdgeLayout.Curve>
@@ -3633,6 +3607,42 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="93.2819140625,-15.5537109375,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Pais.Paths[Cambia]"
+          TopLeft="319.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21,60"
+              Start="0,0"
+              End="-21,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-17,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17,30"
+                    Point2="-21,30"
+                    Point3="-21,34" />
+                  <mssgle:LineSegment
+                    End="-21,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-27.39087890625,35,33.7817578125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
