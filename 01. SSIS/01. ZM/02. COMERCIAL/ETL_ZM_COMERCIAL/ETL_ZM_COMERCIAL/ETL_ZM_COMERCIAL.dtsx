@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_ZM_COMERCIAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="44"
-  DTS:VersionGUID="{C6AF62B2-AD1A-497D-A9F5-76550F3384C3}">
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{BA1F861E-86DE-4DFD-AE66-309E0D6C3259}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -45,7 +45,7 @@
         DTS:Name="ConnectionString">"Data Source="+ @[User::Ruta_Fichero] +@[User::Anyo_Corte_Texto]+@[User::Nombre_Fichero]+" ;Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=EXCEL 12.0;"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=L:\INFOVISESA\BUSINESS INTELLIGENCE\COMERCIAL\2017\Comercial_PLANTILLA.xlsx ;Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=EXCEL 12.0;" />
+          DTS:ConnectionString="Data Source=L:\INFOVISESA\BUSINESS INTELLIGENCE\COMERCIAL\2018\Comercial_PLANTILLA.xlsx ;Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=EXCEL 12.0;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -65,7 +65,7 @@
       DTS:ObjectName="SRVSQL1\NAV2013">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=SRVSQL1\NAV2013;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=SRVSQL1\NAV2016;Initial Catalog=VISESA_2016;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -101,7 +101,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Anyo_Corte">
       <DTS:VariableValue
-        DTS:DataType="3">2017</DTS:VariableValue>
+        DTS:DataType="3">2018</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -112,7 +112,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Anyo_Corte_Texto">
       <DTS:VariableValue
-        DTS:DataType="8">2017\</DTS:VariableValue>
+        DTS:DataType="8">2018\</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -123,7 +123,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Corte">
       <DTS:VariableValue
-        DTS:DataType="7">8/31/2017</DTS:VariableValue>
+        DTS:DataType="7">1/31/2018</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -134,7 +134,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Sistema">
       <DTS:VariableValue
-        DTS:DataType="7">8/30/2017 9:30:36 AM</DTS:VariableValue>
+        DTS:DataType="7">2/7/2018 9:38:17 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -145,7 +145,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Mes_Corte">
       <DTS:VariableValue
-        DTS:DataType="3">8</DTS:VariableValue>
+        DTS:DataType="3">1</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -156,7 +156,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Mes_Corte_Texto">
       <DTS:VariableValue
-        DTS:DataType="8">8\</DTS:VariableValue>
+        DTS:DataType="8">1\</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -5878,6 +5878,24 @@
                       lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha aviso pago 5]"
                       name="Fecha aviso pago 5"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha ingreso anticipo 4]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha ingreso anticipo 4]"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha ingreso anticipo 4]"
+                      name="Fecha ingreso anticipo 4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha ingreso anticipo 5]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha ingreso anticipo 5]"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].Columns[Fecha ingreso anticipo 5]"
+                      name="Fecha ingreso anticipo 5"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6231,6 +6249,14 @@
                       refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha aviso pago 5]"
                       dataType="dbTimeStamp"
                       name="Fecha aviso pago 5" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha ingreso anticipo 4]"
+                      dataType="dbTimeStamp"
+                      name="Fecha ingreso anticipo 4" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha ingreso anticipo 5]"
+                      dataType="dbTimeStamp"
+                      name="Fecha ingreso anticipo 5" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -6668,6 +6694,16 @@
                       dataType="dbTimeStamp"
                       lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha aviso pago 5]"
                       name="Fecha aviso pago 5" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha ingreso anticipo 4]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha ingreso anticipo 4]"
+                      name="Fecha ingreso anticipo 4" />
+                    <outputColumn
+                      refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha ingreso anticipo 5]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[Fecha ingreso anticipo 5]"
+                      name="Fecha ingreso anticipo 5" />
                     <outputColumn
                       refId="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -9892,17 +9928,47 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="168,42"
-          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB"
-          TopLeft="8.00000000000003,209.5" />
+          Size="183,42"
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA"
+          TopLeft="5.50000000000001,5.5" />
         <NodeLayout
           Size="166,42"
           Id="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual"
           TopLeft="9.00000000000003,107.5" />
         <NodeLayout
+          Size="168,42"
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB"
+          TopLeft="8.00000000000003,209.5" />
+        <NodeLayout
           Size="183,42"
-          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA"
-          TopLeft="5.50000000000001,5.5" />
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1"
+          TopLeft="248.5,5.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1"
+          TopLeft="252,107.5" />
+        <EdgeLayout
+          Id="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de origen de OLE DB1]"
+          TopLeft="337.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de origen de OLE DB]"
           TopLeft="94.5,47.5">
@@ -9947,41 +10013,11 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\poner fecha actual 1"
-          TopLeft="252,107.5" />
-        <NodeLayout
-          Size="183,42"
-          Id="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1"
-          TopLeft="248.5,5.5" />
-        <EdgeLayout
-          Id="Package\ZM_COMERCIAL_PRESUPUESTOS.Paths[Salida de origen de OLE DB1]"
-          TopLeft="337.5,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB">
+    design-time-name="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10006,11 +10042,24 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ZM_COMERCIAL_PRESUPUESTOS\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\ZM_COMERCIAL_RELACION">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="208,42"
           Id="Package\ZM_COMERCIAL_RELACION\VISESA$Relacion Comercial"
@@ -10054,9 +10103,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10090,9 +10137,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10128,7 +10173,7 @@
     design-time-name="Package\ZM_COMERCIAL_RES_IMP_AROC">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="239,42"
           Id="Package\ZM_COMERCIAL_RES_IMP_AROC\VISESA$Resumen Importes AROC"
@@ -10172,9 +10217,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10208,9 +10251,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10231,19 +10272,6 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ZM_COMERCIAL_RES_IMP_AROC\ZM_COMERCIAL_RES_IMP_AROC">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ZM_COMERCIAL_PRESUPUESTOS\Comercial_PLANTILLA 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

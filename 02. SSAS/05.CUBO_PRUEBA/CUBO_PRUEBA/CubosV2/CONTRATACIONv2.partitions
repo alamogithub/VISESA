@@ -1,0 +1,65 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f36fd952-d873-4b38-9a33-f24f5740180a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>CONTRATACIONv2</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>H CONTRATACION SOL PROV</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="cd84d7c5-7f7a-4ad3-a940-94b55ddcafa8">
+          <ID>H CONTRATACION SOL PROV</ID>
+          <Name>H CONTRATACION SOL PROV</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="89d8fd9b-8c97-4b10-bdd8-35bde9ac703d">
+            <DataSourceViewID>CONTRATACION</DataSourceViewID>
+            <TableID>dbo_H_CONTRATACION_SOL_PROV</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H CONTRATACION CON PROV</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="6e670f38-2829-4345-90dc-b6082f7c4195">
+          <ID>H CONTRATACION CON PROV</ID>
+          <Name>H CONTRATACION CON PROV</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="cb36343d-9bf9-4c9e-b152-34a2a69e4a71">
+            <DataSourceViewID>CONTRATACION</DataSourceViewID>
+            <TableID>dbo_H_CONTRATACION_CON_PROV</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>M CONTRATACION SOL CON</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="aa6a35da-b3b9-468e-9b31-e19d02f22366">
+          <ID>M CONTRATACION SOL CON</ID>
+          <Name>M CONTRATACION SOL CON</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="31b6d99f-7583-4fb5-b5c5-eb69369dad56">
+            <DataSourceViewID>CONTRATACION</DataSourceViewID>
+            <TableID>dbo_M_CONTRATACION_SOL_CON</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>
