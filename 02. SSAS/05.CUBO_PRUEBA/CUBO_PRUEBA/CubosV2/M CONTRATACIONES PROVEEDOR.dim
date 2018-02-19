@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-126" scrolltop="978" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="5768" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-126" scrolltop="978" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="5741" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -192,12 +192,13 @@
       <ID>CIUDAD</ID>
       <Name>CIUDAD</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="f8ecbeeb-b26b-4130-aa02-b13384e6cf5d">
+        <KeyColumn dwd:design-time-name="7dd92411-3f7d-43ab-9573-766eac07080d">
           <DataType>WChar</DataType>
-          <DataSize>20</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="628832cd-fcc1-4229-8f43-98427824b7a5">
+          <DataSize>30</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="335d93e0-9a2d-44d2-898c-87e31478dfc1">
             <TableID>dbo_M_CONTRATACIONES_PROVEEDOR</TableID>
-            <ColumnID>ID_PROVEEDOR</ColumnID>
+            <ColumnID>CIUDAD</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
@@ -209,14 +210,7 @@
           <ColumnID>CIUDAD</ColumnID>
         </Source>
       </NameColumn>
-      <ValueColumn dwd:design-time-name="fc6ebf51-1703-4019-8d4f-d098c77b6845">
-        <DataType>WChar</DataType>
-        <DataSize>30</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="9fc8ad8e-4420-41e7-93d2-4e4ea356eba5">
-          <TableID>dbo_M_CONTRATACIONES_PROVEEDOR</TableID>
-          <ColumnID>CIUDAD</ColumnID>
-        </Source>
-      </ValueColumn>
+      <DefaultMember></DefaultMember>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>

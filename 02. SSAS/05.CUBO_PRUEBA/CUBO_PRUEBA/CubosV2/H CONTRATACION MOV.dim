@@ -1,0 +1,262 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="7a806fb6-081d-45bf-90db-6cc34e77f7ec" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>H CONTRATACION MOV</ID>
+  <Name>H CONTRATACION MOV</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d0a996f5-4fa3-43f1-a48c-a7ff3f6648dd">
+    <DataSourceViewID>CONTRATACION</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="f0382137-2a29-447d-aa61-6309ea1d394b">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="b32c843d-03d3-4c2c-a4e5-f6ff29f45b64">
+      <ID>Nº Movimiento</ID>
+      <Name>Nº Movimiento</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="707233dc-ca06-44e7-92d8-cd1d7ad5807a">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="091a1c44-df83-4acc-8d57-5eab79ac3418">
+            <TableID>dbo_H_CONTRATACION_MOV</TableID>
+            <ColumnID>N_x00BA__x0020_movimiento</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="3c8509f2-b25b-48c5-a2ca-c24a2f2db3bd">
+          <AttributeID>Nº Documento Preregistro</AttributeID>
+          <Name>Nº Documento Preregistro</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="de88d0ff-f455-4c88-ade8-8054b858d002">
+          <AttributeID>Fecha</AttributeID>
+          <Name>Fecha</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="dfb4c100-c89e-4ab1-8428-d39e865051e4">
+          <AttributeID>Nombre Libro Diario</AttributeID>
+          <Name>Nombre Libro Diario</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d4587866-8995-4cdb-a050-209bcc6dda5f">
+          <AttributeID>Nombre Sección Diario</AttributeID>
+          <Name>Nombre Sección Diario</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="76672664-5130-47ba-87c4-3994dcc376c4">
+          <AttributeID>Nº Asiento Contabilidad</AttributeID>
+          <Name>Nº Asiento Contabilidad</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0698598b-c191-4e97-8b7f-7fba8f0e6426">
+          <AttributeID>Nº Documento Registrado</AttributeID>
+          <Name>Nº Documento Registrado</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4973a9a8-e669-42d0-a29a-1b1ffb03b8a9">
+          <AttributeID>Tipo Documento Registrado</AttributeID>
+          <Name>Tipo Documento Registrado</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1578983a-db47-41d2-80a4-8053a5cd26b7">
+          <AttributeID>Tipologia Tercero</AttributeID>
+          <Name>Tipologia Tercero</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1edceaad-c232-4822-825a-a56567efa539">
+          <AttributeID>Código Contratación</AttributeID>
+          <Name>Código Contratación</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="422e664d-2415-47c5-b23b-c66a6d78e23b">
+      <ID>Nº Documento Preregistro</ID>
+      <Name>Nº Documento Preregistro</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7a5d9733-982b-4dc7-b3d0-452b8cb751b6">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f90affb8-1d40-41f5-a075-cd9e2dcddb0c">
+            <TableID>dbo_H_CONTRATACION_MOV</TableID>
+            <ColumnID>N_x00BA__x0020_documento_x0020_preregistro</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7cc29c9b-a598-4810-8a7e-60b6d8b3e726">
+      <ID>Fecha</ID>
+      <Name>Fecha</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="00b8b8a8-11a3-4941-8aba-bcd9c5da4d3f">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="47628626-59b4-40ab-a0e2-8e386b5784fc">
+            <TableID>dbo_H_CONTRATACION_MOV</TableID>
+            <ColumnID>Fecha</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c8f081df-e0a9-44ce-ba90-585627f846f4">
+      <ID>Nombre Libro Diario</ID>
+      <Name>Nombre Libro Diario</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4f162ce3-80e3-4674-b61e-2802c8383c7d">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b4e8cb5d-0c78-4fc1-a084-bbc5fd631769">
+            <TableID>dbo_H_CONTRATACION_MOV</TableID>
+            <ColumnID>Nombre_x0020_libro_x0020_diario</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b638707c-f8bb-40ea-99b3-9014d76eb38b">
+      <ID>Nombre Sección Diario</ID>
+      <Name>Nombre Sección Diario</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2658b378-4881-4ff3-a5c5-445a6d5de440">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cfba8721-1a56-48c1-90b0-d80b218e772a">
+            <TableID>dbo_H_CONTRATACION_MOV</TableID>
+            <ColumnID>Nombre_x0020_sección_x0020_diario</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="688e632a-fc11-4915-8993-cad6105fae5c">
+      <ID>Nº Asiento Contabilidad</ID>
+      <Name>Nº Asiento Contabilidad</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d882eb9e-1647-495c-bae9-8d1e8464015d">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="18d81804-ff92-4cc6-9eab-2966c9896731">
+            <TableID>dbo_H_CONTRATACION_MOV</TableID>
+            <ColumnID>N_x00BA__x0020_asiento_x0020_contabilidad</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2e8f2e7b-c449-4260-9b0f-ffc240c430f5">
+      <ID>Nº Documento Registrado</ID>
+      <Name>Nº Documento Registrado</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f5039d1e-cc9e-4afc-b310-1051a72b75f4">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8783187d-ae93-44cf-86bb-c0557cca3806">
+            <TableID>dbo_H_CONTRATACION_MOV</TableID>
+            <ColumnID>N_x00BA__x0020_documento_x0020_registrado</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f45af158-b60d-4e47-a19c-22af75e82527">
+      <ID>Tipo Documento Registrado</ID>
+      <Name>Tipo Documento Registrado</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ea947b3c-c0d0-453c-8f36-f6d678746a1e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2b10f09e-7493-4dcd-a9f9-d5db6ab8b6d1">
+            <TableID>dbo_H_CONTRATACION_MOV</TableID>
+            <ColumnID>Tipo_x0020_documento_x0020_registrado</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f9e8f8cb-fa31-482d-9280-1a32e1d698df">
+      <ID>Tipologia Tercero</ID>
+      <Name>Tipologia Tercero</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b426194b-8d06-41f4-8c59-ba24d502a8d7">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="50362faa-6968-4995-ab4a-a70053dfbaaf">
+            <TableID>dbo_H_CONTRATACION_MOV</TableID>
+            <ColumnID>Tipologia_x0020_tercero</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8cd7df11-4939-42a1-9f4e-d68253b2bc09">
+      <ID>Código Contratación</ID>
+      <Name>Código Contratación</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3e67f8b0-2024-4148-8a67-e0c8e5f93ae7">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="01d45ff3-60f2-45f4-bde1-17bfd0afffc8">
+            <TableID>dbo_H_CONTRATACION_MOV</TableID>
+            <ColumnID>Código_x0020_contratación</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
