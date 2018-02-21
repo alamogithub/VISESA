@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="16" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-162" scrolltop="-817" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="18902" y="15600" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="16" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-162" scrolltop="-817" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="20257" y="15600" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
             </font>
@@ -185,6 +185,12 @@
         <Attribute dwd:design-time-name="94d5d6ea-2137-4684-8b56-69d088be0878">
           <AttributeID>ID RESPUESTA</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="09e3c2df-4383-4f2b-ab2d-8e8313fc4ff1">
+          <AttributeID>RESPUESTA NUM</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="afb05d43-f3bb-4192-bb0c-92771a7ab499">
+          <AttributeID>ANYO</AttributeID>
+        </Attribute>
       </Attributes>
     </Dimension>
     <Dimension dwd:design-time-name="892751e4-23c9-43e4-a0a3-8db954e87416">
@@ -213,6 +219,17 @@
       </Attributes>
     </Dimension>
   </Dimensions>
+  <CubePermissions>
+    <CubePermission dwd:design-time-name="b3b94329-f6a5-4918-913f-f0b1701fc167">
+      <ID>CubePermission</ID>
+      <Name>CubePermission</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <RoleID>Role 2</RoleID>
+      <Read>Allowed</Read>
+      <ReadSourceData>None</ReadSourceData>
+    </CubePermission>
+  </CubePermissions>
   <MeasureGroups>
     <MeasureGroup dwd:design-time-name="d92ef5e9-cc3d-4931-b86e-7b30f3750e3d">
       <ID>Respuestas</ID>
@@ -254,6 +271,18 @@
             <Source xsi:type="ColumnBinding" dwd:design-time-name="f77ec188-adab-4523-b774-3d4d144cf769">
               <TableID>dbo_H_ENCUESTAS_RESPUESTAS1</TableID>
               <ColumnID>ID_RESPUESTA</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="c6b7d48b-dc2b-44ca-b43b-ca767e41670c">
+          <ID>RESPUESTA NUM 1</ID>
+          <Name>Count no nulos</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="dc2800c3-2a5a-49ab-ad35-7ee2650ba5cb">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="94dd4206-3375-4ebd-8a71-ebdd284b56c7">
+              <TableID>dbo_H_ENCUESTAS_RESPUESTAS1</TableID>
+              <ColumnID>RESPUESTA_NUM</ColumnID>
             </Source>
           </Source>
         </Measure>
@@ -319,14 +348,17 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;  
+CALCULATE; 
+CREATE MEMBER CURRENTCUBE.[Measures].[Media]
+ AS [Measures].[Suma respuestas]/[Measures].[Count no nulos], 
+VISIBLE = 1  ;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Nota media]
  AS [Measures].[Suma respuestas]/[Measures].[Count], 
-VISIBLE = 1  ;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Porcentaje de personas]
  AS [Measures].[Número de personas]/[Measures].[Número de encuestas totales], 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;  
+VISIBLE = 1;   
 CREATE MEMBER CURRENTCUBE.[Measures].[Número de encuestas totales]
  AS SUM(ROOT(),[Measures].[Número de personas]), 
 VISIBLE = 1; </Text>
