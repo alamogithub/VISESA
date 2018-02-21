@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="12" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="337" scrolltop="-6776" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="5842" y="15600" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="12" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="337" scrolltop="-6776" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="6816" y="15600" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
             </font>
@@ -131,18 +131,14 @@
             <Shape Id="PREGUNTA" Expanded="true">
               <Attributes>
                 <Attribute Id="PREGUNTA" />
+                <Attribute Id="ANYO" />
                 <Attribute Id="ID FACTOR" />
+                <Attribute Id="ID PREGUNTA" />
                 <Attribute Id="TEXTO" />
+                <Attribute Id="Pregunta Con Número" />
                 <Attribute Id="ID SUBFACOTR" />
               </Attributes>
               <Position x="20" y="20" />
-            </Shape>
-            <Shape Id="Pregunta Con Número" Expanded="true">
-              <Attributes>
-                <Attribute Id="Pregunta Con Número" />
-                <Attribute Id="ID PREGUNTA" />
-              </Attributes>
-              <Position x="267" y="20" />
             </Shape>
           </Shapes>
         </DiagramLayout>
@@ -156,9 +152,8 @@
   </Source>
   <UnknownMember>Visible</UnknownMember>
   <ErrorConfiguration dwd:design-time-name="d9aee2c0-50ee-4644-932a-140d45242e7b">
-    <KeyNotFound>ReportAndStop</KeyNotFound>
-    <KeyDuplicate>ReportAndStop</KeyDuplicate>
-    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+    <KeyNotFound>IgnoreError</KeyNotFound>
+    <NullKeyNotAllowed>IgnoreError</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
@@ -167,11 +162,10 @@
       <Name>ID_Pregunta</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="8dcce1cb-4d5f-4c87-8481-dfb653d5555b">
+        <KeyColumn dwd:design-time-name="ebcdcdee-e284-46af-ada9-ec980a36caaa">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="bbbd369f-c6cd-43a9-9938-f28ad904ed93">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="54b1512b-ff65-412e-b3cd-75da6bf3d881">
             <TableID>dbo_M_ENCUESTAS_PREGUNTAS</TableID>
             <ColumnID>PREGUNTA</ColumnID>
           </Source>
@@ -190,10 +184,17 @@
           <AttributeID>TEXTO</AttributeID>
           <Name>Texto</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="37c877f9-c136-4bb5-a2fc-e6aa51e38cbe">
+        <AttributeRelationship dwd:design-time-name="0dc6776b-c550-43af-a101-5ff1faf36ea6">
           <AttributeID>Pregunta Con Número</AttributeID>
-          <RelationshipType>Rigid</RelationshipType>
           <Name>Pregunta Con Número</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e126412c-e515-419b-b2bc-d0ff5aadabab">
+          <AttributeID>ID PREGUNTA</AttributeID>
+          <Name>ID PREGUNTA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4f298bf1-eeab-4e5e-916f-48e2beb4e5ac">
+          <AttributeID>ANYO</AttributeID>
+          <Name>Año</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
@@ -255,51 +256,65 @@
       <ID>TEXTO</ID>
       <Name>Pregunta</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="7e1eb92e-d76c-43af-a1e3-66a0ed5aab89">
-          <DataType>WChar</DataType>
-          <DataSize>1024</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="bfc8c34c-8e70-4c1a-8b4f-c39f90646438">
+        <KeyColumn dwd:design-time-name="1ea22385-cfd0-4b43-946d-a9f0268f6962">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6e2ceb08-3b85-4587-bec1-e81d71090947">
             <TableID>dbo_M_ENCUESTAS_PREGUNTAS</TableID>
-            <ColumnID>TEXTO</ColumnID>
+            <ColumnID>ID_PREGUNTA</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn dwd:design-time-name="4d7969fe-46a0-438c-a94c-326242a0d007">
+        <DataType>WChar</DataType>
+        <DataSize>2000</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="78fcf82c-6d57-4f88-a2d2-4228be925b0d">
+          <TableID>dbo_M_ENCUESTAS_PREGUNTAS</TableID>
+          <ColumnID>TEXTO</ColumnID>
+        </Source>
+      </NameColumn>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="252fb08c-cd46-4616-8c3a-bc7550fb2f6a">
+    <Attribute dwd:design-time-name="b9585115-bd72-4241-995b-8f892138f45f">
       <ID>Pregunta Con Número</ID>
       <Name>Pregunta Con Número</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="172e2af5-a760-47ce-af94-9a649185fa9c">
+        <KeyColumn dwd:design-time-name="f3aa2385-b052-404c-9d2c-b71c6906b455">
           <DataType>WChar</DataType>
           <DataSize>1024</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="57871962-0666-41c0-9ca2-eaca8c4bb253">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="03303072-a2d1-4815-85ff-f309c543fa13">
             <TableID>dbo_M_ENCUESTAS_PREGUNTAS</TableID>
             <ColumnID>Pregunta_x0020_con_x0020_número</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="fea5c3cd-4cad-4be2-8bcd-7094f39f4f07">
-          <AttributeID>ID PREGUNTA</AttributeID>
-          <Name>ID PREGUNTA</Name>
-        </AttributeRelationship>
-      </AttributeRelationships>
-      <OrderBy>AttributeKey</OrderBy>
-      <OrderByAttributeID>ID PREGUNTA</OrderByAttributeID>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="982d40f2-a87b-4bea-b6b3-94dced0a518d">
+    <Attribute dwd:design-time-name="56cc2c4a-ddb7-4bfb-9749-03e5a079f687">
       <ID>ID PREGUNTA</ID>
       <Name>ID PREGUNTA</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="ff527f5c-5eaa-4d76-b624-38e26f6e6410">
+        <KeyColumn dwd:design-time-name="a5c09cb9-1378-4a9a-b657-f1f51c6a0254">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="bc634f75-8d74-43ad-8c7d-63f15404a389">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8d2180fc-4c59-4f3d-9fb5-2e36c25c2b5c">
             <TableID>dbo_M_ENCUESTAS_PREGUNTAS</TableID>
             <ColumnID>ID_PREGUNTA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2f6c090c-1811-41f8-bb7c-c7e2428a836d">
+      <ID>ANYO</ID>
+      <Name>Año</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a41262eb-5566-429d-b538-4ea83ced7e3a">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="07878a2c-b271-47c1-a6d0-48bc2fae8107">
+            <TableID>dbo_M_ENCUESTAS_PREGUNTAS</TableID>
+            <ColumnID>ANYO</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
