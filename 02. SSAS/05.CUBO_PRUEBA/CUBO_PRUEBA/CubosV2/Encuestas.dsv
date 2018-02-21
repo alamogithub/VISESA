@@ -31,9 +31,9 @@
             <Name>_ALL_TABLES_</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="16" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4980" scrolltop="-1743" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="21505" y="16828" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="16" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4980" scrolltop="-2005" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="16378" y="14102" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
-                    <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+                    <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                   </font>
                   <mouseicon>
                     <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
@@ -151,7 +151,7 @@
             <ShowRelationshipNames>False</ShowRelationshipNames>
             <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
             <DiagramViewPortLeft>-4980</DiagramViewPortLeft>
-            <DiagramViewPortTop>-1743</DiagramViewPortTop>
+            <DiagramViewPortTop>-2005</DiagramViewPortTop>
             <DiagramBoundingLeft>0</DiagramBoundingLeft>
             <DiagramBoundingTop>0</DiagramBoundingTop>
             <DiagramZoom>75</DiagramZoom>
@@ -221,7 +221,7 @@
                   </xs:element>
                   <xs:element name="RESPUESTA_NUM" msprop:design-time-name="229e54f1-518d-42bd-a8d3-cab628020875" msprop:DbColumnName="RESPUESTA_NUM" msprop:FriendlyName="RESPUESTA_NUM" type="xs:short" minOccurs="0" />
                   <xs:element name="ID_RESPUESTA" msprop:design-time-name="80250818-8375-4af2-b596-d92aecd130ab" msprop:DbColumnName="ID_RESPUESTA" msprop:FriendlyName="ID_RESPUESTA" type="xs:int" minOccurs="0" />
-                  <xs:element name="ANYO" msprop:DbColumnName="ANYO" msprop:design-time-name="c277c5df-0897-4887-831f-0723f933a6e5" type="xs:int" minOccurs="0" />
+                  <xs:element name="ANYO" msprop:design-time-name="c277c5df-0897-4887-831f-0723f933a6e5" msprop:DbColumnName="ANYO" type="xs:int" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -271,7 +271,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="ID_PREGUNTA" msprop:design-time-name="fad69e11-28e6-492d-baee-4c79306b2b5f" msprop:DbColumnName="ID_PREGUNTA" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_PREGUNTA" msprop:design-time-name="fad69e11-28e6-492d-baee-4c79306b2b5f" msprop:DbColumnName="ID_PREGUNTA" type="xs:int" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -307,7 +307,7 @@
         </xs:unique>
         <xs:unique name="dbo_M_ENCUESTAS_PREGUNTAS_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
           <xs:selector xpath=".//dbo_M_ENCUESTAS_PREGUNTAS" />
-          <xs:field xpath="PREGUNTA" />
+          <xs:field xpath="ID_PREGUNTA" />
         </xs:unique>
         <xs:unique name="dbo_M_ENCUESTAS_SUBFACTORES_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
           <xs:selector xpath=".//dbo_M_ENCUESTAS_SUBFACTORES" />
