@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{EA9787B0-6185-4F2D-AC84-F4ABF5F5CDB5}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{4CC5AF29-06E2-4CFE-B671-0FF3C06C1D41}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1178,7 +1178,6 @@
       DTS:refId="Package\Tarea Flujo de datos 1"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:Disabled="True"
       DTS:DTSID="{7F7EE308-7D29-4391-B619-E5BA21B9CAC3}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -1205,7 +1204,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[ZM_ENCUESTAS_2012]</property>
+                  name="OpenRowset">[dbo].[ZM_ENCUESTAS_2012]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -1262,14 +1261,6 @@
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[entidad]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="entidad"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[entidad]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[entidad]" />
-                    <inputColumn
                       refId="Package\Tarea Flujo de datos 1\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[factor]"
                       cachedDataType="i2"
                       cachedName="factor"
@@ -1289,12 +1280,6 @@
                       cachedName="texto"
                       externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[texto]"
                       lineageId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[texto]" />
-                    <inputColumn
-                      refId="Package\Tarea Flujo de datos 1\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[id0]"
-                      cachedDataType="i4"
-                      cachedName="id0"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[id0]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id0]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1412,17 +1397,6 @@
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[entidad]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[entidad]"
-                      length="10"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[entidad]"
-                      name="entidad"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[factor]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversión"
@@ -1450,15 +1424,6 @@
                       length="220"
                       lineageId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[texto]"
                       name="texto"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id0]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[id0]"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id0]"
-                      name="id0"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1495,13 +1460,6 @@
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[entidad]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[entidad]"
-                      name="entidad" />
-                    <outputColumn
                       refId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[factor]"
                       dataType="i2"
                       lineageId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[factor]"
@@ -1518,11 +1476,6 @@
                       length="220"
                       lineageId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[texto]"
                       name="texto" />
-                    <outputColumn
-                      refId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[id0]"
-                      dataType="i4"
-                      lineageId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[id0]"
-                      name="id0" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos 1\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -1555,6 +1508,7 @@
       DTS:refId="Package\Tarea Flujo de datos 2"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
+      DTS:Disabled="True"
       DTS:DTSID="{2422798C-DFC2-4A4B-9A60-CBECBEA26EAF}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -2291,7 +2245,7 @@
         <NodeLayout
           Size="184,41.6"
           Id="Package\Tarea Flujo de datos 1"
-          TopLeft="154.857145494344,225.741179636523" />
+          TopLeft="144.000002452305,176.188237765091" />
         <NodeLayout
           Size="184,41.6"
           Id="Package\Tarea Flujo de datos 2"
@@ -2491,7 +2445,7 @@
         <NodeLayout
           Size="168,41.6"
           Id="Package\Tarea Flujo de datos 1\Destino de OLE DB"
-          TopLeft="218.4,204.8" />
+          TopLeft="217.6,204.8" />
         <NodeLayout
           Size="163.2,41.6"
           Id="Package\Tarea Flujo de datos 1\Origen de OLE DB"
@@ -2502,9 +2456,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-57.6,76.8"
+              EndConnector="-58.4,76.8"
               Start="0,0"
-              End="-57.6,69.3">
+              End="-58.4,69.3">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2515,13 +2469,13 @@
                     Point2="0,38.4"
                     Point3="-4,38.4" />
                   <mssgle:LineSegment
-                    End="-53.6,38.4" />
+                    End="-54.4,38.4" />
                   <mssgle:CubicBezierSegment
-                    Point1="-53.6,38.4"
-                    Point2="-57.6,38.4"
-                    Point3="-57.6,42.4" />
+                    Point1="-54.4,38.4"
+                    Point2="-58.4,38.4"
+                    Point3="-58.4,42.4" />
                   <mssgle:LineSegment
-                    End="-57.6,69.3" />
+                    End="-58.4,69.3" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2565,13 +2519,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\Tarea Flujo de datos 2\Origen de OLE DB"
-          TopLeft="181.6,218.4" />
-        <NodeLayout
           Size="168,41.6"
           Id="Package\Tarea Flujo de datos 2\Destino de OLE DB"
           TopLeft="236.8,354.4" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Tarea Flujo de datos 2\Origen de OLE DB"
+          TopLeft="181.6,218.4" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos 2.Paths[Salida de origen de OLE DB]"
           TopLeft="263.2,260">
@@ -2610,7 +2564,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos 2\Origen de OLE DB">
+    design-time-name="Package\Tarea Flujo de datos 2\Destino de OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2623,7 +2577,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos 2\Destino de OLE DB">
+    design-time-name="Package\Tarea Flujo de datos 2\Origen de OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
