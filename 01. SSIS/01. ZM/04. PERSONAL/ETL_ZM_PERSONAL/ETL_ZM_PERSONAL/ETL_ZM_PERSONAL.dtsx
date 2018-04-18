@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_ZM_PERSONAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="107"
-  DTS:VersionGUID="{0D969033-C089-406E-8353-EFB9B709E5EC}">
+  DTS:VersionBuild="108"
+  DTS:VersionGUID="{17A6529A-5BB6-484E-ABD1-6A94ABBE40D4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -128,7 +128,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E23D28E3-94F6-40AF-ABFA-FEAA3A2D53DD}"
-          SQLTask:SqlStatementSource="DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_SGP_F_ASISTENTES]&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_CONVOCATORIAS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EJERCICIOS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALSATISFACCION&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALSATISFORM&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_FORMACION&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_ITEMEVALSATIS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_PERSONAS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_PRESUPUESTOS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_PRIORIDADES&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_VALORITEMEVALSATIS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_PROFESIONES&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_PUESTOSPROFESIONES&#xA;&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_VALORITEMEVALEFICAZ&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_ITEMEVALEFICAZ&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALEFICACIA&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALEFICAZFORM&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_HISTORICOSNODOS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM [VISESABI].[dbo].[ZM_PERSONAS_SGP_F_ASISTENTES]&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_CONVOCATORIAS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EJERCICIOS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALSATISFACCION&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALSATISFORM&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_FORMACION&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_ITEMEVALSATIS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_PERSONAS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_PRESUPUESTOS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_PRIORIDADES&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_VALORITEMEVALSATIS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_PROFESIONES&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_PUESTOSPROFESIONES&#xA;&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_VALORITEMEVALEFICAZ&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_ITEMEVALEFICAZ&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALEFICACIA&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_EVALEFICAZFORM&#xA;&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_SGP_F_GRUPOS&#xA;DELETE FROM [VISESABI].[dbo].ZM_PERSONAS_HISTORICOSNODOS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -16354,6 +16354,62 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="157,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\sgp_f_formacion"
+          TopLeft="741.5,5.49999999999989" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS"
+          TopLeft="914,187" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\sgp_f_evalSatisForm"
+          TopLeft="1055,107.5" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALEFICACIA"
+          TopLeft="1340,311.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\División condicional 1"
+          TopLeft="399,209.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2"
+          TopLeft="907.5,71.5" />
+        <NodeLayout
+          Size="252,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_FORMACION"
+          TopLeft="694,311.5" />
+        <NodeLayout
+          Size="288,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALSATISFACCION"
+          TopLeft="345,311.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 1"
+          TopLeft="63,209.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\División condicional"
+          TopLeft="734.5,209.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\sgp_f_evalEficacia"
+          TopLeft="1388.5,5.49999999999977" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos"
+          TopLeft="995,41" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1"
+          TopLeft="1061,209.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 3"
+          TopLeft="1389,107.5" />
+        <NodeLayout
           Size="181,42"
           Id="Package\SGP Tarea Flujo de datos 1 1\sgp_f_evalEficazForm"
           TopLeft="54.5,107.5" />
@@ -16366,65 +16422,21 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
           Id="Package\SGP Tarea Flujo de datos 1 1\División condicional 2"
           TopLeft="1385.5,209.5" />
         <NodeLayout
-          Size="279,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALEFICAZFORM"
-          TopLeft="5.5,311.5" />
-        <NodeLayout
-          Size="288,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALSATISFACCION"
-          TopLeft="345,311.5" />
-        <NodeLayout
-          Size="173,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 2"
-          TopLeft="733.5,107.5" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\sgp_f_formacion"
-          TopLeft="741.5,5.49999999999989" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\sgp_f_evalSatisForm"
-          TopLeft="1055,107.5" />
-        <NodeLayout
-          Size="180,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\División condicional 1"
-          TopLeft="399,209.5" />
-        <NodeLayout
-          Size="164,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 1"
-          TopLeft="63,209.5" />
-        <NodeLayout
           Size="273,42"
           Id="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALSATISFORM"
           TopLeft="1006.5,311.5" />
         <NodeLayout
-          Size="252,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_FORMACION"
-          TopLeft="694,311.5" />
-        <NodeLayout
-          Size="164,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1"
-          TopLeft="1061,209.5" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\División condicional"
-          TopLeft="734.5,209.5" />
-        <NodeLayout
-          Size="165,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\sgp_f_evalEficacia"
-          TopLeft="1388.5,5.49999999999977" />
-        <NodeLayout
-          Size="262,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALEFICACIA"
-          TopLeft="1340,311.5" />
+          Size="279,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALEFICAZFORM"
+          TopLeft="5.5,311.5" />
         <NodeLayout
           Size="164,42"
           Id="Package\SGP Tarea Flujo de datos 1 1\Columna derivada"
           TopLeft="407,107.5" />
         <NodeLayout
-          Size="164,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 3"
-          TopLeft="1389,107.5" />
+          Size="173,42"
+          Id="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 2"
+          TopLeft="733.5,107.5" />
         <EdgeLayout
           Id="Package\SGP Tarea Flujo de datos 1 1.Paths[Salida predeterminada de división condicional2]"
           TopLeft="1471,251.5">
@@ -16495,6 +16507,34 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             <mssgm:EdgeLabel
               BoundingBox="-100.92279296875,20.15234375,201.8455859375,12.1953125"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SGP Tarea Flujo de datos 1 1.Paths[Salida de origen de OLE DB5]"
+          TopLeft="995,49">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="3.5,22.5"
+              Start="0,0"
+              End="3.5,15">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-0.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-0.5,0"
+                    Point2="3.5,0"
+                    Point3="3.5,4" />
+                  <mssgle:LineSegment
+                    End="3.5,15" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16599,6 +16639,40 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SGP Tarea Flujo de datos 1 1.Paths[Salida de columna derivada5]"
+          TopLeft="998.5,113.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32,73.5"
+              Start="0,0"
+              End="32,66">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.75"
+                    Point2="0,36.75"
+                    Point3="4,36.75" />
+                  <mssgle:LineSegment
+                    End="28,36.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28,36.75"
+                    Point2="32,36.75"
+                    Point3="32,40.75" />
+                  <mssgle:LineSegment
+                    End="32,66" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16717,85 +16791,11 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="143,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos"
-          TopLeft="995,41" />
-        <NodeLayout
-          Size="182,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\Columna derivada 1 2"
-          TopLeft="907.5,71.5" />
-        <EdgeLayout
-          Id="Package\SGP Tarea Flujo de datos 1 1.Paths[Salida de origen de OLE DB5]"
-          TopLeft="995,49">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="3.5,22.5"
-              Start="0,0"
-              End="3.5,15">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-0.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-0.5,0"
-                    Point2="3.5,0"
-                    Point3="3.5,4" />
-                  <mssgle:LineSegment
-                    End="3.5,15" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="233,42"
-          Id="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS"
-          TopLeft="914,187" />
-        <EdgeLayout
-          Id="Package\SGP Tarea Flujo de datos 1 1.Paths[Salida de columna derivada5]"
-          TopLeft="998.5,113.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="32,73.5"
-              Start="0,0"
-              End="32,66">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.75"
-                    Point2="0,36.75"
-                    Point3="4,36.75" />
-                  <mssgle:LineSegment
-                    End="28,36.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28,36.75"
-                    Point2="32,36.75"
-                    Point3="32,40.75" />
-                  <mssgle:LineSegment
-                    End="32,66" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 1 1\sgp_f_evalEficazForm">
+    design-time-name="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -16808,33 +16808,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALEFICAZFORM">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALSATISFACCION">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALSATISFORM">
+    design-time-name="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALEFICACIA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -16860,6 +16834,19 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALSATISFACCION">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\SGP Tarea Flujo de datos 1 1\sgp_f_evalEficacia">
     <Properties>
       <Property>
@@ -16873,7 +16860,46 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALEFICACIA">
+    design-time-name="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SGP Tarea Flujo de datos 1 1\sgp_f_evalEficazForm">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALSATISFORM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_EVALEFICAZFORM">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -18156,7 +18182,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_SGP_F_ASISTENTES">
+    design-time-name="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_SGP_F_EJERCICIOS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -18182,6 +18208,32 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_SGP_F_ASISTENTES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\SGP Tarea Flujo de datos 6\HISTORICOS_PERSONAS">
     <Properties>
       <Property>
@@ -18195,7 +18247,7 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_SGP_F_EJERCICIOS">
+    design-time-name="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -18529,58 +18581,6 @@ WHERE        (dbo.SGP_F_FORMACION.borrado = 0)</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ULCD Tarea Flujo de datos 5 1\ZM_PERSONAS_NODOSPUESTOS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 6\Origen de OLE DB 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 6\ZM_PERSONAS_CONVOCATORIAS_FECHAS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 1 1\sgp_f_grupos">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SGP Tarea Flujo de datos 1 1\ZM_PERSONAS_SGP_F_GRUPOS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

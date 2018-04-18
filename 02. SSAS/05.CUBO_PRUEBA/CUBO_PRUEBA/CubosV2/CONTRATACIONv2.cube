@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="60" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="14746" scrolltop="18739" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="14023" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="60" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="14746" scrolltop="18739" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="13150" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -810,26 +810,6 @@
             </Attribute>
           </Attributes>
         </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="02a8a4fd-0be8-4680-84b0-b1902dffb90c">
-          <CubeDimensionID>M CONTRATACIONES PROVEEDOR</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="8cb2a45c-08e6-4082-8daa-c4c61044fa5d">
-              <AttributeID>ID PROVEEDOR</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="7fba4b85-c306-401b-9846-3005b25ff792">
-                  <DataType>WChar</DataType>
-                  <DataSize>20</DataSize>
-                  <NullProcessing>UnknownMember</NullProcessing>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6f517727-9ab4-4380-bfe1-53677c21eebb">
-                    <TableID>dbo_H_CONTRATACION_CON_PROV</TableID>
-                    <ColumnID>ID_PROVEEDOR</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-        </Dimension>
       </Dimensions>
       <Partitions />
     </MeasureGroup>
@@ -841,17 +821,6 @@
       <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
       <State>Unprocessed</State>
       <Measures>
-        <Measure dwd:design-time-name="a4850e09-ae06-4135-9fa6-762521d327de">
-          <ID>PRESUPUESTO</ID>
-          <Name>PRESUPUESTO</Name>
-          <Source dwd:design-time-name="2e6cdf72-bdd5-44e2-ab2f-055a2da7cfb8">
-            <DataType>Double</DataType>
-            <Source xsi:type="ColumnBinding" dwd:design-time-name="ab27c3e2-8254-4425-a0f7-b4440c140349">
-              <TableID>dbo_M_CONTRATACION_SOL_CON</TableID>
-              <ColumnID>PRESUPUESTO</ColumnID>
-            </Source>
-          </Source>
-        </Measure>
         <Measure dwd:design-time-name="f591e199-b404-4e5f-af64-968a56979974">
           <ID>IMPORTE SOL</ID>
           <Name>IMPORTE SOL</Name>
@@ -871,6 +840,17 @@
             <Source xsi:type="ColumnBinding" dwd:design-time-name="e86fee73-6b3e-41df-9de1-0f99118517ef">
               <TableID>dbo_M_CONTRATACION_SOL_CON</TableID>
               <ColumnID>IMPORTE_CON</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="a4850e09-ae06-4135-9fa6-762521d327de">
+          <ID>PRESUPUESTO</ID>
+          <Name>PRESUPUESTO</Name>
+          <Source dwd:design-time-name="2e6cdf72-bdd5-44e2-ab2f-055a2da7cfb8">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="ab27c3e2-8254-4425-a0f7-b4440c140349">
+              <TableID>dbo_M_CONTRATACION_SOL_CON</TableID>
+              <ColumnID>PRESUPUESTO</ColumnID>
             </Source>
           </Source>
         </Measure>
@@ -894,6 +874,19 @@
             <Source xsi:type="ColumnBinding" dwd:design-time-name="1772952f-232a-4c88-9550-d8a96ffc1b6f">
               <TableID>dbo_M_CONTRATACION_SOL_CON</TableID>
               <ColumnID>CREADOR</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="21c57a81-69eb-4f6f-8b25-3375bd689bd4">
+          <ID>ID CON Count</ID>
+          <Name>ID CON Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <DataType>Integer</DataType>
+          <Source dwd:design-time-name="56ec2e0f-e66b-4751-8413-821f2b8b61e6">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="c636d603-93dc-4e90-bdb1-78e80d96a731">
+              <TableID>dbo_M_CONTRATACION_SOL_CON</TableID>
+              <ColumnID>ID_CON</ColumnID>
             </Source>
           </Source>
         </Measure>
@@ -937,10 +930,6 @@
               <Type>Granularity</Type>
             </Attribute>
           </Attributes>
-        </Dimension>
-        <Dimension xsi:type="ManyToManyMeasureGroupDimension" dwd:design-time-name="9fbf47e0-39bf-4927-bae1-347f57299bee">
-          <CubeDimensionID>M CONTRATACIONES PROVEEDOR</CubeDimensionID>
-          <MeasureGroupID>H CONTRATACION CON PROV</MeasureGroupID>
         </Dimension>
       </Dimensions>
       <Partitions />
