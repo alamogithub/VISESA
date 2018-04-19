@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{82F6E5D3-7269-469C-9719-B4A3FEB47E54}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{C059B702-4956-4F10-996B-0981057DD5E9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -88,6 +88,40 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E888FE33-DE57-4BAC-BB84-BE86626196B6}"
           SQLTask:SqlStatementSource="delete from [VISESABI].[dbo].[ZM_ENCUESTAS_2014] where Pregunta = '-999'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Ejecutar SQL 3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{C179292B-E834-461D-AB00-5523ECC1CA5F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Ejecutar SQL 3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E888FE33-DE57-4BAC-BB84-BE86626196B6}"
+          SQLTask:SqlStatementSource="  update [VISESABI].[dbo].[ZM_ENCUESTAS_2014] &#xA;  set respuesta_txt='No sabe / No contesta '&#xA;  where pregunta&lt;&gt; '64' &#xA;  and respuesta_txt in ('6', 'N/D')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Ejecutar SQL 4"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{6C3829B8-01EF-41BB-A018-DFA0C2B46F2D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Ejecutar SQL 4"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E888FE33-DE57-4BAC-BB84-BE86626196B6}"
+          SQLTask:SqlStatementSource="    update [VISESABI].[dbo].[ZM_ENCUESTAS_2014] &#xA;  set respuesta_txt = &#xA;  case  when respuesta_txt = 'Muy elevada/Totalmente inasumible' then '1'&#xA;&#x9;&#x9;when respuesta_txt = 'Elevada/Inasumible' then '2'&#xA;&#x9;&#x9;when respuesta_txt = 'Normal/Asumible'  then '3'&#xA;&#x9;&#x9;when respuesta_txt = 'Baja/Fácilmente asumible'  then '4'&#xA;&#x9;&#x9;when respuesta_txt = 'Muy baja/Totalmente asumible'  then '5'&#xA;  else respuesta_txt end;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -848,6 +882,22 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Tarea Ejecutar SQL 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{EEED9DBD-DCB9-417C-8333-D906158FDCDD}"
+      DTS:From="Package\Tarea Ejecutar SQL 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Tarea Ejecutar SQL 3" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{E94EFC68-B3D7-49EC-AE38-6673264D3B40}"
+      DTS:From="Package\Tarea Ejecutar SQL 3"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Tarea Ejecutar SQL 4" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -860,15 +910,23 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="176,42"
-          Id="Package\Tarea Flujo de datos"
-          TopLeft="123,101" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="170,42"
           Id="Package\Tarea Ejecutar SQL"
           TopLeft="81,23" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Tarea Ejecutar SQL 1"
+          TopLeft="97,203" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Tarea Ejecutar SQL 2"
+          TopLeft="99,300" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="123,101" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="166,65">
@@ -903,10 +961,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Tarea Ejecutar SQL 1"
-          TopLeft="97,203" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="211,143">
@@ -941,10 +995,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Tarea Ejecutar SQL 2"
-          TopLeft="99,300" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="187.5,245">
@@ -967,6 +1017,58 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Tarea Ejecutar SQL 3"
+          TopLeft="101,383" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="189.5,342">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Tarea Ejecutar SQL 4"
+          TopLeft="323,382" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="280,403.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43,0"
+              Start="0,0"
+              End="35.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -980,35 +1082,43 @@
           Id="Package\Tarea Flujo de datos\Origen de OLE DB"
           TopLeft="161,30" />
         <NodeLayout
+          Size="168,42"
+          Id="Package\Tarea Flujo de datos\Destino de OLE DB"
+          TopLeft="120,268" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Tarea Flujo de datos\Columna derivada"
+          TopLeft="112,196" />
+        <NodeLayout
           Size="171,42"
           Id="Package\Tarea Flujo de datos\División condicional"
           TopLeft="135,116" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
-          TopLeft="243,72">
+          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
+          TopLeft="194,238">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-22.5,44"
+              EndConnector="10,30"
               Start="0,0"
-              End="-22.5,36.5">
+              End="10,22.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18" />
+                    End="0,11" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18"
-                    Point2="0,22"
-                    Point3="-4,22" />
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
                   <mssgle:LineSegment
-                    End="-18.5,22" />
+                    End="6,15" />
                   <mssgle:CubicBezierSegment
-                    Point1="-18.5,22"
-                    Point2="-22.5,22"
-                    Point3="-22.5,26" />
+                    Point1="6,15"
+                    Point2="10,15"
+                    Point3="10,19" />
                   <mssgle:LineSegment
-                    End="-22.5,36.5" />
+                    End="10,22.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1017,10 +1127,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,42"
-          Id="Package\Tarea Flujo de datos\Columna derivada"
-          TopLeft="112,196" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[2014]"
           TopLeft="220.5,158">
@@ -1057,36 +1163,32 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Tarea Flujo de datos\Destino de OLE DB"
-          TopLeft="120,268" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de columna derivada]"
-          TopLeft="194,238">
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
+          TopLeft="243,72">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10,30"
+              EndConnector="-22.5,44"
               Start="0,0"
-              End="10,22.5">
+              End="-22.5,36.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11" />
+                    End="0,18" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11"
-                    Point2="0,15"
-                    Point3="4,15" />
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="-4,22" />
                   <mssgle:LineSegment
-                    End="6,15" />
+                    End="-18.5,22" />
                   <mssgle:CubicBezierSegment
-                    Point1="6,15"
-                    Point2="10,15"
-                    Point3="10,19" />
+                    Point1="-18.5,22"
+                    Point2="-22.5,22"
+                    Point3="-22.5,26" />
                   <mssgle:LineSegment
-                    End="10,22.5" />
+                    End="-22.5,36.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
