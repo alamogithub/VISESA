@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_COMERCIALV2"
   DTS:PackageType="5"
-  DTS:VersionBuild="291"
-  DTS:VersionGUID="{7C674169-82FF-474A-9045-A47A152BFFB8}">
+  DTS:VersionBuild="294"
+  DTS:VersionGUID="{E1874B82-00FF-4809-8526-0DB31834DA18}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2522,7 +2522,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_corte">
       <DTS:VariableValue
-        DTS:DataType="7">9/30/2017</DTS:VariableValue>
+        DTS:DataType="7">2/28/2018</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -2533,7 +2533,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Modif">
       <DTS:VariableValue
-        DTS:DataType="7">9/5/2017</DTS:VariableValue>
+        DTS:DataType="7">2/22/2018</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -2544,7 +2544,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_Sistema">
       <DTS:VariableValue
-        DTS:DataType="7">9/5/2017 8:38:05 AM</DTS:VariableValue>
+        DTS:DataType="7">2/22/2018 3:05:31 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -2555,7 +2555,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Fecha_stock">
       <DTS:VariableValue
-        DTS:DataType="7">6/30/2017</DTS:VariableValue>
+        DTS:DataType="7">11/28/2017</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -2566,7 +2566,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Inicio_anio_Fecha_corte">
       <DTS:VariableValue
-        DTS:DataType="7">1/1/2017</DTS:VariableValue>
+        DTS:DataType="7">1/1/2018</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -2577,7 +2577,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Variable">
       <DTS:VariableValue
-        DTS:DataType="7">9/30/2017</DTS:VariableValue>
+        DTS:DataType="7">2/28/2018</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -2588,7 +2588,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Variable1">
       <DTS:VariableValue
-        DTS:DataType="7">1/1/2017</DTS:VariableValue>
+        DTS:DataType="7">1/1/2018</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:LoggingOptions
@@ -42153,14 +42153,14 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
               startId="Package\ETL_Comercial\Combinación de mezcla 2.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda1]"
-              endId="Package\ETL_Comercial\Se pone el ID_MES y FECHA_MODIFICACION 1 1.Inputs[Entrada de columna derivada]"
-              name="Salida de entradas coincidentes de búsqueda"
-              startId="Package\ETL_Comercial\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda]" />
-            <path
-              refId="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda]"
               endId="Package\ETL_Comercial\Búsqueda 1.Inputs[Entrada de búsqueda]"
               name="Salida de entradas coincidentes de búsqueda"
               startId="Package\ETL_Comercial\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\ETL_Comercial\Se pone el ID_MES y FECHA_MODIFICACION 1 1.Inputs[Entrada de columna derivada]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\ETL_Comercial\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
               refId="Package\ETL_Comercial.Paths[Salida de entradas no coincidentes de búsqueda]"
               endId="Package\ETL_Comercial\Destino de archivo plano 1.Inputs[Entrada de destino de archivo plano]"
@@ -42198,24 +42198,24 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
               startId="Package\ETL_Comercial\Ordenar.Outputs[Salida de ordenación]" />
             <path
               refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB3]"
+              endId="Package\ETL_Comercial\Columna derivada 3.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\ETL_Comercial\ZM_COMERCIAL_ELEMENTO y V_Relacion.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB]"
               endId="Package\ETL_Comercial\Ordenar.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
               startId="Package\ETL_Comercial\ZM_COMERCIAL_RELACION.Outputs[Salida de origen de OLE DB]" />
             <path
-              refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB]"
+              refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB1]"
               endId="Package\ETL_Comercial\Columna derivada 2.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
               startId="Package\ETL_Comercial\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
             <path
-              refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB1]"
+              refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB2]"
               endId="Package\ETL_Comercial\Ordenar 3.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
               startId="Package\ETL_Comercial\ZM_COMERCIAL_RELACION 1.Outputs[Salida de origen de OLE DB]" />
-            <path
-              refId="Package\ETL_Comercial.Paths[Salida de origen de OLE DB2]"
-              endId="Package\ETL_Comercial\Columna derivada 3.Inputs[Entrada de columna derivada]"
-              name="Salida de origen de OLE DB"
-              startId="Package\ETL_Comercial\ZM_COMERCIAL_ELEMENTO y V_Relacion.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\ETL_Comercial.Paths[Salida predeterminada de división condicional]"
               endId="Package\ETL_Comercial\H_COMERCIAL_ACTIVIDAD2.Inputs[Entrada de destino de OLE DB]"
@@ -42233,7 +42233,7 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
       DTS:ExecutableType="Microsoft.DTSProcessingTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Tarea de procesamiento de Analysis Services"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <ASProcessingData
@@ -42249,7 +42249,7 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
       DTS:ExecutableType="Microsoft.DTSProcessingTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Tarea de procesamiento de Analysis Services 1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <ASProcessingData
@@ -42324,7 +42324,7 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
       DTS:LocaleID="-1"
       DTS:ObjectName="Tarea Ejecutar SQL 1 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -42613,13 +42613,21 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164,42"
-          Id="Package\ETL_Comercial\Columna derivada 2"
-          TopLeft="79.4999999999998,1419" />
+          Size="111,42"
+          Id="Package\ETL_Comercial\Fechas"
+          TopLeft="643,926.5" />
         <NodeLayout
-          Size="117,42"
-          Id="Package\ETL_Comercial\Ordenar"
-          TopLeft="582.5,518.5" />
+          Size="126,56"
+          Id="Package\ETL_Comercial\Ordenar 4 1"
+          TopLeft="157.5,1258" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\ETL_Comercial\Stock y nulls"
+          TopLeft="638.5,1028.5" />
+        <NodeLayout
+          Size="164,44"
+          Id="Package\ETL_Comercial\Columna derivada 3"
+          TopLeft="246,107.5" />
         <NodeLayout
           Size="195,42"
           Id="Package\ETL_Comercial\Destino de archivo plano 1"
@@ -42629,69 +42637,53 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
           Id="Package\ETL_Comercial\Búsqueda 1"
           TopLeft="261,313.5" />
         <NodeLayout
-          Size="138,42"
-          Id="Package\ETL_Comercial\Stock y nulls"
-          TopLeft="638.5,1028.5" />
+          Size="173,42"
+          Id="Package\ETL_Comercial\Columna derivada 1"
+          TopLeft="361,1215" />
         <NodeLayout
-          Size="111,42"
-          Id="Package\ETL_Comercial\Fechas"
-          TopLeft="643,926.5" />
+          Size="171,42"
+          Id="Package\ETL_Comercial\División condicional"
+          TopLeft="371,1075" />
         <NodeLayout
           Size="199,42"
-          Id="Package\ETL_Comercial\Combinación de mezcla 1"
-          TopLeft="475,1318" />
+          Id="Package\ETL_Comercial\Combinación de mezcla 2"
+          TopLeft="359.5,620.5" />
         <NodeLayout
           Size="126,42"
           Id="Package\ETL_Comercial\Ordenar 2"
           TopLeft="684,1250" />
         <NodeLayout
           Size="164,42"
-          Id="Package\ETL_Comercial\Origen de OLE DB"
-          TopLeft="5.5,1317" />
-        <NodeLayout
-          Size="211,42"
-          Id="Package\ETL_Comercial\ZM_COMERCIAL_RELACION 1"
-          TopLeft="619.5,620.5" />
-        <NodeLayout
-          Size="278,42"
-          Id="Package\ETL_Comercial\ZM_COMERCIAL_ELEMENTO y V_Relacion"
-          TopLeft="189,5.5" />
-        <NodeLayout
-          Size="239,42"
-          Id="Package\ETL_Comercial\Se sacan los datos que se quieren"
-          TopLeft="598.5,1132.5" />
-        <NodeLayout
-          Size="190,42"
-          Id="Package\ETL_Comercial\Combinación de mezcla"
-          TopLeft="630,824.5" />
-        <NodeLayout
-          Size="211,42"
-          Id="Package\ETL_Comercial\ZM_COMERCIAL_RELACION"
-          TopLeft="535.5,416" />
-        <NodeLayout
-          Size="215,42"
-          Id="Package\ETL_Comercial\H_COMERCIAL_ACTIVIDAD2"
-          TopLeft="154.5,953.5" />
-        <NodeLayout
-          Size="126,42"
-          Id="Package\ETL_Comercial\Ordenar 4"
-          TopLeft="475,722.5" />
-        <NodeLayout
-          Size="126,56"
-          Id="Package\ETL_Comercial\Ordenar 4 1"
-          TopLeft="157.5,1258" />
+          Id="Package\ETL_Comercial\Columna derivada 2"
+          TopLeft="79.4999999999998,1419" />
         <NodeLayout
           Size="293,43"
           Id="Package\ETL_Comercial\Se pone el ID_MES y FECHA_MODIFICACION 1 1"
           TopLeft="181.5,415.5" />
         <NodeLayout
-          Size="164,44"
-          Id="Package\ETL_Comercial\Columna derivada 3"
-          TopLeft="246,107.5" />
+          Size="239,42"
+          Id="Package\ETL_Comercial\Se sacan los datos que se quieren"
+          TopLeft="598.5,1132.5" />
         <NodeLayout
-          Size="173,42"
-          Id="Package\ETL_Comercial\Columna derivada 1"
-          TopLeft="361,1215" />
+          Size="215,42"
+          Id="Package\ETL_Comercial\H_COMERCIAL_ACTIVIDAD2"
+          TopLeft="154.5,953.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\ETL_Comercial\Origen de OLE DB"
+          TopLeft="5.5,1317" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\ETL_Comercial\Ordenar"
+          TopLeft="582.5,518.5" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\ETL_Comercial\Búsqueda"
+          TopLeft="265.5,211.5" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\ETL_Comercial\Combinación de mezcla 1"
+          TopLeft="475,1318" />
         <NodeLayout
           Size="126,42"
           Id="Package\ETL_Comercial\Ordenar 3"
@@ -42701,17 +42693,25 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
           Id="Package\ETL_Comercial\Ordenar 1"
           TopLeft="396,518.5" />
         <NodeLayout
-          Size="125,42"
-          Id="Package\ETL_Comercial\Búsqueda"
-          TopLeft="265.5,211.5" />
+          Size="278,42"
+          Id="Package\ETL_Comercial\ZM_COMERCIAL_ELEMENTO y V_Relacion"
+          TopLeft="189,5.5" />
         <NodeLayout
-          Size="171,42"
-          Id="Package\ETL_Comercial\División condicional"
-          TopLeft="371,1075" />
+          Size="126,42"
+          Id="Package\ETL_Comercial\Ordenar 4"
+          TopLeft="475,722.5" />
         <NodeLayout
-          Size="199,42"
-          Id="Package\ETL_Comercial\Combinación de mezcla 2"
-          TopLeft="359.5,620.5" />
+          Size="211,42"
+          Id="Package\ETL_Comercial\ZM_COMERCIAL_RELACION 1"
+          TopLeft="619.5,620.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\ETL_Comercial\Combinación de mezcla"
+          TopLeft="630,824.5" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\ETL_Comercial\ZM_COMERCIAL_RELACION"
+          TopLeft="535.5,416" />
         <EdgeLayout
           Id="Package\ETL_Comercial.Paths[Salida predeterminada de división condicional]"
           TopLeft="456.5,1075">
@@ -42749,7 +42749,51 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB]"
+          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB3]"
+          TopLeft="328,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB2]"
+          TopLeft="725,662.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB1]"
           TopLeft="87.4999999999998,1359">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -42783,7 +42827,7 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB3]"
+          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB]"
           TopLeft="641,458">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -42796,50 +42840,6 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,53" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB2]"
-          TopLeft="328,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de origen de OLE DB1]"
-          TopLeft="725,662.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -43089,7 +43089,7 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda]"
+          Id="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda1]"
           TopLeft="347.5,253.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -43125,7 +43125,7 @@ FROM [VISESABI].[dbo].[ZM_COMERCIAL_RELACION] c
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda1]"
+          Id="Package\ETL_Comercial.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="328,355.5">
           <EdgeLayout.Curve>
             <mssgle:Curve

@@ -1,0 +1,105 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="0fac96bb-aa5d-45ca-86fd-094b4edb11ff" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>CONTRATACIONES</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>H CONTRATACION CONTRATACIONES</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="a2820793-04ba-4150-89ae-66c475f9a910">
+          <ID>H CONTRATACION CONTRATACIONES</ID>
+          <Name>H CONTRATACION CONTRATACIONES</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="f95d07ab-fe4a-4762-b330-d00f2da8cb84">
+            <DataSourceViewID>CONTRATACIONES</DataSourceViewID>
+            <TableID>dbo_H_CONTRATACION_CONTRATACIONES</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H CONTRATACION MOVIMIENTO</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="e88d3ef2-3519-4b3c-b7cd-338c5b2976ac">
+          <ID>H CONTRATACION MOVIMIENTO</ID>
+          <Name>H CONTRATACION MOVIMIENTO</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="4fac8432-0577-48c4-8dfe-35f92734a852">
+            <DataSourceViewID>CONTRATACIONES</DataSourceViewID>
+            <TableID>dbo_H_CONTRATACION_MOVIMIENTO</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>M CONTRATACION CON PROV</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="9dd1e193-44a8-4cec-b104-64aaecd1468a">
+          <ID>M CONTRATACION CON PROV</ID>
+          <Name>M CONTRATACION CON PROV</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="162b1785-28f4-42b1-b8cb-0521bbcfa714">
+            <DataSourceViewID>CONTRATACIONES</DataSourceViewID>
+            <TableID>dbo_M_CONTRATACION_CON_PROV</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H CONTRATACION SOL EXP CON</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="533ded08-1479-4409-9b93-dea18df31b1e">
+          <ID>H CONTRATACION SOL EXP CON</ID>
+          <Name>H CONTRATACION SOL EXP CON</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="96ff0e90-7c98-42bb-9bb0-3d745bc9d08c">
+            <DataSourceViewID>CONTRATACIONES</DataSourceViewID>
+            <TableID>dbo_H_CONTRATACION_SOL_EXP_CON</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>M CONTRATACION SOL PROV</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="b499b2a5-1f7e-40d2-b940-f247ca2afd99">
+          <ID>M CONTRATACION SOL PROV</ID>
+          <Name>M CONTRATACION SOL PROV</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6e172ddb-3bfe-4bc4-922b-297b7a041df7">
+            <DataSourceViewID>CONTRATACIONES</DataSourceViewID>
+            <TableID>dbo_M_CONTRATACION_SOL_PROV</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

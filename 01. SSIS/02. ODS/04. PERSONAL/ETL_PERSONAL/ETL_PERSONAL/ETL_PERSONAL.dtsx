@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_PERSONAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="118"
-  DTS:VersionGUID="{90E17DE1-7EB7-4785-B267-75FC41007A48}">
+  DTS:VersionBuild="121"
+  DTS:VersionGUID="{4A08E0B0-123D-43DF-A708-A1828CB37747}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1589,7 +1589,7 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidEjercicio, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.pidAsistente, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidFormacion, 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT     dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidEjercicio, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.pidAsistente, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidFormacion, 
                          dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidPersona, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidGrupo, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.previsto, 
                          dbo.ZM_PERSONAS_SGP_F_ASISTENTES.envioConvocatoria, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.asistencia, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.envioSatisfaccion, 
                          dbo.ZM_PERSONAS_SGP_F_ASISTENTES.envioEficacia, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.validacion, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidNivel, 
@@ -1597,14 +1597,15 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                          dbo.ZM_PERSONAS_SGP_F_ASISTENTES.NohaceformacionConfirm, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.F_EJECUCION, dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo, 
                          dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.fechaAlta, dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.fechaBaja, dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo, 
                          dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidNodoOrigen, dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaInicio, dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin, 
-                         dbo.ZM_PERSONAS_SGP_F_FORMACION.fechaPrevista
+                         dbo.ZM_PERSONAS_SGP_F_FORMACION.fechaPrevista, dbo.ZM_PERSONAS_SGP_F_GRUPOS.fechaInicio AS f_ini_grupo
 FROM            dbo.ZM_PERSONAS_SGP_F_ASISTENTES INNER JOIN
                          dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidPersona = dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidPersona INNER JOIN
-                         dbo.ZM_PERSONAS_HISTORICOSNODOS ON dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidNodoOrigen = dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo INNER JOIN
-                         dbo.ZM_PERSONAS_SGP_F_FORMACION ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidFormacion = dbo.ZM_PERSONAS_SGP_F_FORMACION.pidFormacion
-WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%')
-
-and((fechaPrevista&gt;fechaInicio and fechaPrevista&lt;fechaFin)or( fechaPrevista&gt;fechaInicio and fechaFin is null))</property>
+                         dbo.ZM_PERSONAS_HISTORICOSNODOS ON dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidNodoOrigen = dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo LEFT OUTER JOIN
+                         dbo.ZM_PERSONAS_SGP_F_GRUPOS ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidGrupo = dbo.ZM_PERSONAS_SGP_F_GRUPOS.pidGrupo INNER JOIN
+                         dbo.ZM_PERSONAS_SGP_F_FORMACION ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidFormacion = dbo.ZM_PERSONAS_SGP_F_FORMACION.pidFormacion AND 
+                         dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaInicio &lt; dbo.ZM_PERSONAS_SGP_F_GRUPOS.fechaInicio
+WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PERSONAS_SGP_F_GRUPOS.fechaInicio &lt; dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin) OR
+                         (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin IS NULL)</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -1874,6 +1875,15 @@ and((fechaPrevista&gt;fechaInicio and fechaPrevista&lt;fechaFin)or( fechaPrevist
                       lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaPrevista]"
                       name="fechaPrevista"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[f_ini_grupo]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[f_ini_grupo]"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[f_ini_grupo]"
+                      name="f_ini_grupo"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1986,6 +1996,10 @@ and((fechaPrevista&gt;fechaInicio and fechaPrevista&lt;fechaFin)or( fechaPrevist
                       refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaPrevista]"
                       dataType="dbTimeStamp"
                       name="fechaPrevista" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[f_ini_grupo]"
+                      dataType="dbTimeStamp"
+                      name="f_ini_grupo" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2128,6 +2142,11 @@ and((fechaPrevista&gt;fechaInicio and fechaPrevista&lt;fechaFin)or( fechaPrevist
                       lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaPrevista]"
                       name="fechaPrevista" />
                     <outputColumn
+                      refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[f_ini_grupo]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[f_ini_grupo]"
+                      name="f_ini_grupo" />
+                    <outputColumn
                       refId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
@@ -2181,6 +2200,2084 @@ and((fechaPrevista&gt;fechaInicio and fechaPrevista&lt;fechaFin)or( fechaPrevist
               endId="Package\ASISTENTES\Búsqueda 2.Inputs[Entrada de búsqueda]"
               name="Salida de origen de OLE DB"
               startId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ASISTENTES ANTES"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:Disabled="True"
+      DTS:DTSID="{ba22c028-79d9-43eb-9e69-ac361c7f6eb2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ASISTENTES ANTES"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ASISTENTES ANTES\Búsqueda"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[ZM_PERSONAS_NODOSPERSONA]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[ZM_PERSONAS_NODOSPERSONA]) [refTable]
+where [refTable].[sidPersona] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="pidNodoPersona" dataType="DT_NUMERIC" length="0" precision="10" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sidPersona" dataType="DT_NUMERIC" length="0" precision="10" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sidNodoOrigen" dataType="DT_NUMERIC" length="0" precision="10" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_EJECUCION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ASISTENTES ANTES\Búsqueda.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ASISTENTES ANTES\Búsqueda.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda.Inputs[Entrada de búsqueda].Columns[sidPersona]"
+                      cachedDataType="numeric"
+                      cachedName="sidPersona"
+                      cachedPrecision="18"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">sidPersona</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ASISTENTES ANTES\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\ASISTENTES ANTES\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[sidNodoOrigen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
+                      precision="10"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">sidNodoOrigen</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ASISTENTES ANTES\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\ASISTENTES ANTES\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ASISTENTES ANTES\Búsqueda.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\ASISTENTES ANTES\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ASISTENTES ANTES\Búsqueda 1"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[H_PERSONAL_FORMACION]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[H_PERSONAL_FORMACION]) [refTable]
+where [refTable].[ID_FORMACION] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_FORMACION" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESC_FORMACION" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ID_INCLUIR_PLAN" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_PRIORIDAD" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_PREVISTA" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_TIPO_GESTION" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="HORAS_LAB_PREV" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="HORAS_LAB_REAL" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="HORAS_NO_LAB_PREV" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="HORAS_NO_LAB_REAL" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_ESTADO_FORMACION" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_EJERCICIO" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_NIVEL_FORMACION" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_NODO_RESP" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LUGAR_PREV" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ID_PROCESO" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PONENTES" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="MATRICULA" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OTROS_GASTOS" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_SUBVENCIONADO" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CANT_SUBVENCION" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ENT_SUBVENCION" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="IMPARTIDOR" dataType="DT_STR" length="300" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ID_INCLUIR_COSTES" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_COSTES_PROPORCIONALES" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PUNTOS_EXTRAS" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PLAZO" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_FORMACION_ONLINE" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_NODO_FORMADOR_INTERNO" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_CALCULO_PRIORIDAD" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_NECESIDAD" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_CON_IDIOMA" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IDIOMA" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F_EJECUCION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NUM_ASISTENTES" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidFormacion]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ASISTENTES ANTES\Búsqueda 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ASISTENTES ANTES\Búsqueda 1.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 1.Inputs[Entrada de búsqueda].Columns[sidFormacion]"
+                      cachedDataType="numeric"
+                      cachedName="sidFormacion"
+                      cachedPrecision="18"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidFormacion]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">ID_FORMACION</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\ASISTENTES ANTES\Búsqueda 1.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_INCLUIR_PLAN]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_INCLUIR_PLAN]"
+                      name="ID_INCLUIR_PLAN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">ID_INCLUIR_PLAN</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_INCLUIR_COSTES]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_INCLUIR_COSTES]"
+                      name="ID_INCLUIR_COSTES"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">ID_INCLUIR_COSTES</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_COSTES_PROPORCIONALES]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_COSTES_PROPORCIONALES]"
+                      name="ID_COSTES_PROPORCIONALES"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">ID_COSTES_PROPORCIONALES</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[NUM_ASISTENTES]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[NUM_ASISTENTES]"
+                      name="NUM_ASISTENTES"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">NUM_ASISTENTES</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[MATRICULA]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[MATRICULA]"
+                      name="MATRICULA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">MATRICULA</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_PREV_ASISTENTE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_PREV_ASISTENTE]"
+                      name="HORAS_LAB_PREV_ASISTENTE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">HORAS_LAB_PREV</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_REAL_ASISTENTE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_REAL_ASISTENTE]"
+                      name="HORAS_LAB_REAL_ASISTENTE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">HORAS_LAB_REAL</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\ASISTENTES ANTES\Búsqueda 1.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\ASISTENTES ANTES\Búsqueda 1.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ASISTENTES ANTES\Búsqueda 2"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda 2"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[ZM_PERSONAS_SGP_F_CONVOCATORIAS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[ZM_PERSONAS_SGP_F_CONVOCATORIAS]) [refTable]
+where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="pidConvocatoria" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sidGrupoFormacion" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sidPersona" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Estado" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Comentario" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="FRealizacion" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="codigo" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="F_EJECUCION" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]};#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidGrupo]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ASISTENTES ANTES\Búsqueda 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ASISTENTES ANTES\Búsqueda 2.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 2.Inputs[Entrada de búsqueda].Columns[sidPersona]"
+                      cachedDataType="numeric"
+                      cachedName="sidPersona"
+                      cachedPrecision="18"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">sidPersona</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 2.Inputs[Entrada de búsqueda].Columns[sidGrupo]"
+                      cachedDataType="numeric"
+                      cachedName="sidGrupo"
+                      cachedPrecision="18"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidGrupo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">sidGrupoFormacion</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\ASISTENTES ANTES\Búsqueda 2.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[pidConvocatoria]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[pidConvocatoria]"
+                      name="pidConvocatoria"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">pidConvocatoria</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Estado]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Estado]"
+                      name="Estado"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">Estado</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Comentario]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copiar columna"
+                      length="500"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Comentario]"
+                      name="Comentario"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">Comentario</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[FRealizacion]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[FRealizacion]"
+                      name="FRealizacion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">FRealizacion</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copiar columna"
+                      length="250"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[codigo]"
+                      name="codigo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">codigo</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en &quot;Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes&quot;."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\ASISTENTES ANTES\Búsqueda 2.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\ASISTENTES ANTES\Búsqueda 2.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ASISTENTES ANTES\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ASISTENTES ANTES\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[coste]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="coste"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[coste]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\ASISTENTES ANTES\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[costeF]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[costeF]"
+                      name="costeF"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[coste]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\ASISTENTES ANTES\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="coste repartido, HORAS y mapeo boolean"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[envioConvocatoria]"
+                      cachedDataType="i4"
+                      cachedName="envioConvocatoria"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]} == 1 ? 1 : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">envioConvocatoria == 1 ? 1 : 0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[Estado]"
+                      cachedDataType="numeric"
+                      cachedName="Estado"
+                      cachedPrecision="18"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Estado]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[costeF]"
+                      cachedDataType="r4"
+                      cachedName="costeF"
+                      lineageId="Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[costeF]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[MATRICULA]"
+                      cachedDataType="r8"
+                      cachedName="MATRICULA"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[MATRICULA]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[NUM_ASISTENTES]"
+                      cachedDataType="i4"
+                      cachedName="NUM_ASISTENTES"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[NUM_ASISTENTES]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[Nohaceformacion]"
+                      cachedDataType="i4"
+                      cachedName="Nohaceformacion"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nohaceformacion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nohaceformacion]} == 1 ? 1 : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Nohaceformacion == 1 ? 1 : 0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[ID_INCLUIR_COSTES]"
+                      cachedDataType="i4"
+                      cachedName="ID_INCLUIR_COSTES"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_INCLUIR_COSTES]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[ID_COSTES_PROPORCIONALES]"
+                      cachedDataType="i4"
+                      cachedName="ID_COSTES_PROPORCIONALES"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_COSTES_PROPORCIONALES]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[previsto]"
+                      cachedDataType="i4"
+                      cachedName="previsto"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[previsto]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[previsto]} == 1 ? 1 : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">previsto == 1 ? 1 : 0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[validacion]"
+                      cachedDataType="i4"
+                      cachedName="validacion"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[validacion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[validacion]} == 1 ? 1 : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">validacion == 1 ? 1 : 0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[recomendarFormacion]"
+                      cachedDataType="i4"
+                      cachedName="recomendarFormacion"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[recomendarFormacion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[recomendarFormacion]} == 1 ? 1 : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">recomendarFormacion == 1 ? 1 : 0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[HORAS_LAB_PREV_ASISTENTE]"
+                      cachedDataType="r8"
+                      cachedName="HORAS_LAB_PREV_ASISTENTE"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_PREV_ASISTENTE]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada].Columns[HORAS_LAB_REAL_ASISTENTE]"
+                      cachedDataType="r8"
+                      cachedName="HORAS_LAB_REAL_ASISTENTE"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_REAL_ASISTENTE]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada].Columns[coste_repartido]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada].Columns[coste_repartido]"
+                      name="coste_repartido"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">(#{Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_INCLUIR_COSTES]} == 1 &amp;&amp; #{Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_COSTES_PROPORCIONALES]} == 1 &amp;&amp; #{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]} == 1) ? #{Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[costeF]} : (#{Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_INCLUIR_COSTES]} == 1 &amp;&amp; #{Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID_COSTES_PROPORCIONALES]} == 0 &amp;&amp; #{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]} == 1 &amp;&amp; #{Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Estado]} == 5 &amp;&amp; #{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nohaceformacion]} == 2) ? (#{Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[MATRICULA]} / #{Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[NUM_ASISTENTES]}) : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(ID_INCLUIR_COSTES == 1 &amp;&amp; ID_COSTES_PROPORCIONALES == 1 &amp;&amp; envioConvocatoria == 1) ? costeF : (ID_INCLUIR_COSTES == 1 &amp;&amp; ID_COSTES_PROPORCIONALES == 0 &amp;&amp; envioConvocatoria == 1 &amp;&amp; Estado == 5 &amp;&amp; Nohaceformacion == 2) ? (MATRICULA / NUM_ASISTENTES) : 0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada].Columns[Derived Column 1]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada].Columns[Derived Column 1]"
+                      name="Derived Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]} == 1 &amp;&amp; #{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nohaceformacion]} != 1 ? #{Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_PREV_ASISTENTE]} : NULL(DT_R8)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">envioConvocatoria == 1 &amp;&amp; Nohaceformacion != 1 ? HORAS_LAB_PREV_ASISTENTE : NULL(DT_R8)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada].Columns[Derived Column 2]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada].Columns[Derived Column 2]"
+                      name="Derived Column 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]} == 1 &amp;&amp; #{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nohaceformacion]} != 1 ? #{Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_REAL_ASISTENTE]} : NULL(DT_R8)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">envioConvocatoria == 1 &amp;&amp; Nohaceformacion != 1 ? HORAS_LAB_REAL_ASISTENTE : NULL(DT_R8)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ASISTENTES ANTES\Coste y replacenull"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Coste y replacenull"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ASISTENTES ANTES\Coste y replacenull.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\Coste y replacenull.Inputs[Entrada de columna derivada].Columns[coste]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="coste"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[coste]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\Coste y replacenull.Inputs[Entrada de columna derivada].Columns[costeF]"
+                      cachedDataType="r4"
+                      cachedName="costeF"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[costeF]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[ISNULL](#{Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[costeF]}) ? "0" : #{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[coste]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(costeF) ? "0" : coste</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\Coste y replacenull.Inputs[Entrada de columna derivada].Columns[previsto]"
+                      cachedDataType="i4"
+                      cachedName="previsto"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[previsto]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[previsto]},0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(previsto,0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\Coste y replacenull.Inputs[Entrada de columna derivada].Columns[envioConvocatoria]"
+                      cachedDataType="i4"
+                      cachedName="envioConvocatoria"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]},0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(envioConvocatoria,0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\Coste y replacenull.Inputs[Entrada de columna derivada].Columns[validacion]"
+                      cachedDataType="i4"
+                      cachedName="validacion"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[validacion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[validacion]},0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(validacion,0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\Coste y replacenull.Inputs[Entrada de columna derivada].Columns[Nohaceformacion]"
+                      cachedDataType="i4"
+                      cachedName="Nohaceformacion"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nohaceformacion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nohaceformacion]},0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Nohaceformacion,0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\Coste y replacenull.Inputs[Entrada de columna derivada].Columns[recomendarFormacion]"
+                      cachedDataType="i4"
+                      cachedName="recomendarFormacion"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[recomendarFormacion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[REPLACENULL](#{Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[recomendarFormacion]},0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(recomendarFormacion,0)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ASISTENTES ANTES\Coste y replacenull.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\ASISTENTES ANTES\Coste y replacenull.Inputs[Entrada de columna derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ASISTENTES ANTES\Coste y replacenull.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\ASISTENTES ANTES\Coste y replacenull.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Coste y replacenull.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Coste y replacenull.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Coste y replacenull.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Coste y replacenull.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="H_PERSONAL_ASISTENTES"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[H_PERSONAL_ASISTENTE]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="IgnoreFailure"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[F_EJECUCION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="F_EJECUCION"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[pidAsistente]"
+                      cachedDataType="numeric"
+                      cachedName="pidAsistente"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_ASISTENTE]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidAsistente]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[sidFormacion]"
+                      cachedDataType="numeric"
+                      cachedName="sidFormacion"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_FORMACION]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidFormacion]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[previsto]"
+                      cachedDataType="i4"
+                      cachedName="previsto"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PREVISTO]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[previsto]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[validacion]"
+                      cachedDataType="i4"
+                      cachedName="validacion"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_VALIDACION]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[validacion]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[envioConvocatoria]"
+                      cachedDataType="i4"
+                      cachedName="envioConvocatoria"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_ENVIO_CONVOCATORIA]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[sidNodoOrigen]"
+                      cachedDataType="numeric"
+                      cachedName="sidNodoOrigen"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_NODO]"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[sidNodoOrigen]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[coste_repartido]"
+                      cachedDataType="r8"
+                      cachedName="coste_repartido"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[COSTE_REPARTIDO]"
+                      lineageId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada].Columns[coste_repartido]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[Nohaceformacion]"
+                      cachedDataType="i4"
+                      cachedName="Nohaceformacion"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_NO_HACE_FORMACION]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nohaceformacion]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[recomendarFormacion]"
+                      cachedDataType="i4"
+                      cachedName="recomendarFormacion"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_RECOMIENDA_FORMACION]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[recomendarFormacion]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[sidNivel]"
+                      cachedDataType="numeric"
+                      cachedName="sidNivel"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_NIVEL_ASISTENTE]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNivel]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[Estado]"
+                      cachedDataType="numeric"
+                      cachedName="Estado"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_ESTADO_CONVOCATORIA]"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda].Columns[Estado]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[HORAS_LAB_PREV_ASISTENTE]"
+                      cachedDataType="r8"
+                      cachedName="HORAS_LAB_PREV_ASISTENTE"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[HORAS_LAB_PREV_ASISTENTE]"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_PREV_ASISTENTE]" />
+                    <inputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].Columns[HORAS_LAB_REAL_ASISTENTE]"
+                      cachedDataType="r8"
+                      cachedName="HORAS_LAB_REAL_ASISTENTE"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[HORAS_LAB_REAL_ASISTENTE]"
+                      lineageId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda].Columns[HORAS_LAB_REAL_ASISTENTE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      name="F_EJECUCION" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_ASISTENTE]"
+                      dataType="numeric"
+                      name="ID_ASISTENTE"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_FORMACION]"
+                      dataType="numeric"
+                      name="ID_FORMACION"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_PREVISTO]"
+                      dataType="i4"
+                      name="ID_PREVISTO" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_VALIDACION]"
+                      dataType="i4"
+                      name="ID_VALIDACION" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_NIVEL_ASISTENTE]"
+                      dataType="numeric"
+                      name="ID_NIVEL_ASISTENTE"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_NO_HACE_FORMACION]"
+                      dataType="i4"
+                      name="ID_NO_HACE_FORMACION" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_RECOMIENDA_FORMACION]"
+                      dataType="i4"
+                      name="ID_RECOMIENDA_FORMACION" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_ESTADO_CONVOCATORIA]"
+                      dataType="numeric"
+                      name="ID_ESTADO_CONVOCATORIA"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[COSTE_REPARTIDO]"
+                      dataType="r8"
+                      name="COSTE_REPARTIDO" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_NODO]"
+                      dataType="numeric"
+                      name="ID_NODO"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_ENVIO_CONVOCATORIA]"
+                      dataType="i4"
+                      name="ID_ENVIO_CONVOCATORIA" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[HORAS_LAB_PREV_ASISTENTE]"
+                      dataType="r8"
+                      name="HORAS_LAB_PREV_ASISTENTE" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB].ExternalColumns[HORAS_LAB_REAL_ASISTENTE]"
+                      dataType="r8"
+                      name="HORAS_LAB_REAL_ASISTENTE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ASISTENTES ANTES\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[ZM_PERSONAS_SGP_F_ASISTENTES]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidEjercicio, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.pidAsistente, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidFormacion, 
+                         dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidPersona, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidGrupo, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.previsto, 
+                         dbo.ZM_PERSONAS_SGP_F_ASISTENTES.envioConvocatoria, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.asistencia, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.envioSatisfaccion, 
+                         dbo.ZM_PERSONAS_SGP_F_ASISTENTES.envioEficacia, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.validacion, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidNivel, 
+                         dbo.ZM_PERSONAS_SGP_F_ASISTENTES.Nohaceformacion, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.coste, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.recomendarFormacion, 
+                         dbo.ZM_PERSONAS_SGP_F_ASISTENTES.NohaceformacionConfirm, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.F_EJECUCION, dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo, 
+                         dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.fechaAlta, dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.fechaBaja, dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo, 
+                         dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidNodoOrigen, dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaInicio, dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin, 
+                         dbo.ZM_PERSONAS_SGP_F_FORMACION.fechaPrevista
+FROM            dbo.ZM_PERSONAS_SGP_F_ASISTENTES INNER JOIN
+                         dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidPersona = dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidPersona INNER JOIN
+                         dbo.ZM_PERSONAS_HISTORICOSNODOS ON dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidNodoOrigen = dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo INNER JOIN
+                         dbo.ZM_PERSONAS_SGP_F_FORMACION ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidFormacion = dbo.ZM_PERSONAS_SGP_F_FORMACION.pidFormacion
+WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%')
+
+and((fechaPrevista&gt;fechaInicio and fechaPrevista&lt;fechaFin)or( fechaPrevista&gt;fechaInicio and fechaFin is null))</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ASISTENTES ANTES\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidEjercicio]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidEjercicio]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidEjercicio]"
+                      name="sidEjercicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidAsistente]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[pidAsistente]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[pidAsistente]"
+                      name="pidAsistente"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidFormacion]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidFormacion]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidFormacion]"
+                      name="sidFormacion"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidPersona]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidPersona]"
+                      name="sidPersona"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidGrupo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidGrupo]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidGrupo]"
+                      name="sidGrupo"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[previsto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[previsto]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[previsto]"
+                      name="previsto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[envioConvocatoria]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioConvocatoria]"
+                      name="envioConvocatoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[asistencia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[asistencia]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[asistencia]"
+                      name="asistencia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioSatisfaccion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[envioSatisfaccion]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioSatisfaccion]"
+                      name="envioSatisfaccion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioEficacia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[envioEficacia]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[envioEficacia]"
+                      name="envioEficacia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[validacion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[validacion]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[validacion]"
+                      name="validacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNivel]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNivel]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNivel]"
+                      name="sidNivel"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nohaceformacion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nohaceformacion]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nohaceformacion]"
+                      name="Nohaceformacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[coste]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[coste]"
+                      length="50"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[coste]"
+                      name="coste"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[recomendarFormacion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[recomendarFormacion]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[recomendarFormacion]"
+                      name="recomendarFormacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[NohaceformacionConfirm]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[NohaceformacionConfirm]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[NohaceformacionConfirm]"
+                      name="NohaceformacionConfirm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[F_EJECUCION]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]"
+                      name="F_EJECUCION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[codigo]"
+                      length="250"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[codigo]"
+                      name="codigo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaAlta]"
+                      name="fechaAlta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaBaja]"
+                      name="fechaBaja"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodo]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodo]"
+                      name="sidNodo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaInicio]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaInicio]"
+                      name="fechaInicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaFin]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaFin]"
+                      name="fechaFin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaPrevista]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaPrevista]"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fechaPrevista]"
+                      name="fechaPrevista"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidEjercicio]"
+                      dataType="i4"
+                      name="sidEjercicio" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[pidAsistente]"
+                      dataType="numeric"
+                      name="pidAsistente"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidFormacion]"
+                      dataType="numeric"
+                      name="sidFormacion"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidPersona]"
+                      dataType="numeric"
+                      name="sidPersona"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidGrupo]"
+                      dataType="numeric"
+                      name="sidGrupo"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[previsto]"
+                      dataType="i4"
+                      name="previsto" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[envioConvocatoria]"
+                      dataType="i4"
+                      name="envioConvocatoria" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[asistencia]"
+                      dataType="i4"
+                      name="asistencia" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[envioSatisfaccion]"
+                      dataType="i4"
+                      name="envioSatisfaccion" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[envioEficacia]"
+                      dataType="i4"
+                      name="envioEficacia" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[validacion]"
+                      dataType="i4"
+                      name="validacion" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNivel]"
+                      dataType="numeric"
+                      name="sidNivel"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nohaceformacion]"
+                      dataType="i4"
+                      name="Nohaceformacion" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[coste]"
+                      dataType="wstr"
+                      length="50"
+                      name="coste" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[recomendarFormacion]"
+                      dataType="i4"
+                      name="recomendarFormacion" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[NohaceformacionConfirm]"
+                      dataType="bool"
+                      name="NohaceformacionConfirm" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      name="F_EJECUCION" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="codigo" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      name="fechaAlta" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      name="fechaBaja" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodo]"
+                      dataType="i4"
+                      name="sidNodo" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sidNodoOrigen]"
+                      dataType="numeric"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      name="fechaInicio" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      name="fechaFin" />
+                    <externalMetadataColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaPrevista]"
+                      dataType="dbTimeStamp"
+                      name="fechaPrevista" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidEjercicio]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidEjercicio]"
+                      name="sidEjercicio" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[pidAsistente]"
+                      dataType="numeric"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[pidAsistente]"
+                      name="pidAsistente"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidFormacion]"
+                      dataType="numeric"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidFormacion]"
+                      name="sidFormacion"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidPersona]"
+                      dataType="numeric"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidPersona]"
+                      name="sidPersona"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidGrupo]"
+                      dataType="numeric"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidGrupo]"
+                      name="sidGrupo"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[previsto]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[previsto]"
+                      name="previsto" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[envioConvocatoria]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[envioConvocatoria]"
+                      name="envioConvocatoria" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[asistencia]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[asistencia]"
+                      name="asistencia" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[envioSatisfaccion]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[envioSatisfaccion]"
+                      name="envioSatisfaccion" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[envioEficacia]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[envioEficacia]"
+                      name="envioEficacia" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[validacion]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[validacion]"
+                      name="validacion" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNivel]"
+                      dataType="numeric"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNivel]"
+                      name="sidNivel"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Nohaceformacion]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Nohaceformacion]"
+                      name="Nohaceformacion" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[coste]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[coste]"
+                      name="coste" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[recomendarFormacion]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[recomendarFormacion]"
+                      name="recomendarFormacion" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[NohaceformacionConfirm]"
+                      dataType="bool"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[NohaceformacionConfirm]"
+                      name="NohaceformacionConfirm" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[F_EJECUCION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[F_EJECUCION]"
+                      name="F_EJECUCION" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[codigo]"
+                      name="codigo" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaAlta]"
+                      name="fechaAlta" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaBaja]"
+                      name="fechaBaja" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodo]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodo]"
+                      name="sidNodo" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      dataType="numeric"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sidNodoOrigen]"
+                      name="sidNodoOrigen"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaInicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaInicio]"
+                      name="fechaInicio" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaFin]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaFin]"
+                      name="fechaFin" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaPrevista]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[fechaPrevista]"
+                      name="fechaPrevista" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ASISTENTES ANTES.Paths[Salida de columna derivada]"
+              endId="Package\ASISTENTES ANTES\Búsqueda 1.Inputs[Entrada de búsqueda]"
+              name="Salida de columna derivada"
+              startId="Package\ASISTENTES ANTES\Coste y replacenull.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\ASISTENTES ANTES.Paths[Salida de columna derivada1]"
+              endId="Package\ASISTENTES ANTES\Búsqueda.Inputs[Entrada de búsqueda]"
+              name="Salida de columna derivada"
+              startId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\ASISTENTES ANTES.Paths[Salida de conversión de datos]"
+              endId="Package\ASISTENTES ANTES\Coste y replacenull.Inputs[Entrada de columna derivada]"
+              name="Salida de conversión de datos"
+              startId="Package\ASISTENTES ANTES\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\ASISTENTES ANTES.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean.Inputs[Entrada de columna derivada]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\ASISTENTES ANTES\Búsqueda 1.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\ASISTENTES ANTES.Paths[Salida de entradas coincidentes de búsqueda1]"
+              endId="Package\ASISTENTES ANTES\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\ASISTENTES ANTES\Búsqueda 2.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\ASISTENTES ANTES.Paths[Salida de entradas coincidentes de búsqueda2]"
+              endId="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\ASISTENTES ANTES\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\ASISTENTES ANTES.Paths[Salida de origen de OLE DB]"
+              endId="Package\ASISTENTES ANTES\Búsqueda 2.Inputs[Entrada de búsqueda]"
+              name="Salida de origen de OLE DB"
+              startId="Package\ASISTENTES ANTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -13550,7 +15647,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
         <NodeLayout
           Size="114,42"
           Id="Package\NODOS"
-          TopLeft="497,75" />
+          TopLeft="604,111" />
         <NodeLayout
           Size="155,42"
           Id="Package\PRESUPUESTOS"
@@ -13566,33 +15663,33 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
         <NodeLayout
           Size="170,42"
           Id="Package\Tarea Ejecutar SQL"
-          TopLeft="2,58" />
+          TopLeft="9,73" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="554,117">
+          TopLeft="604,132">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-391.5,32"
+              EndConnector="-357,32.3333333333333"
               Start="0,0"
-              End="-391.5,24.5">
+              End="-349.5,32.3333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12" />
+                    End="-202.339449541284,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12"
-                    Point2="0,16"
-                    Point3="-4,16" />
+                    Point1="-202.339449541284,0"
+                    Point2="-206.339449541284,0"
+                    Point3="-206.339449541284,4" />
                   <mssgle:LineSegment
-                    End="-387.5,16" />
+                    End="-206.339449541284,28.3333333333333" />
                   <mssgle:CubicBezierSegment
-                    Point1="-387.5,16"
-                    Point2="-391.5,16"
-                    Point3="-391.5,20" />
+                    Point1="-206.339449541284,28.3333333333333"
+                    Point2="-206.339449541284,32.3333333333333"
+                    Point3="-210.339449541284,32.3333333333333" />
                   <mssgle:LineSegment
-                    End="-391.5,24.5" />
+                    End="-349.5,32.3333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13727,30 +15824,30 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="172,79">
+          TopLeft="179,94">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="130,-20"
+              EndConnector="123,-35"
               Start="0,0"
-              End="122.5,-20">
+              End="115.5,-35">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="61,0" />
+                    End="57.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="61,0"
-                    Point2="65,0"
-                    Point3="65,-4" />
+                    Point1="57.5,0"
+                    Point2="61.5,0"
+                    Point3="61.5,-4" />
                   <mssgle:LineSegment
-                    End="65,-16" />
+                    End="61.5,-31" />
                   <mssgle:CubicBezierSegment
-                    Point1="65,-16"
-                    Point2="65,-20"
-                    Point3="69,-20" />
+                    Point1="61.5,-31"
+                    Point2="61.5,-35"
+                    Point3="65.5,-35" />
                   <mssgle:LineSegment
-                    End="122.5,-20" />
+                    End="115.5,-35" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13795,24 +15892,30 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="554,52.5">
+          TopLeft="428,80">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,22.5"
+              EndConnector="233,31"
               Start="0,0"
-              End="0,15">
+              End="233,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="4,0" />
+                    End="0,11.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="4,0"
-                    Point2="0,0"
-                    Point3="0,4" />
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
                   <mssgle:LineSegment
-                    End="0,15" />
+                    End="229,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="229,15.5"
+                    Point2="233,15.5"
+                    Point3="233,19.5" />
+                  <mssgle:LineSegment
+                    End="233,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13877,6 +15980,10 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="174,42"
+          Id="Package\ASISTENTES ANTES"
+          TopLeft="2,281" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -14267,7 +16374,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
     design-time-name="Package\ENCUESTAS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="212,42"
           Id="Package\ENCUESTAS\H_PERSONAL_ENCUESTAS 1"
@@ -14323,9 +16430,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14359,9 +16464,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14395,9 +16498,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14431,9 +16532,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14759,7 +16858,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
     design-time-name="Package\M_PERSONAL_HISTORICOS_NODOS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="304,42"
           Id="Package\M_PERSONAL_HISTORICOS_NODOS\M_PERSONAL_HISTORICOS_NODOS_PERSONA"
@@ -14807,7 +16906,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14841,7 +16942,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -15121,7 +17224,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
         <NodeLayout
           Size="177,42"
           Id="Package\NODOS\Destino de OLE DB 1"
-          TopLeft="162,305" />
+          TopLeft="128,340" />
         <NodeLayout
           Size="164,42"
           Id="Package\NODOS\Columna derivada"
@@ -15137,44 +17240,44 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
         <NodeLayout
           Size="125,42"
           Id="Package\NODOS\Búsqueda"
-          TopLeft="343,218" />
+          TopLeft="322,93" />
         <NodeLayout
           Size="171,42"
           Id="Package\NODOS\División condicional"
           TopLeft="94,199" />
         <EdgeLayout
           Id="Package\NODOS.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="468,239">
+          TopLeft="404,135">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="52,-8"
+              EndConnector="198,75"
               Start="0,0"
-              End="44.5,-8">
+              End="198,67.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="22,0" />
+                    End="0,26.5687203791469" />
                   <mssgle:CubicBezierSegment
-                    Point1="22,0"
-                    Point2="26,0"
-                    Point3="26,-4" />
+                    Point1="0,26.5687203791469"
+                    Point2="0,30.5687203791469"
+                    Point3="4,30.5687203791469" />
                   <mssgle:LineSegment
-                    End="26,-4" />
+                    End="194,30.5687203791469" />
                   <mssgle:CubicBezierSegment
-                    Point1="26,-4"
-                    Point2="26,-8"
-                    Point3="30,-8" />
+                    Point1="194,30.5687203791469"
+                    Point2="198,30.5687203791469"
+                    Point3="198,34.5687203791469" />
                   <mssgle:LineSegment
-                    End="44.5,-8" />
+                    End="198,67.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-73.8190234375,1,199.638046875,12.1953125"
+              BoundingBox="-0.819023437500007,35.5687203791469,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15209,42 +17312,44 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-51,34,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\NODOS.Paths[Personas]"
-          TopLeft="265,220">
+          TopLeft="206.666666666667,199">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="78,19"
+              EndConnector="158.333333333333,-64"
               Start="0,0"
-              End="70.5,19">
+              End="158.333333333333,-56.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="35,0" />
+                    End="0,-27.8659807893659" />
                   <mssgle:CubicBezierSegment
-                    Point1="35,0"
-                    Point2="39,0"
-                    Point3="39,4" />
+                    Point1="0,-27.8659807893659"
+                    Point2="0,-31.8659807893659"
+                    Point3="4,-31.8659807893659" />
                   <mssgle:LineSegment
-                    End="39,15" />
+                    End="154.333333333333,-31.8659807893659" />
                   <mssgle:CubicBezierSegment
-                    Point1="39,15"
-                    Point2="39,19"
-                    Point3="43,19" />
+                    Point1="154.333333333333,-31.8659807893659"
+                    Point2="158.333333333333,-31.8659807893659"
+                    Point3="158.333333333333,-35.8659807893659" />
                   <mssgle:LineSegment
-                    End="70.5,19" />
+                    End="158.333333333333,-56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="18.687421875,-15.421875,40.62515625,9.421875"
+              BoundingBox="58.8540885416665,-26.8659807893659,40.62515625,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15254,33 +17359,33 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="71,64"
+              EndConnector="37,99"
               Start="0,0"
-              End="71,56.5">
+              End="37,91.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28" />
+                    End="0,45.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28"
-                    Point2="0,32"
-                    Point3="4,32" />
+                    Point1="0,45.5"
+                    Point2="0,49.5"
+                    Point3="4,49.5" />
                   <mssgle:LineSegment
-                    End="67,32" />
+                    End="33,49.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="67,32"
-                    Point2="71,32"
-                    Point3="71,36" />
+                    Point1="33,49.5"
+                    Point2="37,49.5"
+                    Point3="37,53.5" />
                   <mssgle:LineSegment
-                    End="71,56.5" />
+                    End="37,91.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-65.42279296875,37,201.8455859375,12.1953125"
+              BoundingBox="-82.42279296875,54.5,201.8455859375,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15484,5 +17589,297 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ASISTENTES ANTES">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\ASISTENTES ANTES\Conversión de datos"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\ASISTENTES ANTES\Origen de OLE DB"
+          TopLeft="346,20" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\ASISTENTES ANTES\Búsqueda 2"
+          TopLeft="509,133" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\ASISTENTES ANTES\Coste y replacenull"
+          TopLeft="349,240" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\ASISTENTES ANTES\Búsqueda 1"
+          TopLeft="67.5,315.5" />
+        <NodeLayout
+          Size="274,42"
+          Id="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean"
+          TopLeft="258.5,409.5" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES"
+          TopLeft="583,450" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\ASISTENTES ANTES\Búsqueda"
+          TopLeft="507,330" />
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de origen de OLE DB]"
+          TopLeft="428,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148,71"
+              Start="0,0"
+              End="148,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="4,35.5" />
+                  <mssgle:LineSegment
+                    End="144,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="144,35.5"
+                    Point2="148,35.5"
+                    Point3="148,39.5" />
+                  <mssgle:LineSegment
+                    End="148,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de entradas coincidentes de búsqueda2]"
+          TopLeft="589,372">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98,78"
+              Start="0,0"
+              End="98,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.7914691943128" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.7914691943128"
+                    Point2="0,31.7914691943128"
+                    Point3="4,31.7914691943128" />
+                  <mssgle:LineSegment
+                    End="94,31.7914691943128" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94,31.7914691943128"
+                    Point2="98,31.7914691943128"
+                    Point3="98,35.7914691943128" />
+                  <mssgle:LineSegment
+                    End="98,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-50.8190234375,36.7914691943128,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de entradas coincidentes de búsqueda1]"
+          TopLeft="555,133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-379.666666666667,-31"
+              Start="0,0"
+              End="-379.666666666667,-23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-11.5528087086588" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-11.5528087086588"
+                    Point2="0,-15.5528087086588"
+                    Point3="-4,-15.5528087086588" />
+                  <mssgle:LineSegment
+                    End="-375.666666666667,-15.5528087086588" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-375.666666666667,-15.5528087086588"
+                    Point2="-379.666666666667,-15.5528087086588"
+                    Point3="-379.666666666667,-19.5528087086588" />
+                  <mssgle:LineSegment
+                    End="-379.666666666667,-23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-289.652356770834,-10.5528087086588,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="134.5,357.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="216.666666666667,52"
+              Start="0,0"
+              End="216.666666666667,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.0188679245283" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.0188679245283"
+                    Point2="0,31.0188679245283"
+                    Point3="4,31.0188679245283" />
+                  <mssgle:LineSegment
+                    End="212.666666666667,31.0188679245283" />
+                  <mssgle:CubicBezierSegment
+                    Point1="212.666666666667,31.0188679245283"
+                    Point2="216.666666666667,31.0188679245283"
+                    Point3="216.666666666667,35.0188679245283" />
+                  <mssgle:LineSegment
+                    End="216.666666666667,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.51430989583349,36.0188679245283,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de conversión de datos]"
+          TopLeft="119.666666666667,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="313.333333333333,138"
+              Start="0,0"
+              End="313.333333333333,130.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.9501698754247" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.9501698754247"
+                    Point2="0,55.9501698754247"
+                    Point3="4,55.9501698754247" />
+                  <mssgle:LineSegment
+                    End="309.333333333333,55.9501698754247" />
+                  <mssgle:CubicBezierSegment
+                    Point1="309.333333333333,55.9501698754247"
+                    Point2="313.333333333333,55.9501698754247"
+                    Point3="313.333333333333,59.9501698754247" />
+                  <mssgle:LineSegment
+                    End="313.333333333333,130.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de columna derivada1]"
+          TopLeft="439.833333333333,409.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110.166666666667,-37.5"
+              Start="0,0"
+              End="110.166666666667,-30">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-14.590575781785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-14.590575781785"
+                    Point2="0,-18.590575781785"
+                    Point3="4,-18.590575781785" />
+                  <mssgle:LineSegment
+                    End="106.166666666667,-18.590575781785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="106.166666666667,-18.590575781785"
+                    Point2="110.166666666667,-18.590575781785"
+                    Point3="110.166666666667,-22.590575781785" />
+                  <mssgle:LineSegment
+                    End="110.166666666667,-30" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de columna derivada]"
+          TopLeft="433,282">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-298.5,33.5"
+              Start="0,0"
+              End="-298.5,26">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.75"
+                    Point2="0,16.75"
+                    Point3="-4,16.75" />
+                  <mssgle:LineSegment
+                    End="-294.5,16.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-294.5,16.75"
+                    Point2="-298.5,16.75"
+                    Point3="-298.5,20.75" />
+                  <mssgle:LineSegment
+                    End="-298.5,26" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
