@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_PERSONAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="121"
-  DTS:VersionGUID="{4A08E0B0-123D-43DF-A708-A1828CB37747}">
+  DTS:VersionBuild="126"
+  DTS:VersionGUID="{5199784A-D44E-4AEC-9FEC-3DCE124303B0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1312,6 +1312,60 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
               </outputs>
             </component>
             <component
+              refId="Package\ASISTENTES\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ASISTENTES\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ASISTENTES\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\ASISTENTES\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ASISTENTES\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\ASISTENTES\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ASISTENTES\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ASISTENTES\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ASISTENTES\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\ASISTENTES\H_PERSONAL_ASISTENTES"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
@@ -1589,7 +1643,7 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT     dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidEjercicio, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.pidAsistente, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidFormacion, 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidEjercicio, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.pidAsistente, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidFormacion, 
                          dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidPersona, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidGrupo, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.previsto, 
                          dbo.ZM_PERSONAS_SGP_F_ASISTENTES.envioConvocatoria, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.asistencia, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.envioSatisfaccion, 
                          dbo.ZM_PERSONAS_SGP_F_ASISTENTES.envioEficacia, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.validacion, dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidNivel, 
@@ -1599,13 +1653,17 @@ where [refTable].[sidPersona] = ? and [refTable].[sidGrupoFormacion] = ?</proper
                          dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidNodoOrigen, dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaInicio, dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin, 
                          dbo.ZM_PERSONAS_SGP_F_FORMACION.fechaPrevista, dbo.ZM_PERSONAS_SGP_F_GRUPOS.fechaInicio AS f_ini_grupo
 FROM            dbo.ZM_PERSONAS_SGP_F_ASISTENTES INNER JOIN
-                         dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidPersona = dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidPersona INNER JOIN
-                         dbo.ZM_PERSONAS_HISTORICOSNODOS ON dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidNodoOrigen = dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo LEFT OUTER JOIN
-                         dbo.ZM_PERSONAS_SGP_F_GRUPOS ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidGrupo = dbo.ZM_PERSONAS_SGP_F_GRUPOS.pidGrupo INNER JOIN
-                         dbo.ZM_PERSONAS_SGP_F_FORMACION ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidFormacion = dbo.ZM_PERSONAS_SGP_F_FORMACION.pidFormacion AND 
-                         dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaInicio &lt; dbo.ZM_PERSONAS_SGP_F_GRUPOS.fechaInicio
-WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PERSONAS_SGP_F_GRUPOS.fechaInicio &lt; dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin) OR
-                         (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PERSONAS_HISTORICOSNODOS.fechaFin IS NULL)</property>
+                         dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidPersona = dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidPersona left join
+                         dbo.ZM_PERSONAS_HISTORICOSNODOS ON dbo.M_PERSONAL_HISTORICOS_NODOS_PERSONA.sidNodoOrigen = dbo.ZM_PERSONAS_HISTORICOSNODOS.sidNodo
+
+			 left join
+                         dbo.ZM_PERSONAS_SGP_F_FORMACION ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidFormacion = dbo.ZM_PERSONAS_SGP_F_FORMACION.pidFormacion
+
+						 			  LEFT JOIN
+                         dbo.ZM_PERSONAS_SGP_F_GRUPOS ON dbo.ZM_PERSONAS_SGP_F_ASISTENTES.sidGrupo = dbo.ZM_PERSONAS_SGP_F_GRUPOS.pidGrupo
+
+WHERE     
+ (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%')</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -2177,7 +2235,7 @@ WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PE
               startId="Package\ASISTENTES\coste repartido, HORAS y mapeo boolean.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\ASISTENTES.Paths[Salida de conversión de datos]"
-              endId="Package\ASISTENTES\Coste y replacenull.Inputs[Entrada de columna derivada]"
+              endId="Package\ASISTENTES\División condicional.Inputs[Entrada de división condicional]"
               name="Salida de conversión de datos"
               startId="Package\ASISTENTES\Conversión de datos.Outputs[Salida de conversión de datos]" />
             <path
@@ -2200,6 +2258,11 @@ WHERE        (dbo.ZM_PERSONAS_HISTORICOSNODOS.codigo LIKE '0.3%') AND (dbo.ZM_PE
               endId="Package\ASISTENTES\Búsqueda 2.Inputs[Entrada de búsqueda]"
               name="Salida de origen de OLE DB"
               startId="Package\ASISTENTES\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\ASISTENTES.Paths[Salida predeterminada de división condicional]"
+              endId="Package\ASISTENTES\Coste y replacenull.Inputs[Entrada de columna derivada]"
+              name="Salida predeterminada de división condicional"
+              startId="Package\ASISTENTES\División condicional.Outputs[Salida predeterminada de división condicional]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -15629,6 +15692,10 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
           Id="Package\ASISTENTES"
           TopLeft="134,247" />
         <NodeLayout
+          Size="174,42"
+          Id="Package\ASISTENTES ANTES"
+          TopLeft="2,281" />
+        <NodeLayout
           Size="136,42"
           Id="Package\ENCUESTAS"
           TopLeft="404,272" />
@@ -15980,10 +16047,6 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="174,42"
-          Id="Package\ASISTENTES ANTES"
-          TopLeft="2,281" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -15995,7 +16058,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
     design-time-name="Package\ASISTENTES">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="175,42"
           Id="Package\ASISTENTES\Conversión de datos"
@@ -16171,40 +16234,6 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ASISTENTES.Paths[Salida de conversión de datos]"
-          TopLeft="119.666666666667,102">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="313.333333333333,138"
-              Start="0,0"
-              End="313.333333333333,130.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.9501698754247" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,51.9501698754247"
-                    Point2="0,55.9501698754247"
-                    Point3="4,55.9501698754247" />
-                  <mssgle:LineSegment
-                    End="309.333333333333,55.9501698754247" />
-                  <mssgle:CubicBezierSegment
-                    Point1="309.333333333333,55.9501698754247"
-                    Point2="313.333333333333,55.9501698754247"
-                    Point3="313.333333333333,59.9501698754247" />
-                  <mssgle:LineSegment
-                    End="313.333333333333,130.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\ASISTENTES.Paths[Salida de columna derivada1]"
           TopLeft="439.833333333333,409.5">
           <EdgeLayout.Curve>
@@ -16264,6 +16293,78 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
                     Point3="-298.5,20.75" />
                   <mssgle:LineSegment
                     End="-298.5,26" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\ASISTENTES\División condicional"
+          TopLeft="149,185" />
+        <EdgeLayout
+          Id="Package\ASISTENTES.Paths[Salida de conversión de datos]"
+          TopLeft="119.666666666667,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.833333333333,83"
+              Start="0,0"
+              End="114.833333333333,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.6511891279728" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.6511891279728"
+                    Point2="0,33.6511891279728"
+                    Point3="4,33.6511891279728" />
+                  <mssgle:LineSegment
+                    End="110.833333333333,33.6511891279728" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110.833333333333,33.6511891279728"
+                    Point2="114.833333333333,33.6511891279728"
+                    Point3="114.833333333333,37.6511891279728" />
+                  <mssgle:LineSegment
+                    End="114.833333333333,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES.Paths[Salida predeterminada de división condicional]"
+          TopLeft="320,206">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29,55"
+              Start="0,0"
+              End="21.5,55">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="10.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.5,0"
+                    Point2="14.5,0"
+                    Point3="14.5,4" />
+                  <mssgle:LineSegment
+                    End="14.5,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.5,51"
+                    Point2="14.5,55"
+                    Point3="18.5,55" />
+                  <mssgle:LineSegment
+                    End="21.5,55" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16371,10 +16472,294 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\ASISTENTES ANTES">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\ASISTENTES ANTES\Conversión de datos"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\ASISTENTES ANTES\Origen de OLE DB"
+          TopLeft="346,20" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\ASISTENTES ANTES\Búsqueda 2"
+          TopLeft="509,133" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\ASISTENTES ANTES\Coste y replacenull"
+          TopLeft="349,240" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\ASISTENTES ANTES\Búsqueda 1"
+          TopLeft="67.5,315.5" />
+        <NodeLayout
+          Size="274,42"
+          Id="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean"
+          TopLeft="258.5,409.5" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES"
+          TopLeft="583,450" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\ASISTENTES ANTES\Búsqueda"
+          TopLeft="507,330" />
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de origen de OLE DB]"
+          TopLeft="428,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148,71"
+              Start="0,0"
+              End="148,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="4,35.5" />
+                  <mssgle:LineSegment
+                    End="144,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="144,35.5"
+                    Point2="148,35.5"
+                    Point3="148,39.5" />
+                  <mssgle:LineSegment
+                    End="148,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de entradas coincidentes de búsqueda2]"
+          TopLeft="589,372">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98,78"
+              Start="0,0"
+              End="98,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.7914691943128" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.7914691943128"
+                    Point2="0,31.7914691943128"
+                    Point3="4,31.7914691943128" />
+                  <mssgle:LineSegment
+                    End="94,31.7914691943128" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94,31.7914691943128"
+                    Point2="98,31.7914691943128"
+                    Point3="98,35.7914691943128" />
+                  <mssgle:LineSegment
+                    End="98,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-50.8190234375,36.7914691943128,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de entradas coincidentes de búsqueda1]"
+          TopLeft="555,133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-379.666666666667,-31"
+              Start="0,0"
+              End="-379.666666666667,-23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-11.5528087086588" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-11.5528087086588"
+                    Point2="0,-15.5528087086588"
+                    Point3="-4,-15.5528087086588" />
+                  <mssgle:LineSegment
+                    End="-375.666666666667,-15.5528087086588" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-375.666666666667,-15.5528087086588"
+                    Point2="-379.666666666667,-15.5528087086588"
+                    Point3="-379.666666666667,-19.5528087086588" />
+                  <mssgle:LineSegment
+                    End="-379.666666666667,-23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-289.652356770834,-10.5528087086588,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="134.5,357.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="216.666666666667,52"
+              Start="0,0"
+              End="216.666666666667,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.0188679245283" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.0188679245283"
+                    Point2="0,31.0188679245283"
+                    Point3="4,31.0188679245283" />
+                  <mssgle:LineSegment
+                    End="212.666666666667,31.0188679245283" />
+                  <mssgle:CubicBezierSegment
+                    Point1="212.666666666667,31.0188679245283"
+                    Point2="216.666666666667,31.0188679245283"
+                    Point3="216.666666666667,35.0188679245283" />
+                  <mssgle:LineSegment
+                    End="216.666666666667,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.51430989583349,36.0188679245283,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de conversión de datos]"
+          TopLeft="119.666666666667,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="313.333333333333,138"
+              Start="0,0"
+              End="313.333333333333,130.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.9501698754247" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.9501698754247"
+                    Point2="0,55.9501698754247"
+                    Point3="4,55.9501698754247" />
+                  <mssgle:LineSegment
+                    End="309.333333333333,55.9501698754247" />
+                  <mssgle:CubicBezierSegment
+                    Point1="309.333333333333,55.9501698754247"
+                    Point2="313.333333333333,55.9501698754247"
+                    Point3="313.333333333333,59.9501698754247" />
+                  <mssgle:LineSegment
+                    End="313.333333333333,130.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de columna derivada1]"
+          TopLeft="439.833333333333,409.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110.166666666667,-37.5"
+              Start="0,0"
+              End="110.166666666667,-30">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-14.590575781785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-14.590575781785"
+                    Point2="0,-18.590575781785"
+                    Point3="4,-18.590575781785" />
+                  <mssgle:LineSegment
+                    End="106.166666666667,-18.590575781785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="106.166666666667,-18.590575781785"
+                    Point2="110.166666666667,-18.590575781785"
+                    Point3="110.166666666667,-22.590575781785" />
+                  <mssgle:LineSegment
+                    End="110.166666666667,-30" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ASISTENTES ANTES.Paths[Salida de columna derivada]"
+          TopLeft="433,282">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-298.5,33.5"
+              Start="0,0"
+              End="-298.5,26">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.75"
+                    Point2="0,16.75"
+                    Point3="-4,16.75" />
+                  <mssgle:LineSegment
+                    End="-294.5,16.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-294.5,16.75"
+                    Point2="-298.5,16.75"
+                    Point3="-298.5,20.75" />
+                  <mssgle:LineSegment
+                    End="-298.5,26" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
     design-time-name="Package\ENCUESTAS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="212,42"
           Id="Package\ENCUESTAS\H_PERSONAL_ENCUESTAS 1"
@@ -16430,7 +16815,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16464,7 +16851,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16498,7 +16887,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16532,7 +16923,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -16584,7 +16977,7 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
     design-time-name="Package\FORMACION">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="126,42"
           Id="Package\FORMACION\Ordenar 1"
@@ -16644,7 +17037,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16678,7 +17073,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16712,7 +17109,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16746,7 +17145,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16780,7 +17181,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16814,7 +17217,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17414,7 +17819,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17448,7 +17855,9 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17589,297 +17998,5 @@ WHERE        (dbo.ZM_PERSONAS_NODOS.codigo LIKE '0.3%')</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\ASISTENTES ANTES">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="175,42"
-          Id="Package\ASISTENTES ANTES\Conversión de datos"
-          TopLeft="60,60" />
-        <NodeLayout
-          Size="164,42"
-          Id="Package\ASISTENTES ANTES\Origen de OLE DB"
-          TopLeft="346,20" />
-        <NodeLayout
-          Size="134,42"
-          Id="Package\ASISTENTES ANTES\Búsqueda 2"
-          TopLeft="509,133" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\ASISTENTES ANTES\Coste y replacenull"
-          TopLeft="349,240" />
-        <NodeLayout
-          Size="134,42"
-          Id="Package\ASISTENTES ANTES\Búsqueda 1"
-          TopLeft="67.5,315.5" />
-        <NodeLayout
-          Size="274,42"
-          Id="Package\ASISTENTES ANTES\coste repartido, HORAS y mapeo boolean"
-          TopLeft="258.5,409.5" />
-        <NodeLayout
-          Size="208,42"
-          Id="Package\ASISTENTES ANTES\H_PERSONAL_ASISTENTES"
-          TopLeft="583,450" />
-        <NodeLayout
-          Size="125,42"
-          Id="Package\ASISTENTES ANTES\Búsqueda"
-          TopLeft="507,330" />
-        <EdgeLayout
-          Id="Package\ASISTENTES ANTES.Paths[Salida de origen de OLE DB]"
-          TopLeft="428,62">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="148,71"
-              Start="0,0"
-              End="148,63.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5"
-                    Point2="0,35.5"
-                    Point3="4,35.5" />
-                  <mssgle:LineSegment
-                    End="144,35.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="144,35.5"
-                    Point2="148,35.5"
-                    Point3="148,39.5" />
-                  <mssgle:LineSegment
-                    End="148,63.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ASISTENTES ANTES.Paths[Salida de entradas coincidentes de búsqueda2]"
-          TopLeft="589,372">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="98,78"
-              Start="0,0"
-              End="98,70.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.7914691943128" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.7914691943128"
-                    Point2="0,31.7914691943128"
-                    Point3="4,31.7914691943128" />
-                  <mssgle:LineSegment
-                    End="94,31.7914691943128" />
-                  <mssgle:CubicBezierSegment
-                    Point1="94,31.7914691943128"
-                    Point2="98,31.7914691943128"
-                    Point3="98,35.7914691943128" />
-                  <mssgle:LineSegment
-                    End="98,70.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-50.8190234375,36.7914691943128,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ASISTENTES ANTES.Paths[Salida de entradas coincidentes de búsqueda1]"
-          TopLeft="555,133">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-379.666666666667,-31"
-              Start="0,0"
-              End="-379.666666666667,-23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-11.5528087086588" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-11.5528087086588"
-                    Point2="0,-15.5528087086588"
-                    Point3="-4,-15.5528087086588" />
-                  <mssgle:LineSegment
-                    End="-375.666666666667,-15.5528087086588" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-375.666666666667,-15.5528087086588"
-                    Point2="-379.666666666667,-15.5528087086588"
-                    Point3="-379.666666666667,-19.5528087086588" />
-                  <mssgle:LineSegment
-                    End="-379.666666666667,-23.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-289.652356770834,-10.5528087086588,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ASISTENTES ANTES.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="134.5,357.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="216.666666666667,52"
-              Start="0,0"
-              End="216.666666666667,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.0188679245283" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.0188679245283"
-                    Point2="0,31.0188679245283"
-                    Point3="4,31.0188679245283" />
-                  <mssgle:LineSegment
-                    End="212.666666666667,31.0188679245283" />
-                  <mssgle:CubicBezierSegment
-                    Point1="212.666666666667,31.0188679245283"
-                    Point2="216.666666666667,31.0188679245283"
-                    Point3="216.666666666667,35.0188679245283" />
-                  <mssgle:LineSegment
-                    End="216.666666666667,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="8.51430989583349,36.0188679245283,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ASISTENTES ANTES.Paths[Salida de conversión de datos]"
-          TopLeft="119.666666666667,102">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="313.333333333333,138"
-              Start="0,0"
-              End="313.333333333333,130.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.9501698754247" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,51.9501698754247"
-                    Point2="0,55.9501698754247"
-                    Point3="4,55.9501698754247" />
-                  <mssgle:LineSegment
-                    End="309.333333333333,55.9501698754247" />
-                  <mssgle:CubicBezierSegment
-                    Point1="309.333333333333,55.9501698754247"
-                    Point2="313.333333333333,55.9501698754247"
-                    Point3="313.333333333333,59.9501698754247" />
-                  <mssgle:LineSegment
-                    End="313.333333333333,130.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ASISTENTES ANTES.Paths[Salida de columna derivada1]"
-          TopLeft="439.833333333333,409.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="110.166666666667,-37.5"
-              Start="0,0"
-              End="110.166666666667,-30">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-14.590575781785" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-14.590575781785"
-                    Point2="0,-18.590575781785"
-                    Point3="4,-18.590575781785" />
-                  <mssgle:LineSegment
-                    End="106.166666666667,-18.590575781785" />
-                  <mssgle:CubicBezierSegment
-                    Point1="106.166666666667,-18.590575781785"
-                    Point2="110.166666666667,-18.590575781785"
-                    Point3="110.166666666667,-22.590575781785" />
-                  <mssgle:LineSegment
-                    End="110.166666666667,-30" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ASISTENTES ANTES.Paths[Salida de columna derivada]"
-          TopLeft="433,282">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-298.5,33.5"
-              Start="0,0"
-              End="-298.5,26">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.75"
-                    Point2="0,16.75"
-                    Point3="-4,16.75" />
-                  <mssgle:LineSegment
-                    End="-294.5,16.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-294.5,16.75"
-                    Point2="-298.5,16.75"
-                    Point3="-298.5,20.75" />
-                  <mssgle:LineSegment
-                    End="-298.5,26" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
