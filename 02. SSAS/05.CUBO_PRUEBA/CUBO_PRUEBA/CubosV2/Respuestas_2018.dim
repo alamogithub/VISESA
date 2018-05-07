@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="16" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="824" scrolltop="-5265" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8255" y="15531" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="16" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="3593" scrolltop="-2276" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8255" y="15531" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -140,11 +140,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>824</Value>
+      <Value>3593</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-5265</Value>
+      <Value>-2276</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -172,16 +172,11 @@
                 <Attribute Id="ID PERSONA" />
                 <Attribute Id="ID PREGUNTA" />
                 <Attribute Id="PUESTO" />
+                <Attribute Id="RESPUESTA TXT" />
+                <Attribute Id="RESPUESTA NUM" />
                 <Attribute Id="SEXO" />
               </Attributes>
               <Position x="20" y="20" />
-            </Shape>
-            <Shape Id="RESPUESTA TXT" Expanded="true">
-              <Attributes>
-                <Attribute Id="RESPUESTA TXT" />
-                <Attribute Id="RESPUESTA NUM" />
-              </Attributes>
-              <Position x="215" y="20" />
             </Shape>
           </Shapes>
         </DiagramLayout>
@@ -222,29 +217,33 @@
           <AttributeID>PUESTO</AttributeID>
           <Name>PUESTO</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="ec7374ed-fbba-42d2-a63e-de5954ceed2e">
-          <AttributeID>CENTRO TRABAJO</AttributeID>
-          <Name>CENTRO TRABAJO</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="6519960d-51f4-48d5-955b-c6341377534e">
-          <AttributeID>SEXO</AttributeID>
-          <Name>SEXO</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="456ba7e2-d26f-4bff-9afe-73458c18c97b">
-          <AttributeID>RESPUESTA TXT</AttributeID>
-          <Name>RESPUESTA TXT</Name>
-        </AttributeRelationship>
         <AttributeRelationship dwd:design-time-name="2bdf3d20-6d1d-47cc-a4fd-d5d15b85d014">
           <AttributeID>ID PERSONA</AttributeID>
           <Name>ID PERSONA</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="1ec12960-8ef8-45bc-82d9-5421c517bb0d">
-          <AttributeID>ANYO</AttributeID>
-          <Name>ANYO</Name>
-        </AttributeRelationship>
         <AttributeRelationship dwd:design-time-name="3ca8d6f4-d822-49ec-aebc-d74bb4c69e23">
           <AttributeID>ID PREGUNTA</AttributeID>
           <Name>ID PREGUNTA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4b290bab-2e07-4938-9191-c4da971bfb19">
+          <AttributeID>ANYO</AttributeID>
+          <Name>Año</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="eccfddae-25cf-4c14-a5ec-3910eee7558e">
+          <AttributeID>CENTRO TRABAJO</AttributeID>
+          <Name>Centro de trabajo</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9062fbf0-5d3c-43b5-837e-de422cb616ed">
+          <AttributeID>RESPUESTA TXT</AttributeID>
+          <Name>Respuesta</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f605118f-4c62-4b91-8dd1-814166812d87">
+          <AttributeID>SEXO</AttributeID>
+          <Name>Sexo</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4dd3ccab-f10e-40e2-b8f1-7ffb07791c03">
+          <AttributeID>RESPUESTA NUM</AttributeID>
+          <Name>Respuesta numérica</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
@@ -333,14 +332,6 @@
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="eb4efb50-beb7-4636-a1b8-49c56642a7e5">
-          <AttributeID>RESPUESTA NUM</AttributeID>
-          <Name>Respuesta numérica</Name>
-        </AttributeRelationship>
-      </AttributeRelationships>
-      <OrderBy>AttributeKey</OrderBy>
-      <OrderByAttributeID>RESPUESTA NUM</OrderByAttributeID>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>

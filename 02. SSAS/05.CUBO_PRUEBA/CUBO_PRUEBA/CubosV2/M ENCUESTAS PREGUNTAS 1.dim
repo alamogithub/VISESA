@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="8" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1621" scrolltop="-2627" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7170" y="15531" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="8" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1621" scrolltop="-2627" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8255" y="15531" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -162,6 +162,10 @@
           <AttributeID>ID ORDEN</AttributeID>
           <Name>ID ORDEN</Name>
         </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="dd6129e5-eb1a-4f8e-96cb-63628ef6c12e">
+          <AttributeID>IND OBSERVACION</AttributeID>
+          <Name>IND OBSERVACION</Name>
+        </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>AttributeKey</OrderBy>
       <OrderByAttributeID>ID ORDEN</OrderByAttributeID>
@@ -195,7 +199,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="c74c43c7-f5ba-45d6-bfb3-cdf6ecdb7dda">
       <ID>IND MEDIA SATIS</ID>
-      <Name>IND MEDIA SATIS</Name>
+      <Name>Pregunta para índice satisfacción</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="2c49f895-db34-4cc7-8fcd-23dfbb9c579e">
           <DataType>Integer</DataType>
@@ -208,12 +212,11 @@
       <NameColumn dwd:design-time-name="9b3a6cc5-223e-4cbb-af9c-7956b3d50b70">
         <DataType>WChar</DataType>
         <DataSize>20</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="608dd3da-f9e3-4ed3-ad16-20c4e25a237f">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0e89e821-4db2-406a-8ec8-576e141e3128">
           <TableID>dbo_M_BOOLEAN_AJD_DIR</TableID>
           <ColumnID>DESC_BOOLEAN</ColumnID>
         </Source>
       </NameColumn>
-      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
@@ -233,6 +236,29 @@
       <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
       <AttributeHierarchyOptimizedState>NotOptimized</AttributeHierarchyOptimizedState>
       <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="08188446-05c2-405d-bc9a-bfc3ed03a2f9">
+      <ID>IND OBSERVACION</ID>
+      <Name>Pregunta de observación</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="88eaff7f-6ac9-4efd-8b8f-27f5ace8702d">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6cf30ba0-bb19-4f54-b883-3538acc24492">
+            <TableID>dbo_M_ENCUESTAS_PREGUNTAS</TableID>
+            <ColumnID>IND_OBSERVACION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="731419e0-aa6a-4b60-ae9c-363299550da2">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e1318dcf-58a7-41a2-aa30-f419320e418d">
+          <TableID>M_BOOLEAN</TableID>
+          <ColumnID>DESC_BOOLEAN</ColumnID>
+        </Source>
+      </NameColumn>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>

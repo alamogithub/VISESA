@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{065D4199-2018-4596-A9FD-3B643AE950E8}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{E111723E-248A-4C69-905F-254076324DB6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -57,6 +57,16 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{33C5EC8F-9337-4F8F-8924-B41DD78DF499}"
+      DTS:ObjectName="SRVSQLBI\VISESABI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SRVSQLBI\VISESABI;Initial Catalog=VISESABI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{E283C364-4FCB-4563-9DC0-B221AD484D4E}"
@@ -82,7 +92,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{E283C364-4FCB-4563-9DC0-B221AD484D4E}"
+          SQLTask:Connection="{33C5EC8F-9337-4F8F-8924-B41DD78DF499}"
           SQLTask:SqlStatementSource="&#xA;  delete from ZM_CONTRATACIONES_SOLICITUDES &#xA;delete from ZM_CONTRATACIONES_CONTRATACIONES &#xA;delete from ZM_CONTRATACIONES_LINEAS_CONTRATACION &#xA;delete  from ZM_CONTRATACIONES_MOVIMIENTOS_PPTO_CONTRATACION &#xA;delete from ZM_CONTRATACIONES_VENDOR&#xA;delete from ZM_CONTRATACIONES_CONTRATACIONES_NAVISION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -859,7 +869,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[ZM_CONTRATACIONES_CONTRATACIONES]</property>
+                  name="OpenRowset">[dbo].[ZM_CONTRATACIONES_CONTRATACIONES]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -902,8 +912,8 @@
               <connections>
                 <connection
                   refId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
-                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -4050,7 +4060,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[ZM_CONTRATACIONES_CONTRATACIONES_NAVISION]</property>
+                  name="OpenRowset">[dbo].[ZM_CONTRATACIONES_CONTRATACIONES_NAVISION]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -4093,8 +4103,8 @@
               <connections>
                 <connection
                   refId="Package\ZM_CONTRATACIONES_NAVISION\ZM_CONTRATACIONES_NAVISION.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
-                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -6402,7 +6412,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[ZM_CONTRATACIONES_LINEAS_CONTRATACION]</property>
+                  name="OpenRowset">[dbo].[ZM_CONTRATACIONES_LINEAS_CONTRATACION]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -6445,8 +6455,8 @@
               <connections>
                 <connection
                   refId="Package\ZM_LINEAS_CONTRATACION\ZM_LINEAS_CONTRATACION.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
-                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -7375,7 +7385,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[ZM_CONTRATACIONES_MOVIMIENTOS_PPTO_CONTRATACION]</property>
+                  name="OpenRowset">[dbo].[ZM_CONTRATACIONES_MOVIMIENTOS_PPTO_CONTRATACION]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -7418,8 +7428,8 @@
               <connections>
                 <connection
                   refId="Package\ZM_MOVIMIENTOS_PPTO_CONTRATACION\ZM_MOVIMIENTOS_PPTO_CONTRATACION.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
-                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -8367,7 +8377,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[ZM_CONTRATACIONES_SOLICITUDES]</property>
+                  name="OpenRowset">[dbo].[ZM_CONTRATACIONES_SOLICITUDES]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -8410,8 +8420,8 @@
               <connections>
                 <connection
                   refId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
-                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -10932,8 +10942,8 @@
               <connections>
                 <connection
                   refId="Package\ZM_VENDOR\ZM_VENDOR.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
-                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABIPRUEBAS.VISESABI]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -12340,7 +12350,7 @@
     design-time-name="Package\ZM_CONTRATACIONES">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="189,42"
           Id="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES"
@@ -12384,9 +12394,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12420,9 +12428,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12458,17 +12464,17 @@
     design-time-name="Package\ZM_CONTRATACIONES_NAVISION">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="188.8,41.6"
+          Size="189,42"
           Id="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones"
           TopLeft="62,29" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="166,42"
           Id="Package\ZM_CONTRATACIONES_NAVISION\poner fecha actual"
           TopLeft="70,122" />
         <NodeLayout
-          Size="243.2,41.6"
+          Size="243,42"
           Id="Package\ZM_CONTRATACIONES_NAVISION\ZM_CONTRATACIONES_NAVISION"
           TopLeft="63,245" />
         <EdgeLayout
@@ -12490,9 +12496,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12526,9 +12530,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12564,17 +12566,17 @@
     design-time-name="Package\ZM_LINEAS_CONTRATACION">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="212,41.6"
+          Size="212,42"
           Id="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion"
           TopLeft="118,49" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="166,42"
           Id="Package\ZM_LINEAS_CONTRATACION\poner fecha actual"
           TopLeft="181,181" />
         <NodeLayout
-          Size="217.6,41.6"
+          Size="218,42"
           Id="Package\ZM_LINEAS_CONTRATACION\ZM_LINEAS_CONTRATACION"
           TopLeft="154,318" />
         <EdgeLayout
@@ -12608,9 +12610,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12632,9 +12632,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12670,17 +12668,17 @@
     design-time-name="Package\ZM_MOVIMIENTOS_PPTO_CONTRATACION">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="264,41.6"
+          Size="264,42"
           Id="Package\ZM_MOVIMIENTOS_PPTO_CONTRATACION\VISESA$Movimientos ppto contratacion"
           TopLeft="80,60" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="166,42"
           Id="Package\ZM_MOVIMIENTOS_PPTO_CONTRATACION\poner fecha actual"
           TopLeft="82,165" />
         <NodeLayout
-          Size="284.8,41.6"
+          Size="285,42"
           Id="Package\ZM_MOVIMIENTOS_PPTO_CONTRATACION\ZM_MOVIMIENTOS_PPTO_CONTRATACION"
           TopLeft="80,276" />
         <EdgeLayout
@@ -12714,9 +12712,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12750,9 +12746,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12788,17 +12782,17 @@
     design-time-name="Package\ZM_SOLICITUDES">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="164.8,41.6"
+          Size="165,42"
           Id="Package\ZM_SOLICITUDES\ZM_SOLICITUDES"
           TopLeft="85,223" />
         <NodeLayout
-          Size="128.8,41.6"
+          Size="129,42"
           Id="Package\ZM_SOLICITUDES\Solicitudes"
           TopLeft="84,45" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="166,42"
           Id="Package\ZM_SOLICITUDES\poner fecha actual"
           TopLeft="86,137" />
         <EdgeLayout
@@ -12832,9 +12826,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12856,9 +12848,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
