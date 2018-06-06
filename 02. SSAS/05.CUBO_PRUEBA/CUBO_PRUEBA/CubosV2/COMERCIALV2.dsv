@@ -31,9 +31,9 @@
             <Name>_ALL_TABLES_</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="164" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="13165" scrolltop="48427" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="200" x="16669" y="14102" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="164" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="13165" scrolltop="48427" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="200" x="14097" y="14034" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
-                    <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+                    <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
                   </font>
                   <mouseicon>
                     <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
@@ -1741,7 +1741,7 @@
                   <xs:element name="PREVISION_JULIO_CONTRATOS" msprop:design-time-name="848bc9a0-28d3-4d03-803f-e48ab4c37d12" msprop:DbColumnName="PREVISION_JULIO_CONTRATOS" type="xs:double" minOccurs="0" />
                   <xs:element name="PREVISION_ANUAL_ACT_CONTRATOS" msprop:design-time-name="a71c9344-c6bc-44fb-aa92-f131ecab4a3c" msprop:DbColumnName="PREVISION_ANUAL_ACT_CONTRATOS" type="xs:double" minOccurs="0" />
                   <xs:element name="SIN_OCUPAR" msprop:design-time-name="ca6ebd8e-6154-488c-802d-fa75cfef8170" msprop:DbColumnName="SIN_OCUPAR" type="xs:int" minOccurs="0" />
-                  <xs:element name="Direccion_Completa" msdata:ReadOnly="true" msprop:Description="" msprop:ComputedColumnExpression="[CALLE]+ ', '+[PORTAL (SEGUN AYTO)]+', '+[PLANTA (SEGUN AYTO)]+' '+[MANO_LETRA (SEGUN AYTO)]" msprop:IsLogical="True" msprop:design-time-name="aa1d299d-b633-4dbd-ae11-5bc5fc3dc100" msprop:DbColumnName="Direccion_Completa" minOccurs="0">
+                  <xs:element name="Direccion_Completa" msdata:ReadOnly="true" msprop:design-time-name="aa1d299d-b633-4dbd-ae11-5bc5fc3dc100" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Direccion_Completa" msprop:ComputedColumnExpression="[CALLE]+ ', '+[PORTAL (SEGUN AYTO)]+', '+[PLANTA (SEGUN AYTO)]+' '+[MANO_LETRA (SEGUN AYTO)]" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="95" />
@@ -1834,7 +1834,7 @@
                   <xs:element name="ID_PROMOCION" msprop:design-time-name="5665f8c7-1370-4533-aadf-67bd4cb65e95" msprop:DbColumnName="ID_PROMOCION" msprop:FriendlyName="ID_PROMOCION">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
-                        <xs:maxLength value="12" />
+                        <xs:maxLength value="14" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
@@ -2104,6 +2104,14 @@
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Trimestre" msprop:DbColumnName="Trimestre" msprop:design-time-name="c51a4f51-c09a-406f-839b-7132515d41f9" type="xs:int" minOccurs="0" />
+                  <xs:element name="Trimestre_del_anyo" msprop:DbColumnName="Trimestre_del_anyo" msprop:design-time-name="85502186-40d1-4cf9-a93e-be105be1367d" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>

@@ -11,9 +11,11 @@
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="e1953a16-487b-4d4c-b1f8-a3fd86b6aef7">
-            <DataSourceViewID>Contrataciones1</DataSourceViewID>
-            <TableID>dbo_H_CONTRATACION_CONTRATACIONES</TableID>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="794b82ad-9ebf-4b22-a48f-6684644abda4">
+            <DataSourceID>VISESABI</DataSourceID>
+            <QueryDefinition>SELECT *
+FROM [dbo].[H_CONTRATACION_CONTRATACIONES]
+WHERE id_contrato is not null</QueryDefinition>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
@@ -22,18 +24,62 @@
       </Partitions>
     </MeasureGroup>
     <MeasureGroup>
-      <ID>M CONTRATACION CON PROV</ID>
+      <ID>Contratos</ID>
       <Partitions>
-        <Partition dwd:design-time-name="5591a501-6345-49eb-ada7-8c8528f50a2f">
-          <ID>M CONTRATACION CON PROV</ID>
-          <Name>M CONTRATACION CON PROV</Name>
+        <Partition dwd:design-time-name="e7daf225-8813-47cf-bdfd-907f22eea191">
+          <ID>H CONTRATACION CONTRATACIONES</ID>
+          <Name>H CONTRATACION CONTRATACIONES</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="64c9439e-e8ed-49c8-b093-ab7a19ca28a0">
+          <Source xsi:type="QueryBinding" dwd:design-time-name="6f092486-9ca8-4b72-b591-66967254d6e1">
+            <DataSourceID>VISESABI</DataSourceID>
+            <QueryDefinition>SELECT *
+FROM [dbo].[H_CONTRATACION_CONTRATACIONES]
+WHERE id_sol is not null</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Contratos 1</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="7bd53769-7679-4290-a0a7-b5035ca03def">
+          <ID>H CONTRATACION CONTRATACIONES</ID>
+          <Name>H CONTRATACION CONTRATACIONES</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="5ae8daa1-8541-4349-96fd-d83864a53f54">
+            <DataSourceID>VISESABI</DataSourceID>
+            <QueryDefinition>SELECT *
+FROM [dbo].[H_CONTRATACION_CONTRATACIONES]
+WHERE id_con is not null</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H CONTRATACION MOVIMIENTO</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="1f2d3321-0d58-4604-98b5-9526d0689185">
+          <ID>H CONTRATACION MOVIMIENTO</ID>
+          <Name>H CONTRATACION MOVIMIENTO</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="4b8bd733-ff0c-480b-9bc1-66078453feb6">
             <DataSourceViewID>Contrataciones1</DataSourceViewID>
-            <TableID>dbo_M_CONTRATACION_CON_PROV</TableID>
+            <TableID>dbo_H_CONTRATACION_MOVIMIENTO</TableID>
           </Source>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>

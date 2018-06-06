@@ -21,5 +21,25 @@
         </Partition>
       </Partitions>
     </MeasureGroup>
+    <MeasureGroup>
+      <ID>H ENCUESTAS HISTORICO</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="bfc13531-d6c4-404b-b2cf-a1850ea23a97">
+          <ID>H ENCUESTAS HISTORICO</ID>
+          <Name>H ENCUESTAS HISTORICO</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="084bf22f-ba9f-494b-9df0-334a2bb9144d">
+            <DataSourceViewID>Encuesta_2018</DataSourceViewID>
+            <TableID>dbo_H_ENCUESTAS_HISTORICO</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
   </MeasureGroups>
 </Cube>

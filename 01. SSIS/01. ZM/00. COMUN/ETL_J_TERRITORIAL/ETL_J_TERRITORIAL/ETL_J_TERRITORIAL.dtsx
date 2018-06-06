@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_J_TERRITORIAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{F91DC882-7E47-4FB2-A077-DBD4FDADFF8C}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{5FD9132E-3171-4FAA-9AFA-FD579D8FC470}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1077,96 +1077,6 @@ WHERE ID_MUNICIPIO = ?</property>
           version="1">
           <components>
             <component
-              refId="Package\Pais\División condicional"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
-              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
-              name="División condicional"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Pais\División condicional.Inputs[Entrada de división condicional]"
-                  description="Entrada en la transformación División condicional"
-                  name="Entrada de división condicional">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Pais\División condicional.Inputs[Entrada de división condicional].Columns[ID_PAIS]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="ID_PAIS"
-                      lineageId="Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Pais\División condicional.Outputs[Case 1]"
-                  description="Salida 1 de la transformación División condicional"
-                  errorOrTruncationOperation="Cálculo"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Case 1"
-                  synchronousInputId="Package\Pais\División condicional.Inputs[Entrada de división condicional]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
-                      name="Expression">#{Package\Pais\VISESA$Country_Region.Outputs[Salida de origen de OLE DB].Columns[ID_PAIS]} == "ES"</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
-                      expressionType="Notify"
-                      name="FriendlyExpression">ID_PAIS == "ES"</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Pais\División condicional.Outputs[Salida predeterminada de división condicional]"
-                  description="Salida predeterminada de la transformación División condicional"
-                  exclusionGroup="1"
-                  name="Salida predeterminada de división condicional"
-                  synchronousInputId="Package\Pais\División condicional.Inputs[Entrada de división condicional]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Pais\División condicional.Outputs[Salida de error de división condicional]"
-                  description="Salida de error de la transformación División condicional"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Salida de error de división condicional"
-                  synchronousInputId="Package\Pais\División condicional.Inputs[Entrada de división condicional]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Pais\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Pais\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Pais\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Pais\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Pais\Existe Pais en BBDD?"
               componentClassID="Microsoft.Lookup"
               contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
@@ -1997,13 +1907,8 @@ WHERE ID_PAIS = ?</property>
               name="Cambia"
               startId="Package\Pais\Mirar si ha cambiado la desc.Outputs[Cambia]" />
             <path
-              refId="Package\Pais.Paths[Case 1]"
-              endId="Package\Pais\Existe Pais en BBDD?.Inputs[Entrada de búsqueda]"
-              name="Case 1"
-              startId="Package\Pais\División condicional.Outputs[Case 1]" />
-            <path
               refId="Package\Pais.Paths[Salida de columna derivada]"
-              endId="Package\Pais\División condicional.Inputs[Entrada de división condicional]"
+              endId="Package\Pais\Existe Pais en BBDD?.Inputs[Entrada de búsqueda]"
               name="Salida de columna derivada"
               startId="Package\Pais\Quitar nulos y poner fecha actual.Outputs[Salida de columna derivada]" />
             <path
@@ -3064,15 +2969,15 @@ where [refTable].[ID_PROVINCIA] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="123,42"
+          Size="123.2,41.6"
           Id="Package\Municipio"
           TopLeft="128,223" />
         <NodeLayout
-          Size="98,42"
+          Size="97.6,41.6"
           Id="Package\Pais"
           TopLeft="119,50" />
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\Provincia"
           TopLeft="143,131" />
         <EdgeLayout
@@ -3431,47 +3336,43 @@ where [refTable].[ID_PROVINCIA] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="179,42"
+          Size="179.2,41.6"
           Id="Package\Pais\Existe Pais en BBDD?"
           TopLeft="257,209.5" />
         <NodeLayout
-          Size="213,42"
+          Size="212.8,41.6"
           Id="Package\Pais\Mirar si ha cambiado la desc"
           TopLeft="213,413.5" />
         <NodeLayout
-          Size="194,42"
+          Size="193.6,41.6"
           Id="Package\Pais\VISESA$Country_Region"
           TopLeft="222.5,5.5" />
         <NodeLayout
-          Size="135,42"
+          Size="135.2,41.6"
           Id="Package\Pais\Update Pais"
           TopLeft="231,515.5" />
         <NodeLayout
-          Size="235,42"
+          Size="235.2,41.6"
           Id="Package\Pais\Quitar nulos y poner fecha actual"
           TopLeft="202,107.5" />
         <NodeLayout
-          Size="135,42"
+          Size="135.2,41.6"
           Id="Package\Pais\J_T01_PAIS"
           TopLeft="5.50000000000003,311.5" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Pais\División condicional"
-          TopLeft="67,151" />
         <EdgeLayout
           Id="Package\Pais.Paths[Salida de origen de OLE DB]"
-          TopLeft="319.5,47.5">
+          TopLeft="319.45,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.4"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3553,64 +3454,6 @@ where [refTable].[ID_PROVINCIA] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Pais.Paths[Salida de columna derivada]"
-          TopLeft="202,128.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-49.5,22.5"
-              Start="0,0"
-              End="-49.5,15">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-45.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-45.5,0"
-                    Point2="-49.5,0"
-                    Point3="-49.5,4" />
-                  <mssgle:LineSegment
-                    End="-49.5,15" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Pais.Paths[Case 1]"
-          TopLeft="238,172">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="108.5,37.5"
-              Start="0,0"
-              End="108.5,30">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="104.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="104.5,0"
-                    Point2="108.5,0"
-                    Point3="108.5,4" />
-                  <mssgle:LineSegment
-                    End="108.5,30" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="93.2819140625,-15.5537109375,30.436171875,9.5537109375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Pais.Paths[Cambia]"
           TopLeft="319.5,455.5">
           <EdgeLayout.Curve>
@@ -3644,6 +3487,40 @@ where [refTable].[ID_PROVINCIA] = ?</property>
             <mssgm:EdgeLabel
               BoundingBox="-27.39087890625,35,33.7817578125,9.7490234375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Pais.Paths[Salida de columna derivada]"
+          TopLeft="319.6,149.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27,60.4"
+              Start="0,0"
+              End="27,52.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2"
+                    Point2="0,30.2"
+                    Point3="4,30.2" />
+                  <mssgle:LineSegment
+                    End="23,30.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23,30.2"
+                    Point2="27,30.2"
+                    Point3="27,34.2" />
+                  <mssgle:LineSegment
+                    End="27,52.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
