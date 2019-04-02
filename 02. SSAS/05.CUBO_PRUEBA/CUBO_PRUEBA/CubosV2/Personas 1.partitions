@@ -1,0 +1,61 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="b1af50e1-8f55-43ac-8fe2-9da217409562" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Personas 1</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>H PERSONAL ASISTENTE</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="28b0252e-9d78-4e7a-a526-4168c8d359ef">
+          <ID>H PERSONAL ASISTENTE</ID>
+          <Name>H PERSONAL ASISTENTE</Name>
+          <CreatedTimestamp>2017-07-05T08:34:54.906667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:58:13.136667Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-29T08:23:32.136667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="a7eb5be5-9c81-4922-ba4a-02fc8e0b06f7">
+            <DataSourceViewID>Personas</DataSourceViewID>
+            <TableID>dbo_H_PERSONAL_ASISTENTE</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="73ec1ad5-3333-489b-9677-c8e59866291d">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="422dec04-c759-4d97-9356-81282e59f730" />
+          </ProactiveCaching>
+          <EstimatedSize>181312</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>H PERSONAL FORMACION</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="340bca45-b139-4bda-8ccf-f9546e7abd16">
+          <ID>H PERSONAL FORMACION</ID>
+          <Name>H PERSONAL FORMACION</Name>
+          <CreatedTimestamp>2017-07-05T08:34:54.936667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-08-29T10:58:13.166667Z</LastSchemaUpdate>
+          <LastProcessed>2017-08-29T08:23:31.966667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="7a4977a2-ea77-4520-9d48-34bc2762a1c4">
+            <DataSourceViewID>Personas</DataSourceViewID>
+            <TableID>dbo_H_PERSONAL_FORMACION</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="b1572b3c-a741-41c8-b2ad-da35c0bbd739">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="eed424d4-3bb7-444a-b5d0-fba7e21301b4" />
+          </ProactiveCaching>
+          <EstimatedSize>23109</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

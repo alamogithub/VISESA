@@ -87,6 +87,36 @@
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
+    <ProjectItem>
+      <Name>COMPANY_INFORMATION.cube</Name>
+      <FullPath>COMPANY_INFORMATION.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>COMPANY_INFORMATION.partitions</Name>
+          <FullPath>COMPANY_INFORMATION.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ZZ_IMAGEN.cube</Name>
+      <FullPath>ZZ_IMAGEN.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>ZZ_IMAGEN.partitions</Name>
+          <FullPath>ZZ_IMAGEN.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Personas 1.cube</Name>
+      <FullPath>Personas 1.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Personas 1.partitions</Name>
+          <FullPath>Personas 1.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
   </Cubes>
   <Dimensions>
     <ProjectItem>
@@ -469,6 +499,30 @@
       <Name>H CONTRATACION MOVIMIENTO 1.dim</Name>
       <FullPath>H CONTRATACION MOVIMIENTO 1.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>ZZ COMPANY INFORMATION.dim</Name>
+      <FullPath>ZZ COMPANY INFORMATION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ZZ IMAGEN.dim</Name>
+      <FullPath>ZZ IMAGEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>M CONTRATACION CPV.dim</Name>
+      <FullPath>M CONTRATACION CPV.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>H PLANTILLA MEDIA.dim</Name>
+      <FullPath>H PLANTILLA MEDIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>H PERSONAL FORMACION F PEN.dim</Name>
+      <FullPath>H PERSONAL FORMACION F PEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Características Asistencia F PEN.dim</Name>
+      <FullPath>Características Asistencia F PEN.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>
@@ -488,8 +542,8 @@
       <FullPath>VISESABI.ds</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>VISESABIPRUEBAS.ds</Name>
-      <FullPath>VISESABIPRUEBAS.ds</FullPath>
+      <Name>VISESABI_PRUEBAS.ds</Name>
+      <FullPath>VISESABI_PRUEBAS.ds</FullPath>
     </ProjectItem>
   </DataSources>
   <DataSourceViews>
@@ -528,6 +582,18 @@
     <ProjectItem>
       <Name>Contrataciones.dsv</Name>
       <FullPath>Contrataciones.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>COMPANY_INFORMATION.dsv</Name>
+      <FullPath>COMPANY_INFORMATION.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ZZ_IMAGEN.dsv</Name>
+      <FullPath>ZZ_IMAGEN.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Personas 1.dsv</Name>
+      <FullPath>Personas 1.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
   <Roles>
@@ -578,8 +644,13 @@
             <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABI;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
-            <Id>VISESABIPRUEBAS</Id>
-            <Name>VISESABIPRUEBAS</Name>
+            <Id>VIS 2016 DESARROLLO</Id>
+            <Name>VIS 2016 DESARROLLO</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVCUBOS\NAV2016DESA;Integrated Security=SSPI;Initial Catalog=VIS_2016_DESARROLLO</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>VISESABI_PRUEBAS</Id>
+            <Name>VISESABI_PRUEBAS</Name>
             <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SRVSQLBI\VISESABIPRUEBAS;Integrated Security=SSPI;Initial Catalog=VISESABI</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
@@ -605,8 +676,13 @@
             <Value xsi:type="xsd:int">0</Value>
           </ConfigurationSetting>
           <ConfigurationSetting>
-            <Id>VISESABIPRUEBAS</Id>
-            <Name>VISESABIPRUEBAS</Name>
+            <Id>VIS 2016 DESARROLLO</Id>
+            <Name>VIS 2016 DESARROLLO</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>VISESABI_PRUEBAS</Id>
+            <Name>VISESABI_PRUEBAS</Name>
             <Value xsi:type="xsd:int">0</Value>
           </ConfigurationSetting>
         </ConnectionSecurityMappings>

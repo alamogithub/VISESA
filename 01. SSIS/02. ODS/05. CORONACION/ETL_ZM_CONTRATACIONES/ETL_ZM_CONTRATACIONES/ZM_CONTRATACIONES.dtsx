@@ -7,12 +7,12 @@
   DTS:CreatorName="OSATU\proyectobi"
   DTS:DTSID="{24777DF6-8208-407D-A40F-0BD245C582BB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="13.0.4001.0"
+  DTS:LastModifiedProductVersion="13.0.4224.16"
   DTS:LocaleID="3082"
   DTS:ObjectName="ZM_CONTRATACIONES"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{80FCBB75-C597-4475-B570-293B577DA7B0}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{727834B1-F7DC-4597-ABF1-40CF0791F917}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -479,6 +479,59 @@
                       lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_TieneLotes]"
                       name="CON_TieneLotes"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_Titulo_Eu]"
+                      length="100"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_Titulo_Eu]"
+                      name="CON_Titulo_Eu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_PresupuestoIva]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_PresupuestoIva]"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_PresupuestoIva]"
+                      name="CON_PresupuestoIva"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_ImporteIva]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_ImporteIva]"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_ImporteIva]"
+                      name="CON_ImporteIva"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_CodPromo]"
+                      length="100"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_CodPromo]"
+                      name="CON_CodPromo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_CPV_Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_CPV_Id]"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_CPV_Id]"
+                      name="CON_CPV_Id"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -616,6 +669,34 @@
                       refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_TieneLotes]"
                       dataType="bool"
                       name="CON_TieneLotes" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CON_Titulo_Eu" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_PresupuestoIva]"
+                      dataType="numeric"
+                      name="CON_PresupuestoIva"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_ImporteIva]"
+                      dataType="numeric"
+                      name="CON_ImporteIva"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CON_CodPromo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_CPV_Id]"
+                      dataType="i4"
+                      name="CON_CPV_Id" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -788,6 +869,39 @@
                       lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[CON_TieneLotes]"
                       name="CON_TieneLotes" />
                     <outputColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[CON_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[CON_Titulo_Eu]"
+                      name="CON_Titulo_Eu" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[CON_PresupuestoIva]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[CON_PresupuestoIva]"
+                      name="CON_PresupuestoIva"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[CON_ImporteIva]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[CON_ImporteIva]"
+                      name="CON_ImporteIva"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[CON_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[CON_CodPromo]"
+                      name="CON_CodPromo" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[CON_CPV_Id]"
+                      dataType="i4"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[CON_CPV_Id]"
+                      name="CON_CPV_Id" />
+                    <outputColumn
                       refId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
@@ -893,7 +1007,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[dbo].[ZM_CONTRATACIONES_CONTRATACIONES]</property>
+                  name="OpenRowset">[ZM_CONTRATACIONES_CONTRATACIONES]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -1149,6 +1263,44 @@
                       cachedName="F_EJECUCION"
                       externalMetadataColumnId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
                       lineageId="Package\ZM_CONTRATACIONES\poner fecha actual.Outputs[Salida de columna derivada].Columns[F_EJECUCION]" />
+                    <inputColumn
+                      refId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].Columns[CON_Titulo_Eu]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CON_Titulo_Eu"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].ExternalColumns[CON_Titulo_Eu]"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_Titulo_Eu]" />
+                    <inputColumn
+                      refId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].Columns[CON_PresupuestoIva]"
+                      cachedDataType="numeric"
+                      cachedName="CON_PresupuestoIva"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].ExternalColumns[CON_PresupuestoIva]"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_PresupuestoIva]" />
+                    <inputColumn
+                      refId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].Columns[CON_ImporteIva]"
+                      cachedDataType="numeric"
+                      cachedName="CON_ImporteIva"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].ExternalColumns[CON_ImporteIva]"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_ImporteIva]" />
+                    <inputColumn
+                      refId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].Columns[CON_CodPromo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CON_CodPromo"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].ExternalColumns[CON_CodPromo]"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_CodPromo]" />
+                    <inputColumn
+                      refId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].Columns[CON_CPV_Id]"
+                      cachedDataType="i4"
+                      cachedName="CON_CPV_Id"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].ExternalColumns[CON_CPV_Id]"
+                      lineageId="Package\ZM_CONTRATACIONES\Contrataciones.Outputs[Salida de origen de OLE DB].Columns[CON_CPV_Id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1290,6 +1442,34 @@
                       refId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
                       dataType="dbTimeStamp"
                       name="F_EJECUCION" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].ExternalColumns[CON_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CON_Titulo_Eu" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].ExternalColumns[CON_PresupuestoIva]"
+                      dataType="numeric"
+                      name="CON_PresupuestoIva"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].ExternalColumns[CON_ImporteIva]"
+                      dataType="numeric"
+                      name="CON_ImporteIva"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].ExternalColumns[CON_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CON_CodPromo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES.Inputs[Entrada de destino de OLE DB].ExternalColumns[CON_CPV_Id]"
+                      dataType="i4"
+                      name="CON_CPV_Id" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2721,6 +2901,25 @@
                       lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[Fecha auditoria]"
                       name="Fecha auditoria"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[Orden contratacion asociada]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[Orden contratacion asociada]"
+                      lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[Orden contratacion asociada]"
+                      name="Orden contratacion asociada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[Codigo Actividad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo Actividad]"
+                      length="20"
+                      lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].Columns[Codigo Actividad]"
+                      name="Codigo Actividad"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3321,6 +3520,15 @@
                       refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha auditoria]"
                       dataType="dbTimeStamp"
                       name="Fecha auditoria" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[Orden contratacion asociada]"
+                      dataType="i4"
+                      name="Orden contratacion asociada" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo Actividad]"
+                      dataType="wstr"
+                      length="20"
+                      name="Codigo Actividad" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -4053,6 +4261,17 @@
                       dataType="dbTimeStamp"
                       lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[Fecha auditoria]"
                       name="Fecha auditoria" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[Orden contratacion asociada]"
+                      dataType="i4"
+                      lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[Orden contratacion asociada]"
+                      name="Orden contratacion asociada" />
+                    <outputColumn
+                      refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[Codigo Actividad]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[Codigo Actividad]"
+                      name="Codigo Actividad" />
                     <outputColumn
                       refId="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -5353,7 +5572,7 @@
                     <externalMetadataColumn
                       refId="Package\ZM_CONTRATACIONES_NAVISION\ZM_CONTRATACIONES_NAVISION.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descripcion]"
                       dataType="wstr"
-                      length="250"
+                      length="3000"
                       name="Descripcion" />
                     <externalMetadataColumn
                       refId="Package\ZM_CONTRATACIONES_NAVISION\ZM_CONTRATACIONES_NAVISION.Inputs[Entrada de destino de OLE DB].ExternalColumns[Título euskera]"
@@ -6050,6 +6269,16 @@
                       lineageId="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion.Outputs[Salida de origen de OLE DB].Columns[Exento]"
                       name="Exento"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion.Outputs[Salida de origen de OLE DB].Columns[Codigo Actividad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo Actividad]"
+                      length="20"
+                      lineageId="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion.Outputs[Salida de origen de OLE DB].Columns[Codigo Actividad]"
+                      name="Codigo Actividad"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6211,6 +6440,11 @@
                       refId="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion.Outputs[Salida de origen de OLE DB].ExternalColumns[Exento]"
                       dataType="ui1"
                       name="Exento" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo Actividad]"
+                      dataType="wstr"
+                      length="20"
+                      name="Codigo Actividad" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -6407,6 +6641,12 @@
                       dataType="ui1"
                       lineageId="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion.Outputs[Salida de error de origen de OLE DB].Columns[Exento]"
                       name="Exento" />
+                    <outputColumn
+                      refId="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion.Outputs[Salida de error de origen de OLE DB].Columns[Codigo Actividad]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion.Outputs[Salida de error de origen de OLE DB].Columns[Codigo Actividad]"
+                      name="Codigo Actividad" />
                     <outputColumn
                       refId="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -6715,6 +6955,13 @@
                       cachedName="F_EJECUCION"
                       externalMetadataColumnId="Package\ZM_LINEAS_CONTRATACION\ZM_LINEAS_CONTRATACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
                       lineageId="Package\ZM_LINEAS_CONTRATACION\poner fecha actual.Outputs[Salida de columna derivada].Columns[F_EJECUCION]" />
+                    <inputColumn
+                      refId="Package\ZM_LINEAS_CONTRATACION\ZM_LINEAS_CONTRATACION.Inputs[Entrada de destino de OLE DB].Columns[Codigo Actividad]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Codigo Actividad"
+                      externalMetadataColumnId="Package\ZM_LINEAS_CONTRATACION\ZM_LINEAS_CONTRATACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo Actividad]"
+                      lineageId="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion.Outputs[Salida de origen de OLE DB].Columns[Codigo Actividad]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6875,6 +7122,11 @@
                       refId="Package\ZM_LINEAS_CONTRATACION\ZM_LINEAS_CONTRATACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
                       dataType="dbTimeStamp"
                       name="F_EJECUCION" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_LINEAS_CONTRATACION\ZM_LINEAS_CONTRATACION.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo Actividad]"
+                      dataType="wstr"
+                      length="20"
+                      name="Codigo Actividad" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -8095,6 +8347,50 @@
                       lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_TieneLotes]"
                       name="SOL_TieneLotes"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_Titulo_Eu]"
+                      length="100"
+                      lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_Titulo_Eu]"
+                      name="SOL_Titulo_Eu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_PresupuestoIva]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_PresupuestoIva]"
+                      lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_PresupuestoIva]"
+                      name="SOL_PresupuestoIva"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_ImporteIva]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_ImporteIva]"
+                      lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_ImporteIva]"
+                      name="SOL_ImporteIva"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_CodPromo]"
+                      length="100"
+                      lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_CodPromo]"
+                      name="SOL_CodPromo"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -8220,6 +8516,30 @@
                       refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_TieneLotes]"
                       dataType="bool"
                       name="SOL_TieneLotes" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SOL_Titulo_Eu" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_PresupuestoIva]"
+                      dataType="numeric"
+                      name="SOL_PresupuestoIva"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_ImporteIva]"
+                      dataType="numeric"
+                      name="SOL_ImporteIva"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SOL_CodPromo" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -8376,6 +8696,34 @@
                       dataType="bool"
                       lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de error de origen de OLE DB].Columns[SOL_TieneLotes]"
                       name="SOL_TieneLotes" />
+                    <outputColumn
+                      refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de error de origen de OLE DB].Columns[SOL_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de error de origen de OLE DB].Columns[SOL_Titulo_Eu]"
+                      name="SOL_Titulo_Eu" />
+                    <outputColumn
+                      refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de error de origen de OLE DB].Columns[SOL_PresupuestoIva]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de error de origen de OLE DB].Columns[SOL_PresupuestoIva]"
+                      name="SOL_PresupuestoIva"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de error de origen de OLE DB].Columns[SOL_ImporteIva]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de error de origen de OLE DB].Columns[SOL_ImporteIva]"
+                      name="SOL_ImporteIva"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de error de origen de OLE DB].Columns[SOL_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de error de origen de OLE DB].Columns[SOL_CodPromo]"
+                      name="SOL_CodPromo" />
                     <outputColumn
                       refId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -8647,6 +8995,38 @@
                       cachedName="F_EJECUCION"
                       externalMetadataColumnId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
                       lineageId="Package\ZM_SOLICITUDES\poner fecha actual.Outputs[Salida de columna derivada].Columns[F_EJECUCION]" />
+                    <inputColumn
+                      refId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].Columns[SOL_Titulo_Eu]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SOL_Titulo_Eu"
+                      externalMetadataColumnId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].ExternalColumns[SOL_Titulo_Eu]"
+                      lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_Titulo_Eu]" />
+                    <inputColumn
+                      refId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].Columns[SOL_PresupuestoIva]"
+                      cachedDataType="numeric"
+                      cachedName="SOL_PresupuestoIva"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].ExternalColumns[SOL_PresupuestoIva]"
+                      lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_PresupuestoIva]" />
+                    <inputColumn
+                      refId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].Columns[SOL_ImporteIva]"
+                      cachedDataType="numeric"
+                      cachedName="SOL_ImporteIva"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].ExternalColumns[SOL_ImporteIva]"
+                      lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_ImporteIva]" />
+                    <inputColumn
+                      refId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].Columns[SOL_CodPromo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SOL_CodPromo"
+                      externalMetadataColumnId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].ExternalColumns[SOL_CodPromo]"
+                      lineageId="Package\ZM_SOLICITUDES\Solicitudes.Outputs[Salida de origen de OLE DB].Columns[SOL_CodPromo]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -8776,6 +9156,30 @@
                       refId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_EJECUCION]"
                       dataType="dbTimeStamp"
                       name="F_EJECUCION" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].ExternalColumns[SOL_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SOL_Titulo_Eu" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].ExternalColumns[SOL_PresupuestoIva]"
+                      dataType="numeric"
+                      name="SOL_PresupuestoIva"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].ExternalColumns[SOL_ImporteIva]"
+                      dataType="numeric"
+                      name="SOL_ImporteIva"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_SOLICITUDES\ZM_SOLICITUDES.Inputs[Entrada de destino de OLE DB].ExternalColumns[SOL_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SOL_CodPromo" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -12386,15 +12790,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="189,42"
+          Size="188.8,41.6"
           Id="Package\ZM_CONTRATACIONES\ZM_CONTRATACIONES"
           TopLeft="99,257" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\ZM_CONTRATACIONES\poner fecha actual"
           TopLeft="95,152" />
         <NodeLayout
-          Size="149,42"
+          Size="148.8,41.6"
           Id="Package\ZM_CONTRATACIONES\Contrataciones"
           TopLeft="92,45" />
         <EdgeLayout
@@ -12500,15 +12904,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="189,42"
+          Size="188.8,41.6"
           Id="Package\ZM_CONTRATACIONES_NAVISION\VISESA$Contrataciones"
           TopLeft="62,29" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\ZM_CONTRATACIONES_NAVISION\poner fecha actual"
           TopLeft="70,122" />
         <NodeLayout
-          Size="243,42"
+          Size="243.2,41.6"
           Id="Package\ZM_CONTRATACIONES_NAVISION\ZM_CONTRATACIONES_NAVISION"
           TopLeft="63,245" />
         <EdgeLayout
@@ -12602,15 +13006,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="212,42"
+          Size="212,41.6"
           Id="Package\ZM_LINEAS_CONTRATACION\VISESA$Lineas Contratacion"
           TopLeft="118,49" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\ZM_LINEAS_CONTRATACION\poner fecha actual"
           TopLeft="181,181" />
         <NodeLayout
-          Size="218,42"
+          Size="217.6,41.6"
           Id="Package\ZM_LINEAS_CONTRATACION\ZM_LINEAS_CONTRATACION"
           TopLeft="154,318" />
         <EdgeLayout
@@ -12818,15 +13222,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="165,42"
+          Size="164.8,41.6"
           Id="Package\ZM_SOLICITUDES\ZM_SOLICITUDES"
           TopLeft="85,223" />
         <NodeLayout
-          Size="129,42"
+          Size="128.8,41.6"
           Id="Package\ZM_SOLICITUDES\Solicitudes"
           TopLeft="84,45" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\ZM_SOLICITUDES\poner fecha actual"
           TopLeft="86,137" />
         <EdgeLayout

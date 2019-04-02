@@ -31,7 +31,7 @@
             <Name>_ALL_TABLES_</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="164" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="13165" scrolltop="48427" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="200" x="14097" y="14034" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="164" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="13165" scrolltop="48427" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="200" x="19071" y="16828" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
                     <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
                   </font>
@@ -1918,7 +1918,7 @@
                   <xs:element name="DESC_ELEMENTO" msprop:design-time-name="e194e536-f9a6-4b00-9f80-28ca48df5636" msprop:DbColumnName="DESC_ELEMENTO" msprop:FriendlyName="DESC_ELEMENTO" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
-                        <xs:maxLength value="50" />
+                        <xs:maxLength value="30" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
@@ -1937,6 +1937,381 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="VAT_x0020_Prod__x0020_Posting_x0020_Group" msprop:DbColumnName="VAT Prod_ Posting Group" msprop:design-time-name="d2f06754-0fec-4b1a-9e3b-2f0f20c7af62" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Regimen_x0020_de_x0020_acceso_x0020_y_x0020_uso" msprop:DbColumnName="Regimen de acceso y uso" msprop:design-time-name="faefd001-ea27-4c43-8268-a49f98090e9a" type="xs:int" minOccurs="0" />
+                  <xs:element name="Regimen_x0020_de_x0020_tenencia" msprop:DbColumnName="Regimen de tenencia" msprop:design-time-name="b53e6e41-437e-41d4-b868-479ea8422b6c" type="xs:int" minOccurs="0" />
+                  <xs:element name="Tipologia_x0020_del_x0020_elemento" msprop:DbColumnName="Tipologia del elemento" msprop:design-time-name="a7f9a850-39c5-48ba-a0bc-bb255682a38c" type="xs:int" minOccurs="0" />
+                  <xs:element name="Provincia" msprop:DbColumnName="Provincia" msprop:design-time-name="cd33b80e-b890-446c-9970-adc916889af0" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Municipio" msprop:DbColumnName="Municipio" msprop:design-time-name="6f3716cc-8358-48be-9d63-d483649c3d3b" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="C_P_" msprop:DbColumnName="C_P_" msprop:design-time-name="fc7e026a-6d90-4ac3-9593-cee9e3838430" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Modif_x0020_Calif_x0020_Eliminacion" msprop:DbColumnName="Modif Calif Eliminacion" msprop:design-time-name="e0241ce9-e0ec-485c-b44c-c1c03e17c445" type="xs:int" minOccurs="0" />
+                  <xs:element name="Modif_x0020_Calif_x0020_Creacion" msprop:DbColumnName="Modif Calif Creacion" msprop:design-time-name="380ff142-bce4-449b-a84a-eb895fe1b587" type="xs:int" minOccurs="0" />
+                  <xs:element name="Elemento_x0020_libre" msprop:DbColumnName="Elemento libre" msprop:design-time-name="87893d96-45e4-486a-a5b9-efa919516365" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="Vivienda_x0020_adaptada" msprop:DbColumnName="Vivienda adaptada" msprop:design-time-name="c596e509-8711-4f17-998e-24ac6a9521f2" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="Modificacion_x0020_calificacion" msprop:DbColumnName="Modificacion calificacion" msprop:design-time-name="7eb8db29-dbe0-4e50-9b60-34708fbb9e3b" type="xs:int" minOccurs="0" />
+                  <xs:element name="Ok_x0020_tecnico" msprop:DbColumnName="Ok tecnico" msprop:design-time-name="fc0f8d87-9ba8-43eb-b58a-4e723b6bbd23" type="xs:int" minOccurs="0" />
+                  <xs:element name="Tipo_x0020_elemento" msprop:DbColumnName="Tipo elemento" msprop:design-time-name="5cece3d2-154c-4faf-9745-f110cd2466a1" type="xs:int" minOccurs="0" />
+                  <xs:element name="No__x0020_interno" msprop:DbColumnName="No_ interno" msprop:design-time-name="cb0f5ff2-9d7e-4c17-baf5-297208f5d542" type="xs:int" minOccurs="0" />
+                  <xs:element name="No__x0020_segun_x0020_calificacion" msprop:DbColumnName="No_ segun calificacion" msprop:design-time-name="15bfc2ce-d13a-4e77-851b-4ff2f4297b99" type="xs:int" minOccurs="0" />
+                  <xs:element name="No__x0020_rotulacion" msprop:DbColumnName="No_ rotulacion" msprop:design-time-name="c67c426f-9a75-4741-bcf7-ffae438f046e" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="No__x0020_identificativo_x0020_elemento" msprop:DbColumnName="No_ identificativo elemento" msprop:design-time-name="88d03dbd-137b-42ed-ae73-afcbcf08c5a9" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Tipologia_x0020_venta" msprop:DbColumnName="Tipologia venta" msprop:design-time-name="e2e6a0c7-097d-4e60-afb2-0261a5f2f762" type="xs:int" minOccurs="0" />
+                  <xs:element name="Comercializacion_x0020_especial" msprop:DbColumnName="Comercializacion especial" msprop:design-time-name="0121f0ef-0c1f-4e80-a7b3-50039bf86c2f" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Calle" msprop:DbColumnName="Calle" msprop:design-time-name="49faa6ea-12a8-48c4-8c92-326c847bec09" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Portal_x0020__x0028_segun_x0020_Ayto__x0029_" msprop:DbColumnName="Portal (segun Ayto_)" msprop:design-time-name="c519ae95-4618-4c3a-b6db-0a2433c486b1" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Portal_x0020__x0028__x0020_segun_x0020_Calif__x0029_" msprop:DbColumnName="Portal ( segun Calif_)" msprop:design-time-name="ae2794ef-0d76-4214-b0c6-d57bdc0de8a4" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Bloque" msprop:DbColumnName="Bloque" msprop:design-time-name="989b415a-35ee-4778-bd43-bb95abf6ef10" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="7" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Planta_x0020__x0028_segun_x0020_Ayto__x0029_" msprop:DbColumnName="Planta (segun Ayto_)" msprop:design-time-name="14873786-2739-4376-a1ee-92c7be3ca8f5" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Planta_x0020__x0028_segun_x0020_Calif__x0029_" msprop:DbColumnName="Planta (segun Calif_)" msprop:design-time-name="99e180c1-6e73-4c81-9661-d173e51a80be" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Mano_Letra_x0020__x0028_segun_x0020_Ayto__x0029_" msprop:DbColumnName="Mano_Letra (segun Ayto_)" msprop:design-time-name="12c86e23-5cfc-4d22-bce6-a2b9bdd31dc3" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Mano_Letra_x0020__x0028_segun_x0020_Calif__x0029_" msprop:DbColumnName="Mano_Letra (segun Calif_)" msprop:design-time-name="c4ce2795-3ff7-478f-b1fb-692f751a983d" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Escalera_x0020__x0028_segun_x0020_Ayto__x0029_" msprop:DbColumnName="Escalera (segun Ayto_)" msprop:design-time-name="d00a9f09-1494-46ce-88cf-d2ba13f82202" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Escalera_x0020__x0028_segun_x0020_Calif__x0029_" msprop:DbColumnName="Escalera (segun Calif_)" msprop:design-time-name="c4e8f272-7a7f-4106-8850-6f9e10c66989" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Cod__x0020_situacion" msprop:DbColumnName="Cod_ situacion" msprop:design-time-name="f25a7ed6-9362-43b2-8d07-fbc919808749" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Superficie_x0020_util" msprop:DbColumnName="Superficie util" msprop:design-time-name="80752f79-75e5-4d9b-a52a-462784048cf8" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Precio_x0020_max__x0020_m2_x0020_calif_" msprop:DbColumnName="Precio max_ m2 calif_" msprop:design-time-name="9d7e623b-81a6-4f63-b452-df08dc10708a" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Precio_x0020_max__x0020_calif_" msprop:DbColumnName="Precio max_ calif_" msprop:design-time-name="72e77d51-2f43-4a42-9e93-ffb16008b8aa" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="No__x0020_dormitorios" msprop:DbColumnName="No_ dormitorios" msprop:design-time-name="09d6d797-8163-47b6-91c6-8a1c1fb1fee3" type="xs:int" minOccurs="0" />
+                  <xs:element name="Cod__x0020_Tipologia_x0020_vivienda" msprop:DbColumnName="Cod_ Tipologia vivienda" msprop:design-time-name="7289c232-4eaf-463c-8aa1-02be1a470886" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Parcela" msprop:DbColumnName="Parcela" msprop:design-time-name="e8af1bf5-af6b-40e8-94a7-16673b3e3617" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Alquiler" msprop:DbColumnName="Alquiler" msprop:design-time-name="fabe899e-cb4b-42bc-805b-3c3796f7fff7" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="AROC" msprop:DbColumnName="AROC" msprop:design-time-name="1516e8a6-2322-485f-9325-82fef7fa0932" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="Compra_x0020_-_x0020_Venta" msprop:DbColumnName="Compra - Venta" msprop:design-time-name="ae504605-8d19-4d39-9925-010c4426db3b" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="Compra_x0020_-_x0020_Venta_x0020_pago_x0020_aplazado" msprop:DbColumnName="Compra - Venta pago aplazado" msprop:design-time-name="bd9c058f-bafd-40f7-8897-1b483441096e" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="Vivienda_x0020_baja_x0020_densidad" msprop:DbColumnName="Vivienda baja densidad" msprop:design-time-name="3d671ca7-2707-44c8-bc0d-01447ad32039" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="Acceso_x0020_individual" msprop:DbColumnName="Acceso individual" msprop:design-time-name="4caf73b7-c09d-437b-8c62-500c55eb0589" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="No__x0020_interno_x0020_comercial" msprop:DbColumnName="No_ interno comercial" msprop:design-time-name="88f12b7a-6be5-4969-83e7-da356b9fd22c" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Relacion" msprop:DbColumnName="Relacion" msprop:design-time-name="683eb284-91db-4fb2-b786-89b58ab79de4" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Estado" msprop:DbColumnName="Estado" msprop:design-time-name="5b20c3c5-0c68-470b-b589-639e7cca3be0" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Estado_x0020_especial" msprop:DbColumnName="Estado especial" msprop:design-time-name="368168e3-a30b-4207-a703-7772e7b89331" type="xs:int" minOccurs="0" />
+                  <xs:element name="Last_x0020_Date_x0020_Modified" msprop:DbColumnName="Last Date Modified" msprop:design-time-name="2e84d8fe-5a90-4af7-bcc7-45748037d80b" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="Cambio_x0020_importes_x0020_Comercial" msprop:DbColumnName="Cambio importes Comercial" msprop:design-time-name="90a3ac42-3869-4de7-abb1-c6df958a73a9" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="Tipo_x0020_precio" msprop:DbColumnName="Tipo precio" msprop:design-time-name="88d2d556-b372-4978-948f-6c7879864708" type="xs:int" minOccurs="0" />
+                  <xs:element name="__x0020_Variacion_x0020_precio_x0020_Vta" msprop:DbColumnName="_ Variacion precio Vta" msprop:design-time-name="ad24960a-db89-4e19-9242-391abc2f9fc8" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="__x0020_Aplicable_x0020_al_x0020_precio_x0020_venta" msprop:DbColumnName="_ Aplicable al precio venta" msprop:design-time-name="135a38f0-4a64-48ee-bc14-0024cf68b70f" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Precio_x0020_tramos_x0020_comercial" msprop:DbColumnName="Precio tramos comercial" msprop:design-time-name="f5f111a1-3a24-4e97-9b7b-a302880c9ff3" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Unit_x0020_Price" msprop:DbColumnName="Unit Price" msprop:design-time-name="d32ded2b-41ab-44f7-b297-9703373acd27" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Euros_x0020_metro_x0020_2" msprop:DbColumnName="Euros metro 2" msprop:design-time-name="592e819e-615f-4e8b-b96a-1710e8dd93cd" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Precio_x0020_venta_x0020_con_x0020_IVA" msprop:DbColumnName="Precio venta con IVA" msprop:design-time-name="858d7f54-ac85-46b8-8085-99a717e0566f" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Precio_x0020_venta_x0020_sin_x0020_IVA" msprop:DbColumnName="Precio venta sin IVA" msprop:design-time-name="dbb300eb-d6e2-45b5-8c93-3c2f5eb93d82" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Precio_x0020_venta_x0020_estipulado" msprop:DbColumnName="Precio venta estipulado" msprop:design-time-name="1d8d2b25-0b22-40ae-a67c-7b27618898e0" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Tipo_x0020_Anticipo" msprop:DbColumnName="Tipo Anticipo" msprop:design-time-name="4dcd3479-17e4-4ccc-b03b-84e22137ef9a" type="xs:int" minOccurs="0" />
+                  <xs:element name="Modificado_x0020_Precio_x0020_Vta_x0020_Estipul_" msprop:DbColumnName="Modificado Precio Vta Estipul_" msprop:design-time-name="ef3ef7f7-dcb9-44ab-85da-e7e9d69df40c" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="Modificar_x0020_Importes_x0020_Aroc_Alq" msprop:DbColumnName="Modificar Importes Aroc_Alq" msprop:design-time-name="3958443d-48e3-4e72-9d0d-b8dfeda87420" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="Renta_x0020_mensual" msprop:DbColumnName="Renta mensual" msprop:design-time-name="f44304f2-e381-4a1d-8604-0eb1fadcd62a" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Contraprestacion" msprop:DbColumnName="Contraprestacion" msprop:design-time-name="121b6856-d560-4ee6-a846-5d3a39a1fa9a" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Tipo_x0020_Renta" msprop:DbColumnName="Tipo Renta" msprop:design-time-name="e6570b85-b991-4be8-adba-f09bbb10bba6" type="xs:int" minOccurs="0" />
+                  <xs:element name="Tipo_x0020_Contraprestacion" msprop:DbColumnName="Tipo Contraprestacion" msprop:design-time-name="ad4bcc29-a51b-4846-9921-d6e89bcd16aa" type="xs:int" minOccurs="0" />
+                  <xs:element name="Porc_x0020_Contraprestacion" msprop:DbColumnName="Porc Contraprestacion" msprop:design-time-name="00a55ae2-6c60-4adb-898b-7daa1ac9a6d3" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="porc_x0020_Renta" msprop:DbColumnName="porc Renta" msprop:design-time-name="7ee3f0cc-2c41-437c-aabd-b39c7d542424" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Importe_x0020_IVA_x0020_renta" msprop:DbColumnName="Importe IVA renta" msprop:design-time-name="f56cd1e9-082b-4e49-b1ed-51bea624fc50" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Renta_x0020_mensual_x0020_con_x0020_IVA" msprop:DbColumnName="Renta mensual con IVA" msprop:design-time-name="e23508c3-d662-42a9-b8aa-a9e406a11597" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Renta_x0020_anual" msprop:DbColumnName="Renta anual" msprop:design-time-name="d3b792d9-27a6-4b63-a82b-326541472ad4" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Importe_x0020_IVA_x0020_contraprestacion" msprop:DbColumnName="Importe IVA contraprestacion" msprop:design-time-name="fb5387ed-03ed-4352-9b6f-e4d36f2089a6" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Contraprestacion_x0020_con_x0020_IVA" msprop:DbColumnName="Contraprestacion con IVA" msprop:design-time-name="907fec95-57e0-4680-bbab-6e712e84c074" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Fecha_x0020_aprob__x0020_modif__x0020_Precio" msprop:DbColumnName="Fecha aprob_ modif_ Precio" msprop:design-time-name="b4e40f92-88fc-42cb-9f41-afe0090c5c92" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="Id__x0020_Usuario" msprop:DbColumnName="Id_ Usuario" msprop:design-time-name="51a9dc97-51db-4b8b-9717-79c595a2af12" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="No__x0020_protocolo" msprop:DbColumnName="No_ protocolo" msprop:design-time-name="3fe42439-10cd-4b34-ac70-ff44f34cbfd2" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Registro" msprop:DbColumnName="Registro" msprop:design-time-name="cddb9499-1289-4815-89a0-f243a83d1798" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="No__x0020_D_O_N_" msprop:DbColumnName="No_ D_O_N_" msprop:design-time-name="781606bb-ee3c-4a19-89b3-52c64bf9f0bc" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Tomo" msprop:DbColumnName="Tomo" msprop:design-time-name="080126fb-b638-436b-9c77-a842fd892447" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Libro" msprop:DbColumnName="Libro" msprop:design-time-name="8b164755-ae8d-4fe8-8f48-967c220940e1" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Seccion" msprop:DbColumnName="Seccion" msprop:design-time-name="8675117f-c6d3-4713-b649-a38706ef46ad" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Folio" msprop:DbColumnName="Folio" msprop:design-time-name="dd473a39-d285-4159-ae9a-ad99cc4f61b8" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Finca" msprop:DbColumnName="Finca" msprop:design-time-name="6c0f0fd4-4b25-44bc-8ec5-c30b996a369f" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Inscripcion" msprop:DbColumnName="Inscripcion" msprop:design-time-name="379502f9-764a-43d4-b705-35c94f24feea" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Localidad_x0020_registro" msprop:DbColumnName="Localidad registro" msprop:design-time-name="ccc47be7-3adc-4e7f-b31c-9317de77a556" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="C_P__x0020_registro" msprop:DbColumnName="C_P_ registro" msprop:design-time-name="d0706b12-25b1-4e4f-9181-8f0980869e71" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Provincia_x0020_registro" msprop:DbColumnName="Provincia registro" msprop:design-time-name="736383d0-12c7-4045-aeae-dee4cd212a41" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="No_x0020_fijo_x0020_o_x0020_referencia_x0020_catastral" msprop:DbColumnName="No fijo o referencia catastral" msprop:design-time-name="4554c741-f2f4-47e1-ae92-ac2d9c2cf152" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Imp__x0020_total_x0020_escrit__x0020_con_x0020_IVA" msprop:DbColumnName="Imp_ total escrit_ con IVA" msprop:design-time-name="0c3976ed-3216-4177-acd6-f84f957e6bfe" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Imp__x0020_Anticipo1_x0020_Abonado" msprop:DbColumnName="Imp_ Anticipo1 Abonado" msprop:design-time-name="b2ba074b-507f-44c6-a6fb-8dc39fea8590" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Imp__x0020_Anticipo1_x0020_Abonado_x0020_con_x0020_IVA" msprop:DbColumnName="Imp_ Anticipo1 Abonado con IVA" msprop:design-time-name="b85f8799-88aa-4c7d-817a-6bcef8b52d4f" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Imp__x0020_Dev__x0020_Anticipo1_x0020__x0028_Abonos_x0029_" msprop:DbColumnName="Imp_ Dev_ Anticipo1 (Abonos)" msprop:design-time-name="075f1b18-f8df-4f9e-ae27-b173db0e6ff2" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Imp__x0020_Dev__x0020_Anticipo1_x0020_con_x0020_IVA" msprop:DbColumnName="Imp_ Dev_ Anticipo1 con IVA" msprop:design-time-name="b2df1335-9295-4561-9502-7338729dd243" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Imp__x0020_Escritura_x0020_Abonado" msprop:DbColumnName="Imp_ Escritura Abonado" msprop:design-time-name="a8db60c9-b507-428f-91ce-3021a2804b37" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Imp__x0020_Escritura_x0020_Abonado_x0020_con_x0020_IVA" msprop:DbColumnName="Imp_ Escritura Abonado con IVA" msprop:design-time-name="5bde1ba6-197a-488b-b464-ffd1e924d103" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="No_x0020_modificar_x0020_anticipos" msprop:DbColumnName="No modificar anticipos" msprop:design-time-name="e9c5cae9-45c4-48ab-8959-e9b5dcaeb1bb" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="Planta_x0020__x0028_cod__x0020_situacion_x0029_" msprop:DbColumnName="Planta (cod_ situacion)" msprop:design-time-name="efe37a0e-f6bd-4a85-a917-424d3ece8155" type="xs:int" minOccurs="0" />
+                  <xs:element name="Letra_x0020_portal" msprop:DbColumnName="Letra portal" msprop:design-time-name="97394116-4ff4-4811-8248-74c3c838256c" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="No__x0020_portal" msprop:DbColumnName="No_ portal" msprop:design-time-name="c9c79cea-99a2-4709-9de4-15f0b28bcfdf" type="xs:int" minOccurs="0" />
+                  <xs:element name="Superficie_x0020_inversa" msprop:DbColumnName="Superficie inversa" msprop:design-time-name="868510f6-ae5b-471f-bdcc-ef1a352c2ae4" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Promocion_x0020_abreviado" msprop:DbColumnName="Promocion abreviado" msprop:design-time-name="c000ea63-224f-4afb-99f2-2f4435004f33" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Marca_x0020_para_x0020_gastos" msprop:DbColumnName="Marca para gastos" msprop:design-time-name="37ff5341-4b40-4475-a8f3-d61b5b63f2bd" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Precio_x0020_por_x0020_pack" msprop:DbColumnName="Precio por pack" msprop:design-time-name="b57a5e37-70b8-458f-98cf-c49d52b5deba" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="No__x0020_Fase" msprop:DbColumnName="No_ Fase" msprop:design-time-name="12323816-a83f-49a0-bf17-3c21bb8697b0" type="xs:int" minOccurs="0" />
+                  <xs:element name="Ref__x0020_Cat__x0020_Actualizada_x0020_2017" msprop:DbColumnName="Ref_ Cat_ Actualizada 2017" msprop:design-time-name="49dc869b-8e5c-4eb0-8e4e-028319141f27" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Relacion_x0020_IBIs" msprop:DbColumnName="Relacion IBIs" msprop:design-time-name="36fd8376-5804-4632-8890-4fd579b49e1e" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Valor_x0020_catastral" msprop:DbColumnName="Valor catastral" msprop:design-time-name="a049c376-831d-471a-8e62-7ed9b8b226ed" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Cod__x0020_Aval" msprop:DbColumnName="Cod_ Aval" msprop:design-time-name="58ff67fe-e859-447d-a5e8-38dd5fe3e62a" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="AROC_x0020_II" msprop:DbColumnName="AROC II" msprop:design-time-name="511920aa-363e-44ba-826b-4a1e5e3d8b6f" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="Uso_x0020_principal" msprop:DbColumnName="Uso principal" msprop:design-time-name="fd99d121-bf54-4328-943c-41f7712b7eed" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Superficie_x0020_comun_x0020_principal" msprop:DbColumnName="Superficie comun principal" msprop:design-time-name="b2e2f77d-5d12-4bc1-8174-d54b25496a00" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Rehabilitacion" msprop:DbColumnName="Rehabilitacion" msprop:design-time-name="2944c2e4-27f8-4885-9e0c-19923969ed88" type="xs:unsignedByte" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -2107,8 +2482,8 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="Trimestre" msprop:DbColumnName="Trimestre" msprop:design-time-name="c51a4f51-c09a-406f-839b-7132515d41f9" type="xs:int" minOccurs="0" />
-                  <xs:element name="Trimestre_del_anyo" msprop:DbColumnName="Trimestre_del_anyo" msprop:design-time-name="85502186-40d1-4cf9-a93e-be105be1367d" minOccurs="0">
+                  <xs:element name="Trimestre" msprop:design-time-name="c51a4f51-c09a-406f-839b-7132515d41f9" msprop:DbColumnName="Trimestre" type="xs:int" minOccurs="0" />
+                  <xs:element name="Trimestre_del_anyo" msprop:design-time-name="85502186-40d1-4cf9-a93e-be105be1367d" msprop:DbColumnName="Trimestre_del_anyo" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="50" />
@@ -2543,10 +2918,6 @@
         <xs:unique name="dbo_J_P05_CALIFICACION_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
           <xs:selector xpath=".//dbo_J_P05_CALIFICACION" />
           <xs:field xpath="ID_CALIFICACION" />
-        </xs:unique>
-        <xs:unique name="dbo_J_P06_ELEMENTO_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-          <xs:selector xpath=".//dbo_J_P06_ELEMENTO" />
-          <xs:field xpath="ID_ELEMENTO" />
         </xs:unique>
         <xs:unique name="dbo_J_T01_PAIS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
           <xs:selector xpath=".//dbo_J_T01_PAIS" />

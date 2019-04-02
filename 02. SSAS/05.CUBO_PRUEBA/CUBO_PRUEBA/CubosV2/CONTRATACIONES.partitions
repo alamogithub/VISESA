@@ -2,28 +2,6 @@
   <ID>Contrataciones</ID>
   <MeasureGroups>
     <MeasureGroup>
-      <ID>H CONTRATACION CONTRATACIONES</ID>
-      <Partitions>
-        <Partition dwd:design-time-name="4b5f5088-8872-458c-85a9-413f41627c2a">
-          <ID>H CONTRATACION CONTRATACIONES</ID>
-          <Name>H CONTRATACION CONTRATACIONES</Name>
-          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
-          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
-          <State>Unprocessed</State>
-          <Source xsi:type="QueryBinding" dwd:design-time-name="794b82ad-9ebf-4b22-a48f-6684644abda4">
-            <DataSourceID>VISESABI</DataSourceID>
-            <QueryDefinition>SELECT *
-FROM [dbo].[H_CONTRATACION_CONTRATACIONES]
-WHERE id_contrato is not null</QueryDefinition>
-          </Source>
-          <StorageMode>Molap</StorageMode>
-          <CurrentStorageMode>Molap</CurrentStorageMode>
-          <ProcessingMode>Regular</ProcessingMode>
-        </Partition>
-      </Partitions>
-    </MeasureGroup>
-    <MeasureGroup>
       <ID>Contratos</ID>
       <Partitions>
         <Partition dwd:design-time-name="e7daf225-8813-47cf-bdfd-907f22eea191">
@@ -84,6 +62,79 @@ WHERE id_con is not null</QueryDefinition>
           <StorageMode>Molap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Solicitudes</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ec6b0470-2cc9-4dd8-bdad-582eba004379">
+          <ID>H CONTRATACION CONTRATACIONES</ID>
+          <Name>H CONTRATACION CONTRATACIONES</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="61188043-63d4-4109-a985-3661dfa298b6">
+            <DataSourceID>VISESABI</DataSourceID>
+            <QueryDefinition>SELECT *
+FROM [dbo].[H_CONTRATACION_CONTRATACIONES]</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Solicitudes 1</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ecdb200b-1850-4e2a-bd66-9d3b4a8930c3">
+          <ID>H CONTRATACION CONTRATACIONES</ID>
+          <Name>H CONTRATACION CONTRATACIONES</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="59d1e525-fa10-438c-8622-4157a296a7d3">
+            <DataSourceID>VISESABI</DataSourceID>
+            <QueryDefinition>SELECT *
+FROM [dbo].[H_CONTRATACION_CONTRATACIONES]</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Solicitudes 2</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="34f82a2a-1f68-4273-beb6-809d3c8e3c66">
+          <ID>H CONTRATACION CONTRATACIONES</ID>
+          <Name>H CONTRATACION CONTRATACIONES</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="6299ee02-6e62-4992-9832-742133304aa7">
+            <DataSourceID>VISESABI</DataSourceID>
+            <QueryDefinition>SELECT *
+FROM [dbo].[H_CONTRATACION_CONTRATACIONES]</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="7a75424f-564f-4c01-baa0-81e476a6df2e">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <AggregationStorage>MolapOnly</AggregationStorage>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="3f9f9f88-80a8-40e3-ac59-97651eb03c45">
+              <NotificationTechnique>Server</NotificationTechnique>
+            </Source>
+          </ProactiveCaching>
         </Partition>
       </Partitions>
     </MeasureGroup>

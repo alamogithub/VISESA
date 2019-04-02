@@ -7,12 +7,12 @@
   DTS:CreatorName="OSATU\proyectobi"
   DTS:DTSID="{56F63BDC-EDD8-42F6-BF84-FA3ED2139CB5}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="13.0.4001.0"
+  DTS:LastModifiedProductVersion="13.0.4224.16"
   DTS:LocaleID="3082"
   DTS:ObjectName="ETL_CONTRATACIONES"
   DTS:PackageType="5"
-  DTS:VersionBuild="181"
-  DTS:VersionGUID="{84C53433-C57D-42F2-BAEB-DBDB8B47DF69}">
+  DTS:VersionBuild="205"
+  DTS:VersionGUID="{A8501123-847C-4B3E-852E-213016013CA0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -69,6 +69,23 @@
     </DTS:SelectedLogProviders>
   </DTS:LoggingOptions>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cpv"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{2FECA416-7B4B-4AA8-BEC1-2A132DB7BC1F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cpv"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{53680043-8F86-4E5D-BC3D-E958A8BCD8D5}"
+          SQLTask:SqlStatementSource="  insert into [M_CONTRATACION_CPV]&#xA;  select 999,'',''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\F_FIN_PLAZO"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -1061,7 +1078,7 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       refId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Copy of CRITERIOS_ADJUDICACION]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="2000"
+                      cachedLength="3000"
                       cachedName="Copy of CRITERIOS_ADJUDICACION"
                       lineageId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[Copy of CRITERIOS_ADJUDICACION]" />
                     <inputColumn
@@ -1102,6 +1119,32 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       cachedDataType="text"
                       cachedName="OBSERVACIONES"
                       lineageId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[OBSERVACIONES]" />
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[SOL_Titulo_Eu]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SOL_Titulo_Eu"
+                      lineageId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[SOL_Titulo_Eu]" />
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[SOL_PresupuestoIva]"
+                      cachedDataType="numeric"
+                      cachedName="SOL_PresupuestoIva"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[SOL_PresupuestoIva]" />
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[SOL_ImporteIva]"
+                      cachedDataType="numeric"
+                      cachedName="SOL_ImporteIva"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[SOL_ImporteIva]" />
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[CON_CPV_Id]"
+                      cachedDataType="i4"
+                      cachedName="CON_CPV_Id"
+                      lineageId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[CON_CPV_Id]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2125,7 +2168,7 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       refId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Copy of CRITERIOS_ADJUDICACION]"
                       codePage="1252"
                       dataType="str"
-                      length="2000"
+                      length="3000"
                       lineageId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Copy of CRITERIOS_ADJUDICACION]"
                       name="Copy of CRITERIOS_ADJUDICACION">
                       <properties>
@@ -2247,6 +2290,64 @@ where [refTable].[CODIGO_ERP] = ?</property>
                           dataType="System.Int32"
                           description="La columna de entrada asociada a esta columna de salida"
                           name="InputColumnID">#{Package\HECHOS CONTRATACIONES\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[ID_AREA_NAV]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SOL_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SOL_Titulo_Eu]"
+                      name="SOL_Titulo_Eu">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\HECHOS CONTRATACIONES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[SOL_Titulo_Eu]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SOL_PresupuestoIva]"
+                      dataType="numeric"
+                      lineageId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SOL_PresupuestoIva]"
+                      name="SOL_PresupuestoIva"
+                      precision="18"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\HECHOS CONTRATACIONES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[SOL_PresupuestoIva]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SOL_ImporteIva]"
+                      dataType="numeric"
+                      lineageId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SOL_ImporteIva]"
+                      name="SOL_ImporteIva"
+                      precision="18"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\HECHOS CONTRATACIONES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[SOL_ImporteIva]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CON_CPV_Id]"
+                      dataType="i4"
+                      lineageId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CON_CPV_Id]"
+                      name="CON_CPV_Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\HECHOS CONTRATACIONES\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[CON_CPV_Id]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -4858,10 +4959,10 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      length="2000"
+                      length="3000"
                       lineageId="Package\HECHOS CONTRATACIONES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of CRITERIOS_ADJUDICACION]"
                       name="Copy of CRITERIOS_ADJUDICACION"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="IgnoreFailure">
                       <properties>
                         <property
                           containsID="true"
@@ -4883,7 +4984,7 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       length="3000"
                       lineageId="Package\HECHOS CONTRATACIONES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of OBSERVACIONES]"
                       name="Copy of OBSERVACIONES"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="IgnoreFailure">
                       <properties>
                         <property
                           containsID="true"
@@ -4905,7 +5006,7 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       length="1500"
                       lineageId="Package\HECHOS CONTRATACIONES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of SOLVENCIA]"
                       name="Copy of SOLVENCIA"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="IgnoreFailure">
                       <properties>
                         <property
                           containsID="true"
@@ -4982,7 +5083,7 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       refId="Package\HECHOS CONTRATACIONES\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[Copy of CRITERIOS_ADJUDICACION]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="2000"
+                      cachedLength="3000"
                       cachedName="Copy of CRITERIOS_ADJUDICACION"
                       lineageId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Copy of CRITERIOS_ADJUDICACION]" />
                     <inputColumn
@@ -4999,6 +5100,13 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       cachedLength="3000"
                       cachedName="Copy of OBSERVACIONES"
                       lineageId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Copy of OBSERVACIONES]" />
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[SOL_Titulo_Eu]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SOL_Titulo_Eu"
+                      lineageId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SOL_Titulo_Eu]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5078,7 +5186,7 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      length="2000"
+                      length="3000"
                       lineageId="Package\HECHOS CONTRATACIONES\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[CRITERIOS_ADJUDICACIONBIEN]"
                       name="CRITERIOS_ADJUDICACIONBIEN"
                       truncationRowDisposition="FailComponent">
@@ -5130,6 +5238,27 @@ where [refTable].[CODIGO_ERP] = ?</property>
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
                           name="SourceInputColumnLineageID">#{Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Copy of OBSERVACIONES]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[SOL_Titulo_Eu_BIEN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\HECHOS CONTRATACIONES\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[SOL_Titulo_Eu_BIEN]"
+                      name="SOL_Titulo_Eu_BIEN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SOL_Titulo_Eu]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -5778,7 +5907,7 @@ where [refTable].[CODIGO_ERP] = ?</property>
                     <inputColumn
                       refId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CRITERIOS_ADJUDICACIONBIEN]"
                       cachedDataType="wstr"
-                      cachedLength="2000"
+                      cachedLength="3000"
                       cachedName="CRITERIOS_ADJUDICACIONBIEN"
                       externalMetadataColumnId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CRITERIOS_ADJUDICACION]"
                       lineageId="Package\HECHOS CONTRATACIONES\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[CRITERIOS_ADJUDICACIONBIEN]" />
@@ -5791,7 +5920,8 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       lineageId="Package\HECHOS CONTRATACIONES\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[SOLVENCIABIEN]" />
                     <inputColumn
                       refId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copy of Copy of OBSERVACIONES]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="3000"
                       cachedName="Copy of Copy of OBSERVACIONES"
                       externalMetadataColumnId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[OBSERVACIONES]"
@@ -5843,6 +5973,27 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       cachedName="DESCRIPCION"
                       externalMetadataColumnId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_CONTRATO]"
                       lineageId="Package\HECHOS CONTRATACIONES\ELegir columna no nula en las iguales.Outputs[Salida de columna derivada].Columns[DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CON_CPV_Id]"
+                      cachedDataType="i4"
+                      cachedName="CON_CPV_Id"
+                      externalMetadataColumnId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_CPV]"
+                      lineageId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CON_CPV_Id]" />
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[SOL_PresupuestoIva]"
+                      cachedDataType="numeric"
+                      cachedName="SOL_PresupuestoIva"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PRESUPUESTO_IVA]"
+                      lineageId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[SOL_PresupuestoIva]" />
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[SOL_Titulo_Eu_BIEN]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SOL_Titulo_Eu_BIEN"
+                      externalMetadataColumnId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_TITULO_EUS]"
+                      lineageId="Package\HECHOS CONTRATACIONES\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[SOL_Titulo_Eu_BIEN]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5974,7 +6125,7 @@ where [refTable].[CODIGO_ERP] = ?</property>
                     <externalMetadataColumn
                       refId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CRITERIOS_ADJUDICACION]"
                       dataType="wstr"
-                      length="2000"
+                      length="3000"
                       name="CRITERIOS_ADJUDICACION" />
                     <externalMetadataColumn
                       refId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SOLVENCIA]"
@@ -6112,6 +6263,25 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       refId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IND_ACTIVO]"
                       dataType="i4"
                       name="IND_ACTIVO" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[F_FIN_PLAZO]"
+                      dataType="dbDate"
+                      name="F_FIN_PLAZO" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_TITULO_EUS]"
+                      dataType="wstr"
+                      length="100"
+                      name="DESC_TITULO_EUS" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_CPV]"
+                      dataType="i4"
+                      name="ID_CPV" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PRESUPUESTO_IVA]"
+                      dataType="numeric"
+                      name="PRESUPUESTO_IVA"
+                      precision="18"
+                      scale="2" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -8142,7 +8312,7 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       refId="Package\HECHOS CONTRATACIONES\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of CRITERIOS_ADJUDICACION]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="2000"
+                      cachedLength="3000"
                       cachedName="Copy of CRITERIOS_ADJUDICACION"
                       lineageId="Package\HECHOS CONTRATACIONES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of CRITERIOS_ADJUDICACION]">
                       <properties>
@@ -8181,6 +8351,94 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       cachedLength="3000"
                       cachedName="Copy of OBSERVACIONES"
                       lineageId="Package\HECHOS CONTRATACIONES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of OBSERVACIONES]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Ordenar.Inputs[Entrada de ordenación].Columns[SOL_Titulo_Eu]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SOL_Titulo_Eu"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_Titulo_Eu]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Ordenar.Inputs[Entrada de ordenación].Columns[SOL_PresupuestoIva]"
+                      cachedDataType="numeric"
+                      cachedName="SOL_PresupuestoIva"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_PresupuestoIva]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Ordenar.Inputs[Entrada de ordenación].Columns[SOL_ImporteIva]"
+                      cachedDataType="numeric"
+                      cachedName="SOL_ImporteIva"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_ImporteIva]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Ordenar.Inputs[Entrada de ordenación].Columns[SOL_CodPromo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SOL_CodPromo"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_CodPromo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Ordenar.Inputs[Entrada de ordenación].Columns[CON_CPV_Id]"
+                      cachedDataType="i4"
+                      cachedName="CON_CPV_Id"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[CON_CPV_Id]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -8822,7 +9080,7 @@ where [refTable].[CODIGO_ERP] = ?</property>
                       refId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[Copy of CRITERIOS_ADJUDICACION]"
                       codePage="1252"
                       dataType="str"
-                      length="2000"
+                      length="3000"
                       lineageId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[Copy of CRITERIOS_ADJUDICACION]"
                       name="Copy of CRITERIOS_ADJUDICACION">
                       <properties>
@@ -8861,6 +9119,79 @@ where [refTable].[CODIGO_ERP] = ?</property>
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\HECHOS CONTRATACIONES\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of OBSERVACIONES]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[SOL_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[SOL_Titulo_Eu]"
+                      name="SOL_Titulo_Eu">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_Titulo_Eu]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[SOL_PresupuestoIva]"
+                      dataType="numeric"
+                      lineageId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[SOL_PresupuestoIva]"
+                      name="SOL_PresupuestoIva"
+                      precision="18"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_PresupuestoIva]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[SOL_ImporteIva]"
+                      dataType="numeric"
+                      lineageId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[SOL_ImporteIva]"
+                      name="SOL_ImporteIva"
+                      precision="18"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_ImporteIva]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[SOL_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[SOL_CodPromo]"
+                      name="SOL_CodPromo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_CodPromo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[CON_CPV_Id]"
+                      dataType="i4"
+                      lineageId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación].Columns[CON_CPV_Id]"
+                      name="CON_CPV_Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[CON_CPV_Id]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -13168,6 +13499,29 @@ where [refTable].[CODIGO_ERP] = ?</property>
                           name="FriendlyExpression">ISNULL(F_FORMALIZACION) ? (DT_DBDATE)"31/12/9999" : F_FORMALIZACION</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\HECHOS CONTRATACIONES\Poner desconocidos en las NULL.Inputs[Entrada de columna derivada].Columns[CON_CPV_Id]"
+                      cachedDataType="i4"
+                      cachedName="CON_CPV_Id"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CON_CPV_Id]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[ISNULL](#{Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CON_CPV_Id]}) ? 999 : #{Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[CON_CPV_Id]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(CON_CPV_Id) ? 999 : CON_CPV_Id</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -13534,46 +13888,23 @@ where [refTable].[CODIGO_ERP] = ?</property>
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Id, 
-dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_Id, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Codigo, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_FechaAlta, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Solicitante, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Titulo, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Descripcion, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_TIC_Id, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Presupuesto,  
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Prorroga, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_LOPD, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_FOA_Id, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_CriteriosAdjudicacion, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_TFO_Id, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_FechaPresentacion, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Solvencia, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Observaciones, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_SOE_Id, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_FechaEstado, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_ARE_Id, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_AprobadoArea, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_AprobadoEcoFin, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_AprobadoGeneral, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Creador, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_TipoPlazoEjecucion, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_PlazoEjecucion,
-dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_TieneLotes, 
-dbo.ZM_CONTRATACIONES_SOLICITUDES.F_EJECUCION, 
-dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_Codigo, 
-dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_FechaAlta, 
-dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_FechaPresentacion, 
-dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_COE_Id, 
-dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_FechaEstado, 
-dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_FechaAdjudicacion, 
-dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_FechaFormalizacion, 
-dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_FechaFinalizacion, 
-dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_Importe, 
-dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_DOUE, 
-dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_OCO_Id
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Id, dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_Id, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Codigo, 
+                         dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_FechaAlta, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Solicitante, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Titulo, 
+                         dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Descripcion, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_TIC_Id, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Presupuesto, 
+                         dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Prorroga, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_LOPD, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_FOA_Id, 
+                         dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_CriteriosAdjudicacion, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_TFO_Id, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_FechaPresentacion, 
+                         dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Solvencia, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Observaciones, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_SOE_Id, 
+                         dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_FechaEstado, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_ARE_Id, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_AprobadoArea, 
+                         dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_AprobadoEcoFin, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_AprobadoGeneral, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Creador, 
+                         dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_TipoPlazoEjecucion, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_PlazoEjecucion, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_TieneLotes, 
+                         dbo.ZM_CONTRATACIONES_SOLICITUDES.F_EJECUCION, dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_Codigo, dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_FechaAlta, 
+                         dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_FechaPresentacion, dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_COE_Id, dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_FechaEstado, 
+                         dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_FechaAdjudicacion, dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_FechaFormalizacion, 
+                         dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_FechaFinalizacion, dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_Importe, dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_DOUE, 
+                         dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_OCO_Id, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Titulo_Eu, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_PresupuestoIva, 
+                         dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_ImporteIva, dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_CodPromo, dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_Titulo_Eu, 
+                         dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_PresupuestoIva, dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_CodPromo, dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_ImporteIva, 
+                         coalesce(dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_CPV_Id,999)as CON_CPV_Id
 FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
                          dbo.ZM_CONTRATACIONES_CONTRATACIONES ON dbo.ZM_CONTRATACIONES_SOLICITUDES.SOL_Id = dbo.ZM_CONTRATACIONES_CONTRATACIONES.CON_SOL_Id</property>
                 <property
@@ -13978,6 +14309,103 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
                       lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[ID_ORGANO_CON]"
                       name="ID_ORGANO_CON"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_Titulo_Eu]"
+                      length="100"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_Titulo_Eu]"
+                      name="SOL_Titulo_Eu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_PresupuestoIva]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_PresupuestoIva]"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_PresupuestoIva]"
+                      name="SOL_PresupuestoIva"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_ImporteIva]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_ImporteIva]"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_ImporteIva]"
+                      name="SOL_ImporteIva"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_CodPromo]"
+                      length="100"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[SOL_CodPromo]"
+                      name="SOL_CodPromo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[CON_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_Titulo_Eu]"
+                      length="100"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[CON_Titulo_Eu]"
+                      name="CON_Titulo_Eu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[CON_PresupuestoIva]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_PresupuestoIva]"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[CON_PresupuestoIva]"
+                      name="CON_PresupuestoIva"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[CON_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_CodPromo]"
+                      length="100"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[CON_CodPromo]"
+                      name="CON_CodPromo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[CON_ImporteIva]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_ImporteIva]"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[CON_ImporteIva]"
+                      name="CON_ImporteIva"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[CON_CPV_Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_CPV_Id]"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].Columns[CON_CPV_Id]"
+                      name="CON_CPV_Id"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -14153,6 +14581,58 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
                       refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_OCO_Id]"
                       dataType="i4"
                       name="CON_OCO_Id" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SOL_Titulo_Eu" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_PresupuestoIva]"
+                      dataType="numeric"
+                      name="SOL_PresupuestoIva"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_ImporteIva]"
+                      dataType="numeric"
+                      name="SOL_ImporteIva"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[SOL_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SOL_CodPromo" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CON_Titulo_Eu" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_PresupuestoIva]"
+                      dataType="numeric"
+                      name="CON_PresupuestoIva"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CON_CodPromo" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_ImporteIva]"
+                      dataType="numeric"
+                      name="CON_ImporteIva"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB].ExternalColumns[CON_CPV_Id]"
+                      dataType="i4"
+                      name="CON_CPV_Id" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -14371,6 +14851,67 @@ FROM            dbo.ZM_CONTRATACIONES_SOLICITUDES LEFT OUTER JOIN
                       dataType="i4"
                       lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[CON_OCO_Id]"
                       name="CON_OCO_Id" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[SOL_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[SOL_Titulo_Eu]"
+                      name="SOL_Titulo_Eu" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[SOL_PresupuestoIva]"
+                      dataType="numeric"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[SOL_PresupuestoIva]"
+                      name="SOL_PresupuestoIva"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[SOL_ImporteIva]"
+                      dataType="numeric"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[SOL_ImporteIva]"
+                      name="SOL_ImporteIva"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[SOL_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[SOL_CodPromo]"
+                      name="SOL_CodPromo" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[CON_Titulo_Eu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[CON_Titulo_Eu]"
+                      name="CON_Titulo_Eu" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[CON_PresupuestoIva]"
+                      dataType="numeric"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[CON_PresupuestoIva]"
+                      name="CON_PresupuestoIva"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[CON_CodPromo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[CON_CodPromo]"
+                      name="CON_CodPromo" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[CON_ImporteIva]"
+                      dataType="numeric"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[CON_ImporteIva]"
+                      name="CON_ImporteIva"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[CON_CPV_Id]"
+                      dataType="i4"
+                      lineageId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[CON_CPV_Id]"
+                      name="CON_CPV_Id" />
                     <outputColumn
                       refId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -15003,29 +15544,29 @@ where [refTable].[CODIGO_ERP] = ?</property>
               startId="Package\HECHOS CONTRATACIONES\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos4]"
-              endId="Package\HECHOS CONTRATACIONES\ELegir columna no nula en las iguales.Inputs[Entrada de columna derivada]"
-              name="Salida de conversión de datos"
-              startId="Package\HECHOS CONTRATACIONES\Conversión de datos 4.Outputs[Salida de conversión de datos]" />
-            <path
-              refId="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos3]"
-              endId="Package\HECHOS CONTRATACIONES\Areas.Inputs[Entrada de búsqueda]"
-              name="Salida de conversión de datos"
-              startId="Package\HECHOS CONTRATACIONES\Conversión de datos 2.Outputs[Salida de conversión de datos]" />
-            <path
-              refId="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos]"
               endId="Package\HECHOS CONTRATACIONES\cambio de los IND.Inputs[Entrada de columna derivada]"
               name="Salida de conversión de datos"
               startId="Package\HECHOS CONTRATACIONES\Conversión de datos.Outputs[Salida de conversión de datos]" />
             <path
-              refId="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos1]"
+              refId="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos3]"
               endId="Package\HECHOS CONTRATACIONES\Conversión de datos 4.Inputs[Entrada de conversión de datos]"
               name="Salida de conversión de datos"
               startId="Package\HECHOS CONTRATACIONES\Conversión de datos 3.Outputs[Salida de conversión de datos]" />
             <path
-              refId="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos2]"
+              refId="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos]"
               endId="Package\HECHOS CONTRATACIONES\Poner desconocidos en los vacios.Inputs[Entrada de columna derivada]"
               name="Salida de conversión de datos"
               startId="Package\HECHOS CONTRATACIONES\Conversión de datos 1.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos1]"
+              endId="Package\HECHOS CONTRATACIONES\Areas.Inputs[Entrada de búsqueda]"
+              name="Salida de conversión de datos"
+              startId="Package\HECHOS CONTRATACIONES\Conversión de datos 2.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos2]"
+              endId="Package\HECHOS CONTRATACIONES\ELegir columna no nula en las iguales.Inputs[Entrada de columna derivada]"
+              name="Salida de conversión de datos"
+              startId="Package\HECHOS CONTRATACIONES\Conversión de datos 4.Outputs[Salida de conversión de datos]" />
             <path
               refId="Package\HECHOS CONTRATACIONES.Paths[Salida de entradas coincidentes de búsqueda]"
               endId="Package\HECHOS CONTRATACIONES\fechas y proveedor.Inputs[Entrada de columna derivada]"
@@ -15063,14 +15604,14 @@ where [refTable].[CODIGO_ERP] = ?</property>
               startId="Package\HECHOS CONTRATACIONES\Ordenar.Outputs[Salida de ordenación]" />
             <path
               refId="Package\HECHOS CONTRATACIONES.Paths[Salida de origen de OLE DB1]"
-              endId="Package\HECHOS CONTRATACIONES\ID_CONCAT1.Inputs[Entrada de columna derivada]"
-              name="Salida de origen de OLE DB"
-              startId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB]" />
-            <path
-              refId="Package\HECHOS CONTRATACIONES.Paths[Salida de origen de OLE DB]"
               endId="Package\HECHOS CONTRATACIONES\Forma adjudicacion.Inputs[Entrada de búsqueda]"
               name="Salida de origen de OLE DB"
               startId="Package\HECHOS CONTRATACIONES\Contrataciones NAVISION.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\HECHOS CONTRATACIONES.Paths[Salida de origen de OLE DB]"
+              endId="Package\HECHOS CONTRATACIONES\ID_CONCAT1.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\HECHOS CONTRATACIONES\SOL_CON.Outputs[Salida de origen de OLE DB]" />
             <path
               refId="Package\HECHOS CONTRATACIONES.Paths[Salida predeterminada de división condicional]"
               endId="Package\HECHOS CONTRATACIONES\Columnas diferentes.Inputs[Entrada de columna derivada]"
@@ -15501,6 +16042,13 @@ where [refTable].[ID_CONTRATO] = ?</property>
                       cachedName="IND_EXENTO"
                       externalMetadataColumnId="Package\HECHOS NAVISION\H_CONTRATACION_LINEAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[IND_EXENTO]"
                       lineageId="Package\HECHOS NAVISION\LINEAS.Outputs[Salida de origen de OLE DB].Columns[IND_EXENTO]" />
+                    <inputColumn
+                      refId="Package\HECHOS NAVISION\H_CONTRATACION_LINEAS.Inputs[Entrada de destino de OLE DB].Columns[Codigo Actividad]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Codigo Actividad"
+                      externalMetadataColumnId="Package\HECHOS NAVISION\H_CONTRATACION_LINEAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[COD_ACTIVIDAD]"
+                      lineageId="Package\HECHOS NAVISION\LINEAS.Outputs[Salida de origen de OLE DB].Columns[Codigo Actividad]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -15608,6 +16156,11 @@ where [refTable].[ID_CONTRATO] = ?</property>
                       refId="Package\HECHOS NAVISION\H_CONTRATACION_LINEAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[IND_EXENTO]"
                       dataType="i4"
                       name="IND_EXENTO" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS NAVISION\H_CONTRATACION_LINEAS.Inputs[Entrada de destino de OLE DB].ExternalColumns[COD_ACTIVIDAD]"
+                      dataType="wstr"
+                      length="20"
+                      name="COD_ACTIVIDAD" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -16234,6 +16787,16 @@ where [refTable].[ID_CONTRATO] = ?</property>
                       lineageId="Package\HECHOS NAVISION\LINEAS.Outputs[Salida de origen de OLE DB].Columns[F_EJECUCION]"
                       name="F_EJECUCION"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HECHOS NAVISION\LINEAS.Outputs[Salida de origen de OLE DB].Columns[Codigo Actividad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HECHOS NAVISION\LINEAS.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo Actividad]"
+                      length="20"
+                      lineageId="Package\HECHOS NAVISION\LINEAS.Outputs[Salida de origen de OLE DB].Columns[Codigo Actividad]"
+                      name="Codigo Actividad"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -16394,6 +16957,11 @@ where [refTable].[ID_CONTRATO] = ?</property>
                       refId="Package\HECHOS NAVISION\LINEAS.Outputs[Salida de origen de OLE DB].ExternalColumns[F_EJECUCION]"
                       dataType="dbTimeStamp"
                       name="F_EJECUCION" />
+                    <externalMetadataColumn
+                      refId="Package\HECHOS NAVISION\LINEAS.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo Actividad]"
+                      dataType="wstr"
+                      length="20"
+                      name="Codigo Actividad" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -16589,6 +17157,12 @@ where [refTable].[ID_CONTRATO] = ?</property>
                       dataType="dbTimeStamp"
                       lineageId="Package\HECHOS NAVISION\LINEAS.Outputs[Salida de error de origen de OLE DB].Columns[F_EJECUCION]"
                       name="F_EJECUCION" />
+                    <outputColumn
+                      refId="Package\HECHOS NAVISION\LINEAS.Outputs[Salida de error de origen de OLE DB].Columns[Codigo Actividad]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\HECHOS NAVISION\LINEAS.Outputs[Salida de error de origen de OLE DB].Columns[Codigo Actividad]"
+                      name="Codigo Actividad" />
                     <outputColumn
                       refId="Package\HECHOS NAVISION\LINEAS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -17016,13 +17590,13 @@ where [refTable].[ID_CONTRATO] = ?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\IND_ACITVO"
+      DTS:refId="Package\IND_ACITVO y Importe con iva"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
       DTS:DTSID="{63064D55-C121-4DAD-AE2F-D7E8BA28C84D}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="IND_ACITVO"
+      DTS:ObjectName="IND_ACITVO y Importe con iva"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -17031,7 +17605,7 @@ where [refTable].[ID_CONTRATO] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{53680043-8F86-4E5D-BC3D-E958A8BCD8D5}"
-          SQLTask:SqlStatementSource="UPDATE H_CONTRATACION_CONTRATACIONES SET IND_ACTIVO=&#xA;case WHEN F_FORMALIZACION='9999/12/31' OR ID_TIPO_PLAZO_EJEC=999 THEN 999&#xA;when ID_TIPO_PLAZO_EJEC=1 and f_formalizacion &lt;&gt; '9999/12/31' AND DATEADD(DAY,PLAZO_EJECUCION,F_FORMALIZACION)&gt;= SYSDATETIME() THEN 1&#xA;when ID_TIPO_PLAZO_EJEC=2 and f_formalizacion &lt;&gt; '9999/12/31' AND  DATEADD(MONTH,PLAZO_EJECUCION,F_FORMALIZACION)&gt;= SYSDATETIME() THEN 1&#xA;ELSE 0 END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE H_CONTRATACION_CONTRATACIONES SET IND_ACTIVO=&#xA;case WHEN F_FORMALIZACION='9999/12/31' OR ID_TIPO_PLAZO_EJEC=999 THEN 999&#xA;when ID_TIPO_PLAZO_EJEC=1 and f_formalizacion &lt;&gt; '9999/12/31' AND DATEADD(DAY,PLAZO_EJECUCION,F_FORMALIZACION)&gt;= SYSDATETIME() THEN 1&#xA;when ID_TIPO_PLAZO_EJEC=2 and f_formalizacion &lt;&gt; '9999/12/31' AND  DATEADD(MONTH,PLAZO_EJECUCION,F_FORMALIZACION)&gt;= SYSDATETIME() THEN 1&#xA;ELSE 0 END&#xA;&#xA;&#xA;  update [H_CONTRATACION_CONTRATACIONES] set IMPORTE_ADJ_IVA = (SELECT [SOL_ImporteIva]&#xA;     &#xA;  FROM [VISESABI].[dbo].[ZM_CONTRATACIONES_SOLICITUDES]&#xA;&#xA;  where [ZM_CONTRATACIONES_SOLICITUDES].SOL_Id = ID_SOL)&#xA;&#xA;  where id_sol in (SELECT SOL_Id&#xA;     &#xA;  FROM [VISESABI].[dbo].[ZM_CONTRATACIONES_SOLICITUDES]&#xA;&#xA;  where SOL_ImporteIva &gt;0)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -17354,6 +17928,28 @@ where [refTable].[ID_CONTRATO] = ?</property>
                           name="FriendlyExpression">ID_TIPO_CONTRATO == 1 ? 0.1 : 0.21</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Maestras\Columna derivada 2.Outputs[Salida de columna derivada].Columns[IVA_NUM]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Maestras\Columna derivada 2.Outputs[Salida de columna derivada].Columns[IVA_NUM]"
+                      name="IVA_NUM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\Maestras\TiposContrato.Outputs[Salida de origen de OLE DB].Columns[ID_TIPO_CONTRATO]} == 1 ? 7 : 21</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ID_TIPO_CONTRATO == 1 ? 7 : 21</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -17505,6 +18101,160 @@ where [refTable].[ID_CONTRATO] = ?</property>
                       refId="Package\Maestras\ContratacionesEstados.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Maestras\ContratacionesEstados.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Maestras\CPV"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="CPV"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[CPV]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Maestras\CPV.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.Contrataciones]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQL1\SHAREPOINT.Contrataciones]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].Columns[ID_CPV]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].ExternalColumns[CPV_Id]"
+                      lineageId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].Columns[ID_CPV]"
+                      name="ID_CPV"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].Columns[COD_CPV]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].ExternalColumns[CPV_Codigo]"
+                      length="20"
+                      lineageId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].Columns[COD_CPV]"
+                      name="COD_CPV"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].Columns[DESC_CPV]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].ExternalColumns[CPV_Descripcion]"
+                      length="250"
+                      lineageId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].Columns[DESC_CPV]"
+                      name="DESC_CPV"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].ExternalColumns[CPV_Id]"
+                      dataType="i4"
+                      name="CPV_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].ExternalColumns[CPV_Codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CPV_Codigo" />
+                    <externalMetadataColumn
+                      refId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].ExternalColumns[CPV_Descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="CPV_Descripcion" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Maestras\CPV.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Maestras\CPV.Outputs[Salida de error de origen de OLE DB].Columns[CPV_Id]"
+                      dataType="i4"
+                      lineageId="Package\Maestras\CPV.Outputs[Salida de error de origen de OLE DB].Columns[CPV_Id]"
+                      name="CPV_Id" />
+                    <outputColumn
+                      refId="Package\Maestras\CPV.Outputs[Salida de error de origen de OLE DB].Columns[CPV_Codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Maestras\CPV.Outputs[Salida de error de origen de OLE DB].Columns[CPV_Codigo]"
+                      name="CPV_Codigo" />
+                    <outputColumn
+                      refId="Package\Maestras\CPV.Outputs[Salida de error de origen de OLE DB].Columns[CPV_Descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\Maestras\CPV.Outputs[Salida de error de origen de OLE DB].Columns[CPV_Descripcion]"
+                      name="CPV_Descripcion" />
+                    <outputColumn
+                      refId="Package\Maestras\CPV.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Maestras\CPV.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Maestras\CPV.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Maestras\CPV.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -17866,6 +18616,147 @@ where [refTable].[ID_CONTRATO] = ?</property>
                       refId="Package\Maestras\M_CONTRATACION_AREAS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Maestras\M_CONTRATACION_AREAS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Maestras\M_CONTRATACION_CPV"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="M_CONTRATACION_CPV"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[M_CONTRATACION_CPV]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Maestras\M_CONTRATACION_CPV.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Maestras\M_CONTRATACION_CPV.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Maestras\M_CONTRATACION_CPV.Inputs[Entrada de destino de OLE DB].Columns[ID_CPV]"
+                      cachedDataType="i4"
+                      cachedName="ID_CPV"
+                      externalMetadataColumnId="Package\Maestras\M_CONTRATACION_CPV.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_CPV]"
+                      lineageId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].Columns[ID_CPV]" />
+                    <inputColumn
+                      refId="Package\Maestras\M_CONTRATACION_CPV.Inputs[Entrada de destino de OLE DB].Columns[COD_CPV]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="COD_CPV"
+                      externalMetadataColumnId="Package\Maestras\M_CONTRATACION_CPV.Inputs[Entrada de destino de OLE DB].ExternalColumns[COD_CPV]"
+                      lineageId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].Columns[COD_CPV]" />
+                    <inputColumn
+                      refId="Package\Maestras\M_CONTRATACION_CPV.Inputs[Entrada de destino de OLE DB].Columns[DESC_CPV]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="DESC_CPV"
+                      externalMetadataColumnId="Package\Maestras\M_CONTRATACION_CPV.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_CPV]"
+                      lineageId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB].Columns[DESC_CPV]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Maestras\M_CONTRATACION_CPV.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_CPV]"
+                      dataType="i4"
+                      name="ID_CPV" />
+                    <externalMetadataColumn
+                      refId="Package\Maestras\M_CONTRATACION_CPV.Inputs[Entrada de destino de OLE DB].ExternalColumns[COD_CPV]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="COD_CPV" />
+                    <externalMetadataColumn
+                      refId="Package\Maestras\M_CONTRATACION_CPV.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_CPV]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="DESC_CPV" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Maestras\M_CONTRATACION_CPV.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Maestras\M_CONTRATACION_CPV.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Maestras\M_CONTRATACION_CPV.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Maestras\M_CONTRATACION_CPV.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Maestras\M_CONTRATACION_CPV.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Maestras\M_CONTRATACION_CPV.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -18539,6 +19430,12 @@ where [refTable].[ID_CONTRATO] = ?</property>
                       cachedScale="2"
                       externalMetadataColumnId="Package\Maestras\M_CONTRATACION_TIPO_CONTRATO.Inputs[Entrada de destino de OLE DB].ExternalColumns[IVA]"
                       lineageId="Package\Maestras\Columna derivada 2.Outputs[Salida de columna derivada].Columns[IVA]" />
+                    <inputColumn
+                      refId="Package\Maestras\M_CONTRATACION_TIPO_CONTRATO.Inputs[Entrada de destino de OLE DB].Columns[IVA_NUM]"
+                      cachedDataType="i4"
+                      cachedName="IVA_NUM"
+                      externalMetadataColumnId="Package\Maestras\M_CONTRATACION_TIPO_CONTRATO.Inputs[Entrada de destino de OLE DB].ExternalColumns[IVA_NUMERO]"
+                      lineageId="Package\Maestras\Columna derivada 2.Outputs[Salida de columna derivada].Columns[IVA_NUM]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -18570,6 +19467,10 @@ where [refTable].[ID_CONTRATO] = ?</property>
                       refId="Package\Maestras\M_CONTRATACION_TIPO_CONTRATO.Inputs[Entrada de destino de OLE DB].ExternalColumns[IVA]"
                       dataType="r8"
                       name="IVA" />
+                    <externalMetadataColumn
+                      refId="Package\Maestras\M_CONTRATACION_TIPO_CONTRATO.Inputs[Entrada de destino de OLE DB].ExternalColumns[IVA_NUMERO]"
+                      dataType="r8"
+                      name="IVA_NUMERO" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -19913,6 +20814,11 @@ where [refTable].[ID_CONTRATO] = ?</property>
               endId="Package\Maestras\M_CONTRATACION_ORGANOS.Inputs[Entrada de destino de OLE DB]"
               name="Salida de origen de OLE DB"
               startId="Package\Maestras\OrganosContratacion.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\Maestras.Paths[Salida de origen de OLE DB9]"
+              endId="Package\Maestras\M_CONTRATACION_CPV.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Maestras\CPV.Outputs[Salida de origen de OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -23079,7 +23985,7 @@ where [refTable].[ID_CONTRATO] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{53680043-8F86-4E5D-BC3D-E958A8BCD8D5}"
-          SQLTask:SqlStatementSource="&#xA;delete from [dbo].[H_CONTRATACION_CONTRATACIONES]&#xA;delete from [dbo].[H_CONTRATACION_LINEAS]&#xA;delete from [dbo].[H_CONTRATACION_MOVIMIENTO]&#xA;DELETE FROM [dbo].[ZZ_CONTRATACIONES_INCONGRUENCIAS]&#xA;delete from [dbo].[M_CONTRATACION_PROVEEDOR]&#xA;insert into [dbo].[M_CONTRATACION_PROVEEDOR]([ID_PROVEEDOR]&#xA;      ,[NOMBRE_PROVEEDOR],[PAIS],[CIUDAD]) values ('-2', 'OTROS','999','Desconocido')&#xA;delete from [dbo].[M_CONTRATACION_CON_PROV]&#xA;&#xA;&#xA;delete from [dbo].[M_CONTRATACION_AREAS]&#xA;insert into  [dbo].[M_CONTRATACION_AREAS] values (999 ,'Desconocido', 999,999,NULL,NULL,&#x9;999,'Desconocido')&#xA;delete from [dbo].[M_CONTRATACION_ESTADOS_CON]&#xA;insert into [dbo].[M_CONTRATACION_ESTADOS_CON] values (999, 'Desconocido')&#xA;delete from [dbo].[M_CONTRATACION_ESTADOS_SOL]&#xA;insert into [dbo].[M_CONTRATACION_ESTADOS_SOL] values (999, 'Desconocido')&#xA;delete from [dbo].[M_CONTRATACION_FORMA_ADJ]&#xA;insert into [dbo].[M_CONTRATACION_FORMA_ADJ] values (999, 'Desconocido', 999, 999)&#xA;delete from [dbo].[M_CONTRATACION_ORGANOS]&#xA;insert into  [dbo].[M_CONTRATACION_ORGANOS] values (999, 'Desconocido', 999, 999)&#xA;delete from [dbo].[M_CONTRATACION_TIPO_CONTRATO]&#xA;insert into  [dbo].[M_CONTRATACION_TIPO_CONTRATO] values  (999, 'Desconocido', 'DE', 999, 999, 999)&#xA;delete from [dbo].[M_CONTRATACION_TIPO_DOC]&#xA;insert into  [dbo].[M_CONTRATACION_TIPO_DOC] values  (999, 'Desconocido')&#xA;delete from [dbo].[M_CONTRATACION_TIPO_FICHERO]&#xA;insert into [dbo].[M_CONTRATACION_TIPO_FICHERO] values  (999, 'Desconocido')&#xA;delete from [dbo].[M_CONTRATACION_TIPO_FORMULARIO]&#xA;insert into  [dbo].[M_CONTRATACION_TIPO_FORMULARIO] values  (999, 'Desconocido')&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;delete from [dbo].[H_CONTRATACION_CONTRATACIONES]&#xA;delete from [dbo].[H_CONTRATACION_LINEAS]&#xA;delete from [dbo].[H_CONTRATACION_MOVIMIENTO]&#xA;DELETE FROM [dbo].[ZZ_CONTRATACIONES_INCONGRUENCIAS]&#xA;delete from [dbo].[M_CONTRATACION_PROVEEDOR]&#xA;insert into [dbo].[M_CONTRATACION_PROVEEDOR]([ID_PROVEEDOR]&#xA;      ,[NOMBRE_PROVEEDOR],[PAIS],[CIUDAD]) values ('-2', 'OTROS','999','Desconocido')&#xA;delete from [dbo].[M_CONTRATACION_CON_PROV]&#xA;&#xA;&#xA;delete from [dbo].[M_CONTRATACION_AREAS]&#xA;insert into  [dbo].[M_CONTRATACION_AREAS] values (999 ,'Desconocido', 999,999,NULL,NULL,&#x9;999,'Desconocido')&#xA;delete from [dbo].[M_CONTRATACION_ESTADOS_CON]&#xA;insert into [dbo].[M_CONTRATACION_ESTADOS_CON] values (999, 'Desconocido')&#xA;delete from [dbo].[M_CONTRATACION_ESTADOS_SOL]&#xA;insert into [dbo].[M_CONTRATACION_ESTADOS_SOL] values (999, 'Desconocido')&#xA;delete from [dbo].[M_CONTRATACION_FORMA_ADJ]&#xA;insert into [dbo].[M_CONTRATACION_FORMA_ADJ] values (999, 'Desconocido', 999, 999)&#xA;delete from [dbo].[M_CONTRATACION_ORGANOS]&#xA;insert into  [dbo].[M_CONTRATACION_ORGANOS] values (999, 'Desconocido', 999, 999)&#xA;delete from [dbo].[M_CONTRATACION_TIPO_CONTRATO]&#xA;insert into  [dbo].[M_CONTRATACION_TIPO_CONTRATO] values  (999, 'Desconocido', 'DE', 999, 999, 999,null)&#xA;delete from [dbo].[M_CONTRATACION_TIPO_DOC]&#xA;insert into  [dbo].[M_CONTRATACION_TIPO_DOC] values  (999, 'Desconocido')&#xA;delete from [dbo].[M_CONTRATACION_TIPO_FICHERO]&#xA;insert into [dbo].[M_CONTRATACION_TIPO_FICHERO] values  (999, 'Desconocido')&#xA;delete from [dbo].[M_CONTRATACION_TIPO_FORMULARIO]&#xA;insert into  [dbo].[M_CONTRATACION_TIPO_FORMULARIO] values  (999, 'Desconocido')&#xA;&#xA;delete from [M_CONTRATACION_CPV]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -23087,11 +23993,11 @@ where [refTable].[ID_CONTRATO] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{CED15C5A-A27A-4341-9753-6422DFBF9AD2}"
+      DTS:DTSID="{B55276C3-6990-46FD-9DB8-7945EC5E9C0B}"
       DTS:From="Package\Maestras"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Proveedores" />
+      DTS:To="Package\Cpv" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -23107,7 +24013,7 @@ where [refTable].[ID_CONTRATO] = ?</property>
       DTS:From="Package\HECHOS CONTRATACIONES"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:To="Package\IND_ACITVO" />
+      DTS:To="Package\IND_ACITVO y Importe con iva" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
@@ -23144,7 +24050,7 @@ where [refTable].[ID_CONTRATO] = ?</property>
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
       DTS:DTSID="{FEFB2208-16B4-4430-B381-5D5E8E7EF00B}"
-      DTS:From="Package\IND_ACITVO"
+      DTS:From="Package\IND_ACITVO y Importe con iva"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
       DTS:To="Package\F_FIN_PLAZO" />
@@ -23156,6 +24062,14 @@ where [refTable].[ID_CONTRATO] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
       DTS:To="Package\HECHOS NAVISION" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{03EF0129-B1C8-4772-AC10-A6DAE54B5527}"
+      DTS:From="Package\Cpv"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Proveedores" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -23178,12 +24092,12 @@ where [refTable].[ID_CONTRATO] = ?</property>
           Id="Package\HECHOS CONTRATACIONES"
           TopLeft="173.571427968083,280.658824155735" />
         <NodeLayout
-          Size="170.4,41.6"
+          Size="169.6,41.6"
           Id="Package\HECHOS NAVISION"
           TopLeft="189.857142428963,505.352943621704" />
         <NodeLayout
-          Size="139.2,41.6"
-          Id="Package\IND_ACITVO"
+          Size="225.6,41.6"
+          Id="Package\IND_ACITVO y Importe con iva"
           TopLeft="204.457145017507,364.282356647637" />
         <NodeLayout
           Size="120.8,41.6"
@@ -23210,41 +24124,19 @@ where [refTable].[ID_CONTRATO] = ?</property>
           Id="Package\Tarea Ejecutar SQL"
           TopLeft="186.14285716232,3.9764702793636" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="273.48571599357,114.03529326825">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,23.9411790530984"
-              Start="0,0"
-              End="0,16.4411790530984">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.4411790530984" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="270.95714280362,45.5764702793636">
+          TopLeft="271.10714280362,45.9764702793636">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,26.8588229888863"
+              EndConnector="0,26.4588229888863"
               Start="0,0"
-              End="0,19.3588229888863">
+              End="0,18.9588229888863">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.3588229888863" />
+                    End="0,18.9588229888863" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23255,18 +24147,30 @@ where [refTable].[ID_CONTRATO] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="277.014286492795,322.258824155735">
+          TopLeft="279.971427968083,322.258824155735">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.0235324919019"
+              EndConnector="37.285717049424,42.023532491902"
               Start="0,0"
-              End="0,34.5235324919019">
+              End="37.285717049424,34.523532491902">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5235324919019" />
+                    End="0,17.011766245951" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.011766245951"
+                    Point2="0,21.011766245951"
+                    Point3="4,21.011766245951" />
+                  <mssgle:LineSegment
+                    End="33.285717049424,21.011766245951" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.285717049424,21.011766245951"
+                    Point2="37.285717049424,21.011766245951"
+                    Point3="37.285717049424,25.011766245951" />
+                  <mssgle:LineSegment
+                    End="37.285717049424,34.523532491902" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23299,18 +24203,18 @@ where [refTable].[ID_CONTRATO] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="280.328572304394,245.647061483257">
+          TopLeft="280.428572304394,246.047061483257">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35.0117626724774"
+              EndConnector="0,34.611762672478"
               Start="0,0"
-              End="0,27.5117626724774">
+              End="0,27.111762672478">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.5117626724774" />
+                    End="0,27.111762672478" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23365,18 +24269,30 @@ where [refTable].[ID_CONTRATO] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="272.314288468264,405.882356647637">
+          TopLeft="317.257145017507,405.882356647637">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,27.3882348479694"
+              EndConnector="-46.6857130984869,27.388234847969"
               Start="0,0"
-              End="0,19.8882348479694">
+              End="-46.6857130984869,19.888234847969">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.8882348479694" />
+                    End="0,9.69411742398449" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.69411742398449"
+                    Point2="0,13.6941174239845"
+                    Point3="-4,13.6941174239845" />
+                  <mssgle:LineSegment
+                    End="-42.6857130984869,13.6941174239845" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-42.6857130984869,13.6941174239845"
+                    Point2="-46.6857130984869,13.6941174239845"
+                    Point3="-46.6857130984869,17.6941174239845" />
+                  <mssgle:LineSegment
+                    End="-46.6857130984869,19.888234847969" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23407,6 +24323,78 @@ where [refTable].[ID_CONTRATO] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="96,41.6"
+          Id="Package\Cpv"
+          TopLeft="45.0285721681556,100.89411873669" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="210.571428444921,93.2352932682499">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-69.5428562767654,22.8588254684396"
+              Start="0,0"
+              End="-62.0428562767654,22.8588254684396">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-36.1803169599089,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-36.1803169599089,0"
+                    Point2="-40.1803169599089,0"
+                    Point3="-40.1803169599089,4" />
+                  <mssgle:LineSegment
+                    End="-40.1803169599089,18.8588254684396" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.1803169599089,18.8588254684396"
+                    Point2="-40.1803169599089,22.8588254684396"
+                    Point3="-44.1803169599089,22.8588254684396" />
+                  <mssgle:LineSegment
+                    End="-62.0428562767654,22.8588254684396" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="141.028572168156,127.29411873669">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="66.9714313740635,31.4823535846585"
+              Start="0,0"
+              End="59.4714313740635,31.4823535846585">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="24.2768265801601,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.2768265801601,0"
+                    Point2="28.2768265801601,0"
+                    Point3="28.2768265801601,4" />
+                  <mssgle:LineSegment
+                    End="28.2768265801601,27.4823535846585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.2768265801601,27.4823535846585"
+                    Point2="28.2768265801601,31.4823535846585"
+                    Point3="32.2768265801601,31.4823535846585" />
+                  <mssgle:LineSegment
+                    End="59.4714313740635,31.4823535846585" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -23420,125 +24408,441 @@ where [refTable].[ID_CONTRATO] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="142.4,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Tipo contrato"
-          TopLeft="603.285716504467,210.764704981477" />
-        <NodeLayout
-          Size="168,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Destino de OLE DB"
-          TopLeft="542.285716163868,1278.69412238309" />
-        <NodeLayout
-          Size="180.8,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Importe adju con IVA"
-          TopLeft="587.571427082529,421.352942163144" />
-        <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Conversión de datos 4"
-          TopLeft="531.428580342507,726.16470935716" />
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Columnas diferentes"
-          TopLeft="210.285717185663,734.741176719401" />
-        <NodeLayout
-          Size="141.6,41.6"
-          Id="Package\HECHOS CONTRATACIONES\ID_CONCAT1"
-          TopLeft="242.48571759438,115.682353292947" />
-        <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Conversión de datos 3"
-          TopLeft="531.314294735266,656.800003208833" />
-        <NodeLayout
-          Size="256,41.6"
-          Id="Package\HECHOS CONTRATACIONES\ELegir columna no nula en las iguales"
-          TopLeft="501.571430760987,797.035296768796" />
-        <NodeLayout
-          Size="200.8,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Contrataciones NAVISION"
-          TopLeft="566.142856549244,4.43529326824993" />
-        <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Conversión de datos 2"
-          TopLeft="584.685720251045,279.623531470909" />
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\HECHOS CONTRATACIONES\cambio de los IND"
-          TopLeft="239.028574688581,339.98823557725" />
+          Size="230.4,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Poner desconocidos en las NULL"
+          TopLeft="516.685721272838,1007.90588797269" />
         <NodeLayout
           Size="124.8,41.6"
           Id="Package\HECHOS CONTRATACIONES\SOL_CON"
           TopLeft="258.457145017507,7.3058824301591" />
         <NodeLayout
-          Size="230.4,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Poner desconocidos en las NULL"
-          TopLeft="516.685721272838,1007.90588797269" />
+          Size="256,41.6"
+          Id="Package\HECHOS CONTRATACIONES\ELegir columna no nula en las iguales"
+          TopLeft="501.571430760987,797.035296768796" />
         <NodeLayout
-          Size="180,41.6"
-          Id="Package\HECHOS CONTRATACIONES\División condicional 1"
-          TopLeft="204.142859887104,804.105882284303" />
+          Size="183.2,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Conversión de datos 3"
+          TopLeft="531.314294735266,656.800003208833" />
         <NodeLayout
-          Size="116.8,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Ordenar"
-          TopLeft="300.571428921758,469.082353292947" />
+          Size="200.8,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Contrataciones NAVISION"
+          TopLeft="566.142856549244,4.43529326824993" />
         <NodeLayout
-          Size="168.8,41.6"
-          Id="Package\HECHOS CONTRATACIONES\fechas y proveedor"
-          TopLeft="590.571427559366,137.764704981477" />
-        <NodeLayout
-          Size="137.6,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Multidifusión"
-          TopLeft="389.857146379899,589.494118299121" />
+          Size="175.2,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Columnas diferentes"
+          TopLeft="210.285717185663,734.741176719401" />
         <NodeLayout
           Size="230.4,41.6"
           Id="Package\HECHOS CONTRATACIONES\Poner importes de los hijos en 0"
           TopLeft="515.428577345245,1072.5647092113" />
         <NodeLayout
-          Size="184,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Conversión de datos 1"
-          TopLeft="536.714287855187,868.564708190311" />
-        <NodeLayout
-          Size="280.8,41.6"
-          Id="Package\HECHOS CONTRATACIONES\ZZ_CONTRATACIONES_INCONGRUENCIAS"
-          TopLeft="156.942855663689,976.141177011114" />
-        <NodeLayout
-          Size="190.4,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Combinación de mezcla"
-          TopLeft="362,519" />
-        <NodeLayout
-          Size="153.6,44.8"
-          Id="Package\HECHOS CONTRATACIONES\Fecha ejecución"
-          TopLeft="547.314292282961,1209.17647538433" />
-        <NodeLayout
-          Size="104.8,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Areas"
-          TopLeft="625.485720796001,349.035295747803" />
+          Size="183.2,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Conversión de datos 2"
+          TopLeft="584.685720251045,279.623531470909" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\HECHOS CONTRATACIONES\Forma adjudicacion"
           TopLeft="586.42857318995,69.2705874116363" />
         <NodeLayout
-          Size="144,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Los de nivel 0"
-          TopLeft="222.142859069669,876.776470571076" />
+          Size="180,41.6"
+          Id="Package\HECHOS CONTRATACIONES\División condicional 1"
+          TopLeft="204.142859887104,804.105882284303" />
         <NodeLayout
           Size="126.4,41.6"
           Id="Package\HECHOS CONTRATACIONES\Ordenar 1"
           TopLeft="493.857142633321,471.082353292947" />
         <NodeLayout
-          Size="175.2,41.6"
+          Size="116.8,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Ordenar"
+          TopLeft="300.571428921758,469.082353292947" />
+        <NodeLayout
+          Size="233.6,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Poner desconocidos en los vacios"
+          TopLeft="509.485718207457,937.035299831773" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Multidifusión"
+          TopLeft="389.857146379899,589.494118299121" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\HECHOS CONTRATACIONES\cambio de los IND"
+          TopLeft="239.028574688581,339.98823557725" />
+        <NodeLayout
+          Size="153.6,44.8"
+          Id="Package\HECHOS CONTRATACIONES\Fecha ejecución"
+          TopLeft="547.314292282961,1209.17647538433" />
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\HECHOS CONTRATACIONES\fechas y proveedor"
+          TopLeft="590.571427559366,137.764704981477" />
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Los de nivel 0"
+          TopLeft="222.142859069669,876.776470571076" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Conversión de datos 1"
+          TopLeft="536.714287855187,868.564708190311" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Tipo contrato"
+          TopLeft="603.285716504467,210.764704981477" />
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\HECHOS CONTRATACIONES\IND_TVCP"
+          TopLeft="565.371433417651,1138.91765356229" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Combinación de mezcla"
+          TopLeft="362,519" />
+        <NodeLayout
+          Size="104.8,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Areas"
+          TopLeft="625.485720796001,349.035295747803" />
+        <NodeLayout
+          Size="174.4,41.6"
           Id="Package\HECHOS CONTRATACIONES\Conversión de datos"
           TopLeft="229.257144063833,228.517647290477" />
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Importe adju con IVA"
+          TopLeft="587.571427082529,421.352942163144" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Destino de OLE DB"
+          TopLeft="542.285716163868,1278.69412238309" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\HECHOS CONTRATACIONES\Conversión de datos 4"
+          TopLeft="531.428580342507,726.16470935716" />
+        <NodeLayout
+          Size="280.8,41.6"
+          Id="Package\HECHOS CONTRATACIONES\ZZ_CONTRATACIONES_INCONGRUENCIAS"
+          TopLeft="156.942855663689,976.141177011114" />
         <NodeLayout
           Size="244,41.6"
           Id="Package\HECHOS CONTRATACIONES\Apartar los que no tienen sol o con"
           TopLeft="175.857145289986,655.094118153265" />
         <NodeLayout
-          Size="234.4,41.6"
-          Id="Package\HECHOS CONTRATACIONES\Poner desconocidos en los vacios"
-          TopLeft="509.485718207457,937.035299831773" />
-        <NodeLayout
-          Size="127.2,41.6"
-          Id="Package\HECHOS CONTRATACIONES\IND_TVCP"
-          TopLeft="565.371433417651,1138.91765356229" />
+          Size="142.4,41.6"
+          Id="Package\HECHOS CONTRATACIONES\ID_CONCAT1"
+          TopLeft="242.48571759438,115.682353292947" />
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="673.500000374658,110.870587411636">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.8941175698409"
+              Start="0,0"
+              End="0,19.3941175698409">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3941175698409" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-99.8190234375,3.59940253492045,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos4]"
+          TopLeft="318.942859376207,270.117647290477">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.870588286773"
+              Start="0,0"
+              End="0,62.370588286773">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.370588286773" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos3]"
+          TopLeft="622.971437538886,698.400003208833">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.7647061483265"
+              Start="0,0"
+              End="0,20.2647061483265">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2647061483265" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos2]"
+          TopLeft="626.300005551747,767.76470935716">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.2705874116359"
+              Start="0,0"
+              End="0,21.7705874116359">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.7705874116359" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos1]"
+          TopLeft="677.085720523523,321.223531470909">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.8117642768943"
+              Start="0,0"
+              End="0,20.3117642768943">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3117642768943" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos]"
+          TopLeft="627.700003031322,910.164708190311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.8705916414619"
+              Start="0,0"
+              End="0,19.3705916414619">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3705916414619" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de combinación de mezcla]"
+          TopLeft="457.92857318995,560.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.8941182991214"
+              Start="0,0"
+              End="0,21.3941182991214">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.3941182991214" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada10]"
+          TopLeft="626.542862850306,1180.51765356229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.6588218220418"
+              Start="0,0"
+              End="0,21.1588218220418">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.1588218220418" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada9]"
+          TopLeft="625.200004223414,1253.97647538433">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.7176469987601"
+              Start="0,0"
+              End="0,17.2176469987601">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2176469987601" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada8]"
+          TopLeft="629.142859308087,838.635296768796">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.9294114215153"
+              Start="0,0"
+              End="0,22.4294114215153">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4294114215153" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada7]"
+          TopLeft="629.285719740147,978.635299831773">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.2705881409171"
+              Start="0,0"
+              End="0,21.7705881409171">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.7705881409171" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada6]"
+          TopLeft="296.014288536383,776.341176719401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.7647055649016"
+              Start="0,0"
+              End="0,20.2647055649016">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2647055649016" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada5]"
+          TopLeft="629.800005381448,1114.1647092113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.7529443509857"
+              Start="0,0"
+              End="0,17.2529443509857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2529443509857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada4]"
+          TopLeft="587.571427082529,442.152942163144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-30.5142844492078,28.929411129803"
+              Start="0,0"
+              End="-30.5142844492078,21.429411129803">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-26.5142844492078,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.5142844492078,0"
+                    Point2="-30.5142844492078,0"
+                    Point3="-30.5142844492078,4" />
+                  <mssgle:LineSegment
+                    End="-30.5142844492078,21.429411129803" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada3]"
           TopLeft="674.728572031916,179.364704981477">
@@ -23597,18 +24901,18 @@ where [refTable].[ID_CONTRATO] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada1]"
-          TopLeft="315.071430829106,157.282353292947">
+          TopLeft="314.871430829107,157.282353292947">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,71.2352939975299"
+              EndConnector="0,71.23529399753"
               Start="0,0"
-              End="0,63.7352939975299">
+              End="0,63.73529399753">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,63.7352939975299" />
+                    End="0,63.73529399753" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23712,7 +25016,7 @@ where [refTable].[ID_CONTRATO] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de origen de OLE DB]"
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de origen de OLE DB1]"
           TopLeft="669.285714869597,46.0352932682499">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -23734,7 +25038,7 @@ where [refTable].[ID_CONTRATO] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de origen de OLE DB1]"
+          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de origen de OLE DB]"
           TopLeft="317.071431305944,48.9058824301591">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -23881,7 +25185,7 @@ where [refTable].[ID_CONTRATO] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\HECHOS CONTRATACIONES.Paths[Salida de entradas coincidentes de búsqueda2]"
-          TopLeft="677.928573939265,390.635295747803">
+          TopLeft="688.328573939265,390.635295747803">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -23927,369 +25231,9 @@ where [refTable].[ID_CONTRATO] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="673.500000374658,110.870587411636">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.8941175698409"
-              Start="0,0"
-              End="0,19.3941175698409">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.3941175698409" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-99.8190234375,3.59940253492045,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos]"
-          TopLeft="319.142859376207,270.117647290477">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,69.870588286773"
-              Start="0,0"
-              End="0,62.370588286773">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,62.370588286773" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos1]"
-          TopLeft="622.971437538886,698.400003208833">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.7647061483265"
-              Start="0,0"
-              End="0,20.2647061483265">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2647061483265" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos4]"
-          TopLeft="626.300005551747,767.76470935716">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.2705874116359"
-              Start="0,0"
-              End="0,21.7705874116359">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.7705874116359" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos3]"
-          TopLeft="677.085720523523,321.223531470909">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.8117642768943"
-              Start="0,0"
-              End="0,20.3117642768943">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.3117642768943" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de conversión de datos2]"
-          TopLeft="627.700003031322,910.164708190311">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.8705916414619"
-              Start="0,0"
-              End="0,19.3705916414619">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.3705916414619" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de combinación de mezcla]"
-          TopLeft="457.92857318995,560.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.8941182991214"
-              Start="0,0"
-              End="0,21.3941182991214">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.3941182991214" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada10]"
-          TopLeft="626.542862850306,1180.51765356229">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.6588218220418"
-              Start="0,0"
-              End="0,21.1588218220418">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.1588218220418" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada9]"
-          TopLeft="625.200004223415,1253.97647538433">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.7176469987551"
-              Start="0,0"
-              End="0,17.2176469987551">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.2176469987551" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada8]"
-          TopLeft="629.142859308087,838.635296768796">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.9294114215153"
-              Start="0,0"
-              End="0,22.4294114215153">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.4294114215153" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada7]"
-          TopLeft="629.285719740147,978.635299831773">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.2705881409171"
-              Start="0,0"
-              End="0,21.7705881409171">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.7705881409171" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada6]"
-          TopLeft="296.014288536383,776.341176719401">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.7647055649016"
-              Start="0,0"
-              End="0,20.2647055649016">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2647055649016" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada5]"
-          TopLeft="629.800005381448,1114.1647092113">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.7529443509857"
-              Start="0,0"
-              End="0,17.2529443509857">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.2529443509857" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HECHOS CONTRATACIONES.Paths[Salida de columna derivada4]"
-          TopLeft="587.571427082529,442.152942163144">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-30.5142844492078,28.929411129803"
-              Start="0,0"
-              End="-30.5142844492078,21.429411129803">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-26.5142844492078,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-26.5142844492078,0"
-                    Point2="-30.5142844492078,0"
-                    Point3="-30.5142844492078,4" />
-                  <mssgle:LineSegment
-                    End="-30.5142844492078,21.429411129803" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\HECHOS CONTRATACIONES\Tipo contrato">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[M_CONTRATACION_TIPO_CONTRATO]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\HECHOS CONTRATACIONES\Destino de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\HECHOS CONTRATACIONES\Contrataciones NAVISION">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\HECHOS CONTRATACIONES\SOL_CON">
     <Properties>
@@ -24299,36 +25243,8 @@ where [refTable].[ID_CONTRATO] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\HECHOS CONTRATACIONES\ZZ_CONTRATACIONES_INCONGRUENCIAS">
+    design-time-name="Package\HECHOS CONTRATACIONES\Contrataciones NAVISION">
     <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\HECHOS CONTRATACIONES\Areas">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[M_CONTRATACION_AREAS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -24357,6 +25273,78 @@ where [refTable].[ID_CONTRATO] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\HECHOS CONTRATACIONES\Tipo contrato">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[M_CONTRATACION_TIPO_CONTRATO]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\HECHOS CONTRATACIONES\Areas">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[M_CONTRATACION_AREAS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\HECHOS CONTRATACIONES\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\HECHOS CONTRATACIONES\ZZ_CONTRATACIONES_INCONGRUENCIAS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\HECHOS NAVISION">
     <LayoutInfo>
@@ -24367,13 +25355,13 @@ where [refTable].[ID_CONTRATO] = ?</property>
           Id="Package\HECHOS NAVISION\LINEAS"
           TopLeft="587.428569307133,91.6117647144621" />
         <NodeLayout
-          Size="211.2,41.6"
-          Id="Package\HECHOS NAVISION\H_CONTRATACION_LINEAS"
-          TopLeft="545.999998024532,230.611764714462" />
-        <NodeLayout
           Size="240.8,41.6"
           Id="Package\HECHOS NAVISION\H_CONTRATACION_MOVIMIENTO"
           TopLeft="242.142852870786,317.094117423985" />
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\HECHOS NAVISION\H_CONTRATACION_LINEAS"
+          TopLeft="545.999998024532,230.611764714462" />
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\HECHOS NAVISION\MOVIMIENTOS"
@@ -24382,28 +25370,6 @@ where [refTable].[ID_CONTRATO] = ?</property>
           Size="124,41.6"
           Id="Package\HECHOS NAVISION\Búsqueda"
           TopLeft="305.714282609979,147.858823280598" />
-        <EdgeLayout
-          Id="Package\HECHOS NAVISION.Paths[Salida de origen de OLE DB1]"
-          TopLeft="647.914283665832,133.211764714462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,97.4000000000001"
-              Start="0,0"
-              End="0,89.9000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,89.9000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\HECHOS NAVISION.Paths[Salida de origen de OLE DB]"
           TopLeft="370.8857108846,81.7647058566137">
@@ -24423,7 +25389,9 @@ where [refTable].[ID_CONTRATO] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24450,6 +25418,30 @@ where [refTable].[ID_CONTRATO] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HECHOS NAVISION.Paths[Salida de origen de OLE DB1]"
+          TopLeft="647.914283665832,133.211764714462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,97.4000000000001"
+              Start="0,0"
+              End="0,89.9000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,89.9000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -24468,6 +25460,19 @@ where [refTable].[ID_CONTRATO] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\HECHOS NAVISION\H_CONTRATACION_MOVIMIENTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\HECHOS NAVISION\LINEAS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -24515,32 +25520,71 @@ where [refTable].[ID_CONTRATO] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\HECHOS NAVISION\LINEAS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Maestras">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="271.2,41.6"
-          Id="Package\Maestras\M_CONTRATACION_TIPO_FORMULARIO"
-          TopLeft="16.4,734" />
+          Size="177.6,41.6"
+          Id="Package\Maestras\OrganosContratacion"
+          TopLeft="48.2,209.6" />
+        <NodeLayout
+          Size="248.8,41.6"
+          Id="Package\Maestras\M_CONTRATACION_ESTADOS_CON"
+          TopLeft="261.4,137.6" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Maestras\SolicitudesEstados"
+          TopLeft="330,210.6" />
+        <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\Maestras\M_CONTRATACION_TIPO_FICHERO"
+          TopLeft="294.4,520.2" />
+        <NodeLayout
+          Size="224.8,41.6"
+          Id="Package\Maestras\M_CONTRATACION_ORGANOS"
+          TopLeft="20,341" />
         <NodeLayout
           Size="172.8,41.6"
           Id="Package\Maestras\FormasAdjudicacion"
           TopLeft="577,9.60000000000001" />
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Maestras\TiposContrato"
+          TopLeft="604,209.8" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Maestras\TiposFichero"
+          TopLeft="351.8,401.2" />
+        <NodeLayout
+          Size="235.2,41.6"
+          Id="Package\Maestras\M_CONTRATACION_FORMA_ADJ"
+          TopLeft="545.2,140.6" />
+        <NodeLayout
+          Size="247.2,41.6"
+          Id="Package\Maestras\M_CONTRATACION_ESTADOS_SOL"
+          TopLeft="282.4,336" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\Maestras\ContratacionesEstados"
+          TopLeft="294.6,12.2" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Maestras\M_CONTRATACION_AREAS"
+          TopLeft="20,137" />
+        <NodeLayout
+          Size="271.2,41.6"
+          Id="Package\Maestras\M_CONTRATACION_TIPO_FORMULARIO"
+          TopLeft="16.4,734" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Maestras\TiposDocumento"
+          TopLeft="51.8,412" />
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\Maestras\M_CONTRATACION_CPV"
+          TopLeft="422.971435733717,745.694121799667" />
         <NodeLayout
           Size="228,41.6"
           Id="Package\Maestras\M_CONTRATACION_TIPO_DOC"
@@ -24550,87 +25594,21 @@ where [refTable].[ID_CONTRATO] = ?</property>
           Id="Package\Maestras\TiposFormulario"
           TopLeft="75.8,603.4" />
         <NodeLayout
-          Size="235.2,41.6"
-          Id="Package\Maestras\M_CONTRATACION_FORMA_ADJ"
-          TopLeft="545.2,140.6" />
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\Maestras\M_CONTRATACION_AREAS"
-          TopLeft="20,137" />
-        <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\Maestras\TiposDocumento"
-          TopLeft="51.8,412" />
-        <NodeLayout
-          Size="248.8,41.6"
-          Id="Package\Maestras\M_CONTRATACION_ESTADOS_CON"
-          TopLeft="261.4,137.6" />
-        <NodeLayout
-          Size="177.6,41.6"
-          Id="Package\Maestras\OrganosContratacion"
-          TopLeft="48.2,209.6" />
-        <NodeLayout
           Size="260,41.6"
           Id="Package\Maestras\M_CONTRATACION_TIPO_CONTRATO"
           TopLeft="547.2,467" />
-        <NodeLayout
-          Size="249.6,41.6"
-          Id="Package\Maestras\M_CONTRATACION_TIPO_FICHERO"
-          TopLeft="294.4,520.2" />
-        <NodeLayout
-          Size="184.8,41.6"
-          Id="Package\Maestras\ContratacionesEstados"
-          TopLeft="294.6,12.2" />
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Maestras\SolicitudesEstados"
-          TopLeft="330,210.6" />
-        <NodeLayout
-          Size="137.6,41.6"
-          Id="Package\Maestras\TiposFichero"
-          TopLeft="351.8,401.2" />
-        <NodeLayout
-          Size="247.2,41.6"
-          Id="Package\Maestras\M_CONTRATACION_ESTADOS_SOL"
-          TopLeft="282.4,336" />
         <NodeLayout
           Size="172.8,41.6"
           Id="Package\Maestras\Columna derivada 2"
           TopLeft="590.6,338" />
         <NodeLayout
-          Size="144.8,41.6"
-          Id="Package\Maestras\TiposContrato"
-          TopLeft="604,209.8" />
-        <NodeLayout
           Size="104,41.6"
           Id="Package\Maestras\AREA"
           TopLeft="68.4,11" />
         <NodeLayout
-          Size="224.8,41.6"
-          Id="Package\Maestras\M_CONTRATACION_ORGANOS"
-          TopLeft="20,341" />
-        <EdgeLayout
-          Id="Package\Maestras.Paths[Salida de origen de OLE DB]"
-          TopLeft="152.3,645">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,89"
-              Start="0,0"
-              End="0,81.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,81.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="96.8,41.6"
+          Id="Package\Maestras\CPV"
+          TopLeft="420.571435733717,610.494120486962" />
         <EdgeLayout
           Id="Package\Maestras.Paths[Salida de columna derivada]"
           TopLeft="677.1,379.6">
@@ -24645,6 +25623,40 @@ where [refTable].[ID_CONTRATO] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,79.9000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Maestras.Paths[Salida de origen de OLE DB9]"
+          TopLeft="468.971435733717,652.094120486962">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.6000000000001,93.6000013127046"
+              Start="0,0"
+              End="51.6000000000001,86.1000013127046">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.8000006563523" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.8000006563523"
+                    Point2="0,46.8000006563523"
+                    Point3="4,46.8000006563523" />
+                  <mssgle:LineSegment
+                    End="47.6000000000001,46.8000006563523" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.6000000000001,46.8000006563523"
+                    Point2="51.6000000000001,46.8000006563523"
+                    Point3="51.6000000000001,50.8000006563523" />
+                  <mssgle:LineSegment
+                    End="51.6000000000001,86.1000013127046" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -24829,9 +25841,187 @@ where [refTable].[ID_CONTRATO] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Maestras.Paths[Salida de origen de OLE DB]"
+          TopLeft="152.3,645">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,89"
+              Start="0,0"
+              End="0,81.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\OrganosContratacion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\M_CONTRATACION_ESTADOS_CON">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\SolicitudesEstados">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\M_CONTRATACION_TIPO_FICHERO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\M_CONTRATACION_ORGANOS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\FormasAdjudicacion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\TiposContrato">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\TiposFichero">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\M_CONTRATACION_FORMA_ADJ">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\M_CONTRATACION_ESTADOS_SOL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\ContratacionesEstados">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\M_CONTRATACION_AREAS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Maestras\M_CONTRATACION_TIPO_FORMULARIO">
     <Properties>
@@ -24846,7 +26036,20 @@ where [refTable].[ID_CONTRATO] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Maestras\FormasAdjudicacion">
+    design-time-name="Package\Maestras\TiposDocumento">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Maestras\M_CONTRATACION_CPV">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -24885,150 +26088,7 @@ where [refTable].[ID_CONTRATO] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Maestras\M_CONTRATACION_FORMA_ADJ">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\M_CONTRATACION_AREAS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\TiposDocumento">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\M_CONTRATACION_ESTADOS_CON">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\OrganosContratacion">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Maestras\M_CONTRATACION_TIPO_CONTRATO">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\M_CONTRATACION_TIPO_FICHERO">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\ContratacionesEstados">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\SolicitudesEstados">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\TiposFichero">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\M_CONTRATACION_ESTADOS_SOL">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Maestras\TiposContrato">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -25054,7 +26114,7 @@ where [refTable].[ID_CONTRATO] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Maestras\M_CONTRATACION_ORGANOS">
+    design-time-name="Package\Maestras\CPV">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

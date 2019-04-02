@@ -1,0 +1,1845 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/25/2019 2:10:26 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLBI"
+  DTS:CreatorName="OSATU\proyectobi"
+  DTS:DTSID="{C7C58858-A975-465F-A0A7-F436E7F46B71}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4224.16"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{699875D9-B73C-492F-A778-5F567B8BC151}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SRVSQL1\NAV2016.VISESA_2016]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A09E9C1E-308E-4DCF-A8C9-D53980FFC167}"
+      DTS:ObjectName="SRVSQL1\NAV2016.VISESA_2016">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SRVSQL1\NAV2016;Initial Catalog=VISESA_2016;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3B48F438-A0DD-43AC-A937-CEDB1B080CF6}"
+      DTS:ObjectName="SRVSQLBI\VISESABI.VISESABI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SRVSQLBI\VISESABI;Initial Catalog=VISESABI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Truncate Tables"
+      DTS:DTSID="{122A48F5-F264-4B42-ADF6-1E1B7EEA2CBD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3B48F438-A0DD-43AC-A937-CEDB1B080CF6}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[ZM_Cab_Presupuesto_Obra];&#xA;TRUNCATE TABLE [dbo].[ZM_Lin_Presupuesto_Obra];&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ZM_Cab_Presupuesto_Obra"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{BF8ADFBF-F71B-47DB-A771-45EACAB4B820}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ZM_Cab_Presupuesto_Obra"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Cab Presupuesto"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[VISESA$Cab_ Presupuesto Obra]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQL1\NAV2016.VISESA_2016]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQL1\NAV2016.VISESA_2016]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[timestamp]"
+                      dataType="bytes"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[timestamp]"
+                      length="8"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[timestamp]"
+                      name="timestamp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Codigo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Codigo]"
+                      name="Codigo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Contratacion]"
+                      length="20"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]"
+                      name="No_ Contratacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Tipo presupuesto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Tipo presupuesto]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Tipo presupuesto]"
+                      name="Tipo presupuesto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Capitulo]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]"
+                      name="No_ Capitulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Cod_ Capitulo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_ Capitulo]"
+                      length="5"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Cod_ Capitulo]"
+                      name="Cod_ Capitulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Nombre Capitulo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre Capitulo]"
+                      length="50"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Nombre Capitulo]"
+                      name="Nombre Capitulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Usuario Ult_ Mod_]"
+                      length="50"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      name="Usuario Ult_ Mod_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha Ult_ Mod_]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      name="Fecha Ult_ Mod_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Hora Ult_ Mod_]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      name="Hora Ult_ Mod_"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo]"
+                      dataType="i4"
+                      name="Codigo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      name="No_ Contratacion" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Tipo presupuesto]"
+                      dataType="i4"
+                      name="Tipo presupuesto" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Capitulo]"
+                      dataType="i4"
+                      name="No_ Capitulo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_ Capitulo]"
+                      dataType="wstr"
+                      length="5"
+                      name="Cod_ Capitulo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre Capitulo]"
+                      dataType="wstr"
+                      length="50"
+                      name="Nombre Capitulo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      name="Usuario Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      name="Fecha Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].ExternalColumns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      name="Hora Ult_ Mod_" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[timestamp]"
+                      name="timestamp" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Codigo]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Codigo]"
+                      name="Codigo" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[No_ Contratacion]"
+                      name="No_ Contratacion" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Tipo presupuesto]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Tipo presupuesto]"
+                      name="Tipo presupuesto" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[No_ Capitulo]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[No_ Capitulo]"
+                      name="No_ Capitulo" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Cod_ Capitulo]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Cod_ Capitulo]"
+                      name="Cod_ Capitulo" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Nombre Capitulo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Nombre Capitulo]"
+                      name="Nombre Capitulo" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      name="Usuario Ult_ Mod_" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      name="Fecha Ult_ Mod_" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      name="Hora Ult_ Mod_" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ZM_Cab_Presupuesto_Obra"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[ZM_Cab_Presupuesto_Obra]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[timestamp]"
+                      cachedDataType="bytes"
+                      cachedLength="8"
+                      cachedName="timestamp"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[timestamp]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[timestamp]" />
+                    <inputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Codigo]"
+                      cachedDataType="i4"
+                      cachedName="Codigo"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Codigo]" />
+                    <inputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[No_ Contratacion]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="No_ Contratacion"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Contratacion]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]" />
+                    <inputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Tipo presupuesto]"
+                      cachedDataType="i4"
+                      cachedName="Tipo presupuesto"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo presupuesto]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Tipo presupuesto]" />
+                    <inputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[No_ Capitulo]"
+                      cachedDataType="i4"
+                      cachedName="No_ Capitulo"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Capitulo]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]" />
+                    <inputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Cod_ Capitulo]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Cod_ Capitulo"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_ Capitulo]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Cod_ Capitulo]" />
+                    <inputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Nombre Capitulo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Nombre Capitulo"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre Capitulo]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Nombre Capitulo]" />
+                    <inputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Usuario Ult_ Mod_"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Usuario Ult_ Mod_]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]" />
+                    <inputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha Ult_ Mod_"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha Ult_ Mod_]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]" />
+                    <inputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Hora Ult_ Mod_]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Hora Ult_ Mod_"
+                      externalMetadataColumnId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Hora Ult_ Mod_]"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo]"
+                      dataType="i4"
+                      name="Codigo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      name="No_ Contratacion" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo presupuesto]"
+                      dataType="i4"
+                      name="Tipo presupuesto" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Capitulo]"
+                      dataType="i4"
+                      name="No_ Capitulo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_ Capitulo]"
+                      dataType="wstr"
+                      length="5"
+                      name="Cod_ Capitulo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre Capitulo]"
+                      dataType="wstr"
+                      length="50"
+                      name="Nombre Capitulo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      name="Usuario Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      name="Fecha Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      name="Hora Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[PK_CAB_PRE]"
+                      dataType="wstr"
+                      length="50"
+                      name="PK_CAB_PRE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ZM_Cab_Presupuesto_Obra.Paths[Salida de origen de OLE DB]"
+              endId="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ZM_Lin_Presupuesto_Obra"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{7B246297-9954-46DA-AB49-DCABD520D38C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ZM_Lin_Presupuesto_Obra"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Lin_Presupuesto_Obra"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[VISESA$Lin_ Presupuesto Obra]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQL1\NAV2016.VISESA_2016]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQL1\NAV2016.VISESA_2016]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[timestamp]"
+                      dataType="bytes"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[timestamp]"
+                      length="8"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[timestamp]"
+                      name="timestamp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Codigo cabecera]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo cabecera]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Codigo cabecera]"
+                      name="Codigo cabecera"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Linea]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Linea]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Linea]"
+                      name="No_ Linea"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Cod_ Linea]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_ Linea]"
+                      length="10"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Cod_ Linea]"
+                      name="Cod_ Linea"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Nombre Linea]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre Linea]"
+                      length="50"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Nombre Linea]"
+                      name="Nombre Linea"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Licitacion]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Ppto_Licitacion]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Licitacion]"
+                      name="Imp_Ppto_Licitacion"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Adjudicacion]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Ppto_Adjudicacion]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Adjudicacion]"
+                      name="Imp_Ppto_Adjudicacion"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_FinalObra]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Ppto_FinalObra]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_FinalObra]"
+                      name="Imp_Ppto_FinalObra"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Capitulo]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]"
+                      name="No_ Capitulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Tipo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Tipo]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Tipo]"
+                      name="Tipo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Contratacion]"
+                      length="20"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]"
+                      name="No_ Contratacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Licit]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[13_ gg Licit]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Licit]"
+                      name="13_ gg Licit"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Adjud]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[13_ gg Adjud]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Adjud]"
+                      name="13_ gg Adjud"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Fin Obra]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[13_ gg Fin Obra]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Fin Obra]"
+                      name="13_ gg Fin Obra"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Licit]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[6_ bi Licit]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Licit]"
+                      name="6_ bi Licit"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Adjud]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[6_ bi Adjud]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Adjud]"
+                      name="6_ bi Adjud"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Fin Obra]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[6_ bi Fin Obra]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Fin Obra]"
+                      name="6_ bi Fin Obra"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Licit_]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_Licit_]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Licit_]"
+                      name="Imp_Tot_Ejec_Cont_Licit_"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      name="Imp_Tot_Ejec_Cont_Adjud_"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_FinObra]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_FinObra]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_FinObra]"
+                      name="Imp_Tot_Ejec_Cont_FinObra"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Usuario Ult_ Mod_]"
+                      length="50"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      name="Usuario Ult_ Mod_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha Ult_ Mod_]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      name="Fecha Ult_ Mod_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Hora Ult_ Mod_]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      name="Hora Ult_ Mod_"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo cabecera]"
+                      dataType="i4"
+                      name="Codigo cabecera" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Linea]"
+                      dataType="i4"
+                      name="No_ Linea" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_ Linea]"
+                      dataType="wstr"
+                      length="10"
+                      name="Cod_ Linea" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre Linea]"
+                      dataType="wstr"
+                      length="50"
+                      name="Nombre Linea" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Ppto_Licitacion]"
+                      dataType="numeric"
+                      name="Imp_Ppto_Licitacion"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Ppto_Adjudicacion]"
+                      dataType="numeric"
+                      name="Imp_Ppto_Adjudicacion"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Ppto_FinalObra]"
+                      dataType="numeric"
+                      name="Imp_Ppto_FinalObra"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Capitulo]"
+                      dataType="i4"
+                      name="No_ Capitulo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Tipo]"
+                      dataType="i4"
+                      name="Tipo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      name="No_ Contratacion" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[13_ gg Licit]"
+                      dataType="numeric"
+                      name="13_ gg Licit"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[13_ gg Adjud]"
+                      dataType="numeric"
+                      name="13_ gg Adjud"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[13_ gg Fin Obra]"
+                      dataType="numeric"
+                      name="13_ gg Fin Obra"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[6_ bi Licit]"
+                      dataType="numeric"
+                      name="6_ bi Licit"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[6_ bi Adjud]"
+                      dataType="numeric"
+                      name="6_ bi Adjud"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[6_ bi Fin Obra]"
+                      dataType="numeric"
+                      name="6_ bi Fin Obra"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_Licit_]"
+                      dataType="numeric"
+                      name="Imp_Tot_Ejec_Cont_Licit_"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      dataType="numeric"
+                      name="Imp_Tot_Ejec_Cont_Adjud_"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_FinObra]"
+                      dataType="numeric"
+                      name="Imp_Tot_Ejec_Cont_FinObra"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      name="Usuario Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      name="Fecha Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      name="Hora Ult_ Mod_" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[timestamp]"
+                      name="timestamp" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Codigo cabecera]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Codigo cabecera]"
+                      name="Codigo cabecera" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Linea]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Linea]"
+                      name="No_ Linea" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Cod_ Linea]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Cod_ Linea]"
+                      name="Cod_ Linea" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Nombre Linea]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Nombre Linea]"
+                      name="Nombre Linea" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Ppto_Licitacion]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Ppto_Licitacion]"
+                      name="Imp_Ppto_Licitacion"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Ppto_Adjudicacion]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Ppto_Adjudicacion]"
+                      name="Imp_Ppto_Adjudicacion"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Ppto_FinalObra]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Ppto_FinalObra]"
+                      name="Imp_Ppto_FinalObra"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Capitulo]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Capitulo]"
+                      name="No_ Capitulo" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Tipo]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Tipo]"
+                      name="Tipo" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Contratacion]"
+                      name="No_ Contratacion" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[13_ gg Licit]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[13_ gg Licit]"
+                      name="13_ gg Licit"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[13_ gg Adjud]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[13_ gg Adjud]"
+                      name="13_ gg Adjud"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[13_ gg Fin Obra]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[13_ gg Fin Obra]"
+                      name="13_ gg Fin Obra"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[6_ bi Licit]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[6_ bi Licit]"
+                      name="6_ bi Licit"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[6_ bi Adjud]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[6_ bi Adjud]"
+                      name="6_ bi Adjud"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[6_ bi Fin Obra]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[6_ bi Fin Obra]"
+                      name="6_ bi Fin Obra"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Licit_]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Licit_]"
+                      name="Imp_Tot_Ejec_Cont_Licit_"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      name="Imp_Tot_Ejec_Cont_Adjud_"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_FinObra]"
+                      dataType="numeric"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_FinObra]"
+                      name="Imp_Tot_Ejec_Cont_FinObra"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      name="Usuario Ult_ Mod_" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      name="Fecha Ult_ Mod_" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      name="Hora Ult_ Mod_" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="ZM_Lin_Presupuesto_Obra"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[ZM_Lin_Presupuesto_Obra]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[timestamp]"
+                      cachedDataType="bytes"
+                      cachedLength="8"
+                      cachedName="timestamp"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[timestamp]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[timestamp]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Codigo cabecera]"
+                      cachedDataType="i4"
+                      cachedName="Codigo cabecera"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo cabecera]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Codigo cabecera]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[No_ Linea]"
+                      cachedDataType="i4"
+                      cachedName="No_ Linea"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Linea]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Linea]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Cod_ Linea]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Cod_ Linea"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_ Linea]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Cod_ Linea]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Nombre Linea]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Nombre Linea"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre Linea]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Nombre Linea]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Imp_Ppto_Licitacion]"
+                      cachedDataType="numeric"
+                      cachedName="Imp_Ppto_Licitacion"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Imp_Ppto_Licitacion]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Licitacion]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Imp_Ppto_Adjudicacion]"
+                      cachedDataType="numeric"
+                      cachedName="Imp_Ppto_Adjudicacion"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Imp_Ppto_Adjudicacion]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Adjudicacion]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Imp_Ppto_FinalObra]"
+                      cachedDataType="numeric"
+                      cachedName="Imp_Ppto_FinalObra"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Imp_Ppto_FinalObra]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_FinalObra]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[No_ Capitulo]"
+                      cachedDataType="i4"
+                      cachedName="No_ Capitulo"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Capitulo]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Tipo]"
+                      cachedDataType="i4"
+                      cachedName="Tipo"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Tipo]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[No_ Contratacion]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="No_ Contratacion"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Contratacion]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[13_ gg Licit]"
+                      cachedDataType="numeric"
+                      cachedName="13_ gg Licit"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[13_ gg Licit]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Licit]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[13_ gg Adjud]"
+                      cachedDataType="numeric"
+                      cachedName="13_ gg Adjud"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[13_ gg Adjud]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Adjud]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[13_ gg Fin Obra]"
+                      cachedDataType="numeric"
+                      cachedName="13_ gg Fin Obra"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[13_ gg Fin Obra]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Fin Obra]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[6_ bi Licit]"
+                      cachedDataType="numeric"
+                      cachedName="6_ bi Licit"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[6_ bi Licit]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Licit]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[6_ bi Adjud]"
+                      cachedDataType="numeric"
+                      cachedName="6_ bi Adjud"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[6_ bi Adjud]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Adjud]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[6_ bi Fin Obra]"
+                      cachedDataType="numeric"
+                      cachedName="6_ bi Fin Obra"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[6_ bi Fin Obra]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Fin Obra]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Imp_Tot_Ejec_Cont_Licit_]"
+                      cachedDataType="numeric"
+                      cachedName="Imp_Tot_Ejec_Cont_Licit_"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_Licit_]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Licit_]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      cachedDataType="numeric"
+                      cachedName="Imp_Tot_Ejec_Cont_Adjud_"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Adjud_]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Imp_Tot_Ejec_Cont_FinObra]"
+                      cachedDataType="numeric"
+                      cachedName="Imp_Tot_Ejec_Cont_FinObra"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_FinObra]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_FinObra]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Usuario Ult_ Mod_"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Usuario Ult_ Mod_]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha Ult_ Mod_"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha Ult_ Mod_]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]" />
+                    <inputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].Columns[Hora Ult_ Mod_]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Hora Ult_ Mod_"
+                      externalMetadataColumnId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Hora Ult_ Mod_]"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Codigo cabecera]"
+                      dataType="i4"
+                      name="Codigo cabecera" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Linea]"
+                      dataType="i4"
+                      name="No_ Linea" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_ Linea]"
+                      dataType="wstr"
+                      length="10"
+                      name="Cod_ Linea" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre Linea]"
+                      dataType="wstr"
+                      length="50"
+                      name="Nombre Linea" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Imp_Ppto_Licitacion]"
+                      dataType="numeric"
+                      name="Imp_Ppto_Licitacion"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Imp_Ppto_Adjudicacion]"
+                      dataType="numeric"
+                      name="Imp_Ppto_Adjudicacion"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Imp_Ppto_FinalObra]"
+                      dataType="numeric"
+                      name="Imp_Ppto_FinalObra"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Capitulo]"
+                      dataType="i4"
+                      name="No_ Capitulo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo]"
+                      dataType="i4"
+                      name="Tipo" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      name="No_ Contratacion" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[13_ gg Licit]"
+                      dataType="numeric"
+                      name="13_ gg Licit"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[13_ gg Adjud]"
+                      dataType="numeric"
+                      name="13_ gg Adjud"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[13_ gg Fin Obra]"
+                      dataType="numeric"
+                      name="13_ gg Fin Obra"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[6_ bi Licit]"
+                      dataType="numeric"
+                      name="6_ bi Licit"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[6_ bi Adjud]"
+                      dataType="numeric"
+                      name="6_ bi Adjud"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[6_ bi Fin Obra]"
+                      dataType="numeric"
+                      name="6_ bi Fin Obra"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_Licit_]"
+                      dataType="numeric"
+                      name="Imp_Tot_Ejec_Cont_Licit_"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      dataType="numeric"
+                      name="Imp_Tot_Ejec_Cont_Adjud_"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_FinObra]"
+                      dataType="numeric"
+                      name="Imp_Tot_Ejec_Cont_FinObra"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      name="Usuario Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      name="Fecha Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB].ExternalColumns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      name="Hora Ult_ Mod_" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ZM_Lin_Presupuesto_Obra.Paths[Salida de origen de OLE DB]"
+              endId="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{CEA9C725-6C38-46E4-B63F-CF224E1C3A47}"
+      DTS:From="Package\ZM_Cab_Presupuesto_Obra"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\ZM_Lin_Presupuesto_Obra" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{66CCE1E4-BFBB-4772-A692-342338BF140E}"
+      DTS:From="Package\Truncate Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\ZM_Cab_Presupuesto_Obra" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\ZM_Cab_Presupuesto_Obra"
+          TopLeft="39.4285721000361,118.682354605652" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\ZM_Lin_Presupuesto_Obra"
+          TopLeft="151.428574007385,217.176473634053" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="143.828572100036,160.282354605652">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="109.600001907349,56.8941190284012"
+              Start="0,0"
+              End="109.600001907349,49.3941190284012">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.4470595142006" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.4470595142006"
+                    Point2="0,28.4470595142006"
+                    Point3="4,28.4470595142006" />
+                  <mssgle:LineSegment
+                    End="105.600001907349,28.4470595142006" />
+                  <mssgle:CubicBezierSegment
+                    Point1="105.600001907349,28.4470595142006"
+                    Point2="109.600001907349,28.4470595142006"
+                    Point3="109.600001907349,32.4470595142006" />
+                  <mssgle:LineSegment
+                    End="109.600001907349,49.3941190284012" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Truncate Tables"
+          TopLeft="48.1632661263381,19.2268910259525" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="124.963266126338,60.8268910259524">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.865305973698,57.8554635796994"
+              Start="0,0"
+              End="18.865305973698,50.3554635796994">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.9277317898497" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.9277317898497"
+                    Point2="0,28.9277317898497"
+                    Point3="4,28.9277317898497" />
+                  <mssgle:LineSegment
+                    End="14.865305973698,28.9277317898497" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.865305973698,28.9277317898497"
+                    Point2="18.865305973698,28.9277317898497"
+                    Point3="18.865305973698,32.9277317898497" />
+                  <mssgle:LineSegment
+                    End="18.865305973698,50.3554635796994" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ZM_Cab_Presupuesto_Obra">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra"
+          TopLeft="57.7142866971541,212.894120632818" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto"
+          TopLeft="76.0000012942723,32.4235298664925" />
+        <EdgeLayout
+          Id="Package\ZM_Cab_Presupuesto_Obra.Paths[Salida de origen de OLE DB]"
+          TopLeft="158.457143995713,74.0235298664925">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,138.870590766326"
+              Start="0,0"
+              End="0,131.370590766326">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,131.370590766326" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ZM_Cab_Presupuesto_Obra\Cab Presupuesto">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ZM_Cab_Presupuesto_Obra\ZM_Cab_Presupuesto_Obra">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ZM_Lin_Presupuesto_Obra">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra"
+          TopLeft="197.6,327.2" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra"
+          TopLeft="166.4,68" />
+        <EdgeLayout
+          Id="Package\ZM_Lin_Presupuesto_Obra.Paths[Salida de origen de OLE DB]"
+          TopLeft="258.4,109.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.2,217.6"
+              Start="0,0"
+              End="41.2,210.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,104.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,104.8"
+                    Point2="0,108.8"
+                    Point3="4,108.8" />
+                  <mssgle:LineSegment
+                    End="37.2,108.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.2,108.8"
+                    Point2="41.2,108.8"
+                    Point3="41.2,112.8" />
+                  <mssgle:LineSegment
+                    End="41.2,210.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ZM_Lin_Presupuesto_Obra\Lin_Presupuesto_Obra">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ZM_Lin_Presupuesto_Obra\ZM_Lin_Presupuesto_Obra">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

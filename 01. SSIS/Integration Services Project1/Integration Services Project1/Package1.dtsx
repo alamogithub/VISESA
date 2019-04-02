@@ -1,0 +1,2542 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/2/2019 9:11:50 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLBI"
+  DTS:CreatorName="OSATU\proyectobi"
+  DTS:DTSID="{765D0785-46D2-4B0E-8695-FF7924EF5106}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4224.16"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{6BFAAB77-CB98-4096-87BD-9A937FB024A8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{25C72ADD-5AE7-4C4A-B830-8EECB134B698}"
+      DTS:ObjectName="SRVSQLBI\VISESABI.VISESABI">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SRVSQLBI\VISESABI;Initial Catalog=VISESABI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\H_COSTES_PROMOCION"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{F0A71F98-2BD9-43C8-BD5E-4433AC1780D6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="H_COSTES_PROMOCION"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\H_COSTES_PROMOCION\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[No_ Contratacion]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="No_ Contratacion"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[No_ Contratacion]" />
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Tipo presupuesto]"
+                      cachedDataType="i4"
+                      cachedName="Tipo presupuesto"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Tipo presupuesto]" />
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[No_ Capitulo]"
+                      cachedDataType="i4"
+                      cachedName="No_ Capitulo"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[No_ Capitulo]" />
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[timestamp]"
+                      cachedDataType="bytes"
+                      cachedLength="8"
+                      cachedName="timestamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[timestamp]" />
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Codigo]"
+                      cachedDataType="i4"
+                      cachedName="Codigo"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Codigo]" />
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Cod_ Capitulo]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Cod_ Capitulo"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Cod_ Capitulo]" />
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Nombre Capitulo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Nombre Capitulo"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Nombre Capitulo]" />
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Usuario Ult_ Mod_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Usuario Ult_ Mod_"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Usuario Ult_ Mod_]" />
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Fecha Ult_ Mod_]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha Ult_ Mod_"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Fecha Ult_ Mod_]" />
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Hora Ult_ Mod_]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Hora Ult_ Mod_"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Hora Ult_ Mod_]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[No_ Contratacion]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="No_ Contratacion"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[No_ Contratacion]" />
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[No_ Capitulo]"
+                      cachedDataType="i4"
+                      cachedName="No_ Capitulo"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[No_ Capitulo]" />
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Tipo]"
+                      cachedDataType="i4"
+                      cachedName="Tipo"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Tipo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[timestamp]"
+                      name="timestamp">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[timestamp]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Codigo]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Codigo]"
+                      name="Codigo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[No_ Contratacion]"
+                      name="No_ Contratacion"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[No_ Contratacion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Tipo presupuesto]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Tipo presupuesto]"
+                      name="Tipo presupuesto"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Tipo presupuesto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[No_ Capitulo]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[No_ Capitulo]"
+                      name="No_ Capitulo"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[No_ Capitulo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Cod_ Capitulo]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Cod_ Capitulo]"
+                      name="Cod_ Capitulo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Cod_ Capitulo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Nombre Capitulo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Nombre Capitulo]"
+                      name="Nombre Capitulo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Nombre Capitulo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Usuario Ult_ Mod_]"
+                      name="Usuario Ult_ Mod_">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Usuario Ult_ Mod_]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Fecha Ult_ Mod_]"
+                      name="Fecha Ult_ Mod_">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Fecha Ult_ Mod_]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[Hora Ult_ Mod_]"
+                      name="Hora Ult_ Mod_">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[Hora Ult_ Mod_]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\H_COSTES_PROMOCION\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\H_COSTES_PROMOCION\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Inputs[Entrada de ordenación].Columns[timestamp]"
+                      cachedDataType="bytes"
+                      cachedLength="8"
+                      cachedName="timestamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[timestamp]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Inputs[Entrada de ordenación].Columns[Codigo]"
+                      cachedDataType="i4"
+                      cachedName="Codigo"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Inputs[Entrada de ordenación].Columns[No_ Contratacion]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="No_ Contratacion"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Inputs[Entrada de ordenación].Columns[Tipo presupuesto]"
+                      cachedDataType="i4"
+                      cachedName="Tipo presupuesto"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Tipo presupuesto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Inputs[Entrada de ordenación].Columns[No_ Capitulo]"
+                      cachedDataType="i4"
+                      cachedName="No_ Capitulo"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Inputs[Entrada de ordenación].Columns[Cod_ Capitulo]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Cod_ Capitulo"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Cod_ Capitulo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Inputs[Entrada de ordenación].Columns[Nombre Capitulo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Nombre Capitulo"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Nombre Capitulo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Inputs[Entrada de ordenación].Columns[Usuario Ult_ Mod_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Usuario Ult_ Mod_"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Inputs[Entrada de ordenación].Columns[Fecha Ult_ Mod_]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha Ult_ Mod_"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Inputs[Entrada de ordenación].Columns[Hora Ult_ Mod_]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Hora Ult_ Mod_"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[timestamp]"
+                      name="timestamp">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[timestamp]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Codigo]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Codigo]"
+                      name="Codigo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[No_ Contratacion]"
+                      name="No_ Contratacion"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Tipo presupuesto]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Tipo presupuesto]"
+                      name="Tipo presupuesto"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Tipo presupuesto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[No_ Capitulo]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[No_ Capitulo]"
+                      name="No_ Capitulo"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Cod_ Capitulo]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Cod_ Capitulo]"
+                      name="Cod_ Capitulo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Cod_ Capitulo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Nombre Capitulo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Nombre Capitulo]"
+                      name="Nombre Capitulo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Nombre Capitulo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Usuario Ult_ Mod_]"
+                      name="Usuario Ult_ Mod_">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Fecha Ult_ Mod_]"
+                      name="Fecha Ult_ Mod_">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación].Columns[Hora Ult_ Mod_]"
+                      name="Hora Ult_ Mod_">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\H_COSTES_PROMOCION\Ordenar 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[timestamp]"
+                      cachedDataType="bytes"
+                      cachedLength="8"
+                      cachedName="timestamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[timestamp]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[No_ Contratacion]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="No_ Contratacion"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[No_ Capitulo]"
+                      cachedDataType="i4"
+                      cachedName="No_ Capitulo"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Usuario Ult_ Mod_]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Usuario Ult_ Mod_"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Fecha Ult_ Mod_]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha Ult_ Mod_"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Hora Ult_ Mod_]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Hora Ult_ Mod_"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Codigo cabecera]"
+                      cachedDataType="i4"
+                      cachedName="Codigo cabecera"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Codigo cabecera]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[No_ Linea]"
+                      cachedDataType="i4"
+                      cachedName="No_ Linea"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Linea]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Cod_ Linea]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Cod_ Linea"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Cod_ Linea]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Nombre Linea]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Nombre Linea"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Nombre Linea]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Imp_Ppto_Licitacion]"
+                      cachedDataType="numeric"
+                      cachedName="Imp_Ppto_Licitacion"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Licitacion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Imp_Ppto_Adjudicacion]"
+                      cachedDataType="numeric"
+                      cachedName="Imp_Ppto_Adjudicacion"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Adjudicacion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Imp_Ppto_FinalObra]"
+                      cachedDataType="numeric"
+                      cachedName="Imp_Ppto_FinalObra"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_FinalObra]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Tipo]"
+                      cachedDataType="i4"
+                      cachedName="Tipo"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Tipo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[13_ gg Licit]"
+                      cachedDataType="numeric"
+                      cachedName="13_ gg Licit"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Licit]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[13_ gg Adjud]"
+                      cachedDataType="numeric"
+                      cachedName="13_ gg Adjud"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Adjud]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[13_ gg Fin Obra]"
+                      cachedDataType="numeric"
+                      cachedName="13_ gg Fin Obra"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Fin Obra]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[6_ bi Licit]"
+                      cachedDataType="numeric"
+                      cachedName="6_ bi Licit"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Licit]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[6_ bi Adjud]"
+                      cachedDataType="numeric"
+                      cachedName="6_ bi Adjud"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Adjud]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[6_ bi Fin Obra]"
+                      cachedDataType="numeric"
+                      cachedName="6_ bi Fin Obra"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Fin Obra]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Imp_Tot_Ejec_Cont_Licit_]"
+                      cachedDataType="numeric"
+                      cachedName="Imp_Tot_Ejec_Cont_Licit_"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Licit_]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      cachedDataType="numeric"
+                      cachedName="Imp_Tot_Ejec_Cont_Adjud_"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Adjud_]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación].Columns[Imp_Tot_Ejec_Cont_FinObra]"
+                      cachedDataType="numeric"
+                      cachedName="Imp_Tot_Ejec_Cont_FinObra"
+                      cachedPrecision="38"
+                      cachedScale="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_FinObra]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[timestamp]"
+                      name="timestamp">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[timestamp]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[No_ Contratacion]"
+                      name="No_ Contratacion"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[No_ Capitulo]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[No_ Capitulo]"
+                      name="No_ Capitulo"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Usuario Ult_ Mod_]"
+                      name="Usuario Ult_ Mod_">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Fecha Ult_ Mod_]"
+                      name="Fecha Ult_ Mod_">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Hora Ult_ Mod_]"
+                      name="Hora Ult_ Mod_">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Codigo cabecera]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Codigo cabecera]"
+                      name="Codigo cabecera">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Codigo cabecera]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[No_ Linea]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[No_ Linea]"
+                      name="No_ Linea">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Linea]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Cod_ Linea]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Cod_ Linea]"
+                      name="Cod_ Linea">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Cod_ Linea]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Nombre Linea]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Nombre Linea]"
+                      name="Nombre Linea">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Nombre Linea]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Imp_Ppto_Licitacion]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Imp_Ppto_Licitacion]"
+                      name="Imp_Ppto_Licitacion"
+                      precision="38"
+                      scale="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Licitacion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Imp_Ppto_Adjudicacion]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Imp_Ppto_Adjudicacion]"
+                      name="Imp_Ppto_Adjudicacion"
+                      precision="38"
+                      scale="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Adjudicacion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Imp_Ppto_FinalObra]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Imp_Ppto_FinalObra]"
+                      name="Imp_Ppto_FinalObra"
+                      precision="38"
+                      scale="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_FinalObra]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Tipo]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Tipo]"
+                      name="Tipo"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Tipo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[13_ gg Licit]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[13_ gg Licit]"
+                      name="13_ gg Licit"
+                      precision="38"
+                      scale="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Licit]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[13_ gg Adjud]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[13_ gg Adjud]"
+                      name="13_ gg Adjud"
+                      precision="38"
+                      scale="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Adjud]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[13_ gg Fin Obra]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[13_ gg Fin Obra]"
+                      name="13_ gg Fin Obra"
+                      precision="38"
+                      scale="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Fin Obra]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[6_ bi Licit]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[6_ bi Licit]"
+                      name="6_ bi Licit"
+                      precision="38"
+                      scale="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Licit]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[6_ bi Adjud]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[6_ bi Adjud]"
+                      name="6_ bi Adjud"
+                      precision="38"
+                      scale="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Adjud]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[6_ bi Fin Obra]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[6_ bi Fin Obra]"
+                      name="6_ bi Fin Obra"
+                      precision="38"
+                      scale="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Fin Obra]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Imp_Tot_Ejec_Cont_Licit_]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Imp_Tot_Ejec_Cont_Licit_]"
+                      name="Imp_Tot_Ejec_Cont_Licit_"
+                      precision="38"
+                      scale="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Licit_]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      name="Imp_Tot_Ejec_Cont_Adjud_"
+                      precision="38"
+                      scale="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Adjud_]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Imp_Tot_Ejec_Cont_FinObra]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación].Columns[Imp_Tot_Ejec_Cont_FinObra]"
+                      name="Imp_Tot_Ejec_Cont_FinObra"
+                      precision="38"
+                      scale="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_FinObra]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Read ZM_Cab_Presupuestos_Obra"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[ZM_Cab_Presupuesto_Obra]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[timestamp]"
+                      dataType="bytes"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[timestamp]"
+                      length="8"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[timestamp]"
+                      name="timestamp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Codigo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Codigo]"
+                      name="Codigo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Contratacion]"
+                      length="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]"
+                      name="No_ Contratacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Tipo presupuesto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Tipo presupuesto]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Tipo presupuesto]"
+                      name="Tipo presupuesto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Capitulo]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]"
+                      name="No_ Capitulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Cod_ Capitulo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_ Capitulo]"
+                      length="5"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Cod_ Capitulo]"
+                      name="Cod_ Capitulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Nombre Capitulo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre Capitulo]"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Nombre Capitulo]"
+                      name="Nombre Capitulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Usuario Ult_ Mod_]"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      name="Usuario Ult_ Mod_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha Ult_ Mod_]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      name="Fecha Ult_ Mod_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Hora Ult_ Mod_]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      name="Hora Ult_ Mod_"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo]"
+                      dataType="i4"
+                      name="Codigo" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      name="No_ Contratacion" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Tipo presupuesto]"
+                      dataType="i4"
+                      name="Tipo presupuesto" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Capitulo]"
+                      dataType="i4"
+                      name="No_ Capitulo" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_ Capitulo]"
+                      dataType="wstr"
+                      length="5"
+                      name="Cod_ Capitulo" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre Capitulo]"
+                      dataType="wstr"
+                      length="50"
+                      name="Nombre Capitulo" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      name="Usuario Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      name="Fecha Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      name="Hora Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[PK_CAB_PRE]"
+                      dataType="wstr"
+                      length="50"
+                      name="PK_CAB_PRE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[timestamp]"
+                      name="timestamp" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Codigo]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Codigo]"
+                      name="Codigo" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Contratacion]"
+                      name="No_ Contratacion" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Tipo presupuesto]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Tipo presupuesto]"
+                      name="Tipo presupuesto" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Capitulo]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Capitulo]"
+                      name="No_ Capitulo" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Cod_ Capitulo]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Cod_ Capitulo]"
+                      name="Cod_ Capitulo" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Nombre Capitulo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Nombre Capitulo]"
+                      name="Nombre Capitulo" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      name="Usuario Ult_ Mod_" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      name="Fecha Ult_ Mod_" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      name="Hora Ult_ Mod_" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Read ZM_Lin_Presupuestos_Obra"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[ZM_Lin_Presupuesto_Obra]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  connectionManagerRefId="Package.ConnectionManagers[SRVSQLBI\VISESABI.VISESABI]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[timestamp]"
+                      dataType="bytes"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[timestamp]"
+                      length="8"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[timestamp]"
+                      name="timestamp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Contratacion]"
+                      length="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Contratacion]"
+                      name="No_ Contratacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Capitulo]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Capitulo]"
+                      name="No_ Capitulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Usuario Ult_ Mod_]"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      name="Usuario Ult_ Mod_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha Ult_ Mod_]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      name="Fecha Ult_ Mod_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Hora Ult_ Mod_]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      name="Hora Ult_ Mod_"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Codigo cabecera]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo cabecera]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Codigo cabecera]"
+                      name="Codigo cabecera"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Linea]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Linea]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[No_ Linea]"
+                      name="No_ Linea"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Cod_ Linea]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_ Linea]"
+                      length="10"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Cod_ Linea]"
+                      name="Cod_ Linea"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Nombre Linea]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre Linea]"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Nombre Linea]"
+                      name="Nombre Linea"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Licitacion]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Ppto_Licitacion]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Licitacion]"
+                      name="Imp_Ppto_Licitacion"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Adjudicacion]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Ppto_Adjudicacion]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_Adjudicacion]"
+                      name="Imp_Ppto_Adjudicacion"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_FinalObra]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Ppto_FinalObra]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Ppto_FinalObra]"
+                      name="Imp_Ppto_FinalObra"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Tipo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Tipo]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Tipo]"
+                      name="Tipo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Licit]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[13_ gg Licit]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Licit]"
+                      name="13_ gg Licit"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Adjud]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[13_ gg Adjud]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Adjud]"
+                      name="13_ gg Adjud"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Fin Obra]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[13_ gg Fin Obra]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[13_ gg Fin Obra]"
+                      name="13_ gg Fin Obra"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Licit]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[6_ bi Licit]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Licit]"
+                      name="6_ bi Licit"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Adjud]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[6_ bi Adjud]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Adjud]"
+                      name="6_ bi Adjud"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Fin Obra]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[6_ bi Fin Obra]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[6_ bi Fin Obra]"
+                      name="6_ bi Fin Obra"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Licit_]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_Licit_]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Licit_]"
+                      name="Imp_Tot_Ejec_Cont_Licit_"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      name="Imp_Tot_Ejec_Cont_Adjud_"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_FinObra]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_FinObra]"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_FinObra]"
+                      name="Imp_Tot_Ejec_Cont_FinObra"
+                      precision="38"
+                      scale="20"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      name="No_ Contratacion" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Capitulo]"
+                      dataType="i4"
+                      name="No_ Capitulo" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      name="Usuario Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      name="Fecha Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      name="Hora Ult_ Mod_" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[PK_CAB_PRE]"
+                      dataType="wstr"
+                      length="50"
+                      name="PK_CAB_PRE" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Codigo cabecera]"
+                      dataType="i4"
+                      name="Codigo cabecera" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[No_ Linea]"
+                      dataType="i4"
+                      name="No_ Linea" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_ Linea]"
+                      dataType="wstr"
+                      length="10"
+                      name="Cod_ Linea" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre Linea]"
+                      dataType="wstr"
+                      length="50"
+                      name="Nombre Linea" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Ppto_Licitacion]"
+                      dataType="numeric"
+                      name="Imp_Ppto_Licitacion"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Ppto_Adjudicacion]"
+                      dataType="numeric"
+                      name="Imp_Ppto_Adjudicacion"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Ppto_FinalObra]"
+                      dataType="numeric"
+                      name="Imp_Ppto_FinalObra"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Tipo]"
+                      dataType="i4"
+                      name="Tipo" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[13_ gg Licit]"
+                      dataType="numeric"
+                      name="13_ gg Licit"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[13_ gg Adjud]"
+                      dataType="numeric"
+                      name="13_ gg Adjud"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[13_ gg Fin Obra]"
+                      dataType="numeric"
+                      name="13_ gg Fin Obra"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[6_ bi Licit]"
+                      dataType="numeric"
+                      name="6_ bi Licit"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[6_ bi Adjud]"
+                      dataType="numeric"
+                      name="6_ bi Adjud"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[6_ bi Fin Obra]"
+                      dataType="numeric"
+                      name="6_ bi Fin Obra"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_Licit_]"
+                      dataType="numeric"
+                      name="Imp_Tot_Ejec_Cont_Licit_"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      dataType="numeric"
+                      name="Imp_Tot_Ejec_Cont_Adjud_"
+                      precision="38"
+                      scale="20" />
+                    <externalMetadataColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB].ExternalColumns[Imp_Tot_Ejec_Cont_FinObra]"
+                      dataType="numeric"
+                      name="Imp_Tot_Ejec_Cont_FinObra"
+                      precision="38"
+                      scale="20" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[timestamp]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[timestamp]"
+                      name="timestamp" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Codigo cabecera]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Codigo cabecera]"
+                      name="Codigo cabecera" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Linea]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Linea]"
+                      name="No_ Linea" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Cod_ Linea]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Cod_ Linea]"
+                      name="Cod_ Linea" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Nombre Linea]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Nombre Linea]"
+                      name="Nombre Linea" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Ppto_Licitacion]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Ppto_Licitacion]"
+                      name="Imp_Ppto_Licitacion"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Ppto_Adjudicacion]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Ppto_Adjudicacion]"
+                      name="Imp_Ppto_Adjudicacion"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Ppto_FinalObra]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Ppto_FinalObra]"
+                      name="Imp_Ppto_FinalObra"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Contratacion]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Contratacion]"
+                      name="No_ Contratacion" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Tipo]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Tipo]"
+                      name="Tipo" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Capitulo]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[No_ Capitulo]"
+                      name="No_ Capitulo" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[13_ gg Licit]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[13_ gg Licit]"
+                      name="13_ gg Licit"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[13_ gg Adjud]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[13_ gg Adjud]"
+                      name="13_ gg Adjud"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[13_ gg Fin Obra]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[13_ gg Fin Obra]"
+                      name="13_ gg Fin Obra"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[6_ bi Licit]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[6_ bi Licit]"
+                      name="6_ bi Licit"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[6_ bi Adjud]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[6_ bi Adjud]"
+                      name="6_ bi Adjud"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[6_ bi Fin Obra]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[6_ bi Fin Obra]"
+                      name="6_ bi Fin Obra"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Licit_]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Licit_]"
+                      name="Imp_Tot_Ejec_Cont_Licit_"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_Adjud_]"
+                      name="Imp_Tot_Ejec_Cont_Adjud_"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_FinObra]"
+                      dataType="numeric"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Imp_Tot_Ejec_Cont_FinObra]"
+                      name="Imp_Tot_Ejec_Cont_FinObra"
+                      precision="38"
+                      scale="20" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Usuario Ult_ Mod_]"
+                      name="Usuario Ult_ Mod_" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Fecha Ult_ Mod_]"
+                      name="Fecha Ult_ Mod_" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[Hora Ult_ Mod_]"
+                      name="Hora Ult_ Mod_" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\H_COSTES_PROMOCION.Paths[Salida de ordenación]"
+              endId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\H_COSTES_PROMOCION\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\H_COSTES_PROMOCION.Paths[Salida de ordenación1]"
+              endId="Package\H_COSTES_PROMOCION\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\H_COSTES_PROMOCION\Ordenar 1.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\H_COSTES_PROMOCION.Paths[Salida de origen de OLE DB]"
+              endId="Package\H_COSTES_PROMOCION\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\H_COSTES_PROMOCION.Paths[Salida de origen de OLE DB1]"
+              endId="Package\H_COSTES_PROMOCION\Ordenar 1.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="196,41.6"
+          Id="Package\H_COSTES_PROMOCION"
+          TopLeft="145.632655541334,92.2016819653627" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\H_COSTES_PROMOCION">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="240,41.6"
+          Id="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra"
+          TopLeft="21.0612248484664,34.6957988059232" />
+        <NodeLayout
+          Size="236,41.6"
+          Id="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra"
+          TopLeft="294.693882569627,34.0840340914611" />
+        <NodeLayout
+          Size="116.8,41.6"
+          Id="Package\H_COSTES_PROMOCION\Ordenar"
+          TopLeft="91.4285729855907,113.613446971537" />
+        <EdgeLayout
+          Id="Package\H_COSTES_PROMOCION.Paths[Salida de origen de OLE DB]"
+          TopLeft="141.061224848466,76.2957988059232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.76734813712437,37.3176481656137"
+              Start="0,0"
+              End="8.76734813712437,29.8176481656137">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.6588240828069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.6588240828069"
+                    Point2="0,18.6588240828069"
+                    Point3="4,18.6588240828069" />
+                  <mssgle:LineSegment
+                    End="4.76734813712437,18.6588240828069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.76734813712437,18.6588240828069"
+                    Point2="8.76734813712437,18.6588240828069"
+                    Point3="8.76734813712437,22.6588240828069" />
+                  <mssgle:LineSegment
+                    End="8.76734813712437,29.8176481656137" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\H_COSTES_PROMOCION\Ordenar 1"
+          TopLeft="328.16327089471,114.016807985141" />
+        <EdgeLayout
+          Id="Package\H_COSTES_PROMOCION.Paths[Salida de origen de OLE DB1]"
+          TopLeft="412.693882569627,75.6840340914611">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.7306116749175,38.3327738936797"
+              Start="0,0"
+              End="-21.7306116749175,30.8327738936797">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.1663869468399" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.1663869468399"
+                    Point2="0,19.1663869468399"
+                    Point3="-4,19.1663869468399" />
+                  <mssgle:LineSegment
+                    End="-17.7306116749175,19.1663869468399" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.7306116749175,19.1663869468399"
+                    Point2="-21.7306116749175,19.1663869468399"
+                    Point3="-21.7306116749175,23.1663869468399" />
+                  <mssgle:LineSegment
+                    End="-21.7306116749175,30.8327738936797" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\H_COSTES_PROMOCION\Combinación de mezcla"
+          TopLeft="171.428574347983,181.781515154459" />
+        <EdgeLayout
+          Id="Package\H_COSTES_PROMOCION.Paths[Salida de ordenación]"
+          TopLeft="149.828572985591,155.213446971537">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="116.000001362392,26.5680681829222"
+              Start="0,0"
+              End="116.000001362392,19.0680681829222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.28403409146109" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.28403409146109"
+                    Point2="0,13.2840340914611"
+                    Point3="4,13.2840340914611" />
+                  <mssgle:LineSegment
+                    End="112.000001362392,13.2840340914611" />
+                  <mssgle:CubicBezierSegment
+                    Point1="112.000001362392,13.2840340914611"
+                    Point2="116.000001362392,13.2840340914611"
+                    Point3="116.000001362392,17.2840340914611" />
+                  <mssgle:LineSegment
+                    End="116.000001362392,19.0680681829222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\H_COSTES_PROMOCION.Paths[Salida de ordenación1]"
+          TopLeft="390.96327089471,155.616807985141">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-95.0013632133938,26.1647071693183"
+              Start="0,0"
+              End="-95.0013632133938,18.6647071693183">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5669014083003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5669014083003"
+                    Point2="0,15.5669014083003"
+                    Point3="-4,15.5669014083003" />
+                  <mssgle:LineSegment
+                    End="-91.0013632133938,15.5669014083003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-91.0013632133938,15.5669014083003"
+                    Point2="-95.0013632133938,15.5669014083003"
+                    Point3="-95.0013632133938,19.5669014083003" />
+                  <mssgle:LineSegment
+                    End="-95.0013632133938,18.6647071693183" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\H_COSTES_PROMOCION\Read ZM_Cab_Presupuestos_Obra">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\H_COSTES_PROMOCION\Read ZM_Lin_Presupuestos_Obra">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
